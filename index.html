@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第十三屆臺大音韻獎</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500;700&family=Noto+Sans+TC:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green-deep: #0D2B12;
+    --green-dark: #1A3D1F;
+    --green-mid: #2E5E35;
+    --green-light: #4A8A4F;
+    --amber: #E8A020;
+    --amber-light: #F5C842;
+    --amber-glow: #FFD966;
+    --cream: #FDF5E0;
+    --cream-soft: #F7ECC8;
+    --white-butter: #FEFBF0;
+    --line-green: rgba(74,138,79,0.25);
+    --line-amber: rgba(232,160,32,0.3);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Noto Sans TC', sans-serif;
+    background: var(--green-deep);
+    color: var(--cream);
+    font-weight: 300;
+    line-height: 1.8;
+  }
+
+  /* ── Nav ── */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(13,43,18,0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line-green);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.9rem 2.5rem;
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
+
+  .nav-logo img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .nav-logo-text {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--cream);
+    letter-spacing: 0.1em;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 13px;
+    color: rgba(253,245,224,0.65);
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--amber-light); }
+
+  /* ── Hero ── */
+  .hero {
+    position: relative;
+    min-height: 92vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 5rem 2rem 4rem;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background-image: url('bg.png');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.35;
+    z-index: 0;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 60%, rgba(232,160,32,0.08) 0%, transparent 65%);
+    z-index: 1;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-logo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 2rem;
+    border: 2px solid rgba(232,160,32,0.4);
+  }
+
+  .hero-edition {
+    display: inline-block;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--amber-light);
+    border: 1px solid rgba(232,160,32,0.4);
+    padding: 4px 16px;
+    border-radius: 100px;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero h1 {
+    font-family: 'Noto Serif TC', serif;
+    font-size: clamp(2.2rem, 6vw, 3.8rem);
+    font-weight: 300;
+    color: var(--cream);
+    letter-spacing: 0.18em;
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+  }
+
+  .hero-en {
+    font-size: 13px;
+    color: var(--amber);
+    letter-spacing: 0.35em;
+    margin-bottom: 2.5rem;
+  }
+
+  .hero-divider {
+    width: 48px;
+    height: 1px;
+    background: var(--amber);
+    margin: 0 auto 2.5rem;
+    opacity: 0.7;
+  }
+
+  .hero-meta {
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+  }
+
+  .hero-meta-item {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 13px;
+    color: rgba(253,245,224,0.7);
+  }
+
+  .hero-meta-item svg {
+    width: 15px; height: 15px;
+    stroke: var(--amber);
+    fill: none;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    flex-shrink: 0;
+  }
+
+  /* ── Sections ── */
+  section { padding: 4.5rem 2.5rem; }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .section-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    color: var(--amber);
+    margin-bottom: 0.6rem;
+  }
+
+  .section-title {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--cream);
+    letter-spacing: 0.12em;
+  }
+
+  /* ── 組別 ── */
+  #categories { background: var(--green-dark); }
+
+  .category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 14px;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+
+  .cat-card {
+    background: rgba(13,43,18,0.7);
+    border: 1px solid var(--line-green);
+    border-top: 2px solid var(--amber);
+    padding: 1.4rem 1.25rem;
+    transition: border-color 0.2s, background 0.2s;
+  }
+
+  .cat-card:hover {
+    background: rgba(13,43,18,0.9);
+    border-color: var(--line-amber);
+    border-top-color: var(--amber-light);
+  }
+
+  .cat-name {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--cream);
+    letter-spacing: 0.08em;
+    margin-bottom: 0.35rem;
+  }
+
+  .cat-eligibility {
+    font-size: 12px;
+    color: var(--amber);
+    margin-bottom: 1.1rem;
+    line-height: 1.6;
+    opacity: 0.85;
+  }
+
+  .quota-table { width: 100%; border-collapse: collapse; }
+  .quota-table tr { border-top: 1px solid rgba(74,138,79,0.2); }
+  .quota-table td { padding: 7px 0; font-size: 13px; }
+  .quota-stage { color: rgba(253,245,224,0.55); }
+  .quota-num { text-align: right; font-weight: 500; color: var(--cream); }
+  .quota-note { text-align: right; font-size: 11px; color: rgba(253,245,224,0.35); display: block; margin-top: 1px; }
+
+  /* ── 複賽節目表 ── */
+  #schedule { background: var(--green-deep); }
+
+  .schedule-wrap { max-width: 660px; margin: 0 auto; }
+
+  .schedule-info {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .schedule-info-item {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 13px;
+    color: rgba(253,245,224,0.65);
+  }
+
+  .schedule-info-item svg {
+    width: 15px; height: 15px;
+    stroke: var(--amber);
+    fill: none;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .program-list { display: flex; flex-direction: column; gap: 8px; }
+
+  .program-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--line-green);
+    padding: 0.9rem 1.2rem;
+    transition: background 0.2s;
+  }
+
+  .program-card:hover { background: rgba(232,160,32,0.06); }
+
+  .program-seq {
+    width: 28px; height: 28px;
+    border: 1px solid var(--line-amber);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    color: var(--amber);
+    font-family: 'Noto Serif TC', serif;
+    flex-shrink: 0;
+  }
+
+  .program-body { flex: 1; }
+  .program-name { font-size: 14px; font-weight: 500; color: var(--cream); margin-bottom: 2px; }
+  .program-sub { font-size: 12px; color: rgba(253,245,224,0.45); }
+  .program-time { font-size: 12px; color: var(--amber); flex-shrink: 0; opacity: 0.85; }
+
+  .break-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.55rem 1.2rem;
+    background: transparent;
+    border: 1px dashed rgba(74,138,79,0.3);
+    font-size: 12px;
+    color: rgba(253,245,224,0.3);
+    letter-spacing: 0.06em;
+  }
+
+  .placeholder-note {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: rgba(253,245,224,0.25);
+    font-size: 13px;
+    border: 1px dashed rgba(74,138,79,0.3);
+    letter-spacing: 0.06em;
+  }
+
+  /* ── 注意事項 ── */
+  #notes { background: var(--green-dark); }
+
+  .notes-list {
+    max-width: 580px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .note-item {
+    display: flex;
+    gap: 12px;
+    font-size: 14px;
+    color: rgba(253,245,224,0.7);
+    line-height: 1.7;
+  }
+
+  .note-marker {
+    width: 20px; height: 20px;
+    border: 1px solid var(--line-amber);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    color: var(--amber);
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+
+  /* ── Footer ── */
+  footer {
+    background: rgba(0,0,0,0.5);
+    border-top: 1px solid var(--line-green);
+    text-align: center;
+    padding: 2.5rem;
+    font-size: 13px;
+    color: rgba(253,245,224,0.4);
+    letter-spacing: 0.05em;
+  }
+
+  footer a { color: var(--amber); text-decoration: none; }
+  footer a:hover { color: var(--amber-light); }
+
+  .footer-logo {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 15px;
+    color: var(--cream);
+    letter-spacing: 0.15em;
+    margin-bottom: 0.6rem;
+  }
+
+  /* ── RWD ── */
+  @media (max-width: 600px) {
+    nav { padding: 0.85rem 1.25rem; }
+    .nav-links { gap: 1.2rem; }
+    section { padding: 3rem 1.25rem; }
+    .hero { min-height: 80vh; padding: 3rem 1.25rem; }
+    .hero-meta { gap: 1rem; }
+    .hero-logo { width: 90px; height: 90px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">
+    <img src="logo.png" alt="臺大音韻獎">
+    <span class="nav-logo-text">臺大音韻獎</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#categories">組別介紹</a></li>
+    <li><a href="#schedule">複賽節目表</a></li>
+    <li><a href="#contact">聯絡我們</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <img src="logo.png" alt="臺大音韻獎 Logo" class="hero-logo">
+    <div class="hero-edition">第十三屆 · 2025</div>
+    <h1>臺大音韻獎</h1>
+    <p class="hero-en">NTU MUSIC AWARD</p>
+    <div class="hero-divider"></div>
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        日期待公告
+      </div>
+      <div class="hero-meta-item">
+        <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        地點待公告
+      </div>
+      <div class="hero-meta-item">
+        <svg viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+        四大競賽組別
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="categories">
+  <div class="section-header">
+    <p class="section-eyebrow">COMPETITION CATEGORIES</p>
+    <h2 class="section-title">競賽組別</h2>
+  </div>
+  <div class="category-grid">
+
+    <div class="cat-card">
+      <p class="cat-name">學生獨唱組</p>
+      <p class="cat-eligibility">全國大專院校在校學生（含碩、博士生）</p>
+      <table class="quota-table">
+        <tr><td class="quota-stage">初賽</td><td class="quota-num">400 位<span class="quota-note">依繳費順序，額滿為止</span></td></tr>
+        <tr><td class="quota-stage">複賽</td><td class="quota-num">100 位<span class="quota-note">現場清唱</span></td></tr>
+        <tr><td class="quota-stage">決賽</td><td class="quota-num">10 位<span class="quota-note">現場伴奏（禁伴唱帶）</span></td></tr>
+      </table>
+    </div>
+
+    <div class="cat-card">
+      <p class="cat-name">社會獨唱組</p>
+      <p class="cat-eligibility">全國愛好歌唱者（不受年齡限制）</p>
+      <table class="quota-table">
+        <tr><td class="quota-stage">初賽</td><td class="quota-num">400 位<span class="quota-note">依繳費順序，額滿為止</span></td></tr>
+        <tr><td class="quota-stage">複賽</td><td class="quota-num">100 位<span class="quota-note">現場清唱</span></td></tr>
+        <tr><td class="quota-stage">決賽</td><td class="quota-num">10 位<span class="quota-note">現場伴唱帶（禁伴唱帶）</span></td></tr>
+      </table>
+    </div>
+
+    <div class="cat-card">
+      <p class="cat-name">重、對唱組</p>
+      <p class="cat-eligibility">全國大專院校在校學生（含碩、博士生）</p>
+      <table class="quota-table">
+        <tr><td class="quota-stage">初賽</td><td class="quota-num">50 組<span class="quota-note">依繳費順序，額滿為止</span></td></tr>
+        <tr><td class="quota-stage">複賽</td><td class="quota-num">20 組<span class="quota-note">現場清唱</span></td></tr>
+        <tr><td class="quota-stage">決賽</td><td class="quota-num">6 組<span class="quota-note">現場伴奏（禁伴唱帶）</span></td></tr>
+      </table>
+    </div>
+
+    <div class="cat-card">
+      <p class="cat-name">創作組</p>
+      <p class="cat-eligibility">全國大專院校在校學生（含碩、博士生）</p>
+      <table class="quota-table">
+        <tr><td class="quota-stage">初賽</td><td class="quota-num">80 組<span class="quota-note">依繳費順序，額滿為止</span></td></tr>
+        <tr><td class="quota-stage">複賽</td><td class="quota-num">30 組<span class="quota-note">完整呈現創作歌曲</span></td></tr>
+        <tr><td class="quota-stage">決賽</td><td class="quota-num">6 組<span class="quota-note">現場伴奏（禁伴唱帶）</span></td></tr>
+      </table>
+    </div>
+
+  </div>
+</section>
+
+<section id="schedule">
+  <div class="section-header">
+    <p class="section-eyebrow">SEMIFINAL PROGRAM</p>
+    <h2 class="section-title">複賽節目表</h2>
+  </div>
+  <div class="schedule-wrap">
+    <div class="placeholder-note">
+      節目表資料即將公告，敬請期待
+    </div>
+  </div>
+</section>
+
+<section id="notes">
+  <div class="section-header">
+    <p class="section-eyebrow">IMPORTANT NOTES</p>
+    <h2 class="section-title">注意事項</h2>
+  </div>
+  <div class="notes-list">
+    <div class="note-item">
+      <div class="note-marker">1</div>
+      <span>學生獨唱組與社會獨唱組不得同時報名。</span>
+    </div>
+    <div class="note-item">
+      <div class="note-marker">2</div>
+      <span>重、對唱組不得跨團重複報名。</span>
+    </div>
+    <div class="note-item">
+      <div class="note-marker">3</div>
+      <span>創作組不得跨團重複報名。</span>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <p class="footer-logo">臺大音韻獎</p>
+  <p style="margin-bottom:0.5rem;">官方信箱：<a href="mailto:ntumusicawardofficial@gmail.com">ntumusicawardofficial@gmail.com</a></p>
+  <p>© 2025 第十三屆臺大音韻獎工作團隊</p>
+</footer>
+
+</body>
+</html>
