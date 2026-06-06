@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title></title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300;400;500;700&family=Noto+Sans+TC:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+ :root{--green:#1A2F23;--gold:#D4A017;}
+ body{font-family:'Noto Sans TC',sans-serif;background:#fff;color:#1a1a1a;margin:0;}
+ .rnd{font-family:'M PLUS Rounded 1c',sans-serif;}
+ .fade-in{animation:fadeIn 0.4s ease forwards;}
+ @keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+ .hero-arc{position:absolute;bottom:-1px;left:-5%;right:-5%;height:52px;background:#fff;border-radius:50% 50% 0 0/100% 100% 0 0;}
+ .nav-btn{border-bottom:3px solid transparent;transition:all .2s;}
+ .nav-btn.active{color:#1A2F23!important;border-bottom-color:#1A2F23;}
+ .ptab{transition:all .2s;}
+ .ptab.on{background:#1A2F23!important;color:#fff!important;border-color:#1A2F23!important;}
+ .ptab.on .tsub{color:#6ee7b7!important;}
+ .acc-body{max-height:0;overflow:hidden;transition:max-height .38s ease;}
+ .acc-body.open{max-height:3000px;}
+ .acc-arr{transition:transform .3s;display:inline-block;}
+ .acc-arr.open{transform:rotate(180deg);}
+ .page{display:none;}
+ .page.active{display:block;}
+ .day-on{background:#1A2F23!important;border-color:#1A2F23!important;}
+ .day-on .dtitle{color:#fff!important;}
+ .day-on .dsub{color:#6ee7b7!important;}
+ /* */
+ .program-btn{
+ background:#C8A84B;
+ color:#1A2F23;
+ border:2px solid #C8A84B;
+ transition:all .2s;
+ }
+ .program-btn:hover{background:#B8940A;border-color:#B8940A;}
+ .program-btn:active{transform:scale(0.98);}
+</style>
+</head>
+<body class="bg-white">
+
+<!-- HEADER -->
+<header class="bg-white sticky top-0 z-50 shadow-sm border-b border-gray-100">
+ <div class="max-w-2xl mx-auto px-4 py-3 flex items-center justify-between gap-3">
+ <a href="#" onclick="showPage('home');return false;" class="flex-shrink-0">
+ <img src="logo_black_transparent.png" alt="" class="h-14 object-contain"
+ onerror="this.outerHTML='<div class=\'rnd font-bold text-xl text-[#1A2F23] leading-tight\'><span class=\'block text-[9px] font-normal tracking-widest text-gray-400\'>NTU MUSIC AWARD</span></div>'">
+ </a>
+ <nav class="flex gap-3 sm:gap-5 items-center flex-shrink-0">
+ <button onclick="showPage('home')" id="nav-home" class="nav-btn active rnd text-sm sm:text-base font-medium text-gray-400 pb-1"></button>
+ <button onclick="showPage('about')" id="nav-about" class="nav-btn rnd text-sm sm:text-base font-medium text-gray-400 pb-1"></button>
+ <button onclick="showPage('player')" id="nav-player" class="nav-btn rnd text-sm sm:text-base font-medium text-gray-400 pb-1"></button>
+ <button onclick="scrollToContact()" id="nav-contact" class="nav-btn rnd text-sm sm:text-base font-medium text-gray-400 pb-1"></button>
+ </nav>
+ </div>
+</header>
+
+<!-- HERO MAIN -->
+<div id="hero-main" class="bg-[#1A2F23] pt-14 pb-24 px-6 text-center relative overflow-hidden">
+ <div class="absolute inset-0" style="background-image:url('.png');background-size:cover;background-position:center top;opacity:.2;mix-blend-mode:luminosity;"></div>
+ <div class="absolute inset-0 bg-gradient-to-b from-[#1A2F23]/50 via-[#1A2F23]/80 to-[#1A2F23]"></div>
+ <div class="relative z-10 max-w-lg mx-auto flex flex-col items-center">
+ <p class="rnd text-[11px] tracking-[.28em] text-emerald-300 mb-4">2026 · </p>
+ <img src="logo_perfect_transparent.png" alt="" class="w-4/5 max-w-sm object-contain mb-5 drop-shadow-lg"
+ onerror="this.outerHTML='<p class=\'rnd text-4xl font-bold tracking-widest mb-5\' style=\'color:#C8A84B\'></p>'">
+ <h1 class="rnd text-3xl font-bold text-white tracking-wider leading-snug mb-3"></h1>
+ <p class="text-emerald-300 text-sm tracking-wide leading-relaxed mb-6"> · 6/136/14<br></p>
+ <!-- -->
+ <button onclick="showProgramBook()"
+ class="program-btn rnd font-bold text-lg py-4 px-8 rounded-2xl tracking-wide w-full max-w-xs flex items-center justify-center gap-2 shadow-lg">
+ 
+ </button>
+ <p class="text-emerald-400 text-xs mt-4"></p>
+ </div>
+ <div class="hero-arc"></div>
+</div>
+
+<!-- HERO -->
+<div id="hero-program" class="hidden bg-[#1A2F23] pt-14 pb-24 px-6 text-center relative overflow-hidden">
+ <div class="absolute inset-0" style="background-image:url('.png');background-size:cover;background-position:center top;opacity:.2;mix-blend-mode:luminosity;"></div>
+ <div class="absolute inset-0 bg-gradient-to-b from-[#1A2F23]/50 via-[#1A2F23]/80 to-[#1A2F23]"></div>
+ <div class="relative z-10 max-w-lg mx-auto flex flex-col items-center">
+ <p class="rnd text-[11px] tracking-[.28em] text-emerald-300 mb-4">2026 · </p>
+ <img src="logo_perfect_transparent.png" alt="" class="w-3/5 max-w-xs object-contain mb-4 drop-shadow-lg"
+ onerror="this.outerHTML='<p class=\'rnd text-3xl font-bold tracking-widest mb-4\' style=\'color:#C8A84B\'></p>'">
+ <h1 class="rnd text-xl sm:text-2xl font-bold text-white tracking-wide leading-snug mb-2"> · </h1>
+ <p class="text-emerald-300 text-xs tracking-wide">6/13· 6/14· </p>
+ </div>
+ <div class="hero-arc"></div>
+</div>
+
+<!-- -->
+<main class="max-w-lg mx-auto px-6">
+
+ <!-- -->
+ <div id="page-home" class="page active fade-in pt-12 pb-8">
+ <p class="rnd text-[10px] tracking-[.22em] text-[#1A2F23] uppercase mb-2"></p>
+ <div class="w-6 h-0.5 bg-[#1A2F23] rounded-full mb-6"></div>
+ <h2 class="rnd text-2xl font-bold text-[#1A2F23] mb-6"></h2>
+ <div class="border border-gray-100 rounded-2xl p-6 shadow-sm space-y-4 mb-10">
+ <div class="flex gap-5"><span class="rnd text-[11px] text-[#1A2F23] font-medium min-w-[36px] mt-0.5"></span><span class="text-sm text-gray-700"></span></div>
+ <div class="flex gap-5"><span class="rnd text-[11px] text-[#1A2F23] font-medium min-w-[36px] mt-0.5"></span><span class="text-sm text-gray-700">6/136/14</span></div>
+ <div class="flex gap-5"><span class="rnd text-[11px] text-[#1A2F23] font-medium min-w-[36px] mt-0.5"></span><span class="text-sm text-gray-700"></span></div>
+ <p class="text-[11px] text-gray-300 pt-4 border-t border-gray-100 text-center"></p>
+ </div>
+ <!-- -->
+ <button onclick="showProgramBook()"
+ class="program-btn w-full rnd font-bold text-lg py-5 rounded-2xl mb-8 tracking-wide flex items-center justify-center gap-2 shadow-lg">
+ 
+ </button>
+ <p class="rnd text-[10px] tracking-[.18em] text-gray-400 uppercase mb-4"></p>
+ <div class="grid grid-cols-3 gap-3 mb-12">
+ <button onclick="showPage('player');setPTab('signup')" class="flex flex-col items-center justify-center bg-gray-50 rounded-2xl py-7 gap-2 active:scale-95 transition-transform">
+ <span class="text-2xl"></span><span class="rnd text-[11px] text-gray-600 font-medium text-center leading-tight"><br></span>
+ </button>
+ <button onclick="showPage('player');setPTab('semi')" class="flex flex-col items-center justify-center rounded-2xl py-7 gap-2 active:scale-95 transition-transform bg-[#1A2F23]">
+ <span class="text-2xl"></span><span class="rnd text-[11px] text-white font-medium text-center leading-tight"><br></span>
+ </button>
+ <button onclick="showPage('player');setPTab('final')" class="flex flex-col items-center justify-center bg-gray-50 rounded-2xl py-7 gap-2 active:scale-95 transition-transform">
+ <span class="text-2xl"></span><span class="rnd text-[11px] text-gray-600 font-medium text-center leading-tight"><br></span>
+ </button>
+ </div>
+ <p class="text-center text-[11px] text-[#1A2F23] opacity-60 pb-6"> · </p>
+ </div>
+
+ <!-- -->
+ <div id="page-about" class="page pt-12 pb-8" style="position:relative;">
+ <!-- -->
+ <div style="position:absolute;right:-20px;top:0;width:180px;height:320px;background-image:url('img_story.png');background-size:cover;background-position:center top;opacity:0.08;border-radius:12px;pointer-events:none;z-index:0;"></div>
+ <div style="position:relative;z-index:1;">
+ <p class="rnd text-[10px] tracking-[.22em] text-[#1A2F23] uppercase mb-2"></p>
+ <div class="w-6 h-0.5 bg-[#1A2F23] rounded-full mb-6"></div>
+ <h2 class="rnd text-2xl font-bold text-[#1A2F23] mb-1"></h2>
+ <p class="text-[11px] text-gray-400 tracking-[.15em] mb-12">NTU Music Award 13th</p>
+ <div class="space-y-12 text-gray-600 text-sm leading-[2.1]">
+ <div>
+ <div class="flex items-center gap-3 mb-5"><div class="w-[3px] h-6 bg-[#1A2F23] rounded-full"></div><p class="rnd font-bold text-[#1A2F23] text-lg"></p></div>
+ <p></p>
+ </div>
+ <div>
+ <div class="flex items-center gap-3 mb-5"><div class="w-[3px] h-6 bg-[#1A2F23] rounded-full"></div><p class="rnd font-bold text-[#1A2F23] text-lg"></p></div>
+ <p class="mb-5"></p>
+ <div class="space-y-4">
+ <div class="pl-5 border-l-2 border-gray-200"><p class="rnd font-semibold text-[#1A2F23] text-sm mb-1"></p><p class="text-gray-500 text-[13px] leading-[1.95]"></p></div>
+ <div class="pl-5 border-l-2 border-gray-200"><p class="rnd font-semibold text-[#1A2F23] text-sm mb-1"></p><p class="text-gray-500 text-[13px] leading-[1.95]"></p></div>
+ <div class="pl-5 border-l-2 border-gray-200"><p class="rnd font-semibold text-[#1A2F23] text-sm mb-1"></p><p class="text-gray-500 text-[13px] leading-[1.95]"></p></div>
+ <div class="pl-5 border-l-2 border-gray-200"><p class="rnd font-semibold text-[#1A2F23] text-sm mb-1"></p><p class="text-gray-500 text-[13px] leading-[1.95]"></p></div>
+ </div>
+ </div>
+ <div class="pt-8 border-t border-gray-100">
+ <p class="rnd text-[10px] tracking-[.15em] text-gray-400 uppercase mb-3"></p>
+ <p class="rnd font-semibold text-[#1A2F23]"></p>
+ </div>
+ </div>
+ <p class="text-center text-[11px] text-[#1A2F23] opacity-60 mt-12 pb-6"> · </p>
+ </div><!-- end z-index wrapper -->
+ </div>
+
+ <!-- -->
+ <div id="page-player" class="page pt-12 pb-8">
+ <p class="rnd text-[10px] tracking-[.22em] text-[#1A2F23] uppercase mb-2"></p>
+ <div class="w-6 h-0.5 bg-[#1A2F23] rounded-full mb-6"></div>
+ <h2 class="rnd text-2xl font-bold text-[#1A2F23] mb-2"></h2>
+ <p class="text-sm text-gray-400 mb-8"></p>
+
+ <div class="flex gap-3 mb-8">
+ <!-- -->
+ <button id="ptab-signup" onclick="setPTab('signup')"
+ class="ptab flex-1 py-5 rounded-2xl border-2 border-gray-200 bg-gray-50 text-center cursor-not-allowed opacity-70">
+ <span class="block text-xl mb-2"></span>
+ <span class="rnd text-[11px] font-medium text-gray-400 block leading-tight"><br><span class="tsub text-[9px]"></span></span>
+ </button>
+ <!-- -->
+ <button id="ptab-semi" onclick="setPTab('semi')"
+ class="ptab on flex-1 py-5 rounded-2xl border-2 text-center">
+ <span class="block text-xl mb-2"></span>
+ <span class="rnd text-[11px] font-medium block leading-tight"><br><span class="tsub text-[9px]"></span></span>
+ </button>
+ <!-- -->
+ <button id="ptab-final" onclick="setPTab('final')"
+ class="ptab flex-1 py-5 rounded-2xl border-2 border-gray-200 bg-gray-50 text-center cursor-not-allowed opacity-70">
+ <span class="block text-xl mb-2"></span>
+ <span class="rnd text-[11px] font-medium text-gray-400 block leading-tight"><br><span class="tsub text-[9px]"></span></span>
+ </button>
+ </div>
+
+ <!-- -->
+ <div id="pc-semi" class="fade-in">
+ <div class="grid grid-cols-2 gap-4 mb-5">
+ <a href="#" class="border border-gray-100 rounded-2xl p-5 block hover:bg-gray-50 transition-all">
+ <p class="text-xl mb-3"></p>
+ <p class="rnd font-semibold text-[#1A2F23] text-sm mb-1"></p>
+ <p class="text-[11px] text-gray-400 leading-relaxed mb-3"></p>
+ <span class="text-[11px] text-[#1A2F23] font-medium"> →</span>
+ </a>
+ <a href="#" class="border border-gray-100 rounded-2xl p-5 block hover:bg-gray-50 transition-all">
+ <p class="text-xl mb-3"></p>
+ <p class="rnd font-semibold text-[#1A2F23] text-sm mb-1"></p>
+ <p class="text-[11px] text-gray-400 leading-relaxed mb-3"></p>
+ <span class="text-[11px] text-[#1A2F23] font-medium"> →</span>
+ </a>
+ </div>
+ <div class="border border-gray-100 rounded-2xl p-5 mb-5">
+ <p class="rnd text-[10px] text-gray-400 uppercase tracking-[.15em] mb-4"></p>
+ <div class="flex gap-4 items-start">
+ <span class="rnd text-[11px] text-[#1A2F23] font-medium min-w-[28px] mt-0.5 flex-shrink-0"></span>
+ <div>
+ <p class="text-sm text-gray-700 leading-relaxed"></p>
+ <a href="https://maps.google.com/?q=" target="_blank"
+ class="text-[11px] text-[#1A2F23] mt-2 inline-block underline underline-offset-2"></a>
+ </div>
+ </div>
+ </div>
+ <p class="text-center text-[11px] text-[#1A2F23] opacity-60 mt-4 pb-6"> · </p>
+ </div>
+
+ <!-- / -->
+ <div id="pc-signup" class="hidden">
+ <div class="border border-gray-100 rounded-2xl p-8 text-center mb-8">
+ <p class="text-4xl mb-4"></p>
+ <p class="rnd text-base font-bold text-gray-400 mb-2"></p>
+ <p class="text-sm text-gray-300"></p>
+ </div>
+ <p class="text-center text-[11px] text-[#1A2F23] opacity-60 pb-6"> · </p>
+ </div>
+ <div id="pc-final" class="hidden">
+ <div class="border border-gray-100 rounded-2xl p-10 text-center mb-8">
+ <p class="text-5xl mb-5"></p>
+ <p class="rnd text-lg font-bold text-[#1A2F23] mb-2"></p>
+ <p class="text-sm text-gray-400"></p>
+ </div>
+ <p class="text-center text-[11px] text-[#1A2F23] opacity-60 pb-6"> · </p>
+ </div>
+ </div>
+
+ <!-- -->
+ <div id="page-program" class="page pt-8 pb-8" style="position:relative;">
+ <!-- -->
+ <div style="position:absolute;right:-12px;top:60px;width:100px;height:280px;background-image:url('img_tall.png');background-size:cover;background-position:center top;opacity:0.1;border-radius:12px;pointer-events:none;z-index:0;"></div>
+ <div style="position:relative;z-index:1;">
+ <button onclick="hideProgramBook()" class="flex items-center gap-2 text-[#1A2F23] rnd text-sm font-medium mb-8 hover:opacity-70 transition-opacity active:scale-95">
+ <span class="text-base">←</span> 
+ </button>
+ <p class="rnd text-[10px] tracking-[.22em] text-[#1A2F23] uppercase mb-2"></p>
+ <div class="w-6 h-0.5 bg-[#1A2F23] rounded-full mb-6"></div>
+ <h2 class="rnd text-xl font-bold text-[#1A2F23] mb-1"> · </h2>
+ <p class="text-[11px] text-gray-400 tracking-wide mb-8"></p>
+
+ <!-- -->
+ <div class="flex gap-3 mb-8">
+ <button id="daytab-613" onclick="switchDay('613')"
+ class="day-on flex-1 py-4 rounded-2xl border-2 border-[#1A2F23] bg-[#1A2F23] text-center transition-all">
+ <span class="dtitle rnd font-bold text-white text-sm block">6 / 13</span>
+ <span class="dsub text-[10px] text-emerald-300 mt-0.5 block"> · </span>
+ </button>
+ <button id="daytab-614" onclick="switchDay('614')"
+ class="flex-1 py-4 rounded-2xl border-2 border-gray-200 bg-white text-center transition-all">
+ <span class="dtitle rnd font-bold text-gray-500 text-sm block">6 / 14</span>
+ <span class="dsub text-[10px] text-gray-400 mt-0.5 block"> · </span>
+ </button>
+ </div>
+
+ <!-- 6/13 -->
+     <div id="day-613">
+      <div class="flex items-center gap-3 mb-5">
+        <div class="w-[3px] h-7 bg-[#1A2F23] rounded-full"></div>
+        <div><p class="rnd font-bold text-[#1A2F23] text-lg">6 / 13（六）</p><p class="text-[11px] text-gray-400">學生獨唱組 · 重、對唱組</p></div>
+      </div>
+      <div class="mb-3 border border-gray-100 rounded-2xl overflow-hidden">
+        <button onclick="toggleAcc(this)" class="w-full flex items-center justify-between px-5 py-4 text-left">
+          <div><p class="rnd font-semibold text-[#1A2F23] text-sm">學生獨唱組 · 第一梯次</p><p class="text-[11px] text-emerald-700 mt-0.5">10:30 – 11:50　31 位</p></div>
+          <span class="acc-arr open text-gray-400 text-lg">▾</span>
+        </button>
+        <div class="acc-body open px-4 pb-4">
+          <div class="mt-1">
+            <div class="grid grid-cols-5 gap-x-1 border-b border-gray-100"><span class="text-[12px] text-gray-700 leading-relaxed py-2 px-1">鍾昊宇 piling</span><span class="text-[12px] text-gray-700 leading-relaxed py-2 px-1">吳紀綸(Addice)</span><span class="text-[12px] text-gray-700 leading-relaxed py-2 px-1">王盈晰</span><span class="text-[12px] text-gray-700 leading-relaxed py-2 px-1">楊即心</span><span class="text-[12px] text-gray-700 leading-relaxed py-2 px-1">葉騰謙</span></div>
+<div class="grid grid-cols-5 gap-x-1 border-b border-gray-100"><span class="text-[12px] text-gray-700 leading-relaxed py-2 px-1">許巧薇</span><span class="text-[12px] text-gray-700 leading-relaxed py-2 px-1">徐語翻</span><span class="text-[12px] text-gray-700 leading-relaxed py-2 px-1">廖曼臻</span><span class="text-[12px] text-gray-700 leading-relaxed py-2 px-1">蘇湘</span><span class="text-[12px] text-gray-700 leading-relaxed py-2 px-1">張凱婷</span></div>
+<div class="grid grid-cols-5 gap-x-1 border-b border-gray-100"><span class="text-[12px] text-gray-700 leading-relaxed py-2 px-1">張雅涵</span><span class="text-[12px] text-gray-700 leading-relaxed py-2 px-1">張芳瑜</span><span class="text-[12px] text-gray-700 leading-relaxed py-2 px-1">楊舒涵</span><span class="text-[12px] text-gray-700 leading-relaxed py-2 px-1">簡佳妤</span><span class="text-[12px] text-gray-700 leading-relaxed py-2 px-1">張喬柏</span></div>
+<div class="grid grid-cols-5 gap-x-1 border-b border-gray-100"><span class="text-[12px] text-gray-700 leading-relaxed py-2 px-1">張凱寧</span><span class="text-[12px] text-gray-700 leading-relaxed py-2 px-1">楊司齊</span><span class="text-[12px] text-gray-700 leading-relaxed py-2 px-1">吳亞都</span><span class="text-[12px] text-gray-700 leading-relaxed py-2 px-1">莊淇安</span><span class="text-[12px] text-gray-700 leading-relaxed py-2 px-1">楊絜琳</span></div>
+<div class="grid grid-cols-5 gap-x-1 border-b border-gray-100"><span class="text-[12px] text-gray-700 leading-relaxed py-2 px-1">陳姿穎</span><span class="text-[12px] text-gray-700 leading-relaxed py-2 px-1">林新泓</span><span class="text-[12px] text-gray-700 leading-relaxed py-2 px-1">黃敏郡</span><span class="text-[12px] text-gray-700 leading-relaxed py-2 px-1">蘇品瑄</span><span class="text-[12px] text-gray-700 leading-relaxed py-2 px-1">張婷萱</span></div>
+<div class="grid grid-cols-5 gap-x-1 border-b border-gray-100"><span class="text-[12px] text-gray-700 leading-relaxed py-2 px-1">何子筠</span><span class="text-[12px] text-gray-700 leading-relaxed py-2 px-1">張藝馨</span><span class="text-[12px] text-gray-700 leading-relaxed py-2 px-1">廖御辰</span><span class="text-[12px] text-gray-700 leading-relaxed py-2 px-1">游筱潔</span><span class="text-[12px] text-gray-700 leading-relaxed py-2 px-1">簡福金</span></div>
+<div class="grid grid-cols-5 gap-x-1 border-b border-gray-100"><span class="text-[12px] text-gray-700 leading-relaxed py-2 px-1">陳鼎璿</span><span class="py-2 px-1"></span><span class="py-2 px-1"></span><span class="py-2 px-1"></span><span class="py-2 px-1"></span></div>
+          </div>
+        </div>
+      </div>
+      <div class="mb-3 border border-gray-100 rounded-2xl overflow-hidden">
+        <button onclick="toggleAcc(this)" class="w-full flex items-center justify-between px-5 py-4 text-left">
+          <div><p class="rnd font-semibold text-[#1A2F23] text-sm">學生獨唱組 · 第二梯次</p><p class="text-[11px] text-emerald-700 mt-0.5">12:50 – 13:50　29 位</p></div>
+          <span class="acc-arr  text-gray-400 text-lg">▾</span>
+        </button>
+        <div class="acc-body  px-4 pb-4">
+          <div class="mt-1">
+            <div class="grid grid-cols-5 gap-x-1 border-b border-gray-100"><span class="text-[12px] text-gray-700 leading-relaxed py-2 px-1">劉閔晴</span><span class="text-[12px] text-gray-700 leading-relaxed py-2 px-1">黃千益</span><span class="text-[12px] text-gray-700 leading-relaxed py-2 px-1">江祐瑋</span><span class="text-[12px] text-gray-700 leading-relaxed py-2 px-1">蔣佳彤</span><span class="text-[12px] text-gray-700 leading-relaxed py-2 px-1">陳亦蓁</span></div>
+<div class="grid grid-cols-5 gap-x-1 border-b border-gray-100"><span class="text-[12px] text-gray-700 leading-relaxed py-2 px-1">陳又煊</span><span class="text-[12px] text-gray-700 leading-relaxed py-2 px-1">陳韋澄</span><span class="text-[12px] text-gray-700 leading-relaxed py-2 px-1">潘冠宇</span><span class="text-[12px] text-gray-700 leading-relaxed py-2 px-1">王尹均</span><span class="text-[12px] text-gray-700 leading-relaxed py-2 px-1">林彤恩</span></div>
+<div class="grid grid-cols-5 gap-x-1 border-b border-gray-100"><span class="text-[12px] text-gray-700 leading-relaxed py-2 px-1">賀伊帆</span><span class="text-[12px] text-gray-700 leading-relaxed py-2 px-1">陳俊辰</span><span class="text-[12px] text-gray-700 leading-relaxed py-2 px-1">羅怡宣</span><span class="text-[12px] text-gray-700 leading-relaxed py-2 px-1">張瑜丞</span><span class="text-[12px] text-gray-700 leading-relaxed py-2 px-1">郭昊叡</span></div>
+<div class="grid grid-cols-5 gap-x-1 border-b border-gray-100"><span class="text-[12px] text-gray-700 leading-relaxed py-2 px-1">李詩穎</span><span class="text-[12px] text-gray-700 leading-relaxed py-2 px-1">洪紹綺</span><span class="text-[12px] text-gray-700 leading-relaxed py-2 px-1">蔡秉言</span><span class="text-[12px] text-gray-700 leading-relaxed py-2 px-1">郭宇傑</span><span class="text-[12px] text-gray-700 leading-relaxed py-2 px-1">黃鈺淇</span></div>
+<div class="grid grid-cols-5 gap-x-1 border-b border-gray-100"><span class="text-[12px] text-gray-700 leading-relaxed py-2 px-1">蕭詠嘉</span><span class="text-[12px] text-gray-700 leading-relaxed py-2 px-1">江芷安</span><span class="text-[12px] text-gray-700 leading-relaxed py-2 px-1">蔡瑋峻</span><span class="text-[12px] text-gray-700 leading-relaxed py-2 px-1">王雯芯</span><span class="text-[12px] text-gray-700 leading-relaxed py-2 px-1">林柏瑋</span></div>
+<div class="grid grid-cols-5 gap-x-1 border-b border-gray-100"><span class="text-[12px] text-gray-700 leading-relaxed py-2 px-1">譚雋</span><span class="text-[12px] text-gray-700 leading-relaxed py-2 px-1">陳祈文</span><span class="text-[12px] text-gray-700 leading-relaxed py-2 px-1">梁宛璇</span><span class="text-[12px] text-gray-700 leading-relaxed py-2 px-1">林庭安</span><span class="py-2 px-1"></span></div>
+          </div>
+        </div>
+      </div>
+      <div class="mb-3 border border-gray-100 rounded-2xl overflow-hidden">
+        <button onclick="toggleAcc(this)" class="w-full flex items-center justify-between px-5 py-4 text-left">
+          <div><p class="rnd font-semibold text-[#1A2F23] text-sm">學生獨唱組 · 第三梯次</p><p class="text-[11px] text-emerald-700 mt-0.5">14:00 – 15:00　34 位</p></div>
+          <span class="acc-arr  text-gray-400 text-lg">▾</span>
+        </button>
+        <div class="acc-body  px-4 pb-4">
+          <div class="mt-1">
+            <div class="grid grid-cols-5 gap-x-1 border-b border-gray-100"><span class="text-[12px] text-gray-700 leading-relaxed py-2 px-1">李語霏</span><span class="text-[12px] text-gray-700 leading-relaxed py-2 px-1">蔡景翔</span><span class="text-[12px] text-gray-700 leading-relaxed py-2 px-1">忻思霆</span><span class="text-[12px] text-gray-700 leading-relaxed py-2 px-1">羅宇騰</span><span class="text-[12px] text-gray-700 leading-relaxed py-2 px-1">陳亮亦</span></div>
+<div class="grid grid-cols-5 gap-x-1 border-b border-gray-100"><span class="text-[12px] text-gray-700 leading-relaxed py-2 px-1">胡恩綺</span><span class="text-[12px] text-gray-700 leading-relaxed py-2 px-1">陳映妤</span><span class="text-[12px] text-gray-700 leading-relaxed py-2 px-1">沈士紘</span><span class="text-[12px] text-gray-700 leading-relaxed py-2 px-1">謝佳玲</span><span class="text-[12px] text-gray-700 leading-relaxed py-2 px-1">曾昱文</span></div>
+<div class="grid grid-cols-5 gap-x-1 border-b border-gray-100"><span class="text-[12px] text-gray-700 leading-relaxed py-2 px-1">黃馨誼</span><span class="text-[12px] text-gray-700 leading-relaxed py-2 px-1">鄔綺真</span><span class="text-[12px] text-gray-700 leading-relaxed py-2 px-1">陳柔臻</span><span class="text-[12px] text-gray-700 leading-relaxed py-2 px-1">王瑞逸</span><span class="text-[12px] text-gray-700 leading-relaxed py-2 px-1">宋修宏</span></div>
+<div class="grid grid-cols-5 gap-x-1 border-b border-gray-100"><span class="text-[12px] text-gray-700 leading-relaxed py-2 px-1">張皓天</span><span class="text-[12px] text-gray-700 leading-relaxed py-2 px-1">莊家瑋</span><span class="text-[12px] text-gray-700 leading-relaxed py-2 px-1">黃亭尹</span><span class="text-[12px] text-gray-700 leading-relaxed py-2 px-1">王千妤</span><span class="text-[12px] text-gray-700 leading-relaxed py-2 px-1">蔡博宇</span></div>
+<div class="grid grid-cols-5 gap-x-1 border-b border-gray-100"><span class="text-[12px] text-gray-700 leading-relaxed py-2 px-1">艾琛杭</span><span class="text-[12px] text-gray-700 leading-relaxed py-2 px-1">谷珮瑀</span><span class="text-[12px] text-gray-700 leading-relaxed py-2 px-1">曾詩喻</span><span class="text-[12px] text-gray-700 leading-relaxed py-2 px-1">程靖涵</span><span class="text-[12px] text-gray-700 leading-relaxed py-2 px-1">蘇琮棋</span></div>
+<div class="grid grid-cols-5 gap-x-1 border-b border-gray-100"><span class="text-[12px] text-gray-700 leading-relaxed py-2 px-1">陳姿媛</span><span class="text-[12px] text-gray-700 leading-relaxed py-2 px-1">董宸好</span><span class="text-[12px] text-gray-700 leading-relaxed py-2 px-1">嚴連祥</span><span class="text-[12px] text-gray-700 leading-relaxed py-2 px-1">劉柏毅</span><span class="text-[12px] text-gray-700 leading-relaxed py-2 px-1">林詳諺</span></div>
+<div class="grid grid-cols-5 gap-x-1 border-b border-gray-100"><span class="text-[12px] text-gray-700 leading-relaxed py-2 px-1">林宥程</span><span class="text-[12px] text-gray-700 leading-relaxed py-2 px-1">張良遠</span><span class="text-[12px] text-gray-700 leading-relaxed py-2 px-1">鄭婷云</span><span class="text-[12px] text-gray-700 leading-relaxed py-2 px-1">林宸仔</span><span class="py-2 px-1"></span></div>
+          </div>
+        </div>
+      </div>
+      <div class="mb-3 border border-gray-100 rounded-2xl overflow-hidden">
+        <button onclick="toggleAcc(this)" class="w-full flex items-center justify-between px-5 py-4 text-left">
+          <div><p class="rnd font-semibold text-[#1A2F23] text-sm">重、對唱組 · 第一梯次</p><p class="text-[11px] text-emerald-700 mt-0.5">15:10 – 15:50　13 組</p></div>
+          <span class="acc-arr  text-gray-400 text-lg">▾</span>
+        </button>
+        <div class="acc-body  px-5 pb-4">
+          <div class="mt-1">
+            <div class="flex items-center gap-3 border-b border-gray-100 py-2"><span class="text-[11px] text-gray-400 min-w-[20px] text-right">1</span><span class="text-[13px] text-gray-700">張凱婷</span></div><div class="flex items-center gap-3 border-b border-gray-100 py-2"><span class="text-[11px] text-gray-400 min-w-[20px] text-right">2</span><span class="text-[13px] text-gray-700">蘇信丞</span></div><div class="flex items-center gap-3 border-b border-gray-100 py-2"><span class="text-[11px] text-gray-400 min-w-[20px] text-right">3</span><span class="text-[13px] text-gray-700">游筱潔</span></div><div class="flex items-center gap-3 border-b border-gray-100 py-2"><span class="text-[11px] text-gray-400 min-w-[20px] text-right">4</span><span class="text-[13px] text-gray-700">黃聿寬</span></div><div class="flex items-center gap-3 border-b border-gray-100 py-2"><span class="text-[11px] text-gray-400 min-w-[20px] text-right">5</span><span class="text-[13px] text-gray-700">黃千益</span></div><div class="flex items-center gap-3 border-b border-gray-100 py-2"><span class="text-[11px] text-gray-400 min-w-[20px] text-right">6</span><span class="text-[13px] text-gray-700">郭昊叡</span></div><div class="flex items-center gap-3 border-b border-gray-100 py-2"><span class="text-[11px] text-gray-400 min-w-[20px] text-right">7</span><span class="text-[13px] text-gray-700">陳俊辰</span></div><div class="flex items-center gap-3 border-b border-gray-100 py-2"><span class="text-[11px] text-gray-400 min-w-[20px] text-right">8</span><span class="text-[13px] text-gray-700">陳祈文</span></div><div class="flex items-center gap-3 border-b border-gray-100 py-2"><span class="text-[11px] text-gray-400 min-w-[20px] text-right">9</span><span class="text-[13px] text-gray-700">蔡瑋峻</span></div><div class="flex items-center gap-3 border-b border-gray-100 py-2"><span class="text-[11px] text-gray-400 min-w-[20px] text-right">10</span><span class="text-[13px] text-gray-700">盧恩亮</span></div><div class="flex items-center gap-3 border-b border-gray-100 py-2"><span class="text-[11px] text-gray-400 min-w-[20px] text-right">11</span><span class="text-[13px] text-gray-700">易貞伶</span></div><div class="flex items-center gap-3 border-b border-gray-100 py-2"><span class="text-[11px] text-gray-400 min-w-[20px] text-right">12</span><span class="text-[13px] text-gray-700">周巧真</span></div><div class="flex items-center gap-3 border-b border-gray-100 py-2"><span class="text-[11px] text-gray-400 min-w-[20px] text-right">13</span><span class="text-[13px] text-gray-700">蕭鴻喆</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="day-614" class="hidden">
+ <div class="flex items-center gap-3 mb-5">
+ <div class="w-[3px] h-7 bg-[#1A2F23] rounded-full"></div>
+ <div><p class="rnd font-bold text-[#1A2F23] text-lg">6 / 14</p><p class="text-[11px] text-gray-400"> · </p></div>
+ </div>
+
+ <!-- -->
+ <div class="mb-3 border border-gray-100 rounded-2xl overflow-hidden">
+ <button onclick="toggleAcc(this)" class="w-full flex items-center justify-between px-5 py-4 text-left">
+ <div><p class="rnd font-semibold text-[#1A2F23] text-sm"> · </p><p class="text-[11px] text-emerald-700 mt-0.5">10:00 – 10:5022 </p></div>
+ <span class="acc-arr open text-gray-400 text-lg"></span>
+ </button>
+ <div class="acc-body open px-5 pb-5">
+ <div class="flex flex-wrap gap-2">
+ <span class="text-[12px] text-gray-600 bg-gray-50 px-3 py-1.5 rounded-full"></span><span class="text-[12px] text-gray-600 bg-gray-50 px-3 py-1.5 rounded-full"></span><span class="text-[12px] text-gray-600 bg-gray-50 px-3 py-1.5 rounded-full"></span><span class="text-[12px] text-gray-600 bg-gray-50 px-3 py-1.5 rounded-full"></span><span class="text-[12px] text-gray-600 bg-gray-50 px-3 py-1.5 rounded-full"></span><span class="text-[12px] text-gray-600 bg-gray-50 px-3 py-1.5 rounded-full"></span><span class="text-[12px] text-gray-600 bg-gray-50 px-3 py-1.5 rounded-full"></span><span class="text-[12px] text-gray-600 bg-gray-50 px-3 py-1.5 rounded-full"></span><span class="text-[12px] text-gray-600 bg-gray-50 px-3 py-1.5 rounded-full"></span><span class="text-[12px] text-gray-600 bg-gray-50 px-3 py-1.5 rounded-full"></span><span class="text-[12px] text-gray-600 bg-gray-50 px-3 py-1.5 rounded-full"></span><span class="text-[12px] text-gray-600 bg-gray-50 px-3 py-1.5 rounded-full"></span><span class="text-[12px] text-gray-600 bg-gray-50 px-3 py-1.5 rounded-full"></span><span class="text-[12px] text-gray-600 bg-gray-50 px-3 py-1.5 rounded-full"></span><span class="text-[12px] text-gray-600 bg-gray-50 px-3 py-1.5 rounded-full"></span><span class="text-[12px] text-gray-600 bg-gray-50 px-3 py-1.5 rounded-full"></span><span class="text-[12px] text-gray-600 bg-gray-50 px-3 py-1.5 rounded-full"></span><span class="text-[12px] text-gray-600 bg-gray-50 px-3 py-1.5 rounded-full"></span><span class="text-[12px] text-gray-600 bg-gray-50 px-3 py-1.5 rounded-full"></span><span class="text-[12px] text-gray-600 bg-gray-50 px-3 py-1.5 rounded-full"></span><span class="text-[12px] text-gray-600 bg-gray-50 px-3 py-1.5 rounded-full"></span><span class="text-[12px] text-gray-600 bg-gray-50 px-3 py-1.5 rounded-full"></span>
+ </div>
+ </div>
+ </div>
+
+ <!-- -->
+ <div class="mb-3 border border-gray-100 rounded-2xl overflow-hidden">
+ <button onclick="toggleAcc(this)" class="w-full flex items-center justify-between px-5 py-4 text-left">
+ <div><p class="rnd font-semibold text-[#1A2F23] text-sm"> · </p><p class="text-[11px] text-emerald-700 mt-0.5">11:00 – 11:5023 </p></div>
+ <span class="acc-arr text-gray-400 text-lg"></span>
+ </button>
+ <div class="acc-body px-5 pb-5">
+ <div class="flex flex-wrap gap-2">
+ <span class="text-[12px] text-gray-600 bg-gray-50 px-3 py-1.5 rounded-full"></span><span class="text-[12px] text-gray-600 bg-gray-50 px-3 py-1.5 rounded-full"></span><span class="text-[12px] text-gray-600 bg-gray-50 px-3 py-1.5 rounded-full"></span><span class="text-[12px] text-gray-600 bg-gray-50 px-3 py-1.5 rounded-full"></span><span class="text-[12px] text-gray-600 bg-gray-50 px-3 py-1.5 rounded-full"></span><span class="text-[12px] text-gray-600 bg-gray-50 px-3 py-1.5 rounded-full"></span><span class="text-[12px] text-gray-600 bg-gray-50 px-3 py-1.5 rounded-full"></span><span class="text-[12px] text-gray-600 bg-gray-50 px-3 py-1.5 rounded-full"></span><span class="text-[12px] text-gray-600 bg-gray-50 px-3 py-1.5 rounded-full"></span><span class="text-[12px] text-gray-600 bg-gray-50 px-3 py-1.5 rounded-full"></span><span class="text-[12px] text-gray-600 bg-gray-50 px-3 py-1.5 rounded-full"></span><span class="text-[12px] text-gray-600 bg-gray-50 px-3 py-1.5 rounded-full"></span><span class="text-[12px] text-gray-600 bg-gray-50 px-3 py-1.5 rounded-full"></span><span class="text-[12px] text-gray-600 bg-gray-50 px-3 py-1.5 rounded-full"></span><span class="text-[12px] text-gray-600 bg-gray-50 px-3 py-1.5 rounded-full"></span><span class="text-[12px] text-gray-600 bg-gray-50 px-3 py-1.5 rounded-full"></span><span class="text-[12px] text-gray-600 bg-gray-50 px-3 py-1.5 rounded-full"></span><span class="text-[12px] text-gray-600 bg-gray-50 px-3 py-1.5 rounded-full"></span><span class="text-[12px] text-gray-600 bg-gray-50 px-3 py-1.5 rounded-full"></span><span class="text-[12px] text-gray-600 bg-gray-50 px-3 py-1.5 rounded-full"></span><span class="text-[12px] text-gray-600 bg-gray-50 px-3 py-1.5 rounded-full"></span><span class="text-[12px] text-gray-600 bg-gray-50 px-3 py-1.5 rounded-full"></span><span class="text-[12px] text-gray-600 bg-gray-50 px-3 py-1.5 rounded-full"></span>
+ </div>
+ </div>
+ </div>
+
+ <!-- -->
+ <div class="mb-3 border border-gray-100 rounded-2xl overflow-hidden">
+ <button onclick="toggleAcc(this)" class="w-full flex items-center justify-between px-5 py-4 text-left">
+ <div><p class="rnd font-semibold text-[#1A2F23] text-sm"> · </p><p class="text-[11px] text-emerald-700 mt-0.5">12:50 – 13:505 </p></div>
+ <span class="acc-arr text-gray-400 text-lg"></span>
+ </button>
+ <div class="acc-body px-5 pb-5">
+ <div class="flex flex-wrap gap-2">
+ <span class="text-[12px] text-gray-600 bg-gray-50 px-3 py-1.5 rounded-full"></span><span class="text-[12px] text-gray-600 bg-gray-50 px-3 py-1.5 rounded-full"></span><span class="text-[12px] text-gray-600 bg-gray-50 px-3 py-1.5 rounded-full"></span><span class="text-[12px] text-gray-600 bg-gray-50 px-3 py-1.5 rounded-full"></span><span class="text-[12px] text-gray-600 bg-gray-50 px-3 py-1.5 rounded-full"></span>
+ </div>
+ </div>
+ </div>
+
+ <!-- -->
+ <div class="mb-3 border border-gray-100 rounded-2xl overflow-hidden">
+ <button onclick="toggleAcc(this)" class="w-full flex items-center justify-between px-5 py-4 text-left">
+ <div><p class="rnd font-semibold text-[#1A2F23] text-sm"> · </p><p class="text-[11px] text-emerald-700 mt-0.5">14:20 – 16:0010 </p></div>
+ <span class="acc-arr text-gray-400 text-lg"></span>
+ </button>
+ <div class="acc-body px-5 pb-5">
+ <div class="flex flex-wrap gap-2">
+ <span class="text-[12px] text-gray-600 bg-gray-50 px-3 py-1.5 rounded-full"></span><span class="text-[12px] text-gray-600 bg-gray-50 px-3 py-1.5 rounded-full"></span><span class="text-[12px] text-gray-600 bg-gray-50 px-3 py-1.5 rounded-full"></span><span class="text-[12px] text-gray-600 bg-gray-50 px-3 py-1.5 rounded-full"></span><span class="text-[12px] text-gray-600 bg-gray-50 px-3 py-1.5 rounded-full"></span><span class="text-[12px] text-gray-600 bg-gray-50 px-3 py-1.5 rounded-full"></span><span class="text-[12px] text-gray-600 bg-gray-50 px-3 py-1.5 rounded-full"></span><span class="text-[12px] text-gray-600 bg-gray-50 px-3 py-1.5 rounded-full"></span><span class="text-[12px] text-gray-600 bg-gray-50 px-3 py-1.5 rounded-full"></span><span class="text-[12px] text-gray-600 bg-gray-50 px-3 py-1.5 rounded-full"></span>
+ </div>
+ </div>
+ </div>
+
+ <!-- -->
+ <div class="mb-3 border border-gray-100 rounded-2xl overflow-hidden">
+ <button onclick="toggleAcc(this)" class="w-full flex items-center justify-between px-5 py-4 text-left">
+ <div><p class="rnd font-semibold text-[#1A2F23] text-sm"> · </p><p class="text-[11px] text-emerald-700 mt-0.5">16:10 – 17:409 </p></div>
+ <span class="acc-arr text-gray-400 text-lg"></span>
+ </button>
+ <div class="acc-body px-5 pb-5">
+ <div class="flex flex-wrap gap-2">
+ <span class="text-[12px] text-gray-600 bg-gray-50 px-3 py-1.5 rounded-full"></span><span class="text-[12px] text-gray-600 bg-gray-50 px-3 py-1.5 rounded-full"></span><span class="text-[12px] text-gray-600 bg-gray-50 px-3 py-1.5 rounded-full"></span><span class="text-[12px] text-gray-600 bg-gray-50 px-3 py-1.5 rounded-full"></span><span class="text-[12px] text-gray-600 bg-gray-50 px-3 py-1.5 rounded-full"></span><span class="text-[12px] text-gray-600 bg-gray-50 px-3 py-1.5 rounded-full"></span><span class="text-[12px] text-gray-600 bg-gray-50 px-3 py-1.5 rounded-full"></span><span class="text-[12px] text-gray-600 bg-gray-50 px-3 py-1.5 rounded-full"></span><span class="text-[12px] text-gray-600 bg-gray-50 px-3 py-1.5 rounded-full"></span>
+ </div>
+ </div>
+ </div>
+ </div>
+
+ <p class="text-center text-[11px] text-[#1A2F23] opacity-60 mt-10 pb-6"> · </p>
+ </div><!-- end z-index wrapper -->
+ </div>
+
+</main>
+
+<!-- -->
+<div style="width:100%;height:80px;background-image:url('img_strip.png');background-size:cover;background-position:center;opacity:0.18;"></div>
+
+<!-- FOOTER -->
+<footer id="page-contact" class="bg-[#1A2F23] px-6 pt-14 pb-10">
+ <div class="max-w-lg mx-auto">
+ <img src="logo_perfect_transparent.png" alt="" class="h-16 object-contain mb-8"
+ onerror="this.outerHTML='<p class=\'rnd text-xl font-bold tracking-wider mb-8\' style=\'color:#C8A84B\'></p>'">
+ <div class="space-y-5 mb-10">
+ <a href="mailto:ntumusicawardofficial@gmail.com" class="flex items-center gap-4 group">
+ <span class="text-2xl"></span>
+ <div><p class="rnd text-[10px] text-emerald-400 tracking-[.12em] mb-1"></p><p class="text-sm text-white opacity-60 group-hover:opacity-100 transition-opacity">ntumusicawardofficial@gmail.com</p></div>
+ </a>
+ <a href="https://www.facebook.com/NTUMusicAward" target="_blank" class="flex items-center gap-4 group">
+ <span class="text-2xl"></span>
+ <div><p class="rnd text-[10px] text-emerald-400 tracking-[.12em] mb-1"></p><p class="text-sm text-white opacity-60 group-hover:opacity-100 transition-opacity">NTU Music Award</p></div>
+ </a>
+ <a href="https://www.instagram.com/ntu_musicawards" target="_blank" class="flex items-center gap-4 group">
+ <span class="text-2xl"></span>
+ <div><p class="rnd text-[10px] text-emerald-400 tracking-[.12em] mb-1">Instagram</p><p class="text-sm text-white opacity-60 group-hover:opacity-100 transition-opacity">@ntu_musicawards</p></div>
+ </a>
+ </div>
+ <div class="border-t border-white border-opacity-10 pt-7 text-center">
+ <p class="rnd text-[11px] text-emerald-400 tracking-wide mb-2"></p>
+ <p class="text-sm text-white opacity-40"></p>
+ <p class="text-[10px] text-white opacity-20 mt-3">© 2026 · All rights reserved.</p>
+ </div>
+ </div>
+</footer>
+
+<script>
+const ALL = ['home','about','player','program'];
+
+function showPage(id){
+ ALL.forEach(p=>document.getElementById('page-'+p).classList.remove('active'));
+ const el=document.getElementById('page-'+id);
+ el.classList.add('active','fade-in');
+ const hm=document.getElementById('hero-main');
+ const hp=document.getElementById('hero-program');
+ if(id==='program'){hm.classList.add('hidden');hp.classList.remove('hidden');}
+ else{hm.classList.remove('hidden');hp.classList.add('hidden');}
+ ['home','about','player','contact'].forEach(n=>{
+ const b=document.getElementById('nav-'+n);
+ if(b){b.classList.remove('active');if(n===id)b.classList.add('active');}
+ });
+ window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function scrollToContact(){
+ document.getElementById('page-contact').scrollIntoView({behavior:'smooth'});
+}
+
+function setPTab(tab){
+ ['signup','semi','final'].forEach(t=>{
+ const c=document.getElementById('pc-'+t);
+ const b=document.getElementById('ptab-'+t);
+ if(c)c.classList.add('hidden');
+ if(b)b.classList.remove('on');
+ });
+ const tc=document.getElementById('pc-'+tab);
+ const tb=document.getElementById('ptab-'+tab);
+ if(tc){tc.classList.remove('hidden');tc.classList.add('fade-in');}
+ if(tb)tb.classList.add('on');
+}
+
+function showProgramBook(){
+ ALL.forEach(p=>document.getElementById('page-'+p).classList.remove('active'));
+ document.getElementById('page-program').classList.add('active','fade-in');
+ document.getElementById('hero-main').classList.add('hidden');
+ document.getElementById('hero-program').classList.remove('hidden');
+ switchDay('613');
+ window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function hideProgramBook(){
+ ALL.forEach(p=>document.getElementById('page-'+p).classList.remove('active'));
+ document.getElementById('page-home').classList.add('active','fade-in');
+ document.getElementById('hero-main').classList.remove('hidden');
+ document.getElementById('hero-program').classList.add('hidden');
+ ['home','about','player','contact'].forEach(n=>{
+ const b=document.getElementById('nav-'+n);
+ if(b){b.classList.remove('active');if(n==='home')b.classList.add('active');}
+ });
+ window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function switchDay(day){
+ ['613','614'].forEach(d=>{
+ document.getElementById('day-'+d).classList.add('hidden');
+ const t=document.getElementById('daytab-'+d);
+ t.classList.remove('day-on','bg-[#1A2F23]','border-[#1A2F23]');
+ t.classList.add('bg-white','border-gray-200');
+ t.querySelector('.dtitle').classList.replace('text-white','text-gray-500');
+ t.querySelector('.dsub').classList.replace('text-emerald-300','text-gray-400');
+ });
+ const dayEl=document.getElementById('day-'+day);
+ dayEl.classList.remove('hidden');
+ dayEl.classList.add('fade-in');
+ const at=document.getElementById('daytab-'+day);
+ at.classList.add('day-on','bg-[#1A2F23]','border-[#1A2F23]');
+ at.classList.remove('bg-white','border-gray-200');
+ at.querySelector('.dtitle').classList.replace('text-gray-500','text-white');
+ at.querySelector('.dsub').classList.replace('text-gray-400','text-emerald-300');
+}
+
+function toggleAcc(btn){
+ const body=btn.nextElementSibling;
+ const arr=btn.querySelector('.acc-arr');
+ body.classList.toggle('open');
+ arr.classList.toggle('open');
+}
+
+setPTab('semi');
+</script>
+</body>
+</html>
