@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>臺大音韻獎 — 連結頁</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500&family=Noto+Sans+TC:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { min-height: 100%; }
+  body {
+    font-family: 'Noto Sans TC', sans-serif;
+    background: #0D2B12;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 2rem 1rem;
+  }
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background:
+      radial-gradient(ellipse at 50% 0%, rgba(46,94,53,0.7) 0%, transparent 60%),
+      radial-gradient(ellipse at 20% 90%, rgba(232,160,32,0.1) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+  }
+  .container {
+    position: relative; z-index: 1;
+    width: 100%; max-width: 420px;
+    padding: 2.5rem 1.5rem 3rem;
+  }
+
+  /* Profile */
+  .profile { text-align: center; margin-bottom: 2rem; }
+  .avatar {
+    width: 88px; height: 88px; border-radius: 50%;
+    border: 2px solid rgba(232,160,32,0.5);
+    margin: 0 auto 1rem;
+    overflow: hidden;
+    background: #2E5E35;
+  }
+  .avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .edition {
+    display: inline-block; font-size: 11px; letter-spacing: 0.18em;
+    color: #F5C842; border: 1px solid rgba(245,200,66,0.35);
+    padding: 3px 14px; border-radius: 100px; margin-bottom: 10px;
+  }
+  .name {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 22px; font-weight: 400;
+    color: #FDF5E0; letter-spacing: 0.15em; margin-bottom: 4px;
+  }
+  .name-en { font-size: 11px; color: rgba(232,160,32,0.8); letter-spacing: 0.28em; margin-bottom: 12px; }
+  .desc { font-size: 13px; color: rgba(253,245,224,0.5); line-height: 1.65; }
+
+  .divider { width: 40px; height: 1px; background: rgba(232,160,32,0.4); margin: 1.5rem auto; }
+
+  /* Section label */
+  .section-label {
+    font-size: 10px; letter-spacing: 0.18em;
+    color: rgba(232,160,32,0.55); text-transform: uppercase;
+    text-align: center; margin: 1.25rem 0 0.75rem;
+  }
+
+  /* Link buttons */
+  .links { display: flex; flex-direction: column; gap: 10px; }
+  .link-btn {
+    display: flex; align-items: center; gap: 14px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(74,138,79,0.3);
+    border-radius: 14px;
+    padding: 14px 16px;
+    color: #FDF5E0; text-decoration: none;
+    transition: background 0.15s, border-color 0.15s;
+    cursor: pointer;
+  }
+  .link-btn:hover { background: rgba(232,160,32,0.1); border-color: rgba(232,160,32,0.45); }
+  .link-btn.highlight {
+    background: rgba(232,160,32,0.12);
+    border-color: rgba(232,160,32,0.5);
+  }
+  .link-icon {
+    width: 40px; height: 40px; border-radius: 10px;
+    background: rgba(46,94,53,0.8);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; flex-shrink: 0;
+  }
+  .link-btn.highlight .link-icon { background: rgba(232,160,32,0.18); }
+  .link-text { flex: 1; }
+  .link-title { font-size: 14px; font-weight: 500; color: #FDF5E0; margin-bottom: 2px; }
+  .link-sub { font-size: 11px; color: rgba(253,245,224,0.4); }
+  .link-arrow { font-size: 18px; color: rgba(232,160,32,0.5); flex-shrink: 0; }
+
+  /* Footer */
+  .footer { text-align: center; margin-top: 2.5rem; font-size: 11px; color: rgba(253,245,224,0.2); letter-spacing: 0.05em; }
+  .footer a { color: rgba(232,160,32,0.5); text-decoration: none; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="profile">
+    <div class="avatar">
+      <img src="logo.png" alt="臺大音韻獎">
+    </div>
+    <div class="edition">第十三屆 · 2025</div>
+    <p class="name">臺大音韻獎</p>
+    <p class="name-en">NTU MUSIC AWARD</p>
+    <p class="desc">全國歌唱競賽 · 四大組別<br>學生獨唱 · 社會獨唱 · 重對唱 · 創作</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <p class="section-label">重要資訊</p>
+
+  <div class="links">
+
+    <a href="index.html#schedule" class="link-btn highlight">
+      <div class="link-icon">📋</div>
+      <div class="link-text">
+        <p class="link-title">複賽節目表</p>
+        <p class="link-sub">即將公告，敬請期待</p>
+      </div>
+      <span class="link-arrow">›</span>
+    </a>
+
+    <a href="index.html#categories" class="link-btn">
+      <div class="link-icon">🎤</div>
+      <div class="link-text">
+        <p class="link-title">競賽組別介紹</p>
+        <p class="link-sub">學生 · 社會 · 重唱 · 創作</p>
+      </div>
+      <span class="link-arrow">›</span>
+    </a>
+
+    <a href="index.html#notes" class="link-btn">
+      <div class="link-icon">⚠️</div>
+      <div class="link-text">
+        <p class="link-title">報名注意事項</p>
+        <p class="link-sub">重要規則請詳閱</p>
+      </div>
+      <span class="link-arrow">›</span>
+    </a>
+
+    <p class="section-label">聯絡我們</p>
+
+    <a href="https://www.instagram.com/ntu_musicawards" target="_blank" class="link-btn">
+      <div class="link-icon">📷</div>
+      <div class="link-text">
+        <p class="link-title">Instagram</p>
+        <p class="link-sub">@ntu_musicawards</p>
+      </div>
+      <span class="link-arrow">›</span>
+    </a>
+
+    <a href="mailto:ntumusicawardofficial@gmail.com" class="link-btn">
+      <div class="link-icon">✉️</div>
+      <div class="link-text">
+        <p class="link-title">官方信箱</p>
+        <p class="link-sub">ntumusicawardofficial@gmail.com</p>
+      </div>
+      <span class="link-arrow">›</span>
+    </a>
+
+    <a href="index.html" class="link-btn">
+      <div class="link-icon">🌐</div>
+      <div class="link-text">
+        <p class="link-title">官方網站</p>
+        <p class="link-sub">查看完整資訊</p>
+      </div>
+      <span class="link-arrow">›</span>
+    </a>
+
+  </div>
+
+  <div class="footer">
+    © 2025 第十三屆臺大音韻獎工作團隊<br>
+    <a href="mailto:ntumusicawardofficial@gmail.com">ntumusicawardofficial@gmail.com</a>
+  </div>
+
+</div>
+</body>
+</html>
