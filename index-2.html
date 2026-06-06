@@ -8,351 +8,273 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500;700&family=Noto+Sans+TC:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --green-deep: #0D2B12;
+    --green: #0D2B12;
     --green-dark: #1A3D1F;
-    --green-mid: #2E5E35;
-    --amber: #E8A020;
-    --amber-light: #F5C842;
-    --cream: #FDF5E0;
-    --cream-soft: #F7ECC8;
-    --line-green: rgba(74,138,79,0.25);
-    --line-amber: rgba(232,160,32,0.3);
+    --amber: #C9920A;
+    --amber-light: #E8A020;
+    --black: #1A1A1A;
+    --gray: #6B6B6B;
+    --gray-light: #F5F5F5;
+    --border: #E8E8E8;
+    --white: #FFFFFF;
   }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
-  body { font-family: 'Noto Sans TC', sans-serif; background: var(--green-deep); color: var(--cream); font-weight: 300; line-height: 1.8; }
+  body { font-family: 'Noto Sans TC', sans-serif; background: #fff; color: var(--black); font-weight: 300; line-height: 1.8; font-size: 15px; }
 
   /* ── NAV ── */
   nav {
     position: sticky; top: 0; z-index: 100;
-    background: rgba(13,43,18,0.95);
+    background: rgba(13,43,18,0.97);
     backdrop-filter: blur(8px);
-    border-bottom: 1px solid var(--line-green);
     display: flex; justify-content: space-between; align-items: center;
-    padding: 0.85rem 2.5rem;
+    padding: 0.75rem 1.5rem;
   }
-  .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-  .nav-logo img { width: 32px; height: 32px; border-radius: 50%; object-fit: cover; }
-  .nav-logo-text { font-family: 'Noto Serif TC', serif; font-size: 14px; font-weight: 500; color: var(--cream); letter-spacing: 0.1em; }
-  .nav-links { display: flex; gap: 2rem; list-style: none; }
-  .nav-links a { font-size: 13px; color: rgba(253,245,224,0.65); text-decoration: none; letter-spacing: 0.05em; transition: color 0.2s; }
-  .nav-links a:hover { color: var(--amber-light); }
+  .nav-logo img { height: 26px; object-fit: contain; display: block; filter: brightness(1.15); }
+  .nav-links { display: flex; gap: 1.5rem; list-style: none; }
+  .nav-links a { font-size: 13px; color: rgba(255,255,255,0.7); text-decoration: none; letter-spacing: 0.04em; transition: color 0.2s; }
+  .nav-links a:hover { color: #F5C842; }
 
-  /* ── HERO — 全版背景圖 (Pley 風格) ── */
+  /* ── HERO (深綠橫幅) ── */
   .hero {
-    position: relative; min-height: 92vh;
+    position: relative; min-height: 88vh;
     display: flex; flex-direction: column; align-items: center; justify-content: center;
-    text-align: center; padding: 5rem 2rem 4rem; overflow: hidden;
+    text-align: center; padding: 3.5rem 1.5rem 3rem; overflow: hidden;
+    background: var(--green);
   }
   .hero-bg {
     position: absolute; inset: 0;
     background-image: url('bg.png');
     background-size: cover; background-position: center;
-    opacity: 0.4; z-index: 0;
+    opacity: 0.3; z-index: 0;
   }
   .hero-overlay {
     position: absolute; inset: 0;
-    background: linear-gradient(to bottom, rgba(13,43,18,0.3) 0%, rgba(13,43,18,0.6) 100%);
+    background: linear-gradient(to bottom, rgba(13,43,18,0.2) 0%, rgba(13,43,18,0.7) 100%);
     z-index: 1;
   }
-  .hero-content { position: relative; z-index: 2; }
-  .hero-logo-img {
-    width: 180px; margin: 0 auto 1.5rem;
-    filter: drop-shadow(0 0 24px rgba(232,160,32,0.4));
-  }
-  .hero-title-img {
-    width: min(520px, 90vw); margin: 0 auto 2rem;
-    filter: drop-shadow(0 2px 16px rgba(0,0,0,0.5));
-  }
-  .hero-divider { width: 48px; height: 1px; background: var(--amber); margin: 0 auto 2rem; opacity: 0.7; }
-  .hero-meta { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; }
-  .hero-meta-item { display: flex; align-items: center; gap: 7px; font-size: 13px; color: rgba(253,245,224,0.75); }
-  .hero-meta-item svg { width: 15px; height: 15px; stroke: var(--amber); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+  .hero-content { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; width: 100%; max-width: 480px; }
 
-  /* ── 區塊共用 ── */
-  .section { padding: 5rem 2.5rem; }
-  .section-alt { background: var(--green-dark); }
-  .section-header { text-align: center; margin-bottom: 3.5rem; }
-  .section-eyebrow { font-size: 11px; letter-spacing: 0.22em; color: var(--amber); margin-bottom: 0.6rem; }
-  .section-title { font-family: 'Noto Serif TC', serif; font-size: 24px; font-weight: 400; color: var(--cream); letter-spacing: 0.12em; }
-  .container { max-width: 1000px; margin: 0 auto; }
+  .hero-logo { width: min(320px, 78vw); margin: 0 auto 0.75rem; filter: drop-shadow(0 0 18px rgba(232,160,32,0.3)); }
+  .hero-year { font-size: 12px; letter-spacing: 0.28em; color: rgba(245,200,66,0.8); margin-bottom: 2rem; }
 
-  /* ── 統計數字區 (Pley 大數字風格) ── */
-  .stats-section {
-    position: relative; overflow: hidden;
-    background-image: url('bg.png');
-    background-size: cover; background-position: center;
-    padding: 5rem 2.5rem;
+  /* 公告卡片 */
+  .announce {
+    background: rgba(255,255,255,0.09);
+    border: 1px solid rgba(255,255,255,0.18);
+    border-top: 2px solid var(--amber-light);
+    border-radius: 14px;
+    padding: 1.4rem 1.5rem;
+    width: 100%;
+    text-align: left;
+    backdrop-filter: blur(6px);
   }
-  .stats-overlay { position: absolute; inset: 0; background: rgba(13,43,18,0.78); }
-  .stats-content { position: relative; z-index: 1; text-align: center; }
-  .stats-eyebrow { font-size: 11px; letter-spacing: 0.22em; color: var(--amber); margin-bottom: 0.6rem; }
-  .stats-title { font-family: 'Noto Serif TC', serif; font-size: 24px; color: var(--cream); margin-bottom: 3rem; letter-spacing: 0.12em; }
-  .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 2rem; max-width: 700px; margin: 0 auto; }
-  .stat-item { text-align: center; }
-  .stat-num { font-family: 'Noto Serif TC', serif; font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 700; color: var(--amber-light); line-height: 1; margin-bottom: 0.5rem; }
-  .stat-label { font-size: 13px; color: rgba(253,245,224,0.65); letter-spacing: 0.05em; }
+  .announce-tag {
+    display: inline-block; font-size: 10px; letter-spacing: 0.14em;
+    color: var(--amber-light); background: rgba(232,160,32,0.12);
+    border: 1px solid rgba(232,160,32,0.3);
+    padding: 2px 10px; border-radius: 100px; margin-bottom: 0.7rem;
+  }
+  .announce-title { font-family: 'Noto Serif TC', serif; font-size: 18px; font-weight: 500; color: #fff; margin-bottom: 1rem; }
+  .announce-row { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 8px; }
+  .announce-label { font-size: 11px; color: var(--amber-light); min-width: 32px; flex-shrink: 0; padding-top: 2px; letter-spacing: 0.06em; }
+  .announce-val { font-size: 13px; color: rgba(255,255,255,0.82); line-height: 1.65; }
+  .announce-note { margin-top: 1rem; padding-top: 0.85rem; border-top: 1px solid rgba(255,255,255,0.12); font-size: 12px; color: rgba(255,255,255,0.45); text-align: center; }
 
-  /* ── 三欄介紹 (Pley 圓形圖+文字風格) ── */
-  .intro-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2.5rem; max-width: 860px; margin: 0 auto; text-align: center; }
-  .intro-card { }
-  .intro-icon {
-    width: 80px; height: 80px; border-radius: 50%;
-    background: var(--green-mid); border: 2px solid var(--line-amber);
-    display: flex; align-items: center; justify-content: center;
-    margin: 0 auto 1.25rem; font-size: 28px;
-  }
-  .intro-name { font-family: 'Noto Serif TC', serif; font-size: 16px; font-weight: 500; color: var(--cream); margin-bottom: 0.6rem; letter-spacing: 0.06em; }
-  .intro-desc { font-size: 13px; color: rgba(253,245,224,0.6); line-height: 1.75; }
+  /* ── 白底區塊共用 ── */
+  .section { padding: 3.5rem 1.5rem; background: #fff; }
+  .section-gray { background: var(--gray-light); }
+  .section-header { text-align: center; margin-bottom: 2.5rem; }
+  .section-eyebrow { font-size: 10px; letter-spacing: 0.22em; color: var(--amber); margin-bottom: 0.5rem; text-transform: uppercase; }
+  .section-title { font-family: 'Noto Serif TC', serif; font-size: 20px; font-weight: 400; color: var(--black); letter-spacing: 0.1em; }
+  .section-divider { width: 36px; height: 2px; background: var(--amber-light); margin: 0.75rem auto 0; }
+
+  /* ── 統計數字 ── */
+  .stats-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem; max-width: 400px; margin: 0 auto; text-align: center; }
+  .stat-num { font-family: 'Noto Serif TC', serif; font-size: 2.4rem; font-weight: 700; color: var(--green); line-height: 1; margin-bottom: 6px; }
+  .stat-label { font-size: 12px; color: var(--gray); }
 
   /* ── 組別卡片 ── */
-  .category-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; }
-  .cat-card { background: rgba(13,43,18,0.6); border: 1px solid var(--line-green); border-top: 2px solid var(--amber); padding: 1.4rem 1.25rem; transition: background 0.2s; }
-  .cat-card:hover { background: rgba(13,43,18,0.9); }
-  .cat-name { font-family: 'Noto Serif TC', serif; font-size: 16px; font-weight: 500; color: var(--cream); letter-spacing: 0.08em; margin-bottom: 0.35rem; }
-  .cat-eligibility { font-size: 12px; color: var(--amber); margin-bottom: 1.1rem; opacity: 0.85; line-height: 1.6; }
-  .quota-table { width: 100%; border-collapse: collapse; }
-  .quota-table tr { border-top: 1px solid rgba(74,138,79,0.2); }
-  .quota-table td { padding: 7px 0; font-size: 13px; }
-  .quota-stage { color: rgba(253,245,224,0.5); }
-  .quota-num { text-align: right; font-weight: 500; color: var(--cream); }
-  .quota-note { text-align: right; font-size: 11px; color: rgba(253,245,224,0.3); display: block; margin-top: 1px; }
+  .cat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; max-width: 560px; margin: 0 auto; }
+  .cat-card { background: #fff; border: 1px solid var(--border); border-top: 3px solid var(--green); padding: 1.1rem 1rem; }
+  .cat-name { font-family: 'Noto Serif TC', serif; font-size: 14px; font-weight: 500; color: var(--black); margin-bottom: 3px; }
+  .cat-tag { font-size: 11px; color: var(--amber); margin-bottom: 0.85rem; line-height: 1.5; }
+  .quota-row { display: flex; justify-content: space-between; border-top: 1px solid var(--border); padding: 5px 0; font-size: 12px; }
+  .quota-stage { color: var(--gray); }
+  .quota-num { font-weight: 500; color: var(--black); }
 
-  /* ── 複賽節目表 ── */
-  .schedule-wrap { max-width: 660px; margin: 0 auto; }
-  .program-list { display: flex; flex-direction: column; gap: 8px; }
-  .program-card { display: flex; align-items: center; gap: 1rem; background: rgba(255,255,255,0.04); border: 1px solid var(--line-green); padding: 0.9rem 1.2rem; transition: background 0.2s; }
-  .program-card:hover { background: rgba(232,160,32,0.06); }
-  .program-seq { width: 28px; height: 28px; border: 1px solid var(--line-amber); display: flex; align-items: center; justify-content: center; font-size: 12px; color: var(--amber); font-family: 'Noto Serif TC', serif; flex-shrink: 0; }
-  .program-body { flex: 1; }
-  .program-name { font-size: 14px; font-weight: 500; color: var(--cream); margin-bottom: 2px; }
-  .program-sub { font-size: 12px; color: rgba(253,245,224,0.4); }
-  .program-time { font-size: 12px; color: var(--amber); flex-shrink: 0; opacity: 0.85; }
-  .break-row { display: flex; align-items: center; gap: 0.75rem; padding: 0.55rem 1.2rem; border: 1px dashed rgba(74,138,79,0.3); font-size: 12px; color: rgba(253,245,224,0.3); letter-spacing: 0.06em; }
-  .placeholder-note { text-align: center; padding: 3rem 1rem; color: rgba(253,245,224,0.25); font-size: 13px; border: 1px dashed rgba(74,138,79,0.3); letter-spacing: 0.06em; }
+  /* ── 節目表 ── */
+  .schedule-wrap { max-width: 520px; margin: 0 auto; }
+  .placeholder { border: 1px dashed var(--border); padding: 2.5rem 1rem; text-align: center; font-size: 13px; color: #bbb; letter-spacing: 0.06em; border-radius: 8px; }
 
   /* ── 注意事項 ── */
-  .notes-list { max-width: 580px; margin: 0 auto; display: flex; flex-direction: column; gap: 14px; }
-  .note-item { display: flex; gap: 12px; font-size: 14px; color: rgba(253,245,224,0.7); line-height: 1.7; }
-  .note-marker { width: 20px; height: 20px; border: 1px solid var(--line-amber); display: flex; align-items: center; justify-content: center; font-size: 11px; color: var(--amber); flex-shrink: 0; margin-top: 3px; }
+  .notes-list { max-width: 520px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+  .note-item { display: flex; gap: 12px; font-size: 14px; color: var(--black); line-height: 1.7; }
+  .note-num { width: 22px; height: 22px; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 11px; color: var(--amber); flex-shrink: 0; margin-top: 3px; border-radius: 50%; }
 
-  /* ── FOOTER 多欄 (Pley 深色 Footer 風格) ── */
-  footer { background: rgba(0,0,0,0.6); border-top: 1px solid var(--line-green); padding: 3.5rem 2.5rem 2rem; }
-  .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 2.5rem; max-width: 900px; margin: 0 auto 2.5rem; }
-  .footer-col-title { font-size: 12px; letter-spacing: 0.15em; color: var(--amber); margin-bottom: 1rem; }
-  .footer-col a, .footer-col p { display: block; font-size: 13px; color: rgba(253,245,224,0.5); text-decoration: none; margin-bottom: 0.5rem; line-height: 1.6; }
-  .footer-col a:hover { color: var(--amber); }
-  .footer-bottom { text-align: center; font-size: 12px; color: rgba(253,245,224,0.3); border-top: 1px solid var(--line-green); padding-top: 1.5rem; max-width: 900px; margin: 0 auto; }
-  .footer-logo { font-family: 'Noto Serif TC', serif; font-size: 15px; color: var(--cream); letter-spacing: 0.15em; margin-bottom: 0.4rem; }
+  /* ── FOOTER ── */
+  footer { background: var(--green); padding: 2.5rem 1.5rem 1.5rem; }
+  .footer-logo { height: 22px; object-fit: contain; filter: brightness(1.1); margin-bottom: 1rem; }
+  .footer-links { display: flex; flex-direction: column; gap: 8px; margin-bottom: 1.5rem; }
+  .footer-links a { font-size: 13px; color: rgba(255,255,255,0.55); text-decoration: none; }
+  .footer-links a:hover { color: #F5C842; }
+  .footer-social { display: flex; gap: 12px; margin-bottom: 1.5rem; }
+  .footer-social a { font-size: 12px; color: rgba(255,255,255,0.45); text-decoration: none; border: 1px solid rgba(255,255,255,0.15); padding: 5px 12px; border-radius: 100px; }
+  .footer-bottom { font-size: 11px; color: rgba(255,255,255,0.25); border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1rem; }
 
-  /* ── 回頂部按鈕 (Pley 風格) ── */
-  .back-to-top { position: fixed; bottom: 2rem; left: 1.5rem; width: 40px; height: 40px; background: rgba(13,43,18,0.9); border: 1px solid var(--line-amber); color: var(--amber); font-size: 18px; display: flex; align-items: center; justify-content: center; cursor: pointer; text-decoration: none; z-index: 99; transition: background 0.2s; }
-  .back-to-top:hover { background: var(--green-mid); }
+  .back-top { position: fixed; bottom: 1.5rem; right: 1.5rem; width: 38px; height: 38px; background: var(--green); border: 1px solid rgba(232,160,32,0.4); color: #F5C842; font-size: 16px; display: flex; align-items: center; justify-content: center; text-decoration: none; border-radius: 50%; z-index: 99; }
 
-  /* ── RWD ── */
-  @media (max-width: 640px) {
-    nav { padding: 0.85rem 1.25rem; }
-    .nav-links { gap: 1.2rem; }
-    .section { padding: 3.5rem 1.25rem; }
-    .hero { min-height: 85vh; padding: 3rem 1.25rem; }
-    .hero-logo-img { width: 130px; }
-    .hero-title-img { width: 90vw; }
-    .stats-section { padding: 3.5rem 1.25rem; }
-    footer { padding: 2.5rem 1.25rem 1.5rem; }
+  /* ── RWD desktop ── */
+  @media (min-width: 640px) {
+    .cat-grid { grid-template-columns: repeat(2,1fr); }
+    .hero-logo { width: 360px; }
   }
 </style>
 </head>
 <body>
 
-<a href="#" class="back-to-top" aria-label="回頂部">↑</a>
+<a href="#" class="back-top" aria-label="回頂部">↑</a>
 
 <!-- NAV -->
 <nav>
   <a href="#" class="nav-logo">
-    <img src="logo.png" alt="臺大音韻獎">
-    <span class="nav-logo-text">臺大音韻獎</span>
+    <img src="logo標準字.png" alt="臺大音韻獎" onerror="this.outerHTML='<span style=&quot;color:#F5C842;font-size:14px;letter-spacing:.1em;&quot;>臺大音韻獎</span>'">
   </a>
   <ul class="nav-links">
-    <li><a href="#about">關於音韻獎</a></li>
-    <li><a href="#categories">競賽組別</a></li>
-    <li><a href="#schedule">複賽節目表</a></li>
+    <li><a href="#about">關於音韻</a></li>
+    <li><a href="#player">選手專區</a></li>
     <li><a href="#contact">聯絡我們</a></li>
   </ul>
 </nav>
 
-<!-- HERO -->
+<!-- HERO 深綠橫幅 -->
 <section class="hero">
   <div class="hero-bg"></div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
-    <img src="logo.png" alt="臺大音韻獎 Logo" class="hero-logo-img">
-    <img src="大標字.png" alt="第十三屆 臺大音韻獎 NTU MUSIC AWARDS 13TH" class="hero-title-img">
-    <div class="hero-divider"></div>
-    <div class="hero-meta">
-      <div class="hero-meta-item">
-        <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-        日期待公告
+    <img src="logo標準字.png" alt="臺大音韻獎" class="hero-logo" onerror="this.outerHTML='<p style=&quot;font-family:Noto Serif TC,serif;font-size:2rem;color:#F5C842;letter-spacing:.2em;margin-bottom:1rem;&quot;>臺大音韻獎</p>'">
+    <p class="hero-year">2026 · 第十三屆</p>
+    <div class="announce">
+      <div class="announce-tag">賽事公告</div>
+      <p class="announce-title">賽事活動公告！</p>
+      <div class="announce-row">
+        <span class="announce-label">賽事</span>
+        <span class="announce-val">複賽</span>
       </div>
-      <div class="hero-meta-item">
-        <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
-        地點待公告
+      <div class="announce-row">
+        <span class="announce-label">時間</span>
+        <span class="announce-val">6 / 13（六）、6 / 14（日）</span>
       </div>
-      <div class="hero-meta-item">
-        <svg viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
-        四大競賽組別
+      <div class="announce-row">
+        <span class="announce-label">地點</span>
+        <span class="announce-val">臺大外教中心劇場</span>
       </div>
+      <p class="announce-note">🦋 歡迎觀眾入場欣賞表演</p>
     </div>
   </div>
 </section>
 
-<!-- 關於音韻獎 — 三欄介紹 -->
+<!-- 關於音韻 白底 -->
 <section class="section" id="about">
-  <div class="container">
-    <div class="section-header">
-      <p class="section-eyebrow">ABOUT NTU MUSIC AWARD</p>
-      <h2 class="section-title">關於臺大音韻獎</h2>
+  <div class="section-header">
+    <p class="section-eyebrow">ABOUT</p>
+    <h2 class="section-title">關於音韻獎</h2>
+    <div class="section-divider"></div>
+  </div>
+  <div class="stats-grid">
+    <div>
+      <p class="stat-num">13</p>
+      <p class="stat-label">屆歷史</p>
     </div>
-    <div class="intro-grid">
-      <div class="intro-card">
-        <div class="intro-icon">🎤</div>
-        <p class="intro-name">獨唱組</p>
-        <p class="intro-desc">展現個人嗓音魅力，學生組與社會組分開競賽，給每位愛好歌唱者舞台。</p>
-      </div>
-      <div class="intro-card">
-        <div class="intro-icon">🎵</div>
-        <p class="intro-name">重、對唱組</p>
-        <p class="intro-desc">兩人以上的默契與和聲，在舞台上呈現聲部交融的音樂之美。</p>
-      </div>
-      <div class="intro-card">
-        <div class="intro-icon">✍️</div>
-        <p class="intro-name">創作組</p>
-        <p class="intro-desc">原創歌曲完整演出，讓有創作夢想的學生在全國舞台發光。</p>
-      </div>
+    <div>
+      <p class="stat-num">930+</p>
+      <p class="stat-label">初賽名額</p>
+    </div>
+    <div>
+      <p class="stat-num">4</p>
+      <p class="stat-label">競賽組別</p>
     </div>
   </div>
 </section>
 
-<!-- 統計數字區 — 全版背景 -->
-<section class="stats-section">
-  <div class="stats-overlay"></div>
-  <div class="stats-content">
-    <p class="stats-eyebrow">SCALE & IMPACT</p>
-    <h2 class="stats-title">音韻獎的規模</h2>
-    <div class="stats-grid">
-      <div class="stat-item">
-        <p class="stat-num">13</p>
-        <p class="stat-label">屆歷史</p>
-      </div>
-      <div class="stat-item">
-        <p class="stat-num">930<span style="font-size:2rem;">+</span></p>
-        <p class="stat-label">初賽報名名額</p>
-      </div>
-      <div class="stat-item">
-        <p class="stat-num">4</p>
-        <p class="stat-label">競賽組別</p>
-      </div>
+<!-- 競賽組別 灰底 -->
+<section class="section section-gray" id="player">
+  <div class="section-header">
+    <p class="section-eyebrow">CATEGORIES</p>
+    <h2 class="section-title">競賽組別</h2>
+    <div class="section-divider"></div>
+  </div>
+  <div class="cat-grid">
+    <div class="cat-card">
+      <p class="cat-name">學生獨唱組</p>
+      <p class="cat-tag">全國大專院校在校學生</p>
+      <div class="quota-row"><span class="quota-stage">初賽</span><span class="quota-num">400 位</span></div>
+      <div class="quota-row"><span class="quota-stage">複賽</span><span class="quota-num">100 位</span></div>
+      <div class="quota-row"><span class="quota-stage">決賽</span><span class="quota-num">10 位</span></div>
+    </div>
+    <div class="cat-card">
+      <p class="cat-name">社會獨唱組</p>
+      <p class="cat-tag">全國愛好歌唱者</p>
+      <div class="quota-row"><span class="quota-stage">初賽</span><span class="quota-num">400 位</span></div>
+      <div class="quota-row"><span class="quota-stage">複賽</span><span class="quota-num">100 位</span></div>
+      <div class="quota-row"><span class="quota-stage">決賽</span><span class="quota-num">10 位</span></div>
+    </div>
+    <div class="cat-card">
+      <p class="cat-name">重、對唱組</p>
+      <p class="cat-tag">全國大專院校在校學生</p>
+      <div class="quota-row"><span class="quota-stage">初賽</span><span class="quota-num">50 組</span></div>
+      <div class="quota-row"><span class="quota-stage">複賽</span><span class="quota-num">20 組</span></div>
+      <div class="quota-row"><span class="quota-stage">決賽</span><span class="quota-num">6 組</span></div>
+    </div>
+    <div class="cat-card">
+      <p class="cat-name">創作組</p>
+      <p class="cat-tag">全國大專院校在校學生</p>
+      <div class="quota-row"><span class="quota-stage">初賽</span><span class="quota-num">80 組</span></div>
+      <div class="quota-row"><span class="quota-stage">複賽</span><span class="quota-num">30 組</span></div>
+      <div class="quota-row"><span class="quota-stage">決賽</span><span class="quota-num">6 組</span></div>
     </div>
   </div>
 </section>
 
-<!-- 競賽組別 -->
-<section class="section section-alt" id="categories">
-  <div class="container">
-    <div class="section-header">
-      <p class="section-eyebrow">COMPETITION CATEGORIES</p>
-      <h2 class="section-title">競賽組別</h2>
-    </div>
-    <div class="category-grid">
-      <div class="cat-card">
-        <p class="cat-name">學生獨唱組</p>
-        <p class="cat-eligibility">全國大專院校在校學生（含碩、博士生）</p>
-        <table class="quota-table">
-          <tr><td class="quota-stage">初賽</td><td class="quota-num">400 位<span class="quota-note">依繳費順序，額滿為止</span></td></tr>
-          <tr><td class="quota-stage">複賽</td><td class="quota-num">100 位<span class="quota-note">現場清唱</span></td></tr>
-          <tr><td class="quota-stage">決賽</td><td class="quota-num">10 位<span class="quota-note">現場伴奏（禁伴唱帶）</span></td></tr>
-        </table>
-      </div>
-      <div class="cat-card">
-        <p class="cat-name">社會獨唱組</p>
-        <p class="cat-eligibility">全國愛好歌唱者（不受年齡限制）</p>
-        <table class="quota-table">
-          <tr><td class="quota-stage">初賽</td><td class="quota-num">400 位<span class="quota-note">依繳費順序，額滿為止</span></td></tr>
-          <tr><td class="quota-stage">複賽</td><td class="quota-num">100 位<span class="quota-note">現場清唱</span></td></tr>
-          <tr><td class="quota-stage">決賽</td><td class="quota-num">10 位<span class="quota-note">現場伴奏（禁伴唱帶）</span></td></tr>
-        </table>
-      </div>
-      <div class="cat-card">
-        <p class="cat-name">重、對唱組</p>
-        <p class="cat-eligibility">全國大專院校在校學生（含碩、博士生）</p>
-        <table class="quota-table">
-          <tr><td class="quota-stage">初賽</td><td class="quota-num">50 組<span class="quota-note">依繳費順序，額滿為止</span></td></tr>
-          <tr><td class="quota-stage">複賽</td><td class="quota-num">20 組<span class="quota-note">現場清唱</span></td></tr>
-          <tr><td class="quota-stage">決賽</td><td class="quota-num">6 組<span class="quota-note">現場伴奏（禁伴唱帶）</span></td></tr>
-        </table>
-      </div>
-      <div class="cat-card">
-        <p class="cat-name">創作組</p>
-        <p class="cat-eligibility">全國大專院校在校學生（含碩、博士生）</p>
-        <table class="quota-table">
-          <tr><td class="quota-stage">初賽</td><td class="quota-num">80 組<span class="quota-note">依繳費順序，額滿為止</span></td></tr>
-          <tr><td class="quota-stage">複賽</td><td class="quota-num">30 組<span class="quota-note">完整呈現創作歌曲</span></td></tr>
-          <tr><td class="quota-stage">決賽</td><td class="quota-num">6 組<span class="quota-note">現場伴奏（禁伴唱帶）</span></td></tr>
-        </table>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 複賽節目表 -->
+<!-- 複賽節目表 白底 -->
 <section class="section" id="schedule">
-  <div class="container">
-    <div class="section-header">
-      <p class="section-eyebrow">SEMIFINAL PROGRAM</p>
-      <h2 class="section-title">複賽節目表</h2>
-    </div>
-    <div class="schedule-wrap">
-      <div class="placeholder-note">節目表資料即將公告，敬請期待</div>
-    </div>
+  <div class="section-header">
+    <p class="section-eyebrow">SEMIFINAL PROGRAM</p>
+    <h2 class="section-title">複賽節目表</h2>
+    <div class="section-divider"></div>
+  </div>
+  <div class="schedule-wrap">
+    <div class="placeholder">節目表資料即將公告，敬請期待</div>
   </div>
 </section>
 
-<!-- 注意事項 -->
-<section class="section section-alt">
-  <div class="container">
-    <div class="section-header">
-      <p class="section-eyebrow">IMPORTANT NOTES</p>
-      <h2 class="section-title">注意事項</h2>
-    </div>
-    <div class="notes-list">
-      <div class="note-item"><div class="note-marker">1</div><span>學生獨唱組與社會獨唱組不得同時報名。</span></div>
-      <div class="note-item"><div class="note-marker">2</div><span>重、對唱組不得跨團重複報名。</span></div>
-      <div class="note-item"><div class="note-marker">3</div><span>創作組不得跨團重複報名。</span></div>
-    </div>
+<!-- 注意事項 灰底 -->
+<section class="section section-gray">
+  <div class="section-header">
+    <p class="section-eyebrow">NOTES</p>
+    <h2 class="section-title">注意事項</h2>
+    <div class="section-divider"></div>
+  </div>
+  <div class="notes-list">
+    <div class="note-item"><div class="note-num">1</div><span>學生獨唱組與社會獨唱組不得同時報名。</span></div>
+    <div class="note-item"><div class="note-num">2</div><span>重、對唱組不得跨團重複報名。</span></div>
+    <div class="note-item"><div class="note-num">3</div><span>創作組不得跨團重複報名。</span></div>
   </div>
 </section>
 
-<!-- FOOTER 多欄 -->
+<!-- FOOTER 深綠 -->
 <footer id="contact">
-  <div class="footer-grid">
-    <div class="footer-col">
-      <p class="footer-logo">臺大音韻獎</p>
-      <p style="font-size:12px; color:rgba(253,245,224,0.35); letter-spacing:0.08em;">NTU MUSIC AWARD 13TH</p>
-    </div>
-    <div class="footer-col">
-      <p class="footer-col-title">快速連結</p>
-      <a href="#about">關於音韻獎</a>
-      <a href="#categories">競賽組別</a>
-      <a href="#schedule">複賽節目表</a>
-    </div>
-    <div class="footer-col">
-      <p class="footer-col-title">聯絡我們</p>
-      <a href="mailto:ntumusicawardofficial@gmail.com">ntumusicawardofficial@gmail.com</a>
-      <a href="https://www.instagram.com/ntu_musicawards" target="_blank">Instagram @ntu_musicawards</a>
-    </div>
+  <img src="logo標準字.png" alt="臺大音韻獎" class="footer-logo" onerror="this.outerHTML='<p style=&quot;color:#F5C842;font-size:14px;letter-spacing:.1em;margin-bottom:1rem;&quot;>臺大音韻獎</p>'">
+  <div class="footer-links">
+    <a href="#about">關於音韻</a>
+    <a href="#player">選手專區</a>
+    <a href="#schedule">複賽節目表</a>
+    <a href="mailto:ntumusicawardofficial@gmail.com">ntumusicawardofficial@gmail.com</a>
   </div>
-  <div class="footer-bottom">
-    © 2025 第十三屆臺大音韻獎工作團隊．All rights reserved.
+  <div class="footer-social">
+    <a href="https://www.instagram.com/ntu_musicawards" target="_blank">Instagram</a>
   </div>
+  <div class="footer-bottom">© 2026 第十三屆臺大音韻獎工作團隊</div>
 </footer>
 
 </body>
