@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第十三屆臺大音韻獎</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300;400;500;700&family=Noto+Sans+TC:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root { --green: #1A2F23; }
+  body { font-family: 'Noto Sans TC', sans-serif; background: #fff; color: #1a1a1a; margin: 0; }
+  .rnd { font-family: 'M PLUS Rounded 1c', sans-serif; }
+  .fade-in { animation: fadeIn 0.45s ease forwards; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+  .hero-wrap { background: var(--green); position: relative; }
+  .hero-arc {
+    position: absolute;
+    bottom: -1px; left: -5%; right: -5%;
+    height: 52px;
+    background: #fff;
+    border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+  }
+  .tab-active {
+    background: var(--green) !important;
+    color: #fff !important;
+    border-color: var(--green) !important;
+  }
+  .nav-active { color: #1A2F23 !important; border-bottom: 2px solid #1A2F23; }
+  html { scroll-behavior: smooth; }
+</style>
+</head>
+<body class="bg-white">
+
+<!-- ── 頂部導覽列（白底，sticky） ── -->
+<header class="bg-white sticky top-0 z-50 border-b border-gray-100 shadow-sm">
+  <div class="max-w-lg mx-auto px-4 py-3 flex items-center justify-between">
+    <a href="#top">
+      <img src="logo標準字.png" alt="臺大音韻獎" class="h-8 object-contain"
+        onerror="this.outerHTML='<div class=\'rnd font-bold text-sm leading-tight\' style=\'color:#1A2F23\'>臺大音韻獎<span class=\'block text-[9px] font-normal tracking-widest text-gray-400\'>NTU MUSIC AWARD</span></div>'">
+    </a>
+    <nav class="flex gap-3 sm:gap-5 items-center">
+      <a href="#about" class="rnd text-[11px] text-gray-400 tracking-wide hover:text-[#1A2F23] transition-colors">關於音韻</a>
+      <a href="#player" class="rnd text-[11px] text-gray-400 tracking-wide hover:text-[#1A2F23] transition-colors">賽事活動</a>
+      <a href="#player" class="rnd text-[11px] text-gray-400 tracking-wide hover:text-[#1A2F23] transition-colors">選手專區</a>
+      <a href="#footer" class="rnd text-[11px] text-gray-400 tracking-wide hover:text-[#1A2F23] transition-colors">聯絡我們</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ── Hero Banner（深綠 + 弧線底端） ── -->
+<div id="top" class="hero-wrap pt-14 pb-20 px-6 text-center relative overflow-hidden">
+  <div class="absolute inset-0 opacity-[0.07]"
+    style="background-image:url('主題.png');background-size:cover;background-position:center top;"></div>
+  <div class="relative z-10 max-w-lg mx-auto flex flex-col items-center">
+    <p class="rnd text-[10px] tracking-[0.25em] text-emerald-300 mb-4">2026 · 第十三屆</p>
+    <img src="logo_gold_transparent.png" alt="臺大音韻獎"
+      class="h-16 object-contain mb-4"
+      onerror="this.style.display='none'">
+    <h1 class="rnd text-2xl sm:text-3xl font-bold text-white tracking-wider leading-snug mb-3">
+      賽事活動公告！
+    </h1>
+    <p class="text-emerald-300 text-xs tracking-wide">複賽 · 6/13（六）＆ 6/14（日）· 臺大外教中心劇場</p>
+  </div>
+  <div class="hero-arc"></div>
+</div>
+
+<!-- ── 主內容區 ── -->
+<main class="max-w-lg mx-auto px-6">
+
+  <!-- 區塊一：關於音韻 -->
+  <section id="about" class="pt-12 pb-14">
+    <p class="rnd text-[10px] tracking-[0.2em] text-[#1A2F23] uppercase mb-2">關於音韻</p>
+    <div class="w-6 h-0.5 bg-[#1A2F23] rounded-full mb-6"></div>
+
+    <h2 class="rnd text-2xl font-bold text-[#1A2F23] mb-1 leading-snug">第十三屆臺大音韻獎</h2>
+    <p class="text-[11px] text-gray-400 tracking-[0.15em] mb-10">NTU Music Award 13th</p>
+
+    <div class="space-y-10 text-gray-600 text-[14px] leading-[2] tracking-wide">
+
+      <div>
+        <div class="flex items-center gap-2 mb-4">
+          <div class="w-[3px] h-5 bg-[#1A2F23] rounded-full flex-shrink-0"></div>
+          <p class="rnd font-bold text-[#1A2F23] text-base">活動宗旨</p>
+        </div>
+        <p>本賽事致力於深化全國民眾對音樂活動之參與，全面提升校內外音樂風氣與大眾音樂素養。我們深信音樂的力量源於純粹，因而期盼為全臺音樂愛好者搭建一個具備專業度與包容性的交流平臺。透過切磋、觀摩與高規格的舞臺展演機會，我們希望能發掘校園與社會中深藏的潛力聲音，讓每位熱愛歌唱與創作的朋友皆能在此綻放光芒，將動人的歌聲播揚至大眾心中。</p>
+      </div>
+
+      <div>
+        <div class="flex items-center gap-2 mb-4">
+          <div class="w-[3px] h-5 bg-[#1A2F23] rounded-full flex-shrink-0"></div>
+          <p class="rnd font-bold text-[#1A2F23] text-base">活動介紹</p>
+        </div>
+        <p class="mb-5">「臺大音韻獎」由國立臺灣大學流行音樂歌唱社主辦，為全臺灣少數完全由學生社團獨立籌辦之全國性大型歌唱賽事。自創辦以來，大賽始終抱持對音樂的敬意，致力於為優秀的歌者與音樂創作者打造展現自我的頂尖舞臺。</p>
+        <p class="mb-6">本屆大賽共規劃四大賽事組別：</p>
+        <div class="space-y-5">
+          <div class="pl-4 border-l-2 border-gray-200">
+            <p class="rnd font-medium text-[#1A2F23] text-sm mb-1">學生獨唱組</p>
+            <p class="text-gray-500 text-[13px] leading-[1.9]">匯聚全臺大專院校與高中職之青澀歌聲，展現校園音樂人最純粹的舞台爆發力。</p>
+          </div>
+          <div class="pl-4 border-l-2 border-gray-200">
+            <p class="rnd font-medium text-[#1A2F23] text-sm mb-1">重、對唱組</p>
+            <p class="text-gray-500 text-[13px] leading-[1.9]">強調人聲的和諧共鳴與團隊默契，透過多聲部編排激發音樂的層次美感。</p>
+          </div>
+          <div class="pl-4 border-l-2 border-gray-200">
+            <p class="rnd font-medium text-[#1A2F23] text-sm mb-1">創作組</p>
+            <p class="text-gray-500 text-[13px] leading-[1.9]">鼓勵獨立詞曲創作，提供新生代音樂原創者一個發聲、被音樂產業看見的絕佳平台。</p>
+          </div>
+          <div class="pl-4 border-l-2 border-gray-200">
+            <p class="rnd font-medium text-[#1A2F23] text-sm mb-1">社會獨唱組</p>
+            <p class="text-gray-500 text-[13px] leading-[1.9]">打破年齡與身份限制，全面包容校園外的歌唱愛好者，為卓越歌者提供重溫音樂初衷、一展歌喉的圓夢舞台。</p>
+          </div>
+        </div>
+        <p class="mt-6 text-gray-500 text-[13px] leading-[1.9]">此外，我們長年致力於與各大權威音樂產業、數位平臺及贊助廠商展開深度合作，確保賽事具備極高的專業性、多樣性與活動完整度。</p>
+      </div>
+
+      <div class="pt-6 border-t border-gray-100">
+        <p class="rnd text-[10px] tracking-[0.15em] text-gray-400 uppercase mb-2">主辦單位</p>
+        <p class="rnd font-medium text-[#1A2F23] text-sm">國立臺灣大學流行音樂歌唱社</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 區塊二：選手專區 -->
+  <section id="player" class="pb-16 border-t border-gray-100 pt-12">
+    <p class="rnd text-[10px] tracking-[0.2em] text-[#1A2F23] uppercase mb-2">選手專區</p>
+    <div class="w-6 h-0.5 bg-[#1A2F23] rounded-full mb-6"></div>
+    <h2 class="rnd text-2xl font-bold text-[#1A2F23] mb-2">您的音樂旅程從這裡開始</h2>
+    <p class="text-[13px] text-gray-400 mb-8 tracking-wide">請選擇您的賽事階段</p>
+
+    <!-- 三個橫向並排按鈕 -->
+    <div class="flex gap-3 mb-8">
+      <button
+        class="rnd flex-1 py-5 rounded-2xl border border-gray-200 text-gray-400 text-[13px] font-medium text-center transition-all cursor-default select-none"
+        disabled>
+        <span class="block text-xl mb-2">🎤</span>
+        報名與初賽
+      </button>
+      <button id="btn-semifinal"
+        onclick="toggleSemifinal()"
+        class="tab-active rnd flex-1 py-5 rounded-2xl border text-[13px] font-medium text-center transition-all">
+        <span class="block text-xl mb-2">🎵</span>
+        複賽
+      </button>
+      <button
+        class="rnd flex-1 py-5 rounded-2xl border border-gray-200 text-gray-400 text-[13px] font-medium text-center transition-all cursor-default select-none"
+        disabled>
+        <span class="block text-xl mb-2">🏆</span>
+        決賽
+      </button>
+    </div>
+
+    <!-- 複賽專屬內容區 -->
+    <div id="semifinal-content" class="fade-in">
+
+      <!-- 流程表 & 賽程表 -->
+      <div class="grid grid-cols-2 gap-4 mb-5">
+        <a href="#"
+          class="border border-gray-100 rounded-2xl p-5 block hover:bg-gray-50 transition-all">
+          <p class="text-xl mb-3">📋</p>
+          <p class="rnd font-medium text-[#1A2F23] text-sm mb-1">流程表</p>
+          <p class="text-[11px] text-gray-400 leading-relaxed mb-3">從報到、試音到演出的完整時間規劃</p>
+          <span class="text-[11px] text-[#1A2F23] font-medium">連結跳轉 →</span>
+        </a>
+        <a href="#"
+          class="border border-gray-100 rounded-2xl p-5 block hover:bg-gray-50 transition-all">
+          <p class="text-xl mb-3">🎼</p>
+          <p class="rnd font-medium text-[#1A2F23] text-sm mb-1">賽程表</p>
+          <p class="text-[11px] text-gray-400 leading-relaxed mb-3">查詢上台序號與預計表演時間</p>
+          <span class="text-[11px] text-[#1A2F23] font-medium">連結跳轉 →</span>
+        </a>
+      </div>
+
+      <!-- 注意事項 -->
+      <div class="border border-gray-100 rounded-2xl p-5 mb-5">
+        <p class="rnd text-[10px] text-gray-400 uppercase tracking-[0.15em] mb-4">注意事項</p>
+        <div class="flex gap-4 items-start">
+          <span class="rnd text-[11px] text-[#1A2F23] font-medium min-w-[28px] mt-0.5 flex-shrink-0">地點</span>
+          <div>
+            <p class="text-[13px] text-gray-700 leading-relaxed">國立臺灣大學第二學生活動中心</p>
+            <a href="https://maps.google.com/?q=國立臺灣大學第二學生活動中心" target="_blank"
+              class="text-[11px] text-[#1A2F23] mt-1.5 inline-block underline underline-offset-2 hover:opacity-70 transition-opacity">
+              查看路線圖
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 置底小提醒 -->
+      <p class="text-center text-gray-300 text-[11px] leading-relaxed tracking-wide mt-8 pb-4">
+        小提醒 · 天雨路滑請小心<br>臺大音韻獎關心您 🦋
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<!-- 區塊三：聯絡我們（深綠頁尾） -->
+<footer id="footer" class="bg-[#1A2F23] px-6 pt-12 pb-8 mt-2">
+  <div class="max-w-lg mx-auto">
+    <img src="logo標準字.png" alt="臺大音韻獎"
+      class="h-8 object-contain mb-6 brightness-110"
+      onerror="this.outerHTML='<p class=\'rnd text-white text-base font-bold tracking-wider mb-6\'>臺大音韻獎</p>'">
+
+    <div class="space-y-4 mb-8">
+      <a href="mailto:ntumusicawardofficial@gmail.com"
+        class="flex items-center gap-4 group">
+        <span class="text-xl">✉️</span>
+        <div>
+          <p class="text-[10px] text-emerald-400 tracking-[0.12em] mb-0.5 rnd">官方信箱</p>
+          <p class="text-[13px] text-white opacity-70 group-hover:opacity-100 transition-opacity">ntumusicawardofficial@gmail.com</p>
+        </div>
+      </a>
+      <a href="https://www.facebook.com/NTUMusicAward" target="_blank"
+        class="flex items-center gap-4 group">
+        <span class="text-xl">📘</span>
+        <div>
+          <p class="text-[10px] text-emerald-400 tracking-[0.12em] mb-0.5 rnd">臉書專頁</p>
+          <p class="text-[13px] text-white opacity-70 group-hover:opacity-100 transition-opacity">NTU Music Award</p>
+        </div>
+      </a>
+      <a href="https://www.instagram.com/ntu_musicawards" target="_blank"
+        class="flex items-center gap-4 group">
+        <span class="text-xl">📷</span>
+        <div>
+          <p class="text-[10px] text-emerald-400 tracking-[0.12em] mb-0.5 rnd">Instagram</p>
+          <p class="text-[13px] text-white opacity-70 group-hover:opacity-100 transition-opacity">@ntu_musicawards</p>
+        </div>
+      </a>
+    </div>
+
+    <div class="border-t border-white border-opacity-10 pt-6 text-center">
+      <p class="rnd text-[11px] text-emerald-400 tracking-wide mb-1">主辦單位</p>
+      <p class="text-[12px] text-white opacity-50">國立臺灣大學流行音樂歌唱社</p>
+      <p class="text-[10px] text-white opacity-25 mt-3">© 2026 第十三屆臺大音韻獎 · All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function toggleSemifinal() {
+    const content = document.getElementById('semifinal-content');
+    content.classList.remove('fade-in');
+    void content.offsetWidth;
+    content.classList.add('fade-in');
+  }
+</script>
+</body>
+</html>
