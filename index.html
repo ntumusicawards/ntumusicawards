@@ -69,6 +69,13 @@
     .semifinal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
   }
 
+
+  /* 手機版 hero */
+  #hero-main-div { background-image: url('hero_bg.png'); }
+  /* 電腦版 hero 換圖 */
+  @media (min-width: 768px) {
+    #hero-main-div { background-image: url('hero_bg_desktop.png'); background-position: center 40%; }
+  }
 </style>
 </head>
 <body class="bg-white">
@@ -92,7 +99,7 @@
 </header>
 
 <!-- ══ HERO MAIN ══ -->
-<div id="hero-main" class="relative overflow-hidden" style="background-image:url('hero_bg.png');background-size:cover;background-position:center 25%;min-height:55vw;max-height:75vh;">
+<div id="hero-main" class="relative overflow-hidden" style="background-size:cover;background-position:center 25%;min-height:55vw;max-height:75vh;" id="hero-main-div">
   <!-- 底部弧線過渡到白色 -->
   <div class="hero-arc"></div>
 </div>
@@ -378,7 +385,6 @@
       </button>
     </div>
 
-    <!-- 6/13 內容 -->
     <div id="day-613">
 
     <div class="mb-3 border border-gray-100 rounded-2xl overflow-hidden">
@@ -388,117 +394,141 @@
       </button>
       <div class="acc-content open px-3 pb-3">
         <div class="flex border-b border-gray-100">
-          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
             <span class="rnd text-[10px] text-gray-300 mb-1">01</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">鍾昊宇 piling</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">鍾昊宇 piling</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
             <span class="rnd text-[10px] text-gray-300 mb-1">02</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">吳紀綸(Addice)</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">吳紀綸(Addice)</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
             <span class="rnd text-[10px] text-gray-300 mb-1">03</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">王盈晰</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">王盈晰</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
             <span class="rnd text-[10px] text-gray-300 mb-1">04</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">楊即心</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">楊即心</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
             <span class="rnd text-[10px] text-gray-300 mb-1">05</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">葉騰謙</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">葉騰謙</span>
           </div>
         </div>
         <div class="flex border-b border-gray-100">
-          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
             <span class="rnd text-[10px] text-gray-300 mb-1">06</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">許巧薇</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">許巧薇</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
             <span class="rnd text-[10px] text-gray-300 mb-1">07</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">徐語翻</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">徐語翻</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
             <span class="rnd text-[10px] text-gray-300 mb-1">08</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">廖曼臻</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">廖曼臻</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
             <span class="rnd text-[10px] text-gray-300 mb-1">09</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">蘇湘</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">蘇湘</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
             <span class="rnd text-[10px] text-gray-300 mb-1">10</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">張凱婷</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">張凱婷</span>
           </div>
         </div>
         <div class="flex border-b border-gray-100">
-          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
             <span class="rnd text-[10px] text-gray-300 mb-1">11</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">張雅涵</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">張雅涵</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
             <span class="rnd text-[10px] text-gray-300 mb-1">12</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">張芳瑜</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">張芳瑜</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
             <span class="rnd text-[10px] text-gray-300 mb-1">13</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">楊舒涵</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">楊舒涵</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
             <span class="rnd text-[10px] text-gray-300 mb-1">14</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">簡佳妤</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">簡佳妤</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
             <span class="rnd text-[10px] text-gray-300 mb-1">15</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">張喬柏</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">張喬柏</span>
           </div>
         </div>
         <div class="flex border-b border-gray-100">
-          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
             <span class="rnd text-[10px] text-gray-300 mb-1">16</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">張凱寧</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">張凱寧</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
             <span class="rnd text-[10px] text-gray-300 mb-1">17</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">楊司齊</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">楊司齊</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
             <span class="rnd text-[10px] text-gray-300 mb-1">18</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">吳亞都</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">吳亞都</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
             <span class="rnd text-[10px] text-gray-300 mb-1">19</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">莊淇安</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">莊淇安</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
             <span class="rnd text-[10px] text-gray-300 mb-1">20</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">楊絜琳</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">楊絜琳</span>
           </div>
         </div>
         <div class="flex border-b border-gray-100">
-          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
             <span class="rnd text-[10px] text-gray-300 mb-1">21</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">陳姿穎</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">陳姿穎</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
             <span class="rnd text-[10px] text-gray-300 mb-1">22</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">林新泓</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">林新泓</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
             <span class="rnd text-[10px] text-gray-300 mb-1">23</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">黃敏郡</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">黃敏郡</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
             <span class="rnd text-[10px] text-gray-300 mb-1">24</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">蘇品瑄</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">蘇品瑄</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
             <span class="rnd text-[10px] text-gray-300 mb-1">25</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">張婷萱</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">張婷萱</span>
           </div>
         </div>
         <div class="flex border-b border-gray-100">
-          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
             <span class="rnd text-[10px] text-gray-300 mb-1">26</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">何子筠</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">何子筠</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
             <span class="rnd text-[10px] text-gray-300 mb-1">27</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">張藝馨</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">張藝馨</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
             <span class="rnd text-[10px] text-gray-300 mb-1">28</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">廖御辰</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">廖御辰</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
             <span class="rnd text-[10px] text-gray-300 mb-1">29</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">游筱潔</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">游筱潔</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
             <span class="rnd text-[10px] text-gray-300 mb-1">30</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">簡福金</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">簡福金</span>
           </div>
         </div>
         <div class="flex">
-          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
             <span class="rnd text-[10px] text-gray-300 mb-1">31</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">陳鼎璿</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">陳鼎璿</span>
           </div>
         </div>
       </div>
@@ -510,108 +540,131 @@
       </button>
       <div class="acc-content px-3 pb-3">
         <div class="flex border-b border-gray-100">
-          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
             <span class="rnd text-[10px] text-gray-300 mb-1">01</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">劉閔晴</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">劉閔晴</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
             <span class="rnd text-[10px] text-gray-300 mb-1">02</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">黃千益</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">黃千益</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
             <span class="rnd text-[10px] text-gray-300 mb-1">03</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">江祐瑋</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">江祐瑋</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
             <span class="rnd text-[10px] text-gray-300 mb-1">04</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">蔣佳彤</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">蔣佳彤</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
             <span class="rnd text-[10px] text-gray-300 mb-1">05</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">陳亦蓁</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">陳亦蓁</span>
           </div>
         </div>
         <div class="flex border-b border-gray-100">
-          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
             <span class="rnd text-[10px] text-gray-300 mb-1">06</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">陳又煊</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">陳又煊</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
             <span class="rnd text-[10px] text-gray-300 mb-1">07</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">陳韋澄</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">陳韋澄</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
             <span class="rnd text-[10px] text-gray-300 mb-1">08</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">潘冠宇</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">潘冠宇</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
             <span class="rnd text-[10px] text-gray-300 mb-1">09</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">王尹均</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">王尹均</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
             <span class="rnd text-[10px] text-gray-300 mb-1">10</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">林彤恩</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">林彤恩</span>
           </div>
         </div>
         <div class="flex border-b border-gray-100">
-          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
             <span class="rnd text-[10px] text-gray-300 mb-1">11</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">賀伊帆</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">賀伊帆</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
             <span class="rnd text-[10px] text-gray-300 mb-1">12</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">陳俊辰</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">陳俊辰</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
             <span class="rnd text-[10px] text-gray-300 mb-1">13</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">羅怡宣</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">羅怡宣</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
             <span class="rnd text-[10px] text-gray-300 mb-1">14</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">張瑜丞</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">張瑜丞</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
             <span class="rnd text-[10px] text-gray-300 mb-1">15</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">郭昊叡</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">郭昊叡</span>
           </div>
         </div>
         <div class="flex border-b border-gray-100">
-          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
             <span class="rnd text-[10px] text-gray-300 mb-1">16</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">李詩穎</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">李詩穎</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
             <span class="rnd text-[10px] text-gray-300 mb-1">17</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">洪紹綺</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">洪紹綺</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
             <span class="rnd text-[10px] text-gray-300 mb-1">18</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">蔡秉言</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">蔡秉言</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
             <span class="rnd text-[10px] text-gray-300 mb-1">19</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">郭宇傑</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">郭宇傑</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
             <span class="rnd text-[10px] text-gray-300 mb-1">20</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">黃鈺淇</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">黃鈺淇</span>
           </div>
         </div>
         <div class="flex border-b border-gray-100">
-          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
             <span class="rnd text-[10px] text-gray-300 mb-1">21</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">蕭詠嘉</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">蕭詠嘉</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
             <span class="rnd text-[10px] text-gray-300 mb-1">22</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">江芷安</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">江芷安</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
             <span class="rnd text-[10px] text-gray-300 mb-1">23</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">蔡瑋峻</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">蔡瑋峻</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
             <span class="rnd text-[10px] text-gray-300 mb-1">24</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">王雯芯</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">王雯芯</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
             <span class="rnd text-[10px] text-gray-300 mb-1">25</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">林柏瑋</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">林柏瑋</span>
           </div>
         </div>
         <div class="flex">
-          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
             <span class="rnd text-[10px] text-gray-300 mb-1">26</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">譚雋</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">譚雋</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
             <span class="rnd text-[10px] text-gray-300 mb-1">27</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">陳祈文</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">陳祈文</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
             <span class="rnd text-[10px] text-gray-300 mb-1">28</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">梁宛璇</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">梁宛璇</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
             <span class="rnd text-[10px] text-gray-300 mb-1">29</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">林庭安</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">林庭安</span>
           </div>
         </div>
       </div>
@@ -621,69 +674,163 @@
         <div><p class="rnd font-semibold text-[#1A2F23] text-sm">學生獨唱組 · 第三梯次</p><p class="text-[11px] text-emerald-700 mt-0.5">14:00 – 15:00　共 35 位</p></div>
         <span class="acc-arrow text-gray-400 text-lg">▾</span>
       </button>
-      <div class="acc-content">
-        <div class="overflow-x-auto px-4 pb-4 md:px-6">
-          <div class="flex gap-0 min-w-max">
-          <div class="flex flex-col w-28 flex-shrink-0">
-            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">01</span><span class="text-[13px] text-gray-700 ml-2">李語霏</span></div>
-            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">02</span><span class="text-[13px] text-gray-700 ml-2">蔡景翔</span></div>
-            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">03</span><span class="text-[13px] text-gray-700 ml-2">忻思霆</span></div>
-            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">04</span><span class="text-[13px] text-gray-700 ml-2">羅宇騰</span></div>
-            <div class="flex items-center gap-2 py-2.5"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">05</span><span class="text-[13px] text-gray-700 ml-2">陳亮亦</span></div>
+      <div class="acc-content px-3 pb-3">
+        <div class="flex border-b border-gray-100">
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
+            <span class="rnd text-[10px] text-gray-300 mb-1">01</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">李語霏</span>
           </div>
-          <div class="w-px bg-gray-100 mx-3 self-stretch"></div>
-          <div class="flex flex-col w-20 flex-shrink-0">
-            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">06</span><span class="text-[13px] text-gray-700 ml-2">羅怡宣</span></div>
-            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">07</span><span class="text-[13px] text-gray-700 ml-2">胡恩綺</span></div>
-            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">08</span><span class="text-[13px] text-gray-700 ml-2">陳映妤</span></div>
-            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">09</span><span class="text-[13px] text-gray-700 ml-2">沈士紘</span></div>
-            <div class="flex items-center gap-2 py-2.5"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">10</span><span class="text-[13px] text-gray-700 ml-2">謝佳玲</span></div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
+            <span class="rnd text-[10px] text-gray-300 mb-1">02</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">蔡景翔</span>
           </div>
-          <div class="w-px bg-gray-100 mx-3 self-stretch"></div>
-          <div class="flex flex-col w-20 flex-shrink-0">
-            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">11</span><span class="text-[13px] text-gray-700 ml-2">曾昱文</span></div>
-            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">12</span><span class="text-[13px] text-gray-700 ml-2">黃馨誼</span></div>
-            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">13</span><span class="text-[13px] text-gray-700 ml-2">鄔綺真</span></div>
-            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">14</span><span class="text-[13px] text-gray-700 ml-2">陳柔臻</span></div>
-            <div class="flex items-center gap-2 py-2.5"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">15</span><span class="text-[13px] text-gray-700 ml-2">王瑞逸</span></div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
+            <span class="rnd text-[10px] text-gray-300 mb-1">03</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">忻思霆</span>
           </div>
-          <div class="w-px bg-gray-100 mx-3 self-stretch"></div>
-          <div class="flex flex-col w-20 flex-shrink-0">
-            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">16</span><span class="text-[13px] text-gray-700 ml-2">宋修宏</span></div>
-            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">17</span><span class="text-[13px] text-gray-700 ml-2">張皓天</span></div>
-            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">18</span><span class="text-[13px] text-gray-700 ml-2">莊家瑋</span></div>
-            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">19</span><span class="text-[13px] text-gray-700 ml-2">黃亭尹</span></div>
-            <div class="flex items-center gap-2 py-2.5"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">20</span><span class="text-[13px] text-gray-700 ml-2">王千妤</span></div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
+            <span class="rnd text-[10px] text-gray-300 mb-1">04</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">羅宇騰</span>
           </div>
-          <div class="w-px bg-gray-100 mx-3 self-stretch"></div>
-          <div class="flex flex-col w-20 flex-shrink-0">
-            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">21</span><span class="text-[13px] text-gray-700 ml-2">蔡博宇</span></div>
-            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">22</span><span class="text-[13px] text-gray-700 ml-2">劉閔晴</span></div>
-            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">23</span><span class="text-[13px] text-gray-700 ml-2">谷珮瑀</span></div>
-            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">24</span><span class="text-[13px] text-gray-700 ml-2">曾詩喻</span></div>
-            <div class="flex items-center gap-2 py-2.5"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">25</span><span class="text-[13px] text-gray-700 ml-2">程靖涵</span></div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
+            <span class="rnd text-[10px] text-gray-300 mb-1">05</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">陳亮亦</span>
           </div>
-          <div class="w-px bg-gray-100 mx-3 self-stretch"></div>
-          <div class="flex flex-col w-20 flex-shrink-0">
-            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">26</span><span class="text-[13px] text-gray-700 ml-2">蘇琮棋</span></div>
-            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">27</span><span class="text-[13px] text-gray-700 ml-2">陳姿媛</span></div>
-            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">28</span><span class="text-[13px] text-gray-700 ml-2">董宸妤</span></div>
-            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">29</span><span class="text-[13px] text-gray-700 ml-2">嚴連祥</span></div>
-            <div class="flex items-center gap-2 py-2.5"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">30</span><span class="text-[13px] text-gray-700 ml-2">劉柏毅</span></div>
+        </div>
+        <div class="flex border-b border-gray-100">
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
+            <span class="rnd text-[10px] text-gray-300 mb-1">06</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">羅怡宣</span>
           </div>
-          <div class="w-px bg-gray-100 mx-3 self-stretch"></div>
-          <div class="flex flex-col w-20 flex-shrink-0">
-            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">31</span><span class="text-[13px] text-gray-700 ml-2">林詳諺</span></div>
-            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">32</span><span class="text-[13px] text-gray-700 ml-2">林宥程</span></div>
-            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">33</span><span class="text-[13px] text-gray-700 ml-2">張良遠</span></div>
-            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">34</span><span class="text-[13px] text-gray-700 ml-2">鄭婷云</span></div>
-            <div class="flex items-center gap-2 py-2.5"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">35</span><span class="text-[13px] text-gray-700 ml-2">林宸伃</span></div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
+            <span class="rnd text-[10px] text-gray-300 mb-1">07</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">胡恩綺</span>
           </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
+            <span class="rnd text-[10px] text-gray-300 mb-1">08</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">陳映妤</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
+            <span class="rnd text-[10px] text-gray-300 mb-1">09</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">沈士紘</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
+            <span class="rnd text-[10px] text-gray-300 mb-1">10</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">謝佳玲</span>
+          </div>
+        </div>
+        <div class="flex border-b border-gray-100">
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
+            <span class="rnd text-[10px] text-gray-300 mb-1">11</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">曾昱文</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
+            <span class="rnd text-[10px] text-gray-300 mb-1">12</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">黃馨誼</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
+            <span class="rnd text-[10px] text-gray-300 mb-1">13</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">鄔綺真</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
+            <span class="rnd text-[10px] text-gray-300 mb-1">14</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">陳柔臻</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
+            <span class="rnd text-[10px] text-gray-300 mb-1">15</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">王瑞逸</span>
+          </div>
+        </div>
+        <div class="flex border-b border-gray-100">
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
+            <span class="rnd text-[10px] text-gray-300 mb-1">16</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">宋修宏</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
+            <span class="rnd text-[10px] text-gray-300 mb-1">17</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">張皓天</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
+            <span class="rnd text-[10px] text-gray-300 mb-1">18</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">莊家瑋</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
+            <span class="rnd text-[10px] text-gray-300 mb-1">19</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">黃亭尹</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
+            <span class="rnd text-[10px] text-gray-300 mb-1">20</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">王千妤</span>
+          </div>
+        </div>
+        <div class="flex border-b border-gray-100">
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
+            <span class="rnd text-[10px] text-gray-300 mb-1">21</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">蔡博宇</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
+            <span class="rnd text-[10px] text-gray-300 mb-1">22</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">劉閔晴</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
+            <span class="rnd text-[10px] text-gray-300 mb-1">23</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">谷珮瑀</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
+            <span class="rnd text-[10px] text-gray-300 mb-1">24</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">曾詩喻</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
+            <span class="rnd text-[10px] text-gray-300 mb-1">25</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">程靖涵</span>
+          </div>
+        </div>
+        <div class="flex border-b border-gray-100">
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
+            <span class="rnd text-[10px] text-gray-300 mb-1">26</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">蘇琮棋</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
+            <span class="rnd text-[10px] text-gray-300 mb-1">27</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">陳姿媛</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
+            <span class="rnd text-[10px] text-gray-300 mb-1">28</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">董宸妤</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
+            <span class="rnd text-[10px] text-gray-300 mb-1">29</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">嚴連祥</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
+            <span class="rnd text-[10px] text-gray-300 mb-1">30</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">劉柏毅</span>
+          </div>
+        </div>
+        <div class="flex">
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
+            <span class="rnd text-[10px] text-gray-300 mb-1">31</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">林詳諺</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
+            <span class="rnd text-[10px] text-gray-300 mb-1">32</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">林宥程</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
+            <span class="rnd text-[10px] text-gray-300 mb-1">33</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">張良遠</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
+            <span class="rnd text-[10px] text-gray-300 mb-1">34</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">鄭婷云</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
+            <span class="rnd text-[10px] text-gray-300 mb-1">35</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">林宸伃</span>
           </div>
         </div>
       </div>
     </div>
-
     <div class="mb-3 border border-gray-100 rounded-2xl overflow-hidden">
       <button onclick="toggleAcc(this)" class="w-full flex items-center justify-between px-5 py-4 text-left bg-white">
         <div><p class="rnd font-semibold text-[#1A2F23] text-sm">重、對唱組 · 第一梯次</p><p class="text-[11px] text-emerald-700 mt-0.5">15:10 – 15:50　共 13 組</p></div>
@@ -691,58 +838,67 @@
       </button>
       <div class="acc-content px-3 pb-3">
         <div class="flex border-b border-gray-100">
-          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
             <span class="rnd text-[10px] text-gray-300 mb-1">01</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">張凱婷</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">張凱婷</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
             <span class="rnd text-[10px] text-gray-300 mb-1">02</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">蘇信丞</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">蘇信丞</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
             <span class="rnd text-[10px] text-gray-300 mb-1">03</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">游筱潔</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">游筱潔</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
             <span class="rnd text-[10px] text-gray-300 mb-1">04</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">黃聿寬</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">黃聿寬</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
             <span class="rnd text-[10px] text-gray-300 mb-1">05</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">黃千益</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">黃千益</span>
           </div>
         </div>
         <div class="flex border-b border-gray-100">
-          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
             <span class="rnd text-[10px] text-gray-300 mb-1">06</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">郭昊叡</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">郭昊叡</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
             <span class="rnd text-[10px] text-gray-300 mb-1">07</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">陳俊辰</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">陳俊辰</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
             <span class="rnd text-[10px] text-gray-300 mb-1">08</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">陳祈文</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">陳祈文</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
             <span class="rnd text-[10px] text-gray-300 mb-1">09</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">蔡瑋峻</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">蔡瑋峻</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
             <span class="rnd text-[10px] text-gray-300 mb-1">10</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">盧恩亮</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">盧恩亮</span>
           </div>
         </div>
         <div class="flex">
-          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
             <span class="rnd text-[10px] text-gray-300 mb-1">11</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">易貞伶</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">易貞伶</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
             <span class="rnd text-[10px] text-gray-300 mb-1">12</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">周巧真</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">周巧真</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
             <span class="rnd text-[10px] text-gray-300 mb-1">13</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">蕭鴻喆</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">蕭鴻喆</span>
           </div>
         </div>
       </div>
     </div>
     </div>
 
-    <!-- 6/14 內容 -->
     <div id="day-614" class="hidden">
 
     <div class="mb-3 border border-gray-100 rounded-2xl overflow-hidden">
@@ -750,44 +906,99 @@
         <div><p class="rnd font-semibold text-[#1A2F23] text-sm">社會獨唱組 · 第一梯次</p><p class="text-[11px] text-emerald-700 mt-0.5">10:00 – 10:50　共 21 位</p></div>
         <span class="acc-arrow open text-gray-400 text-lg">▾</span>
       </button>
-      <div class="acc-content open">
-        <div class="overflow-x-auto px-4 pb-4 md:px-6">
-          <div class="flex gap-0 min-w-max">
-          <div class="flex flex-col w-28 flex-shrink-0">
-            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">01</span><span class="text-[13px] text-gray-700 ml-2">林若恩</span></div>
-            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">02</span><span class="text-[13px] text-gray-700 ml-2">魏德軒</span></div>
-            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">03</span><span class="text-[13px] text-gray-700 ml-2">黃宇琛</span></div>
-            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">04</span><span class="text-[13px] text-gray-700 ml-2">林佳駿</span></div>
-            <div class="flex items-center gap-2 py-2.5"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">05</span><span class="text-[13px] text-gray-700 ml-2">黃泰翔</span></div>
+      <div class="acc-content open px-3 pb-3">
+        <div class="flex border-b border-gray-100">
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
+            <span class="rnd text-[10px] text-gray-300 mb-1">01</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">林若恩</span>
           </div>
-          <div class="w-px bg-gray-100 mx-3 self-stretch"></div>
-          <div class="flex flex-col w-20 flex-shrink-0">
-            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">06</span><span class="text-[13px] text-gray-700 ml-2">莊筑馨</span></div>
-            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">07</span><span class="text-[13px] text-gray-700 ml-2">吳允耘</span></div>
-            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">08</span><span class="text-[13px] text-gray-700 ml-2">鄧旭廷</span></div>
-            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">09</span><span class="text-[13px] text-gray-700 ml-2">曾柏魁</span></div>
-            <div class="flex items-center gap-2 py-2.5"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">10</span><span class="text-[13px] text-gray-700 ml-2">尤慈霞</span></div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
+            <span class="rnd text-[10px] text-gray-300 mb-1">02</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">魏德軒</span>
           </div>
-          <div class="w-px bg-gray-100 mx-3 self-stretch"></div>
-          <div class="flex flex-col w-20 flex-shrink-0">
-            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">11</span><span class="text-[13px] text-gray-700 ml-2">張啟恩</span></div>
-            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">12</span><span class="text-[13px] text-gray-700 ml-2">陳君豪</span></div>
-            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">13</span><span class="text-[13px] text-gray-700 ml-2">楊牧恩</span></div>
-            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">14</span><span class="text-[13px] text-gray-700 ml-2">郁文</span></div>
-            <div class="flex items-center gap-2 py-2.5"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">15</span><span class="text-[13px] text-gray-700 ml-2">蕭汶雨</span></div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
+            <span class="rnd text-[10px] text-gray-300 mb-1">03</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">黃宇琛</span>
           </div>
-          <div class="w-px bg-gray-100 mx-3 self-stretch"></div>
-          <div class="flex flex-col w-20 flex-shrink-0">
-            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">16</span><span class="text-[13px] text-gray-700 ml-2">吳秉駿</span></div>
-            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">17</span><span class="text-[13px] text-gray-700 ml-2">吳家瑜</span></div>
-            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">18</span><span class="text-[13px] text-gray-700 ml-2">陳宜樺</span></div>
-            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">19</span><span class="text-[13px] text-gray-700 ml-2">陳思予</span></div>
-            <div class="flex items-center gap-2 py-2.5"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">20</span><span class="text-[13px] text-gray-700 ml-2">黃品翔</span></div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
+            <span class="rnd text-[10px] text-gray-300 mb-1">04</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">林佳駿</span>
           </div>
-          <div class="w-px bg-gray-100 mx-3 self-stretch"></div>
-          <div class="flex flex-col w-20 flex-shrink-0">
-            <div class="flex items-center gap-2 py-2.5"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">21</span><span class="text-[13px] text-gray-700 ml-2">關芃壬</span></div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
+            <span class="rnd text-[10px] text-gray-300 mb-1">05</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">黃泰翔</span>
           </div>
+        </div>
+        <div class="flex border-b border-gray-100">
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
+            <span class="rnd text-[10px] text-gray-300 mb-1">06</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">莊筑馨</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
+            <span class="rnd text-[10px] text-gray-300 mb-1">07</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">吳允耘</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
+            <span class="rnd text-[10px] text-gray-300 mb-1">08</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">鄧旭廷</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
+            <span class="rnd text-[10px] text-gray-300 mb-1">09</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">曾柏魁</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
+            <span class="rnd text-[10px] text-gray-300 mb-1">10</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">尤慈霞</span>
+          </div>
+        </div>
+        <div class="flex border-b border-gray-100">
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
+            <span class="rnd text-[10px] text-gray-300 mb-1">11</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">張啟恩</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
+            <span class="rnd text-[10px] text-gray-300 mb-1">12</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">陳君豪</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
+            <span class="rnd text-[10px] text-gray-300 mb-1">13</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">楊牧恩</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
+            <span class="rnd text-[10px] text-gray-300 mb-1">14</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">郁文</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
+            <span class="rnd text-[10px] text-gray-300 mb-1">15</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">蕭汶雨</span>
+          </div>
+        </div>
+        <div class="flex border-b border-gray-100">
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
+            <span class="rnd text-[10px] text-gray-300 mb-1">16</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">吳秉駿</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
+            <span class="rnd text-[10px] text-gray-300 mb-1">17</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">吳家瑜</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
+            <span class="rnd text-[10px] text-gray-300 mb-1">18</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">陳宜樺</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
+            <span class="rnd text-[10px] text-gray-300 mb-1">19</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">陳思予</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
+            <span class="rnd text-[10px] text-gray-300 mb-1">20</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">黃品翔</span>
+          </div>
+        </div>
+        <div class="flex">
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
+            <span class="rnd text-[10px] text-gray-300 mb-1">21</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">關芃壬</span>
           </div>
         </div>
       </div>
@@ -797,47 +1008,111 @@
         <div><p class="rnd font-semibold text-[#1A2F23] text-sm">社會獨唱組 · 第二梯次</p><p class="text-[11px] text-emerald-700 mt-0.5">11:00 – 11:50　共 24 位</p></div>
         <span class="acc-arrow text-gray-400 text-lg">▾</span>
       </button>
-      <div class="acc-content">
-        <div class="overflow-x-auto px-4 pb-4 md:px-6">
-          <div class="flex gap-0 min-w-max">
-          <div class="flex flex-col w-28 flex-shrink-0">
-            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">01</span><span class="text-[13px] text-gray-700 ml-2">徐霆睿</span></div>
-            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">02</span><span class="text-[13px] text-gray-700 ml-2">劉杰笙</span></div>
-            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">03</span><span class="text-[13px] text-gray-700 ml-2">紀茗仁</span></div>
-            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">04</span><span class="text-[13px] text-gray-700 ml-2">譚宇甯</span></div>
-            <div class="flex items-center gap-2 py-2.5"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">05</span><span class="text-[13px] text-gray-700 ml-2">王智謙</span></div>
+      <div class="acc-content px-3 pb-3">
+        <div class="flex border-b border-gray-100">
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
+            <span class="rnd text-[10px] text-gray-300 mb-1">01</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">徐霆睿</span>
           </div>
-          <div class="w-px bg-gray-100 mx-3 self-stretch"></div>
-          <div class="flex flex-col w-20 flex-shrink-0">
-            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">06</span><span class="text-[13px] text-gray-700 ml-2">鄒汶</span></div>
-            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">07</span><span class="text-[13px] text-gray-700 ml-2">林尹雯</span></div>
-            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">08</span><span class="text-[13px] text-gray-700 ml-2">黃子恩</span></div>
-            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">09</span><span class="text-[13px] text-gray-700 ml-2">高鴻恩</span></div>
-            <div class="flex items-center gap-2 py-2.5"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">10</span><span class="text-[13px] text-gray-700 ml-2">王叡琦</span></div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
+            <span class="rnd text-[10px] text-gray-300 mb-1">02</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">劉杰笙</span>
           </div>
-          <div class="w-px bg-gray-100 mx-3 self-stretch"></div>
-          <div class="flex flex-col w-20 flex-shrink-0">
-            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">11</span><span class="text-[13px] text-gray-700 ml-2">陸郁涵</span></div>
-            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">12</span><span class="text-[13px] text-gray-700 ml-2">曾茹</span></div>
-            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">13</span><span class="text-[13px] text-gray-700 ml-2">謝欣瑋</span></div>
-            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">14</span><span class="text-[13px] text-gray-700 ml-2">蕭羽彤</span></div>
-            <div class="flex items-center gap-2 py-2.5"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">15</span><span class="text-[13px] text-gray-700 ml-2">江心慈</span></div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
+            <span class="rnd text-[10px] text-gray-300 mb-1">03</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">紀茗仁</span>
           </div>
-          <div class="w-px bg-gray-100 mx-3 self-stretch"></div>
-          <div class="flex flex-col w-20 flex-shrink-0">
-            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">16</span><span class="text-[13px] text-gray-700 ml-2">廖培均</span></div>
-            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">17</span><span class="text-[13px] text-gray-700 ml-2">陳冠宇</span></div>
-            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">18</span><span class="text-[13px] text-gray-700 ml-2">陳彥傑</span></div>
-            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">19</span><span class="text-[13px] text-gray-700 ml-2">蕭欣瑜</span></div>
-            <div class="flex items-center gap-2 py-2.5"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">20</span><span class="text-[13px] text-gray-700 ml-2">麥祐寧</span></div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
+            <span class="rnd text-[10px] text-gray-300 mb-1">04</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">譚宇甯</span>
           </div>
-          <div class="w-px bg-gray-100 mx-3 self-stretch"></div>
-          <div class="flex flex-col w-20 flex-shrink-0">
-            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">21</span><span class="text-[13px] text-gray-700 ml-2">林丘宗</span></div>
-            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">22</span><span class="text-[13px] text-gray-700 ml-2">蘇政豪</span></div>
-            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">23</span><span class="text-[13px] text-gray-700 ml-2">戴予歆</span></div>
-            <div class="flex items-center gap-2 py-2.5"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">24</span><span class="text-[13px] text-gray-700 ml-2">馮芊茱</span></div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
+            <span class="rnd text-[10px] text-gray-300 mb-1">05</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">王智謙</span>
           </div>
+        </div>
+        <div class="flex border-b border-gray-100">
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
+            <span class="rnd text-[10px] text-gray-300 mb-1">06</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">鄒汶</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
+            <span class="rnd text-[10px] text-gray-300 mb-1">07</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">林尹雯</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
+            <span class="rnd text-[10px] text-gray-300 mb-1">08</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">黃子恩</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
+            <span class="rnd text-[10px] text-gray-300 mb-1">09</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">高鴻恩</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
+            <span class="rnd text-[10px] text-gray-300 mb-1">10</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">王叡琦</span>
+          </div>
+        </div>
+        <div class="flex border-b border-gray-100">
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
+            <span class="rnd text-[10px] text-gray-300 mb-1">11</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">陸郁涵</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
+            <span class="rnd text-[10px] text-gray-300 mb-1">12</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">曾茹</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
+            <span class="rnd text-[10px] text-gray-300 mb-1">13</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">謝欣瑋</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
+            <span class="rnd text-[10px] text-gray-300 mb-1">14</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">蕭羽彤</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
+            <span class="rnd text-[10px] text-gray-300 mb-1">15</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">江心慈</span>
+          </div>
+        </div>
+        <div class="flex border-b border-gray-100">
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
+            <span class="rnd text-[10px] text-gray-300 mb-1">16</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">廖培均</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
+            <span class="rnd text-[10px] text-gray-300 mb-1">17</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">陳冠宇</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
+            <span class="rnd text-[10px] text-gray-300 mb-1">18</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">陳彥傑</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
+            <span class="rnd text-[10px] text-gray-300 mb-1">19</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">蕭欣瑜</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
+            <span class="rnd text-[10px] text-gray-300 mb-1">20</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">麥祐寧</span>
+          </div>
+        </div>
+        <div class="flex">
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
+            <span class="rnd text-[10px] text-gray-300 mb-1">21</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">林丘宗</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
+            <span class="rnd text-[10px] text-gray-300 mb-1">22</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">蘇政豪</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
+            <span class="rnd text-[10px] text-gray-300 mb-1">23</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">戴予歆</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
+            <span class="rnd text-[10px] text-gray-300 mb-1">24</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">馮芊茱</span>
           </div>
         </div>
       </div>
@@ -847,16 +1122,27 @@
         <div><p class="rnd font-semibold text-[#1A2F23] text-sm">創作組 · 第一梯次</p><p class="text-[11px] text-emerald-700 mt-0.5">12:50 – 14:10　共 5 位</p></div>
         <span class="acc-arrow text-gray-400 text-lg">▾</span>
       </button>
-      <div class="acc-content">
-        <div class="overflow-x-auto px-4 pb-4 md:px-6">
-          <div class="flex gap-0 min-w-max">
-          <div class="flex flex-col w-28 flex-shrink-0">
-            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">01</span><span class="text-[13px] text-gray-700 ml-2">楊司齊</span></div>
-            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">02</span><span class="text-[13px] text-gray-700 ml-2">曾駿廷</span></div>
-            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">03</span><span class="text-[13px] text-gray-700 ml-2">王皓</span></div>
-            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">04</span><span class="text-[13px] text-gray-700 ml-2">張瑜丞</span></div>
-            <div class="flex items-center gap-2 py-2.5"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">05</span><span class="text-[13px] text-gray-700 ml-2">邢定弘</span></div>
+      <div class="acc-content px-3 pb-3">
+        <div class="flex">
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
+            <span class="rnd text-[10px] text-gray-300 mb-1">01</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">楊司齊</span>
           </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
+            <span class="rnd text-[10px] text-gray-300 mb-1">02</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">曾駿廷</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
+            <span class="rnd text-[10px] text-gray-300 mb-1">03</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">王皓</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
+            <span class="rnd text-[10px] text-gray-300 mb-1">04</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">張瑜丞</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
+            <span class="rnd text-[10px] text-gray-300 mb-1">05</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">邢定弘</span>
           </div>
         </div>
       </div>
@@ -866,24 +1152,49 @@
         <div><p class="rnd font-semibold text-[#1A2F23] text-sm">創作組 · 第二梯次</p><p class="text-[11px] text-emerald-700 mt-0.5">14:20 – 16:00　共 10 位</p></div>
         <span class="acc-arrow text-gray-400 text-lg">▾</span>
       </button>
-      <div class="acc-content">
-        <div class="overflow-x-auto px-4 pb-4 md:px-6">
-          <div class="flex gap-0 min-w-max">
-          <div class="flex flex-col w-28 flex-shrink-0">
-            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">01</span><span class="text-[13px] text-gray-700 ml-2">羅約存</span></div>
-            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">02</span><span class="text-[13px] text-gray-700 ml-2">杜佳純</span></div>
-            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">03</span><span class="text-[13px] text-gray-700 ml-2">謝秉琿</span></div>
-            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">04</span><span class="text-[13px] text-gray-700 ml-2">陳柄誠</span></div>
-            <div class="flex items-center gap-2 py-2.5"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">05</span><span class="text-[13px] text-gray-700 ml-2">方元貞</span></div>
+      <div class="acc-content px-3 pb-3">
+        <div class="flex border-b border-gray-100">
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
+            <span class="rnd text-[10px] text-gray-300 mb-1">01</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">羅約存</span>
           </div>
-          <div class="w-px bg-gray-100 mx-3 self-stretch"></div>
-          <div class="flex flex-col w-20 flex-shrink-0">
-            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">06</span><span class="text-[13px] text-gray-700 ml-2">朱禾郁</span></div>
-            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">07</span><span class="text-[13px] text-gray-700 ml-2">沈士紘</span></div>
-            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">08</span><span class="text-[13px] text-gray-700 ml-2">王禹叡</span></div>
-            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">09</span><span class="text-[13px] text-gray-700 ml-2">陳祈文</span></div>
-            <div class="flex items-center gap-2 py-2.5"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">10</span><span class="text-[13px] text-gray-700 ml-2">蔡宗儒</span></div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
+            <span class="rnd text-[10px] text-gray-300 mb-1">02</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">杜佳純</span>
           </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
+            <span class="rnd text-[10px] text-gray-300 mb-1">03</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">謝秉琿</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
+            <span class="rnd text-[10px] text-gray-300 mb-1">04</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">陳柄誠</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
+            <span class="rnd text-[10px] text-gray-300 mb-1">05</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">方元貞</span>
+          </div>
+        </div>
+        <div class="flex">
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
+            <span class="rnd text-[10px] text-gray-300 mb-1">06</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">朱禾郁</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
+            <span class="rnd text-[10px] text-gray-300 mb-1">07</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">沈士紘</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
+            <span class="rnd text-[10px] text-gray-300 mb-1">08</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">王禹叡</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
+            <span class="rnd text-[10px] text-gray-300 mb-1">09</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">陳祈文</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
+            <span class="rnd text-[10px] text-gray-300 mb-1">10</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">蔡宗儒</span>
           </div>
         </div>
       </div>
@@ -893,23 +1204,45 @@
         <div><p class="rnd font-semibold text-[#1A2F23] text-sm">創作組 · 第三梯次</p><p class="text-[11px] text-emerald-700 mt-0.5">16:10 – 17:40　共 9 位</p></div>
         <span class="acc-arrow text-gray-400 text-lg">▾</span>
       </button>
-      <div class="acc-content">
-        <div class="overflow-x-auto px-4 pb-4 md:px-6">
-          <div class="flex gap-0 min-w-max">
-          <div class="flex flex-col w-28 flex-shrink-0">
-            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">01</span><span class="text-[13px] text-gray-700 ml-2">蔡亮頤</span></div>
-            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">02</span><span class="text-[13px] text-gray-700 ml-2">張宜蓁</span></div>
-            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">03</span><span class="text-[13px] text-gray-700 ml-2">曾玟闋</span></div>
-            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">04</span><span class="text-[13px] text-gray-700 ml-2">梁祐誠</span></div>
-            <div class="flex items-center gap-2 py-2.5"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">05</span><span class="text-[13px] text-gray-700 ml-2">蘇煥橙</span></div>
+      <div class="acc-content px-3 pb-3">
+        <div class="flex border-b border-gray-100">
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
+            <span class="rnd text-[10px] text-gray-300 mb-1">01</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">蔡亮頤</span>
           </div>
-          <div class="w-px bg-gray-100 mx-3 self-stretch"></div>
-          <div class="flex flex-col w-20 flex-shrink-0">
-            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">06</span><span class="text-[13px] text-gray-700 ml-2">房潔恩</span></div>
-            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">07</span><span class="text-[13px] text-gray-700 ml-2">王瑞逸</span></div>
-            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">08</span><span class="text-[13px] text-gray-700 ml-2">徐沁陽</span></div>
-            <div class="flex items-center gap-2 py-2.5"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">09</span><span class="text-[13px] text-gray-700 ml-2">蔡韋銓</span></div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
+            <span class="rnd text-[10px] text-gray-300 mb-1">02</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">張宜蓁</span>
           </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
+            <span class="rnd text-[10px] text-gray-300 mb-1">03</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">曾玟闋</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
+            <span class="rnd text-[10px] text-gray-300 mb-1">04</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">梁祐誠</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
+            <span class="rnd text-[10px] text-gray-300 mb-1">05</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">蘇煥橙</span>
+          </div>
+        </div>
+        <div class="flex">
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
+            <span class="rnd text-[10px] text-gray-300 mb-1">06</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">房潔恩</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
+            <span class="rnd text-[10px] text-gray-300 mb-1">07</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">王瑞逸</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
+            <span class="rnd text-[10px] text-gray-300 mb-1">08</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">徐沁陽</span>
+          </div>
+          <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
+            <span class="rnd text-[10px] text-gray-300 mb-1">09</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">蔡韋銓</span>
           </div>
         </div>
       </div>
@@ -919,6 +1252,8 @@
       小提醒 · 天雨路滑請小心<br>臺大音韻獎關心您 🦋
     </p>
   
+    </div>
+  </div>
 
 
 <!-- 評審介紹 -->
@@ -928,12 +1263,14 @@
   <div class="w-6 h-0.5 bg-[#1A2F23] rounded-full mb-6"></div>
   <h2 class="rnd text-2xl md:text-3xl font-bold text-[#1A2F23] mb-10">第十三屆 評審陣容</h2>
 
+  <!-- 初賽 -->
   <div class="flex items-center gap-3 mb-6"><div class="w-[3px] h-7 bg-[#1A2F23] rounded-full"></div><p class="rnd font-bold text-[#1A2F23] text-lg">初賽評審</p></div>
   <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-12">
     <div class="border border-gray-100 rounded-2xl p-6"><div class="border-l-4 border-[#1A2F23] pl-4 mb-5"><p class="italic text-gray-500 text-[13px] leading-[1.9]">「囚徒困境中 我選擇背叛／反正最後 沒人得救。我能看見 現實和未來／早被決定的遺憾／不會因為誰而更改」</p><p class="text-[11px] text-gray-400 mt-1.5">—〈美好人生〉</p></div><p class="rnd font-bold text-[#1A2F23] text-base mb-3">the Huiting 陳惠婷</p><p class="text-[13px] text-gray-600 leading-[1.9] mb-4">有搖滾祖媽之稱的音樂創作人、製作人，樂團 Tizzy Bac 的主唱兼鍵盤手。於2014年開始個人創作，至今已發行四張專輯、一張EP，擅長描寫黑暗美學，詞曲間展現細膩的情感書寫風格。也數度擔任音樂重大賽事評審，於2025年擔任金音獎評審團主席。</p><div class="space-y-3"><div><p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-1.5">發行作品</p><p class="text-[12px] text-gray-500 leading-[1.85]">2014《21克》／2015《成人世界》／2017《Voyager3》／2021 EP《我內心的風景》／2024《王國 Darktopia》</p></div><div><p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-1.5">獲獎經歷</p><p class="text-[12px] text-gray-500 leading-[1.85]">2014 入圍第25屆金曲獎最佳作詞人獎／2015《21克》入圍第26屆金曲獎最佳新人獎</p></div></div></div>
     <div class="border border-gray-100 rounded-2xl p-6"><div class="border-l-4 border-[#1A2F23] pl-4 mb-5"><p class="italic text-gray-500 text-[13px] leading-[1.9]">「這一刻不用誰懂／在你碎裂的時候／痛也不說 別讓人發現你／大聲哭吧 只讓我找到你／無聲無息 讓眼淚修復你」</p><p class="text-[11px] text-gray-400 mt-1.5">—〈活在自己的世界〉</p></div><p class="rnd font-bold text-[#1A2F23] text-base mb-3">秦旭章</p><p class="text-[13px] text-gray-600 leading-[1.9] mb-4">放飛音樂 WiFi Music 廠牌主理人、守夜人 Night Keepers 團長，作家安眠巫師。跨足詞曲、製作、編曲及影視配樂等領域。</p><div class="space-y-3"><div><p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-1.5">代表作品</p><p class="text-[12px] text-gray-500 leading-[1.85]">詞曲：田馥甄〈田〉〈底里歇斯〉、周興哲〈明明〉、許光漢〈Souffié〉／製作編曲：林宥嘉〈船〉、曾沛慈〈最後一次哭〉／影視：電影《該死的阿修羅》配樂總監（代表臺灣角逐第95屆奧斯卡最佳國際影片）、《夏日最後的祕密》、電視劇《四樓的天堂》／守夜人：《永夜島》《使者》《Retune》三張專輯</p></div><div><p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-1.5">獲獎經歷</p><p class="text-[12px] text-gray-500 leading-[1.85]">2025 第二屆街聲年度音樂趨勢大獎民謠類綜合表現／2024〈漂浮到〉獲選 AppleMusic 百大單曲／2022 獲第24屆台北電影節最佳配樂獎／2021 入圍第32屆金曲獎最佳演唱組合／2020〈抛〉獲選中華音樂人交流協會年度十大單曲</p></div></div></div>
   </div>
 
+  <!-- 複賽 -->
   <div class="flex items-center gap-3 mb-6"><div class="w-[3px] h-7 bg-[#1A2F23] rounded-full"></div><p class="rnd font-bold text-[#1A2F23] text-lg">複賽評審</p></div>
   <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-12">
     <div class="border border-gray-100 rounded-2xl p-6"><div class="border-l-4 border-[#1A2F23] pl-4 mb-5"><p class="italic text-gray-500 text-[13px] leading-[1.9]">「漸漸發現需要承擔依賴／當初的未來／何時變成現在／慢慢了解人性並不坦然」</p><p class="text-[11px] text-gray-400 mt-1.5">—〈Go My Way〉</p></div><p class="rnd font-bold text-[#1A2F23] text-base mb-3">Elisa Lin 林依霖</p><p class="text-[13px] text-gray-600 leading-[1.9] mb-4">兼具紮實技術與細膩感性的全方位音樂人。自幼於洛杉磯成長，先後求學於紐約大學（NYU）與南加州大學（USC）音樂產業學系。目前擔任「當道音樂 Downtown Music」錄音室副總經理。</p><div class="space-y-3"><div><p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-1.5">代表作品</p><p class="text-[12px] text-gray-500 leading-[1.85]">製作林以樂專輯《素顏的樣子》（金音獎最佳創作歌手）／五月天〈轉眼〉〈少年他的奇幻漂流〉〈凡人歌 feat.蕭敬騰〉共同製作編曲／林宥嘉〈代客求婚〉製作編曲／主導田廣潤首張個人創作專輯全案製作</p></div><div><p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-1.5">演出經歷</p><p class="text-[12px] text-gray-500 leading-[1.85]">與蘇珮卿共同奪下第13屆金音獎「最佳現場演出獎」／曾擔任林宥嘉、陶喆、哈林、張震嶽、蔡健雅等頂尖歌手巡迴樂手</p></div></div></div>
@@ -941,11 +1278,12 @@
     <div class="border border-gray-100 rounded-2xl p-6 md:col-span-2 md:max-w-lg md:mx-auto md:w-full"><div class="border-l-4 border-[#1A2F23] pl-4 mb-5"><p class="italic text-gray-500 text-[13px] leading-[1.9]">「就讓我跳進這瘋狂／擺動不怕刺痛／也許只是漂亮掙扎／我也要用盡全力揮霍」</p><p class="text-[11px] text-gray-400 mt-1.5">—〈手動登出前的最後一支舞〉</p></div><p class="rnd font-bold text-[#1A2F23] text-base mb-3">宋家耘</p><p class="text-[13px] text-gray-600 leading-[1.9] mb-4">庸俗救星 Vulgar Savior 主唱、創作歌手，創作內容形式多元，包含民謠、流行、電子音樂，同時跨足影像、戲劇、圖文創作等領域。夢想是寫一首讓人邊流淚邊跳舞的歌。</p><div class="space-y-3"><div><p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-1.5">發行作品</p><p class="text-[12px] text-gray-500 leading-[1.85]">2020〈白癡〉〈美好結局〉／2022〈手動登出前的最後一支舞〉〈日常絮語〉〈真戲假做〉／2023〈滿分少女的必要條件〉</p></div><div><p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-1.5">演出經歷</p><p class="text-[12px] text-gray-500 leading-[1.85]">2021 臺北音樂不斷電優勝六強巡迴演唱會／2023 首場千人演唱會／2025 Little Battle 專輯同名巡迴／2025 基隆愛嶼搖滾音樂祭／2025 釜山 Minrock Festa 音樂祭／2026 浮現祭／2026 澀谷音樂節</p></div></div></div>
   </div>
 
+  <!-- 決賽 -->
   <div class="flex items-center gap-3 mb-6"><div class="w-[3px] h-7 bg-[#1A2F23] rounded-full"></div><p class="rnd font-bold text-[#1A2F23] text-lg">決賽評審</p></div>
   <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
     <div class="border border-gray-100 rounded-2xl p-6"><div class="border-l-4 border-[#1A2F23] pl-4 mb-5"><p class="italic text-gray-500 text-[13px] leading-[1.9]">「當我渴望 你的回答／放任所有流浪的靈魂／自問自答／誠如岸上的你所說／愛是原諒／即便悲傷 仍然善良」</p><p class="text-[11px] text-gray-400 mt-1.5">—〈誠如岸上的你所說〉</p></div><p class="rnd font-bold text-[#1A2F23] text-base mb-3">蘇文劭 Shao</p><p class="text-[13px] text-gray-600 leading-[1.9] mb-4">唱作暨推廣家，現居台北。是民謠歌手也是樂團主唱；作化雨春風也當快樂小狗。一生惜字、愛人。</p><div><p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-1.5">發行作品 / 演出經歷</p><p class="text-[12px] text-gray-500 leading-[1.85]">個人專輯：2024《春曲》、2020《雨停出來走走》／樂團 SONNIE 桑尼：2024《U Make Me SONNIE》／2026 台灣祭、新北春紛節／2025 臺北最High新年城、潮派鹿港、搖滾台中、大稻埕夏日節</p></div></div>
     <div class="border border-gray-100 rounded-2xl p-6"><div class="border-l-4 border-[#1A2F23] pl-4 mb-5"><p class="italic text-gray-500 text-[13px] leading-[1.9]">「我的一切／壓抑的偏見／執拗的精確／愛和後悔／深刻與殘缺／全都事過境遷」</p><p class="text-[11px] text-gray-400 mt-1.5">—〈歸屬Eleanor〉</p></div><p class="rnd font-bold text-[#1A2F23] text-base mb-3">咖咖</p><p class="text-[13px] text-gray-600 leading-[1.9] mb-4">創作組合 VH 主唱、作詞人、作曲人、唱片企劃、配唱。以探討「人心與人性」為核心，擅長使用深刻而細膩的詞曲創作，打造兼具詩意美感及強烈情感張力的音樂作品。</p><div class="space-y-3"><div><p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-1.5">發行作品</p><p class="text-[12px] text-gray-500 leading-[1.85]">2018 VH《求救訊號 I'm Not OK》／2021 VH《文明 The Great Beyond》／2024 VH《五常法則(5S)》／2025 VH〈成為藝術之前的必要脆弱與非必要沉默〉／2026 VH〈風吹過〉</p></div><div><p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-1.5">獲獎經歷</p><p class="text-[12px] text-gray-500 leading-[1.85]">2018〈與浪之間〉入圍第29屆金曲獎最佳音樂錄影帶獎／2019《求救訊號》入圍第30屆金曲獎最佳演唱組合／2022《文明》入圍第33屆金曲獎最佳演唱組合／2022 獲第15屆 Freshmusic Awards 最佳創作演唱組合</p></div></div></div>
-    <div class="border border-gray-100 rounded-2xl p-6 md:col-span-2 md:max-w-lg md:mx-auto md:w-full"><div class="border-l-4 border-[#1A2F23] pl-4 mb-5"><p class="italic text-gray-500 text-[13px] leading-[1.9]">「一場夢／如今依然沒改變／一路走來／已經過了幾個春天／那些愛 那些恨／驀然回首都不見／慢慢變成／臉上的皺紋」</p><p class="text-[11px] text-gray-400 mt-1.5">—〈皺紋〉</p></div><p class="rnd font-bold text-[#1A2F23] text-base mb-3">施文彬</p><p class="text-[13px] text-gray-600 leading-[1.9] mb-4">流行音樂創作人、專輯製作人，以多首臺語音樂作品為人所知。演藝資歷深厚，發行逾三十張專輯，跨足歌曲創作與電玩領域，是樂壇與遊戲產業中獨具地位的跨界標竿。</p><div class="space-y-3"><div><p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-1.5">代表作品</p><p class="text-[12px] text-gray-500 leading-[1.85]">2023《有歲》／2020《緊來去》／2018《無輸無贏》／代表單曲：〈傷心酒店〉〈再會啦！心愛的無緣的人〉〈你愛的不是我〉〈深深愛你〉〈愛愈深心愈凝〉</p></div><div><p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-1.5">獲獎經歷</p><p class="text-[12px] text-gray-500 leading-[1.85]">2016《歌聲進鄉團》入圍第27屆金曲獎最佳台語專輯獎／2015《文跡奇武③歸組害了了》入圍第26屆金曲獎最佳台語男歌手獎／2007《真情味》獲得第18屆金曲獎最佳台語男歌手獎</p></div></div></div>
+    <div class="border border-gray-100 rounded-2xl p-6 md:col-span-2 md:max-w-lg md:mx-auto md:w-full"><div class="border-l-4 border-[#1A2F23] pl-4 mb-5"><p class="italic text-gray-500 text-[13px] leading-[1.9]">「一場夢／如今依然沒改變／一路走來／已經過了幾個春天／那些愛 那些恨／驀然回首都不見／慢慢變成／臉上的皺紋」</p><p class="text-[11px] text-gray-400 mt-1.5">—〈皺紋〉</p></div><p class="rnd font-bold text-[#1A2F23] text-base mb-3">施文彬</p><p class="text-[13px] text-gray-600 leading-[1.9] mb-4">流行音樂創作人、專輯製作人，以多首臺語音樂作品為人所知。演藝資歷深厚，發行逾三十張專輯，跨足歌曲創作與電玩領域。</p><div class="space-y-3"><div><p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-1.5">代表作品</p><p class="text-[12px] text-gray-500 leading-[1.85]">2023《有歲》／2020《緊來去》／2018《無輸無贏》／代表單曲：〈傷心酒店〉〈再會啦！心愛的無緣的人〉〈你愛的不是我〉〈深深愛你〉〈愛愈深心愈凝〉</p></div><div><p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-1.5">獲獎經歷</p><p class="text-[12px] text-gray-500 leading-[1.85]">2016《歌聲進鄉團》入圍第27屆金曲獎最佳台語專輯獎／2015《文跡奇武③歸組害了了》入圍第26屆金曲獎最佳台語男歌手獎／2007《真情味》獲得第18屆金曲獎最佳台語男歌手獎</p></div></div></div>
   </div>
   <p class="text-center text-gray-300 text-[11px] leading-relaxed mt-8">感謝所有評審老師的參與與支持 🎵</p>
 </div>
@@ -980,9 +1318,11 @@
   const allPages=['home','about','player','program','judges'];
   function showPage(id){
     allPages.forEach(p=>{
-      document.getElementById('page-'+p).classList.remove('active');
+      const pe=document.getElementById('page-'+p);
+      if(pe) pe.classList.remove('active');
     });
     const el=document.getElementById('page-'+id);
+    if(!el) return;
     el.classList.add('active','fade-in');
     const hm=document.getElementById('hero-main');
     const hp=document.getElementById('hero-program');
