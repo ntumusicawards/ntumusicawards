@@ -12,6 +12,8 @@
   body{font-family:'Noto Sans TC',sans-serif;background:#fff;color:#1a1a1a;margin:0;}
   .rnd{font-family:'M PLUS Rounded 1c',sans-serif;}
   .fade-in{animation:fadeIn .4s ease forwards;}
+  .fade-in-up{animation:fadeInUp .6s ease forwards;}
+  @keyframes fadeInUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
   @keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
   .hero-arc{position:absolute;bottom:-1px;left:-5%;right:-5%;height:52px;background:#fff;border-radius:50% 50% 0 0/100% 100% 0 0;}
   .nav-btn{border-bottom:3px solid transparent;transition:all .2s;}
@@ -122,27 +124,37 @@
   <h2 class="rnd text-2xl md:text-3xl font-bold text-[#1A2F23] mb-6">賽事活動公告！</h2>
 
   <div class="home-grid">
-  <div class="border border-gray-100 rounded-2xl p-6 shadow-sm space-y-4 mb-5">
-    <div class="flex gap-5 items-start">
-      <span class="rnd text-[11px] text-[#1A2F23] font-medium min-w-[36px] mt-0.5 flex-shrink-0">賽事</span>
-      <span class="text-sm text-gray-700">複賽</span>
+  <div class="border border-gray-100 rounded-2xl p-6 shadow-sm mb-5">
+    <div class="space-y-4 mb-5">
+      <div class="flex gap-5 items-start">
+        <span class="rnd text-[11px] text-[#1A2F23] font-medium min-w-[36px] mt-0.5 flex-shrink-0">賽事</span>
+        <span class="text-sm text-gray-700">複賽</span>
+      </div>
+      <div class="flex gap-5 items-start">
+        <span class="rnd text-[11px] text-[#1A2F23] font-medium min-w-[36px] mt-0.5 flex-shrink-0">時間</span>
+        <span class="text-sm text-gray-700">6/13（六）、6/14（日）</span>
+      </div>
+      <div class="flex gap-5 items-start">
+        <span class="rnd text-[11px] text-[#1A2F23] font-medium min-w-[36px] mt-0.5 flex-shrink-0">地點</span>
+        <span class="text-sm text-gray-700">臺大外語教學暨資源中心</span>
+      </div>
     </div>
-    <div class="flex gap-5 items-start">
-      <span class="rnd text-[11px] text-[#1A2F23] font-medium min-w-[36px] mt-0.5 flex-shrink-0">時間</span>
-      <span class="text-sm text-gray-700">6/13（六）、6/14（日）</span>
-    </div>
-    <div class="flex gap-5 items-start">
-      <span class="rnd text-[11px] text-[#1A2F23] font-medium min-w-[36px] mt-0.5 flex-shrink-0">地點</span>
-      <span class="text-sm text-gray-700">臺大外語教學暨資源中心</span>
-    </div>
-    <!-- 入場注意事項（折疊） -->
-    <div class="border-t border-gray-100 pt-4">
-      <button onclick="this.nextElementSibling.classList.toggle('hidden');this.querySelector('.arr').classList.toggle('rotate-180')"
-        class="w-full flex items-center justify-between text-left mb-2">
-        <p class="rnd text-[11px] font-medium text-[#1A2F23]">入場注意事項</p>
-        <span class="arr text-gray-400 text-sm transition-transform duration-300">▾</span>
+
+    <!-- 節目冊 -->
+    <div class="border-t border-gray-100 pt-5 mb-5 text-center">
+      <p class="text-[11px] text-gray-300 mb-4">歡迎觀眾入場欣賞表演</p>
+      <button onclick="showProgramBook()"
+        class="w-full rnd font-bold text-base text-[#1A2F23] py-4 rounded-2xl
+               border-2 border-[#C8A84B] bg-transparent
+               transition-all duration-300 hover:bg-[#C8A84B]/10 active:scale-[0.98]">
+        複賽節目冊 📖
       </button>
-      <div class="hidden space-y-2 pb-3">
+    </div>
+
+    <!-- 入場注意事項（直接展開） -->
+    <div class="border-t border-gray-100 pt-5">
+      <p class="rnd text-[11px] font-medium text-[#1A2F23] mb-3">入場注意事項</p>
+      <div class="space-y-2.5">
         <div class="flex gap-2"><span class="rnd text-[10px] text-[#1A2F23] font-medium flex-shrink-0 w-4">1.</span><p class="text-[12px] text-gray-500 leading-relaxed">比賽場地內<strong class="text-[#1A2F23]">禁止飲食</strong>。</p></div>
         <div class="flex gap-2"><span class="rnd text-[10px] text-[#1A2F23] font-medium flex-shrink-0 w-4">2.</span><p class="text-[12px] text-gray-500 leading-relaxed">比賽過程中禁止<strong class="text-[#1A2F23]">全程錄影</strong>。</p></div>
         <div class="flex gap-2"><span class="rnd text-[10px] text-[#1A2F23] font-medium flex-shrink-0 w-4">3.</span><p class="text-[12px] text-gray-500 leading-relaxed">拍照錄影禁止使用閃光燈，手機請關靜音。</p></div>
@@ -153,17 +165,22 @@
         <div class="flex gap-2"><span class="rnd text-[10px] text-[#1A2F23] font-medium flex-shrink-0 w-4">8.</span><p class="text-[12px] text-gray-500 leading-relaxed">音韻獎主辦方保有最終解釋權。</p></div>
       </div>
     </div>
-    <div class="border-t border-gray-100 pt-4 text-center">
-      <p class="text-[11px] text-gray-300 mb-4">歡迎觀眾入場欣賞表演</p>
-      <button onclick="showProgramBook()"
-        class="w-full rnd font-bold text-base text-[#1A2F23] py-4 rounded-2xl
-               border-2 border-[#C8A84B] bg-transparent
-               transition-all duration-300 hover:bg-[#C8A84B]/10 active:scale-[0.98]">
-        複賽節目冊 📖
-      </button>
-    </div>
   </div>
 
+
+  <!-- 最新消息 -->
+  <div class="fade-in-up mb-10">
+    <p class="rnd text-[10px] tracking-[.22em] text-[#1A2F23] uppercase mb-2">最新消息</p>
+    <div class="w-6 h-0.5 bg-[#1A2F23] rounded-full mb-5"></div>
+    <div class="bg-[#F4F8F0] rounded-2xl p-6 shadow-sm">
+      <p class="rnd font-bold text-[#1A2F23] text-base mb-4 leading-snug">複賽現場 抽獎預告！</p>
+      <div class="space-y-3 text-[13px] text-gray-700 leading-relaxed">
+        <p>這次複賽臺大音韻獎特別與<strong class="text-[#1A2F23]">超級巨星KTV、鑫豪食品、聲島咖啡、黑熊先生巧克力布朗尼</strong>攜手帶來豐厚的獎品，準備了超豐富的獎品要送給大家！</p>
+        <p>獎項有超級巨星KTV餐飲抵用券、鑫豪食品好吃的餅乾、聲島咖啡現金折扣券以及黑熊先生巧克力布朗尼禮盒唷！</p>
+        <p class="pt-1 border-t border-[#1A2F23]/10">不論是參賽者還是到場支持的觀眾們，都歡迎一起來感受複賽現場最熱烈的氣氛，把驚喜好禮與難忘回憶通通帶回家！！！🎁</p>
+      </div>
+    </div>
+  </div>
 
   <!-- 評審陣容預告 -->
   <div class="mb-10">
@@ -191,6 +208,83 @@
     </button>
   </div>
 
+</div>
+
+</div>
+
+<!-- 關於音韻 -->
+<div id="page-about" class="page pt-10 pb-16">
+  <p class="rnd text-[10px] tracking-[.22em] text-[#1A2F23] uppercase mb-2">關於音韻</p>
+  <div class="w-6 h-0.5 bg-[#1A2F23] rounded-full mb-6"></div>
+  <h2 class="rnd text-2xl font-bold text-[#1A2F23] mb-1">臺大音韻獎</h2>
+  <p class="text-[11px] text-gray-400 tracking-[.15em] mb-10">NTU Music Award</p>
+  <div class="space-y-10 text-gray-600 text-sm leading-[2.1]">
+    <div>
+      <div class="flex items-center gap-3 mb-4"><div class="w-[3px] h-6 bg-[#1A2F23] rounded-full"></div><p class="rnd font-bold text-[#1A2F23] text-lg">活動宗旨</p></div>
+      <p>本賽事致力於深化全國民眾對音樂活動之參與，全面提升校內外音樂風氣與大眾音樂素養。我們深信音樂的力量源於純粹，期盼為全臺音樂愛好者搭建具備專業度與包容性的交流平臺，讓每位熱愛歌唱與創作的朋友皆能在此綻放光芒。</p>
+    </div>
+    <div>
+      <div class="flex items-center gap-3 mb-4"><div class="w-[3px] h-6 bg-[#1A2F23] rounded-full"></div><p class="rnd font-bold text-[#1A2F23] text-lg">活動介紹</p></div>
+      <p class="mb-5">「臺大音韻獎」由國立臺灣大學流行音樂歌唱社主辦，為全臺灣少數完全由學生社團獨立籌辦之全國性大型歌唱賽事。</p>
+      <div class="space-y-4">
+        <div class="pl-5 border-l-2 border-gray-200"><p class="rnd font-semibold text-[#1A2F23] text-sm mb-1">學生獨唱組</p><p class="text-gray-500 text-[13px] leading-relaxed">匯聚全臺大專院校青澀歌聲，展現最純粹的舞台爆發力。</p></div>
+        <div class="pl-5 border-l-2 border-gray-200"><p class="rnd font-semibold text-[#1A2F23] text-sm mb-1">重、對唱組</p><p class="text-gray-500 text-[13px] leading-relaxed">強調人聲和諧共鳴，透過多聲部編排激發音樂層次美感。</p></div>
+        <div class="pl-5 border-l-2 border-gray-200"><p class="rnd font-semibold text-[#1A2F23] text-sm mb-1">創作組</p><p class="text-gray-500 text-[13px] leading-relaxed">鼓勵獨立詞曲創作，提供新生代被音樂產業看見的平台。</p></div>
+        <div class="pl-5 border-l-2 border-gray-200"><p class="rnd font-semibold text-[#1A2F23] text-sm mb-1">社會獨唱組</p><p class="text-gray-500 text-[13px] leading-relaxed">打破年齡限制，為各年齡層歌者提供圓夢舞台。</p></div>
+      </div>
+    </div>
+    <div class="pt-6 border-t border-gray-100">
+      <p class="rnd text-[10px] tracking-[.15em] text-gray-400 uppercase mb-2">主辦單位</p>
+      <p class="rnd font-semibold text-[#1A2F23]">國立臺灣大學流行音樂歌唱社</p>
+    </div>
+  </div>
+
+  <!-- 第十三屆介紹 -->
+  <div class="pt-10 border-t border-gray-100 mt-2">
+    <img src="布條.jpg" alt="第十三屆臺大音韻獎" class="w-full rounded-2xl object-contain mb-8">
+    <div class="mb-6">
+      <p class="rnd text-[10px] tracking-[.22em] text-[#1A2F23] uppercase mb-2">活動資訊</p>
+      <div class="w-6 h-0.5 bg-[#1A2F23] rounded-full mb-5"></div>
+      <p class="rnd text-xl font-bold text-[#1A2F23] mb-0.5">第十三屆臺大音韻獎</p>
+      <p class="text-[11px] text-gray-400 tracking-widest">NTU MUSIC AWARDS 13TH</p>
+    </div>
+    <div class="border border-gray-100 rounded-2xl p-5 mb-8 space-y-4">
+      <div class="flex gap-4 items-start">
+        <span class="rnd text-[11px] text-[#1A2F23] font-medium min-w-[56px] flex-shrink-0 mt-0.5">報名初賽</span>
+        <span class="text-[13px] text-gray-600 leading-relaxed">2026/3/16（一）～ 2026/5/4（五）17:00</span>
+      </div>
+      <div class="flex gap-4 items-start">
+        <span class="rnd text-[11px] text-[#1A2F23] font-medium min-w-[56px] flex-shrink-0 mt-0.5">複賽</span>
+        <div><p class="text-[13px] text-gray-600 leading-relaxed">2026/6/13（六）～ 2026/6/14（日）</p><p class="text-[11px] text-gray-400 mt-0.5">@ 臺大外語教學暨資源中心劇場</p></div>
+      </div>
+      <div class="flex gap-4 items-start">
+        <span class="rnd text-[11px] text-[#1A2F23] font-medium min-w-[56px] flex-shrink-0 mt-0.5">決賽</span>
+        <div><p class="text-[13px] text-gray-600 leading-relaxed">2026/7/12（日）</p><p class="text-[11px] text-gray-400 mt-0.5">@ Corner House 角落文創展演空間</p></div>
+      </div>
+    </div>
+    <div class="space-y-5 text-gray-600 text-[14px] md:text-[15px] leading-[2.1] md:leading-[2.3] tracking-wide">
+      <p>平凡的日子裡，耳機裡流瀉出的一句歌詞，無意間擊中心底最柔軟的角落。旋律落下的瞬間，一隻蝴蝶悄然在心裡振翅。從那時起，一句句不經意的低聲哼唱穿透了歲月喧囂，掀起了一場關於音樂的蝴蝶效應。</p>
+      <p>對著鏡子反覆雕琢的轉音、幾句藏在角落的清唱，將散落的音符拾起，一片片地拼湊成了完整的夢。微小的振翅聚攏成勇氣，驅散了所有的懷疑與恐懼。</p>
+      <p>曾經微小的悸動不再只是心底的秘密，因為熱愛、因為心中有火，我們以純粹的音韻融化蟄伏的冬天。讓最初撼動靈魂的片段，隨著振翅而起的風，在這方舞台上盛開成最繁盛的春天。</p>
+    </div>
+  </div>
+</div>
+
+<!-- 選手專區 -->
+<div id="page-player" class="page pt-10 pb-16">
+  <p class="rnd text-[10px] tracking-[.22em] text-[#1A2F23] uppercase mb-2">選手專區</p>
+  <div class="w-6 h-0.5 bg-[#1A2F23] rounded-full mb-6"></div>
+  <h2 class="rnd text-2xl font-bold text-[#1A2F23] mb-2">您的音樂旅程從這裡開始</h2>
+  <p class="text-sm text-gray-400 mb-8">請選擇您的賽事階段</p>
+
+  <!-- 複賽選手注意事項 -->
+  <div class="border border-[#1A2F23]/15 bg-[#1A2F23]/5 rounded-2xl p-5 mb-8">
+    <div class="flex items-center gap-2 mb-4"><span class="text-lg">📢</span><p class="rnd font-bold text-[#1A2F23] text-sm">複賽選手注意事項</p></div>
+    <div class="space-y-4">
+      <div class="flex gap-3 items-start"><span class="text-base flex-shrink-0">1️⃣</span><p class="text-[13px] text-gray-700 leading-[1.85]">請於比賽時間「<strong class="text-[#1A2F23]">前 30 分鐘</strong>」至 📍 臺灣大學 外語教學暨資源中心 入口櫃檯完成報到，並請於比賽時間開始「<strong class="text-[#1A2F23]">前 10 分鐘</strong>」回到選手報到區等待，逾時將視為放棄參賽資格。</p></div>
+      <div class="flex gap-3 items-start"><span class="text-base flex-shrink-0">2️⃣</span><p class="text-[13px] text-gray-700 leading-[1.85]">報到時務必攜帶<strong class="text-[#1A2F23]">學生證或身份證</strong>（學生獨唱組、重對唱組及創作組須出示學生證），供櫃檯人員確認身份，若遇無法證明身份之情形，則取消比賽資格。</p></div>
+    </div>
+  </div>
 
   <div class="flex gap-3 mb-10">
     <button id="ptab-signup" onclick="showPlayerTab('signup')" class="player-tab flex-1 py-5 rounded-2xl border border-gray-200 text-center">
@@ -206,131 +300,44 @@
       <span class="rnd text-[12px] font-medium text-gray-500 block">決賽<br><span class="tab-sub text-[10px] text-gray-400">巔峰對決</span></span>
     </button>
   </div>
+
   <div id="pcontent-signup" class="hidden">
     <div class="border border-gray-100 rounded-2xl p-6 text-center">
       <p class="text-4xl mb-4">🎤</p>
       <p class="rnd text-base font-bold text-[#1A2F23] mb-2">報名與初賽</p>
       <p class="text-sm text-gray-400 leading-relaxed mb-6">第十三屆臺大音韻獎已截止報名</p>
       <div class="flex flex-col gap-3 text-left">
-        <a href="https://line.me/R/ti/p/11FZvoRuwx" target="_blank"
-          class="flex items-center justify-between gap-3 px-4 py-3.5 border border-gray-200 rounded-xl bg-gray-50/50 hover:bg-gray-100 active:scale-[0.98] transition-all duration-200 group">
-          <div>
-            <p class="rnd text-[12px] font-medium text-gray-500 leading-snug">報名｜樂台計畫</p>
-            <p class="text-[10px] text-gray-400 mt-0.5">大專院校音樂賽事平台</p>
-          </div>
-          <span class="text-gray-300 text-lg flex-shrink-0 group-hover:text-gray-400 transition-colors">›</span>
+        <a href="https://line.me/R/ti/p/11FZvoRuwx" target="_blank" class="flex items-center justify-between gap-3 px-4 py-3.5 border border-gray-200 rounded-xl bg-gray-50/50 hover:bg-gray-100 active:scale-[0.98] transition-all duration-200 group">
+          <div><p class="rnd text-[12px] font-medium text-gray-500 leading-snug">報名｜樂台計畫</p><p class="text-[10px] text-gray-400 mt-0.5">大專院校音樂賽事平台</p></div>
+          <span class="text-gray-300 text-lg flex-shrink-0 group-hover:text-gray-400">›</span>
         </a>
-        <a href="https://drive.google.com/file/d/1r1dRoig3V5lXJlZ3oRsfLOvKzPWzbATt/view?usp=drivesdk" target="_blank"
-          class="flex items-center justify-between gap-3 px-4 py-3.5 border border-gray-200 rounded-xl bg-gray-50/50 hover:bg-gray-100 active:scale-[0.98] transition-all duration-200 group">
-          <div>
-            <p class="rnd text-[12px] font-medium text-gray-500 leading-snug">第十三屆・報名簡章</p>
-            <p class="text-[10px] text-gray-400 mt-0.5">查看本屆完整賽事規則</p>
-          </div>
-          <span class="text-gray-300 text-lg flex-shrink-0 group-hover:text-gray-400 transition-colors">›</span>
+        <a href="https://drive.google.com/file/d/1r1dRoig3V5lXJlZ3oRsfLOvKzPWzbATt/view?usp=drivesdk" target="_blank" class="flex items-center justify-between gap-3 px-4 py-3.5 border border-gray-200 rounded-xl bg-gray-50/50 hover:bg-gray-100 active:scale-[0.98] transition-all duration-200 group">
+          <div><p class="rnd text-[12px] font-medium text-gray-500 leading-snug">第十三屆・報名簡章</p><p class="text-[10px] text-gray-400 mt-0.5">查看本屆完整賽事規則</p></div>
+          <span class="text-gray-300 text-lg flex-shrink-0 group-hover:text-gray-400">›</span>
         </a>
-        <button onclick="document.getElementById('judgeReview').classList.toggle('hidden')"
-          class="flex items-center justify-between gap-3 px-4 py-3.5 border border-[#1A2F23]/20 rounded-xl bg-[#1A2F23]/5 hover:bg-[#1A2F23]/10 active:scale-[0.98] transition-all duration-200 group">
-          <div>
-            <p class="rnd text-[12px] font-medium text-[#1A2F23] leading-snug">查看初賽講評 📝</p>
-            <p class="text-[10px] text-gray-400 mt-0.5">陳惠婷老師 · 秦旭章老師</p>
-          </div>
-          <span class="text-[#1A2F23]/40 text-lg flex-shrink-0 group-hover:text-[#1A2F23]/70 transition-colors">›</span>
+        <button onclick="document.getElementById('judgeReview').classList.toggle('hidden')" class="flex items-center justify-between gap-3 px-4 py-3.5 border border-[#1A2F23]/20 rounded-xl bg-[#1A2F23]/5 hover:bg-[#1A2F23]/10 active:scale-[0.98] transition-all duration-200 group">
+          <div><p class="rnd text-[12px] font-medium text-[#1A2F23] leading-snug">查看初賽講評 📝</p><p class="text-[10px] text-gray-400 mt-0.5">陳惠婷老師 · 秦旭章老師</p></div>
+          <span class="text-[#1A2F23]/40 text-lg flex-shrink-0 group-hover:text-[#1A2F23]/70">›</span>
         </button>
       </div>
     </div>
-
-    <!-- 初賽講評內容（預設收起） -->
     <div id="judgeReview" class="hidden mt-4 border border-gray-100 rounded-2xl p-5 space-y-6 text-left">
       <p class="rnd text-[10px] tracking-[.2em] text-[#1A2F23] uppercase">初賽評審講評</p>
       <div class="w-5 h-0.5 bg-[#1A2F23] rounded-full"></div>
-
-      <!-- 學生獨唱組 -->
-      <div>
-        <div class="flex items-center gap-2 mb-3"><div class="w-[3px] h-5 bg-[#1A2F23] rounded-full"></div><p class="rnd font-bold text-[#1A2F23] text-sm">學生獨唱組</p></div>
-        <div class="space-y-3">
-          <div class="bg-gray-50 rounded-xl p-4">
-            <p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">陳惠婷老師</p>
-            <p class="text-[12px] text-gray-600 leading-[1.85]">發展個人的風格很重要，比起唱得平順或者模仿得很像，擁有個人風格才是能突出的重點。使用轉音技巧要很小心，不然容易失去音準或變得很油，也會拉低格調，表現情感的方式往往不在這裡。唱歌還是要自然，刻意的咬字聽感上不太舒服。有的時候不要想太多，唱歌其實是分享人類情感本能的一種表現，享受在音樂裡，自然地表達，才能有最適合的詮釋方式，而且沒有標準答案，過於刻意反而失去了靈魂。</p>
-          </div>
-          <div class="bg-gray-50 rounded-xl p-4">
-            <p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">秦旭章老師</p>
-            <p class="text-[12px] text-gray-600 leading-[1.85]">整體表現比社會組的多元性多一點，期待你們更注意細節，選歌的選俗度跟 key 都很重要。</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- 社會獨唱組 -->
-      <div>
-        <div class="flex items-center gap-2 mb-3"><div class="w-[3px] h-5 bg-[#1A2F23] rounded-full"></div><p class="rnd font-bold text-[#1A2F23] text-sm">社會獨唱組</p></div>
-        <div class="space-y-3">
-          <div class="bg-gray-50 rounded-xl p-4">
-            <p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">陳惠婷老師</p>
-            <p class="text-[12px] text-gray-600 leading-[1.85]">音準的部分可以再多加注意，更需要投入在歌裡，不然聽起來多是會平平的。擁有個人特色的唱法還是更容易出色。</p>
-          </div>
-          <div class="bg-gray-50 rounded-xl p-4">
-            <p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">秦旭章老師</p>
-            <p class="text-[12px] text-gray-600 leading-[1.85]">整體特色不足，有一些人的音色有機會，如果真的有興趣加強，可以找到更多有幫助的細節，例如：怎麼找 key、定速度，都會有影響，跟學生獨唱組的建議一樣。</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- 重對唱組 -->
-      <div>
-        <div class="flex items-center gap-2 mb-3"><div class="w-[3px] h-5 bg-[#1A2F23] rounded-full"></div><p class="rnd font-bold text-[#1A2F23] text-sm">重、對唱組</p></div>
-        <div class="space-y-3">
-          <div class="bg-gray-50 rounded-xl p-4">
-            <p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">陳惠婷老師</p>
-            <p class="text-[12px] text-gray-600 leading-[1.85]">重唱、對唱很注重音準跟和聲編排的對位，差一點的話都會很可惜。如果合唱者的頻率能夠在同一個共振頻率的話，聽感會很舒服。重唱、合唱很容易只顧技巧音準或自己的表現，但這樣情感的詮釋會扣分。</p>
-          </div>
-          <div class="bg-gray-50 rounded-xl p-4">
-            <p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">秦旭章老師</p>
-            <p class="text-[12px] text-gray-600 leading-[1.85]">少就是多，不一定要全部和好和滿，有空間感，多聽對方的聲音給予回應，是整體希望給大家可貴的意見！</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- 創作組 -->
-      <div>
-        <div class="flex items-center gap-2 mb-3"><div class="w-[3px] h-5 bg-[#1A2F23] rounded-full"></div><p class="rnd font-bold text-[#1A2F23] text-sm">創作組</p></div>
-        <div class="space-y-3">
-          <div class="bg-gray-50 rounded-xl p-4">
-            <p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">陳惠婷老師</p>
-            <p class="text-[12px] text-gray-600 leading-[1.85]">創作最重要的是個人風格和新意，比起很像某些受歡迎的歌曲，個人原創風格還是最重要的，建議大家可以多聽各種風格的音樂，也可以因此拓展自己的創作領域。</p>
-          </div>
-          <div class="bg-gray-50 rounded-xl p-4">
-            <p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">秦旭章老師</p>
-            <p class="text-[12px] text-gray-600 leading-[1.85]">在音樂性、投入感與技巧，是四組裡面最成熟的，希望能有機會真的見到你們的演出，我也願意繼續陪伴與分享！</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- 整體綜合 -->
-      <div>
-        <div class="flex items-center gap-2 mb-3"><div class="w-[3px] h-5 bg-[#C8A84B] rounded-full"></div><p class="rnd font-bold text-[#1A2F23] text-sm">整體綜合評語</p></div>
-        <div class="space-y-3">
-          <div class="bg-gray-50 rounded-xl p-4">
-            <p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">陳惠婷老師</p>
-            <p class="text-[12px] text-gray-600 leading-[1.85]">不論是歌唱組還是創作組，找到自己的風格還是最重要的，其次就是享受在音樂中，用「心」去表達，真摯的情感有無與否，聽眾都能感受到的。</p>
-          </div>
-          <div class="bg-gray-50 rounded-xl p-4">
-            <p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">秦旭章老師</p>
-            <p class="text-[12px] text-gray-600 leading-[1.85]">總體來說，這次四組裡面有發現很多組，創作性很夠，但對於原創性（包含聲音跟歌詞），感覺大家在一個迷惘的階段，還在揣摩別人的聲音跟技巧，唯獨創作組這邊反而有更多的彈性。當然，在獨唱組的地方也聽到了一些極具特色的嗓音，只是還沒找到自己適合的 key 跟速度，希望未來有一天見到、聽到能夠給予更好的建議，期待大家的努力！</p>
-          </div>
-        </div>
-      </div>
-
+      <div><div class="flex items-center gap-2 mb-3"><div class="w-[3px] h-5 bg-[#1A2F23] rounded-full"></div><p class="rnd font-bold text-[#1A2F23] text-sm">學生獨唱組</p></div><div class="space-y-3"><div class="bg-gray-50 rounded-xl p-4"><p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">陳惠婷老師</p><p class="text-[12px] text-gray-600 leading-[1.85]">發展個人的風格很重要，比起唱得平順或者模仿得很像，擁有個人風格才是能突出的重點。使用轉音技巧要很小心，不然容易失去音準或變得很油，也會拉低格調，表現情感的方式往往不在這裡。唱歌還是要自然，刻意的咬字聽感上不太舒服。有的時候不要想太多，唱歌其實是分享人類情感本能的一種表現，享受在音樂裡，自然地表達，才能有最適合的詮釋方式，而且沒有標準答案，過於刻意反而失去了靈魂。</p></div><div class="bg-gray-50 rounded-xl p-4"><p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">秦旭章老師</p><p class="text-[12px] text-gray-600 leading-[1.85]">整體表現比社會組的多元性多一點，期待你們更注意細節，選歌的選俗度跟 key 都很重要。</p></div></div></div>
+      <div><div class="flex items-center gap-2 mb-3"><div class="w-[3px] h-5 bg-[#1A2F23] rounded-full"></div><p class="rnd font-bold text-[#1A2F23] text-sm">社會獨唱組</p></div><div class="space-y-3"><div class="bg-gray-50 rounded-xl p-4"><p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">陳惠婷老師</p><p class="text-[12px] text-gray-600 leading-[1.85]">音準的部分可以再多加注意，更需要投入在歌裡，不然聽起來多是會平平的。擁有個人特色的唱法還是更容易出色。</p></div><div class="bg-gray-50 rounded-xl p-4"><p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">秦旭章老師</p><p class="text-[12px] text-gray-600 leading-[1.85]">整體特色不足，有一些人的音色有機會，如果真的有興趣加強，可以找到更多有幫助的細節，例如：怎麼找 key、定速度，都會有影響，跟學生獨唱組的建議一樣。</p></div></div></div>
+      <div><div class="flex items-center gap-2 mb-3"><div class="w-[3px] h-5 bg-[#1A2F23] rounded-full"></div><p class="rnd font-bold text-[#1A2F23] text-sm">重、對唱組</p></div><div class="space-y-3"><div class="bg-gray-50 rounded-xl p-4"><p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">陳惠婷老師</p><p class="text-[12px] text-gray-600 leading-[1.85]">重唱、對唱很注重音準跟和聲編排的對位，差一點的話都會很可惜。如果合唱者的頻率能夠在同一個共振頻率的話，聽感會很舒服。重唱、合唱很容易只顧技巧音準或自己的表現，但這樣情感的詮釋會扣分。</p></div><div class="bg-gray-50 rounded-xl p-4"><p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">秦旭章老師</p><p class="text-[12px] text-gray-600 leading-[1.85]">少就是多，不一定要全部和好和滿，有空間感，多聽對方的聲音給予回應，是整體希望給大家可貴的意見！</p></div></div></div>
+      <div><div class="flex items-center gap-2 mb-3"><div class="w-[3px] h-5 bg-[#1A2F23] rounded-full"></div><p class="rnd font-bold text-[#1A2F23] text-sm">創作組</p></div><div class="space-y-3"><div class="bg-gray-50 rounded-xl p-4"><p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">陳惠婷老師</p><p class="text-[12px] text-gray-600 leading-[1.85]">創作最重要的是個人風格和新意，比起很像某些受歡迎的歌曲，個人原創風格還是最重要的，建議大家可以多聽各種風格的音樂，也可以因此拓展自己的創作領域。</p></div><div class="bg-gray-50 rounded-xl p-4"><p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">秦旭章老師</p><p class="text-[12px] text-gray-600 leading-[1.85]">在音樂性、投入感與技巧，是四組裡面最成熟的，希望能有機會真的見到你們的演出，我也願意繼續陪伴與分享！</p></div></div></div>
+      <div><div class="flex items-center gap-2 mb-3"><div class="w-[3px] h-5 bg-[#C8A84B] rounded-full"></div><p class="rnd font-bold text-[#1A2F23] text-sm">整體綜合評語</p></div><div class="space-y-3"><div class="bg-gray-50 rounded-xl p-4"><p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">陳惠婷老師</p><p class="text-[12px] text-gray-600 leading-[1.85]">不論是歌唱組還是創作組，找到自己的風格還是最重要的，其次就是享受在音樂中，用「心」去表達，真摯的情感有無與否，聽眾都能感受到的。</p></div><div class="bg-gray-50 rounded-xl p-4"><p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">秦旭章老師</p><p class="text-[12px] text-gray-600 leading-[1.85]">總體來說，這次四組裡面有發現很多組，創作性很夠，但對於原創性（包含聲音跟歌詞），感覺大家在一個迷惘的階段，還在揣摩別人的聲音跟技巧，唯獨創作組這邊反而有更多的彈性。當然，在獨唱組的地方也聽到了一些極具特色的嗓音，只是還沒找到自己適合的 key 跟速度，希望未來有一天見到、聽到能夠給予更好的建議，期待大家的努力！</p></div></div></div>
       <p class="text-[11px] text-gray-400 text-center pt-2 border-t border-gray-100 leading-relaxed">再次感謝陳惠婷老師、秦旭章老師擔任初賽評審<br>並用心寫下給選手的諸多回饋！預祝大家複賽順利。🎵</p>
     </div>
+  </div>
 
-    </div>
   <div id="pcontent-semifinal" class="fade-in">
     <div class="semifinal-grid mb-5">
       <a href="https://docs.google.com/spreadsheets/d/1GleQHlpaWFn_WLBrg8400hEa4eJgHMkqxlI333DoaJ4/edit?usp=drivesdk" target="_blank" class="border border-gray-100 rounded-2xl p-5 flex items-center gap-4 hover:bg-gray-50 active:scale-[0.98] transition-all">
         <p class="text-2xl flex-shrink-0">🎼</p>
-        <div class="flex-1">
-          <p class="rnd font-semibold text-[#1A2F23] text-sm mb-1">複賽賽程</p>
-          <p class="text-[11px] text-gray-400 leading-relaxed">查詢上台序號與預計表演時間</p>
-        </div>
+        <div class="flex-1"><p class="rnd font-semibold text-[#1A2F23] text-sm mb-1">複賽賽程</p><p class="text-[11px] text-gray-400 leading-relaxed">查詢上台序號與預計表演時間</p></div>
         <span class="text-[#1A2F23] text-lg flex-shrink-0">›</span>
       </a>
     </div>
@@ -338,22 +345,18 @@
       <p class="rnd text-[10px] text-gray-400 uppercase tracking-[.15em] mb-4">注意事項</p>
       <div class="flex gap-4 items-start">
         <span class="rnd text-[11px] text-[#1A2F23] font-medium min-w-[28px] mt-0.5 flex-shrink-0">地點</span>
-        <div><p class="text-sm text-gray-700">臺大外語教學暨資源中心</p><a href="https://maps.google.com/?q=國立臺灣大學臺大外語教學暨資源中心" target="_blank" class="text-[11px] text-[#1A2F23] mt-2 inline-block underline underline-offset-2">查看路線圖</a></div>
+        <div><p class="text-sm text-gray-700">臺大外語教學暨資源中心</p><a href="https://maps.google.com/?q=國立臺灣大學外語教學暨資源中心" target="_blank" class="text-[11px] text-[#1A2F23] mt-2 inline-block underline underline-offset-2">查看路線圖</a></div>
       </div>
     </div>
-    <button onclick="showProgramBook()"
-      class="w-full bg-[#1A2F23] text-white rnd font-bold text-base py-5 rounded-2xl mb-5 tracking-wide
-             transition-all duration-300 hover:bg-[#254535] active:scale-[0.98] flex items-center justify-center gap-2">
-      複賽節目冊 📖
-    </button>
+    <button onclick="showProgramBook()" class="w-full bg-[#1A2F23] text-white rnd font-bold text-base py-5 rounded-2xl mb-5 tracking-wide transition-all duration-300 hover:bg-[#254535] active:scale-[0.98] flex items-center justify-center gap-2">複賽節目冊 📖</button>
     <p class="text-center text-gray-300 text-[11px] leading-relaxed mt-4 pb-2">小提醒 · 天雨路滑請小心<br>臺大音韻獎關心您 🦋</p>
   </div>
+
   <div id="pcontent-final" class="hidden">
     <div class="border border-gray-100 rounded-2xl p-10 text-center"><p class="text-5xl mb-5">🏆</p><p class="rnd text-lg font-bold text-[#1A2F23] mb-2">決賽殿堂</p><p class="text-sm text-gray-400">詳細資訊即將公告，敬請期待。</p></div>
   </div>
 </div>
 
-<!-- 複賽節目冊 -->
 <div id="page-program" class="page pt-8 pb-16">
   <button onclick="hideProgramBook()" class="flex items-center gap-2 text-[#1A2F23] rnd text-sm font-medium mb-8 hover:opacity-70 transition-opacity">
     <span>←</span> 返回選手專區
@@ -615,135 +618,72 @@
     </div>
     <div class="mb-3 border border-gray-100 rounded-2xl overflow-hidden">
       <button onclick="toggleAcc(this)" class="w-full flex items-center justify-between px-5 py-4 text-left bg-white">
-        <div><p class="rnd font-semibold text-[#1A2F23] text-sm">學生獨唱組 · 第三梯次</p><p class="text-[11px] text-emerald-700 mt-0.5">14:00 – 15:00　共 34 位</p></div>
+        <div><p class="rnd font-semibold text-[#1A2F23] text-sm">學生獨唱組 · 第三梯次</p><p class="text-[11px] text-emerald-700 mt-0.5">14:00 – 15:00　共 35 位</p></div>
         <span class="acc-arrow text-gray-400 text-lg">▾</span>
       </button>
-      <div class="acc-content px-3 pb-3">
-        <div class="flex border-b border-gray-100">
-          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
-            <span class="rnd text-[10px] text-gray-300 mb-1">01</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">李語霏</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
-            <span class="rnd text-[10px] text-gray-300 mb-1">02</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">蔡景翔</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
-            <span class="rnd text-[10px] text-gray-300 mb-1">03</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">忻思霆</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
-            <span class="rnd text-[10px] text-gray-300 mb-1">04</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">羅宇騰</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
-            <span class="rnd text-[10px] text-gray-300 mb-1">05</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">陳亮亦</span>
+      <div class="acc-content">
+        <div class="overflow-x-auto px-4 pb-4 md:px-6">
+          <div class="flex gap-0 min-w-max">
+          <div class="flex flex-col w-28 flex-shrink-0">
+            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">01</span><span class="text-[13px] text-gray-700 ml-2">李語霏</span></div>
+            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">02</span><span class="text-[13px] text-gray-700 ml-2">蔡景翔</span></div>
+            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">03</span><span class="text-[13px] text-gray-700 ml-2">忻思霆</span></div>
+            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">04</span><span class="text-[13px] text-gray-700 ml-2">羅宇騰</span></div>
+            <div class="flex items-center gap-2 py-2.5"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">05</span><span class="text-[13px] text-gray-700 ml-2">陳亮亦</span></div>
           </div>
-        </div>
-        <div class="flex border-b border-gray-100">
-          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
-            <span class="rnd text-[10px] text-gray-300 mb-1">06</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">胡恩綺</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
-            <span class="rnd text-[10px] text-gray-300 mb-1">07</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">陳映妤</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
-            <span class="rnd text-[10px] text-gray-300 mb-1">08</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">沈士紘</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
-            <span class="rnd text-[10px] text-gray-300 mb-1">09</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">謝佳玲</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
-            <span class="rnd text-[10px] text-gray-300 mb-1">10</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">曾昱文</span>
+          <div class="w-px bg-gray-100 mx-3 self-stretch"></div>
+          <div class="flex flex-col w-20 flex-shrink-0">
+            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">06</span><span class="text-[13px] text-gray-700 ml-2">羅怡宣</span></div>
+            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">07</span><span class="text-[13px] text-gray-700 ml-2">胡恩綺</span></div>
+            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">08</span><span class="text-[13px] text-gray-700 ml-2">陳映妤</span></div>
+            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">09</span><span class="text-[13px] text-gray-700 ml-2">沈士紘</span></div>
+            <div class="flex items-center gap-2 py-2.5"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">10</span><span class="text-[13px] text-gray-700 ml-2">謝佳玲</span></div>
           </div>
-        </div>
-        <div class="flex border-b border-gray-100">
-          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
-            <span class="rnd text-[10px] text-gray-300 mb-1">11</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">黃馨誼</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
-            <span class="rnd text-[10px] text-gray-300 mb-1">12</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">鄔綺真</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
-            <span class="rnd text-[10px] text-gray-300 mb-1">13</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">陳柔臻</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
-            <span class="rnd text-[10px] text-gray-300 mb-1">14</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">王瑞逸</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
-            <span class="rnd text-[10px] text-gray-300 mb-1">15</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">宋修宏</span>
+          <div class="w-px bg-gray-100 mx-3 self-stretch"></div>
+          <div class="flex flex-col w-20 flex-shrink-0">
+            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">11</span><span class="text-[13px] text-gray-700 ml-2">曾昱文</span></div>
+            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">12</span><span class="text-[13px] text-gray-700 ml-2">黃馨誼</span></div>
+            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">13</span><span class="text-[13px] text-gray-700 ml-2">鄔綺真</span></div>
+            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">14</span><span class="text-[13px] text-gray-700 ml-2">陳柔臻</span></div>
+            <div class="flex items-center gap-2 py-2.5"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">15</span><span class="text-[13px] text-gray-700 ml-2">王瑞逸</span></div>
           </div>
-        </div>
-        <div class="flex border-b border-gray-100">
-          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
-            <span class="rnd text-[10px] text-gray-300 mb-1">16</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">張皓天</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
-            <span class="rnd text-[10px] text-gray-300 mb-1">17</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">莊家瑋</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
-            <span class="rnd text-[10px] text-gray-300 mb-1">18</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">黃亭尹</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
-            <span class="rnd text-[10px] text-gray-300 mb-1">19</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">王千妤</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
-            <span class="rnd text-[10px] text-gray-300 mb-1">20</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">蔡博宇</span>
+          <div class="w-px bg-gray-100 mx-3 self-stretch"></div>
+          <div class="flex flex-col w-20 flex-shrink-0">
+            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">16</span><span class="text-[13px] text-gray-700 ml-2">宋修宏</span></div>
+            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">17</span><span class="text-[13px] text-gray-700 ml-2">張皓天</span></div>
+            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">18</span><span class="text-[13px] text-gray-700 ml-2">莊家瑋</span></div>
+            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">19</span><span class="text-[13px] text-gray-700 ml-2">黃亭尹</span></div>
+            <div class="flex items-center gap-2 py-2.5"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">20</span><span class="text-[13px] text-gray-700 ml-2">王千妤</span></div>
           </div>
-        </div>
-        <div class="flex border-b border-gray-100">
-          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
-            <span class="rnd text-[10px] text-gray-300 mb-1">21</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">艾琛杭</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
-            <span class="rnd text-[10px] text-gray-300 mb-1">22</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">谷珮瑀</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
-            <span class="rnd text-[10px] text-gray-300 mb-1">23</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">曾詩喻</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
-            <span class="rnd text-[10px] text-gray-300 mb-1">24</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">程靖涵</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
-            <span class="rnd text-[10px] text-gray-300 mb-1">25</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">蘇琮棋</span>
+          <div class="w-px bg-gray-100 mx-3 self-stretch"></div>
+          <div class="flex flex-col w-20 flex-shrink-0">
+            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">21</span><span class="text-[13px] text-gray-700 ml-2">蔡博宇</span></div>
+            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">22</span><span class="text-[13px] text-gray-700 ml-2">劉閔晴</span></div>
+            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">23</span><span class="text-[13px] text-gray-700 ml-2">谷珮瑀</span></div>
+            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">24</span><span class="text-[13px] text-gray-700 ml-2">曾詩喻</span></div>
+            <div class="flex items-center gap-2 py-2.5"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">25</span><span class="text-[13px] text-gray-700 ml-2">程靖涵</span></div>
           </div>
-        </div>
-        <div class="flex border-b border-gray-100">
-          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
-            <span class="rnd text-[10px] text-gray-300 mb-1">26</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">陳姿媛</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
-            <span class="rnd text-[10px] text-gray-300 mb-1">27</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">董宸好</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
-            <span class="rnd text-[10px] text-gray-300 mb-1">28</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">嚴連祥</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
-            <span class="rnd text-[10px] text-gray-300 mb-1">29</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">劉柏毅</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
-            <span class="rnd text-[10px] text-gray-300 mb-1">30</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">林詳諺</span>
+          <div class="w-px bg-gray-100 mx-3 self-stretch"></div>
+          <div class="flex flex-col w-20 flex-shrink-0">
+            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">26</span><span class="text-[13px] text-gray-700 ml-2">蘇琮棋</span></div>
+            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">27</span><span class="text-[13px] text-gray-700 ml-2">陳姿媛</span></div>
+            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">28</span><span class="text-[13px] text-gray-700 ml-2">董宸妤</span></div>
+            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">29</span><span class="text-[13px] text-gray-700 ml-2">嚴連祥</span></div>
+            <div class="flex items-center gap-2 py-2.5"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">30</span><span class="text-[13px] text-gray-700 ml-2">劉柏毅</span></div>
           </div>
-        </div>
-        <div class="flex">
-          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
-            <span class="rnd text-[10px] text-gray-300 mb-1">31</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">林宥程</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
-            <span class="rnd text-[10px] text-gray-300 mb-1">32</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">張良遠</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
-            <span class="rnd text-[10px] text-gray-300 mb-1">33</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">鄭婷云</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
-            <span class="rnd text-[10px] text-gray-300 mb-1">34</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">林宸仔</span>
+          <div class="w-px bg-gray-100 mx-3 self-stretch"></div>
+          <div class="flex flex-col w-20 flex-shrink-0">
+            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">31</span><span class="text-[13px] text-gray-700 ml-2">林詳諺</span></div>
+            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">32</span><span class="text-[13px] text-gray-700 ml-2">林宥程</span></div>
+            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">33</span><span class="text-[13px] text-gray-700 ml-2">張良遠</span></div>
+            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">34</span><span class="text-[13px] text-gray-700 ml-2">鄭婷云</span></div>
+            <div class="flex items-center gap-2 py-2.5"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">35</span><span class="text-[13px] text-gray-700 ml-2">林宸伃</span></div>
+          </div>
           </div>
         </div>
       </div>
     </div>
+
     <div class="mb-3 border border-gray-100 rounded-2xl overflow-hidden">
       <button onclick="toggleAcc(this)" class="w-full flex items-center justify-between px-5 py-4 text-left bg-white">
         <div><p class="rnd font-semibold text-[#1A2F23] text-sm">重、對唱組 · 第一梯次</p><p class="text-[11px] text-emerald-700 mt-0.5">15:10 – 15:50　共 13 組</p></div>
@@ -807,181 +747,97 @@
 
     <div class="mb-3 border border-gray-100 rounded-2xl overflow-hidden">
       <button onclick="toggleAcc(this)" class="w-full flex items-center justify-between px-5 py-4 text-left bg-white">
-        <div><p class="rnd font-semibold text-[#1A2F23] text-sm">社會獨唱組 · 第一梯次</p><p class="text-[11px] text-emerald-700 mt-0.5">10:00 – 10:50　共 22 位</p></div>
+        <div><p class="rnd font-semibold text-[#1A2F23] text-sm">社會獨唱組 · 第一梯次</p><p class="text-[11px] text-emerald-700 mt-0.5">10:00 – 10:50　共 21 位</p></div>
         <span class="acc-arrow open text-gray-400 text-lg">▾</span>
       </button>
-      <div class="acc-content open px-3 pb-3">
-        <div class="flex border-b border-gray-100">
-          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
-            <span class="rnd text-[10px] text-gray-300 mb-1">01</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">林若恩</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
-            <span class="rnd text-[10px] text-gray-300 mb-1">02</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">魏德軒</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
-            <span class="rnd text-[10px] text-gray-300 mb-1">03</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">黃宇琛</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
-            <span class="rnd text-[10px] text-gray-300 mb-1">04</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">林佳駿</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
-            <span class="rnd text-[10px] text-gray-300 mb-1">05</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">黃泰翔</span>
+      <div class="acc-content open">
+        <div class="overflow-x-auto px-4 pb-4 md:px-6">
+          <div class="flex gap-0 min-w-max">
+          <div class="flex flex-col w-28 flex-shrink-0">
+            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">01</span><span class="text-[13px] text-gray-700 ml-2">林若恩</span></div>
+            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">02</span><span class="text-[13px] text-gray-700 ml-2">魏德軒</span></div>
+            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">03</span><span class="text-[13px] text-gray-700 ml-2">黃宇琛</span></div>
+            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">04</span><span class="text-[13px] text-gray-700 ml-2">林佳駿</span></div>
+            <div class="flex items-center gap-2 py-2.5"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">05</span><span class="text-[13px] text-gray-700 ml-2">黃泰翔</span></div>
           </div>
-        </div>
-        <div class="flex border-b border-gray-100">
-          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
-            <span class="rnd text-[10px] text-gray-300 mb-1">06</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">莊筑馨</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
-            <span class="rnd text-[10px] text-gray-300 mb-1">07</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">吳允耘</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
-            <span class="rnd text-[10px] text-gray-300 mb-1">08</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">鄧旭廷</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
-            <span class="rnd text-[10px] text-gray-300 mb-1">09</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">曾柏魁</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
-            <span class="rnd text-[10px] text-gray-300 mb-1">10</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">尤慈霞</span>
+          <div class="w-px bg-gray-100 mx-3 self-stretch"></div>
+          <div class="flex flex-col w-20 flex-shrink-0">
+            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">06</span><span class="text-[13px] text-gray-700 ml-2">莊筑馨</span></div>
+            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">07</span><span class="text-[13px] text-gray-700 ml-2">吳允耘</span></div>
+            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">08</span><span class="text-[13px] text-gray-700 ml-2">鄧旭廷</span></div>
+            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">09</span><span class="text-[13px] text-gray-700 ml-2">曾柏魁</span></div>
+            <div class="flex items-center gap-2 py-2.5"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">10</span><span class="text-[13px] text-gray-700 ml-2">尤慈霞</span></div>
           </div>
-        </div>
-        <div class="flex border-b border-gray-100">
-          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
-            <span class="rnd text-[10px] text-gray-300 mb-1">11</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">張啟恩</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
-            <span class="rnd text-[10px] text-gray-300 mb-1">12</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">陳君豪</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
-            <span class="rnd text-[10px] text-gray-300 mb-1">13</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">楊牧恩</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
-            <span class="rnd text-[10px] text-gray-300 mb-1">14</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">郁文</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
-            <span class="rnd text-[10px] text-gray-300 mb-1">15</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">蕭汶雨</span>
+          <div class="w-px bg-gray-100 mx-3 self-stretch"></div>
+          <div class="flex flex-col w-20 flex-shrink-0">
+            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">11</span><span class="text-[13px] text-gray-700 ml-2">張啟恩</span></div>
+            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">12</span><span class="text-[13px] text-gray-700 ml-2">陳君豪</span></div>
+            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">13</span><span class="text-[13px] text-gray-700 ml-2">楊牧恩</span></div>
+            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">14</span><span class="text-[13px] text-gray-700 ml-2">郁文</span></div>
+            <div class="flex items-center gap-2 py-2.5"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">15</span><span class="text-[13px] text-gray-700 ml-2">蕭汶雨</span></div>
           </div>
-        </div>
-        <div class="flex border-b border-gray-100">
-          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
-            <span class="rnd text-[10px] text-gray-300 mb-1">16</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">吳秉駿</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
-            <span class="rnd text-[10px] text-gray-300 mb-1">17</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">吳家瑜</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
-            <span class="rnd text-[10px] text-gray-300 mb-1">18</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">陳宜樺</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
-            <span class="rnd text-[10px] text-gray-300 mb-1">19</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">陳思予</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
-            <span class="rnd text-[10px] text-gray-300 mb-1">20</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">黃品翔</span>
+          <div class="w-px bg-gray-100 mx-3 self-stretch"></div>
+          <div class="flex flex-col w-20 flex-shrink-0">
+            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">16</span><span class="text-[13px] text-gray-700 ml-2">吳秉駿</span></div>
+            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">17</span><span class="text-[13px] text-gray-700 ml-2">吳家瑜</span></div>
+            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">18</span><span class="text-[13px] text-gray-700 ml-2">陳宜樺</span></div>
+            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">19</span><span class="text-[13px] text-gray-700 ml-2">陳思予</span></div>
+            <div class="flex items-center gap-2 py-2.5"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">20</span><span class="text-[13px] text-gray-700 ml-2">黃品翔</span></div>
           </div>
-        </div>
-        <div class="flex">
-          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
-            <span class="rnd text-[10px] text-gray-300 mb-1">21</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">關芃壬</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
-            <span class="rnd text-[10px] text-gray-300 mb-1">22</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">徐霆睿</span>
+          <div class="w-px bg-gray-100 mx-3 self-stretch"></div>
+          <div class="flex flex-col w-20 flex-shrink-0">
+            <div class="flex items-center gap-2 py-2.5"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">21</span><span class="text-[13px] text-gray-700 ml-2">關芃壬</span></div>
+          </div>
           </div>
         </div>
       </div>
     </div>
     <div class="mb-3 border border-gray-100 rounded-2xl overflow-hidden">
       <button onclick="toggleAcc(this)" class="w-full flex items-center justify-between px-5 py-4 text-left bg-white">
-        <div><p class="rnd font-semibold text-[#1A2F23] text-sm">社會獨唱組 · 第二梯次</p><p class="text-[11px] text-emerald-700 mt-0.5">11:00 – 11:50　共 23 位</p></div>
+        <div><p class="rnd font-semibold text-[#1A2F23] text-sm">社會獨唱組 · 第二梯次</p><p class="text-[11px] text-emerald-700 mt-0.5">11:00 – 11:50　共 24 位</p></div>
         <span class="acc-arrow text-gray-400 text-lg">▾</span>
       </button>
-      <div class="acc-content px-3 pb-3">
-        <div class="flex border-b border-gray-100">
-          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
-            <span class="rnd text-[10px] text-gray-300 mb-1">01</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">劉杰笙</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
-            <span class="rnd text-[10px] text-gray-300 mb-1">02</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">紀茗仁</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
-            <span class="rnd text-[10px] text-gray-300 mb-1">03</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">譚宇甯</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
-            <span class="rnd text-[10px] text-gray-300 mb-1">04</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">王智謙</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
-            <span class="rnd text-[10px] text-gray-300 mb-1">05</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">鄒汶</span>
+      <div class="acc-content">
+        <div class="overflow-x-auto px-4 pb-4 md:px-6">
+          <div class="flex gap-0 min-w-max">
+          <div class="flex flex-col w-28 flex-shrink-0">
+            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">01</span><span class="text-[13px] text-gray-700 ml-2">徐霆睿</span></div>
+            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">02</span><span class="text-[13px] text-gray-700 ml-2">劉杰笙</span></div>
+            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">03</span><span class="text-[13px] text-gray-700 ml-2">紀茗仁</span></div>
+            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">04</span><span class="text-[13px] text-gray-700 ml-2">譚宇甯</span></div>
+            <div class="flex items-center gap-2 py-2.5"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">05</span><span class="text-[13px] text-gray-700 ml-2">王智謙</span></div>
           </div>
-        </div>
-        <div class="flex border-b border-gray-100">
-          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
-            <span class="rnd text-[10px] text-gray-300 mb-1">06</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">林尹雯</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
-            <span class="rnd text-[10px] text-gray-300 mb-1">07</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">黃子恩</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
-            <span class="rnd text-[10px] text-gray-300 mb-1">08</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">高鴻恩</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
-            <span class="rnd text-[10px] text-gray-300 mb-1">09</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">王叡琦</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
-            <span class="rnd text-[10px] text-gray-300 mb-1">10</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">陸郁涵</span>
+          <div class="w-px bg-gray-100 mx-3 self-stretch"></div>
+          <div class="flex flex-col w-20 flex-shrink-0">
+            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">06</span><span class="text-[13px] text-gray-700 ml-2">鄒汶</span></div>
+            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">07</span><span class="text-[13px] text-gray-700 ml-2">林尹雯</span></div>
+            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">08</span><span class="text-[13px] text-gray-700 ml-2">黃子恩</span></div>
+            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">09</span><span class="text-[13px] text-gray-700 ml-2">高鴻恩</span></div>
+            <div class="flex items-center gap-2 py-2.5"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">10</span><span class="text-[13px] text-gray-700 ml-2">王叡琦</span></div>
           </div>
-        </div>
-        <div class="flex border-b border-gray-100">
-          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
-            <span class="rnd text-[10px] text-gray-300 mb-1">11</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">會茹</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
-            <span class="rnd text-[10px] text-gray-300 mb-1">12</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">謝欣瑋</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
-            <span class="rnd text-[10px] text-gray-300 mb-1">13</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">蕭羽彤</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
-            <span class="rnd text-[10px] text-gray-300 mb-1">14</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">江心慈</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
-            <span class="rnd text-[10px] text-gray-300 mb-1">15</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">廖培均</span>
+          <div class="w-px bg-gray-100 mx-3 self-stretch"></div>
+          <div class="flex flex-col w-20 flex-shrink-0">
+            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">11</span><span class="text-[13px] text-gray-700 ml-2">陸郁涵</span></div>
+            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">12</span><span class="text-[13px] text-gray-700 ml-2">曾茹</span></div>
+            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">13</span><span class="text-[13px] text-gray-700 ml-2">謝欣瑋</span></div>
+            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">14</span><span class="text-[13px] text-gray-700 ml-2">蕭羽彤</span></div>
+            <div class="flex items-center gap-2 py-2.5"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">15</span><span class="text-[13px] text-gray-700 ml-2">江心慈</span></div>
           </div>
-        </div>
-        <div class="flex border-b border-gray-100">
-          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
-            <span class="rnd text-[10px] text-gray-300 mb-1">16</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">陳冠宇</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
-            <span class="rnd text-[10px] text-gray-300 mb-1">17</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">陳彥傑</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
-            <span class="rnd text-[10px] text-gray-300 mb-1">18</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">蕭欣瑜</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
-            <span class="rnd text-[10px] text-gray-300 mb-1">19</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">麥祐寧</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
-            <span class="rnd text-[10px] text-gray-300 mb-1">20</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">林丘宗</span>
+          <div class="w-px bg-gray-100 mx-3 self-stretch"></div>
+          <div class="flex flex-col w-20 flex-shrink-0">
+            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">16</span><span class="text-[13px] text-gray-700 ml-2">廖培均</span></div>
+            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">17</span><span class="text-[13px] text-gray-700 ml-2">陳冠宇</span></div>
+            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">18</span><span class="text-[13px] text-gray-700 ml-2">陳彥傑</span></div>
+            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">19</span><span class="text-[13px] text-gray-700 ml-2">蕭欣瑜</span></div>
+            <div class="flex items-center gap-2 py-2.5"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">20</span><span class="text-[13px] text-gray-700 ml-2">麥祐寧</span></div>
           </div>
-        </div>
-        <div class="flex">
-          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
-            <span class="rnd text-[10px] text-gray-300 mb-1">21</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">蘇政豪</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
-            <span class="rnd text-[10px] text-gray-300 mb-1">22</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">戴予歆</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
-            <span class="rnd text-[10px] text-gray-300 mb-1">23</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">馮芊茱</span>
+          <div class="w-px bg-gray-100 mx-3 self-stretch"></div>
+          <div class="flex flex-col w-20 flex-shrink-0">
+            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">21</span><span class="text-[13px] text-gray-700 ml-2">林丘宗</span></div>
+            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">22</span><span class="text-[13px] text-gray-700 ml-2">蘇政豪</span></div>
+            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">23</span><span class="text-[13px] text-gray-700 ml-2">戴予歆</span></div>
+            <div class="flex items-center gap-2 py-2.5"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">24</span><span class="text-[13px] text-gray-700 ml-2">馮芊茱</span></div>
+          </div>
           </div>
         </div>
       </div>
@@ -991,23 +847,16 @@
         <div><p class="rnd font-semibold text-[#1A2F23] text-sm">創作組 · 第一梯次</p><p class="text-[11px] text-emerald-700 mt-0.5">12:50 – 14:10　共 5 位</p></div>
         <span class="acc-arrow text-gray-400 text-lg">▾</span>
       </button>
-      <div class="acc-content px-3 pb-3">
-        <div class="flex">
-          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
-            <span class="rnd text-[10px] text-gray-300 mb-1">01</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">楊司齊</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
-            <span class="rnd text-[10px] text-gray-300 mb-1">02</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">曾駿廷</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
-            <span class="rnd text-[10px] text-gray-300 mb-1">03</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">王皓</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
-            <span class="rnd text-[10px] text-gray-300 mb-1">04</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">張瑜丞</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
-            <span class="rnd text-[10px] text-gray-300 mb-1">05</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">邢定弘</span>
+      <div class="acc-content">
+        <div class="overflow-x-auto px-4 pb-4 md:px-6">
+          <div class="flex gap-0 min-w-max">
+          <div class="flex flex-col w-28 flex-shrink-0">
+            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">01</span><span class="text-[13px] text-gray-700 ml-2">楊司齊</span></div>
+            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">02</span><span class="text-[13px] text-gray-700 ml-2">曾駿廷</span></div>
+            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">03</span><span class="text-[13px] text-gray-700 ml-2">王皓</span></div>
+            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">04</span><span class="text-[13px] text-gray-700 ml-2">張瑜丞</span></div>
+            <div class="flex items-center gap-2 py-2.5"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">05</span><span class="text-[13px] text-gray-700 ml-2">邢定弘</span></div>
+          </div>
           </div>
         </div>
       </div>
@@ -1017,41 +866,24 @@
         <div><p class="rnd font-semibold text-[#1A2F23] text-sm">創作組 · 第二梯次</p><p class="text-[11px] text-emerald-700 mt-0.5">14:20 – 16:00　共 10 位</p></div>
         <span class="acc-arrow text-gray-400 text-lg">▾</span>
       </button>
-      <div class="acc-content px-3 pb-3">
-        <div class="flex border-b border-gray-100">
-          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
-            <span class="rnd text-[10px] text-gray-300 mb-1">01</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">羅約存</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
-            <span class="rnd text-[10px] text-gray-300 mb-1">02</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">杜佳純</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
-            <span class="rnd text-[10px] text-gray-300 mb-1">03</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">謝秉褌</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
-            <span class="rnd text-[10px] text-gray-300 mb-1">04</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">陳柄誠</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
-            <span class="rnd text-[10px] text-gray-300 mb-1">05</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">方元貞</span>
+      <div class="acc-content">
+        <div class="overflow-x-auto px-4 pb-4 md:px-6">
+          <div class="flex gap-0 min-w-max">
+          <div class="flex flex-col w-28 flex-shrink-0">
+            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">01</span><span class="text-[13px] text-gray-700 ml-2">羅約存</span></div>
+            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">02</span><span class="text-[13px] text-gray-700 ml-2">杜佳純</span></div>
+            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">03</span><span class="text-[13px] text-gray-700 ml-2">謝秉琿</span></div>
+            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">04</span><span class="text-[13px] text-gray-700 ml-2">陳柄誠</span></div>
+            <div class="flex items-center gap-2 py-2.5"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">05</span><span class="text-[13px] text-gray-700 ml-2">方元貞</span></div>
           </div>
-        </div>
-        <div class="flex">
-          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
-            <span class="rnd text-[10px] text-gray-300 mb-1">06</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">朱禾郁</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
-            <span class="rnd text-[10px] text-gray-300 mb-1">07</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">沈士紘</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
-            <span class="rnd text-[10px] text-gray-300 mb-1">08</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">王禹叡</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
-            <span class="rnd text-[10px] text-gray-300 mb-1">09</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">陳祈文</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
-            <span class="rnd text-[10px] text-gray-300 mb-1">10</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">蔡宗儒</span>
+          <div class="w-px bg-gray-100 mx-3 self-stretch"></div>
+          <div class="flex flex-col w-20 flex-shrink-0">
+            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">06</span><span class="text-[13px] text-gray-700 ml-2">朱禾郁</span></div>
+            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">07</span><span class="text-[13px] text-gray-700 ml-2">沈士紘</span></div>
+            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">08</span><span class="text-[13px] text-gray-700 ml-2">王禹叡</span></div>
+            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">09</span><span class="text-[13px] text-gray-700 ml-2">陳祈文</span></div>
+            <div class="flex items-center gap-2 py-2.5"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">10</span><span class="text-[13px] text-gray-700 ml-2">蔡宗儒</span></div>
+          </div>
           </div>
         </div>
       </div>
@@ -1061,176 +893,60 @@
         <div><p class="rnd font-semibold text-[#1A2F23] text-sm">創作組 · 第三梯次</p><p class="text-[11px] text-emerald-700 mt-0.5">16:10 – 17:40　共 9 位</p></div>
         <span class="acc-arrow text-gray-400 text-lg">▾</span>
       </button>
-      <div class="acc-content px-3 pb-3">
-        <div class="flex border-b border-gray-100">
-          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
-            <span class="rnd text-[10px] text-gray-300 mb-1">01</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">蔡亮頤</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
-            <span class="rnd text-[10px] text-gray-300 mb-1">02</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">張宜蓁</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
-            <span class="rnd text-[10px] text-gray-300 mb-1">03</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">曾玟闋</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
-            <span class="rnd text-[10px] text-gray-300 mb-1">04</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">梁祐誠</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
-            <span class="rnd text-[10px] text-gray-300 mb-1">05</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">蘇煥橙</span>
+      <div class="acc-content">
+        <div class="overflow-x-auto px-4 pb-4 md:px-6">
+          <div class="flex gap-0 min-w-max">
+          <div class="flex flex-col w-28 flex-shrink-0">
+            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">01</span><span class="text-[13px] text-gray-700 ml-2">蔡亮頤</span></div>
+            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">02</span><span class="text-[13px] text-gray-700 ml-2">張宜蓁</span></div>
+            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">03</span><span class="text-[13px] text-gray-700 ml-2">曾玟闋</span></div>
+            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">04</span><span class="text-[13px] text-gray-700 ml-2">梁祐誠</span></div>
+            <div class="flex items-center gap-2 py-2.5"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">05</span><span class="text-[13px] text-gray-700 ml-2">蘇煥橙</span></div>
           </div>
-        </div>
-        <div class="flex">
-          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
-            <span class="rnd text-[10px] text-gray-300 mb-1">06</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">房潔恩</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
-            <span class="rnd text-[10px] text-gray-300 mb-1">07</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">王瑞逸</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
-            <span class="rnd text-[10px] text-gray-300 mb-1">08</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">徐沁陽</span>
-          </div>          <div class="flex flex-col items-center text-center px-2 py-3 flex-1">
-            <span class="rnd text-[10px] text-gray-300 mb-1">09</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium whitespace-nowrap">蔡韋銓</span>
+          <div class="w-px bg-gray-100 mx-3 self-stretch"></div>
+          <div class="flex flex-col w-20 flex-shrink-0">
+            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">06</span><span class="text-[13px] text-gray-700 ml-2">房潔恩</span></div>
+            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">07</span><span class="text-[13px] text-gray-700 ml-2">王瑞逸</span></div>
+            <div class="flex items-center gap-2 py-2.5 border-b border-gray-100"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">08</span><span class="text-[13px] text-gray-700 ml-2">徐沁陽</span></div>
+            <div class="flex items-center gap-2 py-2.5"><span class="rnd text-[10px] text-gray-300 w-5 text-right flex-shrink-0">09</span><span class="text-[13px] text-gray-700 ml-2">蔡韋銓</span></div>
+          </div>
           </div>
         </div>
       </div>
-    </div>
     </div>
 
     <p class="text-center text-gray-300 text-[11px] leading-relaxed tracking-wide mt-10 pb-4">
       小提醒 · 天雨路滑請小心<br>臺大音韻獎關心您 🦋
     </p>
-  </div>
+  
 
 
 <!-- 評審介紹 -->
 <div id="page-judges" class="page pt-8 pb-20">
-  <button onclick="showPage('home')" class="flex items-center gap-2 text-[#1A2F23] rnd text-sm font-medium mb-8 hover:opacity-70 transition-opacity">
-    <span>←</span> 返回首頁
-  </button>
+  <button onclick="showPage('home')" class="flex items-center gap-2 text-[#1A2F23] rnd text-sm font-medium mb-8 hover:opacity-70 transition-opacity"><span>←</span> 返回首頁</button>
   <p class="rnd text-[10px] tracking-[.22em] text-[#1A2F23] uppercase mb-2">評審介紹</p>
   <div class="w-6 h-0.5 bg-[#1A2F23] rounded-full mb-6"></div>
   <h2 class="rnd text-2xl md:text-3xl font-bold text-[#1A2F23] mb-10">第十三屆 評審陣容</h2>
 
-  <!-- 初賽 -->
-  <div class="flex items-center gap-3 mb-6">
-    <div class="w-[3px] h-7 bg-[#1A2F23] rounded-full"></div>
-    <p class="rnd font-bold text-[#1A2F23] text-lg">初賽評審</p>
-  </div>
+  <div class="flex items-center gap-3 mb-6"><div class="w-[3px] h-7 bg-[#1A2F23] rounded-full"></div><p class="rnd font-bold text-[#1A2F23] text-lg">初賽評審</p></div>
   <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-12">
-    <div class="border border-gray-100 rounded-2xl p-6">
-      <div class="border-l-4 border-[#1A2F23] pl-4 mb-5">
-        <p class="italic text-gray-500 text-[13px] leading-[1.9]">「囚徒困境中 我選擇背叛／反正最後 沒人得救。我能看見 現實和未來／早被決定的遺憾／不會因為誰而更改」</p>
-        <p class="text-[11px] text-gray-400 mt-1.5">—〈美好人生〉</p>
-      </div>
-      <p class="rnd font-bold text-[#1A2F23] text-base mb-3">the Huiting 陳惠婷</p>
-      <p class="text-[13px] text-gray-600 leading-[1.9] mb-4">有搖滾祖媽之稱的音樂創作人、製作人，樂團 Tizzy Bac 的主唱兼鍵盤手。於2014年開始個人創作，至今已發行四張專輯、一張EP，擅長描寫黑暗美學，詞曲間展現細膩的情感書寫風格。除創作、演出經驗豐富外，也數度擔任音樂重大賽事評審，於2025年擔任金音獎評審團主席。</p>
-      <div class="space-y-3">
-        <div><p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-1.5">發行作品</p><p class="text-[12px] text-gray-500 leading-[1.85]">2014《21克》／2015《成人世界》／2017《Voyager3》／2021 EP《我內心的風景》／2024《王國 Darktopia》</p></div>
-        <div><p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-1.5">獲獎經歷</p><p class="text-[12px] text-gray-500 leading-[1.85]">2014 入圍第25屆金曲獎最佳作詞人獎／2015《21克》入圍第26屆金曲獎最佳新人獎</p></div>
-      </div>
-    </div>
-    <div class="border border-gray-100 rounded-2xl p-6">
-      <div class="border-l-4 border-[#1A2F23] pl-4 mb-5">
-        <p class="italic text-gray-500 text-[13px] leading-[1.9]">「這一刻不用誰懂／在你碎裂的時候／痛也不說 別讓人發現你／大聲哭吧 只讓我找到你／無聲無息 讓眼淚修復你」</p>
-        <p class="text-[11px] text-gray-400 mt-1.5">—〈活在自己的世界〉</p>
-      </div>
-      <p class="rnd font-bold text-[#1A2F23] text-base mb-3">秦旭章</p>
-      <p class="text-[13px] text-gray-600 leading-[1.9] mb-4">放飛音樂 WiFi Music 廠牌主理人、守夜人 Night Keepers 團長，作家安眠巫師。跨足詞曲、製作、編曲及影視配樂等領域。</p>
-      <div class="space-y-3">
-        <div><p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-1.5">代表作品</p><p class="text-[12px] text-gray-500 leading-[1.85]">詞曲：田馥甄〈田〉〈底里歇斯〉、周興哲〈明明〉、許光漢〈Souffié〉／製作編曲：林宥嘉〈船〉、曾沛慈〈最後一次哭〉／影視：電影《該死的阿修羅》配樂總監（代表臺灣角逐第95屆奧斯卡最佳國際影片）、《夏日最後的祕密》、電視劇《四樓的天堂》／守夜人：《永夜島》《使者》《Retune》三張專輯</p></div>
-        <div><p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-1.5">獲獎經歷</p><p class="text-[12px] text-gray-500 leading-[1.85]">2025 第二屆街聲年度音樂趨勢大獎民謠類綜合表現／2024〈漂浮到〉獲選 AppleMusic 百大單曲／2024 擔任第16屆金馬學院配樂導師／2022 獲第24屆台北電影節最佳配樂獎／2021 入圍第32屆金曲獎最佳演唱組合／2020〈抛〉獲選中華音樂人交流協會年度十大單曲</p></div>
-      </div>
-    </div>
+    <div class="border border-gray-100 rounded-2xl p-6"><div class="border-l-4 border-[#1A2F23] pl-4 mb-5"><p class="italic text-gray-500 text-[13px] leading-[1.9]">「囚徒困境中 我選擇背叛／反正最後 沒人得救。我能看見 現實和未來／早被決定的遺憾／不會因為誰而更改」</p><p class="text-[11px] text-gray-400 mt-1.5">—〈美好人生〉</p></div><p class="rnd font-bold text-[#1A2F23] text-base mb-3">the Huiting 陳惠婷</p><p class="text-[13px] text-gray-600 leading-[1.9] mb-4">有搖滾祖媽之稱的音樂創作人、製作人，樂團 Tizzy Bac 的主唱兼鍵盤手。於2014年開始個人創作，至今已發行四張專輯、一張EP，擅長描寫黑暗美學，詞曲間展現細膩的情感書寫風格。也數度擔任音樂重大賽事評審，於2025年擔任金音獎評審團主席。</p><div class="space-y-3"><div><p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-1.5">發行作品</p><p class="text-[12px] text-gray-500 leading-[1.85]">2014《21克》／2015《成人世界》／2017《Voyager3》／2021 EP《我內心的風景》／2024《王國 Darktopia》</p></div><div><p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-1.5">獲獎經歷</p><p class="text-[12px] text-gray-500 leading-[1.85]">2014 入圍第25屆金曲獎最佳作詞人獎／2015《21克》入圍第26屆金曲獎最佳新人獎</p></div></div></div>
+    <div class="border border-gray-100 rounded-2xl p-6"><div class="border-l-4 border-[#1A2F23] pl-4 mb-5"><p class="italic text-gray-500 text-[13px] leading-[1.9]">「這一刻不用誰懂／在你碎裂的時候／痛也不說 別讓人發現你／大聲哭吧 只讓我找到你／無聲無息 讓眼淚修復你」</p><p class="text-[11px] text-gray-400 mt-1.5">—〈活在自己的世界〉</p></div><p class="rnd font-bold text-[#1A2F23] text-base mb-3">秦旭章</p><p class="text-[13px] text-gray-600 leading-[1.9] mb-4">放飛音樂 WiFi Music 廠牌主理人、守夜人 Night Keepers 團長，作家安眠巫師。跨足詞曲、製作、編曲及影視配樂等領域。</p><div class="space-y-3"><div><p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-1.5">代表作品</p><p class="text-[12px] text-gray-500 leading-[1.85]">詞曲：田馥甄〈田〉〈底里歇斯〉、周興哲〈明明〉、許光漢〈Souffié〉／製作編曲：林宥嘉〈船〉、曾沛慈〈最後一次哭〉／影視：電影《該死的阿修羅》配樂總監（代表臺灣角逐第95屆奧斯卡最佳國際影片）、《夏日最後的祕密》、電視劇《四樓的天堂》／守夜人：《永夜島》《使者》《Retune》三張專輯</p></div><div><p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-1.5">獲獎經歷</p><p class="text-[12px] text-gray-500 leading-[1.85]">2025 第二屆街聲年度音樂趨勢大獎民謠類綜合表現／2024〈漂浮到〉獲選 AppleMusic 百大單曲／2022 獲第24屆台北電影節最佳配樂獎／2021 入圍第32屆金曲獎最佳演唱組合／2020〈抛〉獲選中華音樂人交流協會年度十大單曲</p></div></div></div>
   </div>
 
-  <!-- 複賽 -->
-  <div class="flex items-center gap-3 mb-6">
-    <div class="w-[3px] h-7 bg-[#1A2F23] rounded-full"></div>
-    <p class="rnd font-bold text-[#1A2F23] text-lg">複賽評審</p>
-  </div>
+  <div class="flex items-center gap-3 mb-6"><div class="w-[3px] h-7 bg-[#1A2F23] rounded-full"></div><p class="rnd font-bold text-[#1A2F23] text-lg">複賽評審</p></div>
   <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-12">
-    <div class="border border-gray-100 rounded-2xl p-6">
-      <div class="border-l-4 border-[#1A2F23] pl-4 mb-5">
-        <p class="italic text-gray-500 text-[13px] leading-[1.9]">「漸漸發現需要承擔依賴／當初的未來／何時變成現在／慢慢了解人性並不坦然」</p>
-        <p class="text-[11px] text-gray-400 mt-1.5">—〈Go My Way〉</p>
-      </div>
-      <p class="rnd font-bold text-[#1A2F23] text-base mb-3">Elisa Lin 林依霖</p>
-      <p class="text-[13px] text-gray-600 leading-[1.9] mb-4">兼具紮實技術與細膩感性的全方位音樂人。自幼於洛杉磯成長，先後求學於紐約大學（NYU）與南加州大學（USC）音樂產業學系。憑藉逾二十年的產業資歷，以製作人、編曲及多項樂器演奏家身份深度參與華語樂壇。目前擔任「當道音樂 Downtown Music」錄音室副總經理。</p>
-      <div class="space-y-3">
-        <div><p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-1.5">代表作品</p><p class="text-[12px] text-gray-500 leading-[1.85]">製作林以樂專輯《素顏的樣子》（金音獎最佳創作歌手）／五月天〈轉眼〉〈少年他的奇幻漂流〉〈凡人歌 feat.蕭敬騰〉共同製作編曲／林宥嘉〈代客求婚〉製作編曲／主導田廣潤首張個人創作專輯全案製作／擔任王大文最新作品混音師</p></div>
-        <div><p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-1.5">演出經歷</p><p class="text-[12px] text-gray-500 leading-[1.85]">與蘇珮卿共同奪下第13屆金音獎「最佳現場演出獎」／曾統籌林以樂、小男孩樂團、格式塔少女之音樂總監／曾擔任林宥嘉、陶喆、哈林、張震嶽、蔡健雅等頂尖歌手巡迴樂手</p></div>
-      </div>
-    </div>
-    <div class="border border-gray-100 rounded-2xl p-6">
-      <div class="border-l-4 border-[#1A2F23] pl-4 mb-5">
-        <p class="italic text-gray-500 text-[13px] leading-[1.9]">「相信某一天 將與孤單分別／所以赤裸的等著／一樣的人／太多沒來由的失望／自欺欺人」</p>
-        <p class="text-[11px] text-gray-400 mt-1.5">—〈反方向〉</p>
-      </div>
-      <p class="rnd font-bold text-[#1A2F23] text-base mb-3">謝博安</p>
-      <p class="text-[13px] text-gray-600 leading-[1.9] mb-4">鹿洐人主唱兼木吉他手，曾在《超級偶像7》中奪得冠軍。鹿洐人於2018年成軍，以 Power Trio 為主要概念，融合各樣音樂類型，直率且有態度。近幾年主演電影《你的情歌》，並為其演唱多首音樂作品。</p>
-      <div class="space-y-3">
-        <div><p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-1.5">發行作品</p><p class="text-[12px] text-gray-500 leading-[1.85]">2020〈Better〉《你的情歌》電影原聲帶／2020 鹿洐人首張 EP《爛笑話》／2021 首張創作專輯《你在開玩笑嗎？》／2022 EP《輸出.368》／2023 EP《輸出.479》</p></div>
-        <div><p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-1.5">獲獎經歷</p><p class="text-[12px] text-gray-500 leading-[1.85]">2018 入選臺北音樂不斷電原創音樂優秀團隊／2025 單曲〈空洞〉獲選第2屆街聲年度音樂趨勢大獎年度二十大單曲</p></div>
-      </div>
-    </div>
-    <div class="border border-gray-100 rounded-2xl p-6 md:col-span-2 md:max-w-lg md:mx-auto md:w-full">
-      <div class="border-l-4 border-[#1A2F23] pl-4 mb-5">
-        <p class="italic text-gray-500 text-[13px] leading-[1.9]">「就讓我跳進這瘋狂／擺動不怕刺痛／也許只是漂亮掙扎／我也要用盡全力揮霍」</p>
-        <p class="text-[11px] text-gray-400 mt-1.5">—〈手動登出前的最後一支舞〉</p>
-      </div>
-      <p class="rnd font-bold text-[#1A2F23] text-base mb-3">宋家耘</p>
-      <p class="text-[13px] text-gray-600 leading-[1.9] mb-4">庸俗救星 Vulgar Savior 主唱、創作歌手，創作內容形式多元，包含民謠、流行、電子音樂，同時跨足影像、戲劇、圖文創作等領域。夢想是寫一首讓人邊流淚邊跳舞的歌。</p>
-      <div class="space-y-3">
-        <div><p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-1.5">發行作品</p><p class="text-[12px] text-gray-500 leading-[1.85]">2020〈白癡〉〈美好結局〉／2022〈手動登出前的最後一支舞〉〈日常絮語〉〈真戲假做〉／2023〈滿分少女的必要條件〉</p></div>
-        <div><p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-1.5">演出經歷</p><p class="text-[12px] text-gray-500 leading-[1.85]">2021 臺北音樂不斷電優勝六強巡迴演唱會／2023 首場千人演唱會／2025 Little Battle 專輯同名巡迴／2025 基隆愛嶼搖滾音樂祭／2025 釜山 Minrock Festa 音樂祭／2026 浮現祭／2026 澀谷音樂節</p></div>
-      </div>
-    </div>
+    <div class="border border-gray-100 rounded-2xl p-6"><div class="border-l-4 border-[#1A2F23] pl-4 mb-5"><p class="italic text-gray-500 text-[13px] leading-[1.9]">「漸漸發現需要承擔依賴／當初的未來／何時變成現在／慢慢了解人性並不坦然」</p><p class="text-[11px] text-gray-400 mt-1.5">—〈Go My Way〉</p></div><p class="rnd font-bold text-[#1A2F23] text-base mb-3">Elisa Lin 林依霖</p><p class="text-[13px] text-gray-600 leading-[1.9] mb-4">兼具紮實技術與細膩感性的全方位音樂人。自幼於洛杉磯成長，先後求學於紐約大學（NYU）與南加州大學（USC）音樂產業學系。目前擔任「當道音樂 Downtown Music」錄音室副總經理。</p><div class="space-y-3"><div><p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-1.5">代表作品</p><p class="text-[12px] text-gray-500 leading-[1.85]">製作林以樂專輯《素顏的樣子》（金音獎最佳創作歌手）／五月天〈轉眼〉〈少年他的奇幻漂流〉〈凡人歌 feat.蕭敬騰〉共同製作編曲／林宥嘉〈代客求婚〉製作編曲／主導田廣潤首張個人創作專輯全案製作</p></div><div><p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-1.5">演出經歷</p><p class="text-[12px] text-gray-500 leading-[1.85]">與蘇珮卿共同奪下第13屆金音獎「最佳現場演出獎」／曾擔任林宥嘉、陶喆、哈林、張震嶽、蔡健雅等頂尖歌手巡迴樂手</p></div></div></div>
+    <div class="border border-gray-100 rounded-2xl p-6"><div class="border-l-4 border-[#1A2F23] pl-4 mb-5"><p class="italic text-gray-500 text-[13px] leading-[1.9]">「相信某一天 將與孤單分別／所以赤裸的等著／一樣的人／太多沒來由的失望／自欺欺人」</p><p class="text-[11px] text-gray-400 mt-1.5">—〈反方向〉</p></div><p class="rnd font-bold text-[#1A2F23] text-base mb-3">謝博安</p><p class="text-[13px] text-gray-600 leading-[1.9] mb-4">鹿洐人主唱兼木吉他手，曾在《超級偶像7》中奪得冠軍。鹿洐人於2018年成軍，以 Power Trio 為主要概念，融合各樣音樂類型，直率且有態度。近幾年主演電影《你的情歌》。</p><div class="space-y-3"><div><p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-1.5">發行作品</p><p class="text-[12px] text-gray-500 leading-[1.85]">2020〈Better〉《你的情歌》電影原聲帶／2020 鹿洐人首張 EP《爛笑話》／2021 首張創作專輯《你在開玩笑嗎？》／2022 EP《輸出.368》／2023 EP《輸出.479》</p></div><div><p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-1.5">獲獎經歷</p><p class="text-[12px] text-gray-500 leading-[1.85]">2018 入選臺北音樂不斷電原創音樂優秀團隊／2025 單曲〈空洞〉獲選第2屆街聲年度音樂趨勢大獎年度二十大單曲</p></div></div></div>
+    <div class="border border-gray-100 rounded-2xl p-6 md:col-span-2 md:max-w-lg md:mx-auto md:w-full"><div class="border-l-4 border-[#1A2F23] pl-4 mb-5"><p class="italic text-gray-500 text-[13px] leading-[1.9]">「就讓我跳進這瘋狂／擺動不怕刺痛／也許只是漂亮掙扎／我也要用盡全力揮霍」</p><p class="text-[11px] text-gray-400 mt-1.5">—〈手動登出前的最後一支舞〉</p></div><p class="rnd font-bold text-[#1A2F23] text-base mb-3">宋家耘</p><p class="text-[13px] text-gray-600 leading-[1.9] mb-4">庸俗救星 Vulgar Savior 主唱、創作歌手，創作內容形式多元，包含民謠、流行、電子音樂，同時跨足影像、戲劇、圖文創作等領域。夢想是寫一首讓人邊流淚邊跳舞的歌。</p><div class="space-y-3"><div><p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-1.5">發行作品</p><p class="text-[12px] text-gray-500 leading-[1.85]">2020〈白癡〉〈美好結局〉／2022〈手動登出前的最後一支舞〉〈日常絮語〉〈真戲假做〉／2023〈滿分少女的必要條件〉</p></div><div><p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-1.5">演出經歷</p><p class="text-[12px] text-gray-500 leading-[1.85]">2021 臺北音樂不斷電優勝六強巡迴演唱會／2023 首場千人演唱會／2025 Little Battle 專輯同名巡迴／2025 基隆愛嶼搖滾音樂祭／2025 釜山 Minrock Festa 音樂祭／2026 浮現祭／2026 澀谷音樂節</p></div></div></div>
   </div>
 
-  <!-- 決賽 -->
-  <div class="flex items-center gap-3 mb-6">
-    <div class="w-[3px] h-7 bg-[#1A2F23] rounded-full"></div>
-    <p class="rnd font-bold text-[#1A2F23] text-lg">決賽評審</p>
-  </div>
+  <div class="flex items-center gap-3 mb-6"><div class="w-[3px] h-7 bg-[#1A2F23] rounded-full"></div><p class="rnd font-bold text-[#1A2F23] text-lg">決賽評審</p></div>
   <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-    <div class="border border-gray-100 rounded-2xl p-6">
-      <div class="border-l-4 border-[#1A2F23] pl-4 mb-5">
-        <p class="italic text-gray-500 text-[13px] leading-[1.9]">「當我渴望 你的回答／放任所有流浪的靈魂／自問自答／誠如岸上的你所說／愛是原諒／即便悲傷 仍然善良」</p>
-        <p class="text-[11px] text-gray-400 mt-1.5">—〈誠如岸上的你所說〉</p>
-      </div>
-      <p class="rnd font-bold text-[#1A2F23] text-base mb-3">蘇文劭 Shao</p>
-      <p class="text-[13px] text-gray-600 leading-[1.9] mb-4">唱作暨推廣家，現居台北。是民謠歌手也是樂團主唱；作化雨春風也當快樂小狗。一生惜字、愛人。</p>
-      <div><p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-1.5">發行作品 / 演出經歷</p><p class="text-[12px] text-gray-500 leading-[1.85]">個人專輯：2024《春曲》、2020《雨停出來走走》／樂團 SONNIE 桑尼：2024《U Make Me SONNIE》／2026 台灣祭、新北春紛節／2025 臺北最High新年城、潮派鹿港、搖滾台中、大稻埕夏日節</p></div>
-    </div>
-    <div class="border border-gray-100 rounded-2xl p-6">
-      <div class="border-l-4 border-[#1A2F23] pl-4 mb-5">
-        <p class="italic text-gray-500 text-[13px] leading-[1.9]">「我的一切／壓抑的偏見／執拗的精確／愛和後悔／深刻與殘缺／全都事過境遷」</p>
-        <p class="text-[11px] text-gray-400 mt-1.5">—〈歸屬Eleanor〉</p>
-      </div>
-      <p class="rnd font-bold text-[#1A2F23] text-base mb-3">咖咖</p>
-      <p class="text-[13px] text-gray-600 leading-[1.9] mb-4">創作組合 VH 主唱、作詞人、作曲人、唱片企劃、配唱。現場演出經驗豐富，曾任歌唱教學老師。以探討「人心與人性」為核心，擅長使用深刻而細膩的詞曲創作，打造兼具詩意美感及強烈情感張力的音樂作品。</p>
-      <div class="space-y-3">
-        <div><p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-1.5">發行作品</p><p class="text-[12px] text-gray-500 leading-[1.85]">2018 VH《求救訊號 I'm Not OK》／2021 VH《文明 The Great Beyond》／2024 VH《五常法則(5S)》／2025 VH〈成為藝術之前的必要脆弱與非必要沉默〉／2026 VH〈風吹過〉</p></div>
-        <div><p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-1.5">獲獎經歷</p><p class="text-[12px] text-gray-500 leading-[1.85]">2018〈與浪之間〉入圍第29屆金曲獎最佳音樂錄影帶獎／2019《求救訊號》入圍第30屆金曲獎最佳演唱組合／2022《文明》入圍第33屆金曲獎最佳演唱組合／2022 獲第15屆 Freshmusic Awards 最佳創作演唱組合</p></div>
-      </div>
-    </div>
-    <div class="border border-gray-100 rounded-2xl p-6 md:col-span-2 md:max-w-lg md:mx-auto md:w-full">
-      <div class="border-l-4 border-[#1A2F23] pl-4 mb-5">
-        <p class="italic text-gray-500 text-[13px] leading-[1.9]">「一場夢／如今依然沒改變／一路走來／已經過了幾個春天／那些愛 那些恨／驀然回首都不見／慢慢變成／臉上的皺紋」</p>
-        <p class="text-[11px] text-gray-400 mt-1.5">—〈皺紋〉</p>
-      </div>
-      <p class="rnd font-bold text-[#1A2F23] text-base mb-3">施文彬</p>
-      <p class="text-[13px] text-gray-600 leading-[1.9] mb-4">流行音樂創作人、專輯製作人，以多首臺語音樂作品為人所知。演藝資歷深厚，曾與陳亞蘭、秀蘭瑪雅、孫淑媚等臺語歌壇重量級歌手合作。發行逾三十張專輯，跨足歌曲創作與電玩領域，是樂壇與遊戲產業中獨具地位的跨界標竿。</p>
-      <div class="space-y-3">
-        <div><p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-1.5">代表作品</p><p class="text-[12px] text-gray-500 leading-[1.85]">2023《有歲》／2020《緊來去—台灣音樂地理雜誌》／2018《無輸無贏》／代表單曲：〈傷心酒店〉〈再會啦！心愛的無緣的人〉〈你愛的不是我〉〈深深愛你〉〈愛愈深心愈凝〉</p></div>
-        <div><p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-1.5">獲獎經歷</p><p class="text-[12px] text-gray-500 leading-[1.85]">2016《歌聲進鄉團》入圍第27屆金曲獎最佳台語專輯獎／2015《文跡奇武③歸組害了了》入圍第26屆金曲獎最佳台語男歌手獎／2007《真情味》獲得第18屆金曲獎最佳台語男歌手獎</p></div>
-      </div>
-    </div>
+    <div class="border border-gray-100 rounded-2xl p-6"><div class="border-l-4 border-[#1A2F23] pl-4 mb-5"><p class="italic text-gray-500 text-[13px] leading-[1.9]">「當我渴望 你的回答／放任所有流浪的靈魂／自問自答／誠如岸上的你所說／愛是原諒／即便悲傷 仍然善良」</p><p class="text-[11px] text-gray-400 mt-1.5">—〈誠如岸上的你所說〉</p></div><p class="rnd font-bold text-[#1A2F23] text-base mb-3">蘇文劭 Shao</p><p class="text-[13px] text-gray-600 leading-[1.9] mb-4">唱作暨推廣家，現居台北。是民謠歌手也是樂團主唱；作化雨春風也當快樂小狗。一生惜字、愛人。</p><div><p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-1.5">發行作品 / 演出經歷</p><p class="text-[12px] text-gray-500 leading-[1.85]">個人專輯：2024《春曲》、2020《雨停出來走走》／樂團 SONNIE 桑尼：2024《U Make Me SONNIE》／2026 台灣祭、新北春紛節／2025 臺北最High新年城、潮派鹿港、搖滾台中、大稻埕夏日節</p></div></div>
+    <div class="border border-gray-100 rounded-2xl p-6"><div class="border-l-4 border-[#1A2F23] pl-4 mb-5"><p class="italic text-gray-500 text-[13px] leading-[1.9]">「我的一切／壓抑的偏見／執拗的精確／愛和後悔／深刻與殘缺／全都事過境遷」</p><p class="text-[11px] text-gray-400 mt-1.5">—〈歸屬Eleanor〉</p></div><p class="rnd font-bold text-[#1A2F23] text-base mb-3">咖咖</p><p class="text-[13px] text-gray-600 leading-[1.9] mb-4">創作組合 VH 主唱、作詞人、作曲人、唱片企劃、配唱。以探討「人心與人性」為核心，擅長使用深刻而細膩的詞曲創作，打造兼具詩意美感及強烈情感張力的音樂作品。</p><div class="space-y-3"><div><p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-1.5">發行作品</p><p class="text-[12px] text-gray-500 leading-[1.85]">2018 VH《求救訊號 I'm Not OK》／2021 VH《文明 The Great Beyond》／2024 VH《五常法則(5S)》／2025 VH〈成為藝術之前的必要脆弱與非必要沉默〉／2026 VH〈風吹過〉</p></div><div><p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-1.5">獲獎經歷</p><p class="text-[12px] text-gray-500 leading-[1.85]">2018〈與浪之間〉入圍第29屆金曲獎最佳音樂錄影帶獎／2019《求救訊號》入圍第30屆金曲獎最佳演唱組合／2022《文明》入圍第33屆金曲獎最佳演唱組合／2022 獲第15屆 Freshmusic Awards 最佳創作演唱組合</p></div></div></div>
+    <div class="border border-gray-100 rounded-2xl p-6 md:col-span-2 md:max-w-lg md:mx-auto md:w-full"><div class="border-l-4 border-[#1A2F23] pl-4 mb-5"><p class="italic text-gray-500 text-[13px] leading-[1.9]">「一場夢／如今依然沒改變／一路走來／已經過了幾個春天／那些愛 那些恨／驀然回首都不見／慢慢變成／臉上的皺紋」</p><p class="text-[11px] text-gray-400 mt-1.5">—〈皺紋〉</p></div><p class="rnd font-bold text-[#1A2F23] text-base mb-3">施文彬</p><p class="text-[13px] text-gray-600 leading-[1.9] mb-4">流行音樂創作人、專輯製作人，以多首臺語音樂作品為人所知。演藝資歷深厚，發行逾三十張專輯，跨足歌曲創作與電玩領域，是樂壇與遊戲產業中獨具地位的跨界標竿。</p><div class="space-y-3"><div><p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-1.5">代表作品</p><p class="text-[12px] text-gray-500 leading-[1.85]">2023《有歲》／2020《緊來去》／2018《無輸無贏》／代表單曲：〈傷心酒店〉〈再會啦！心愛的無緣的人〉〈你愛的不是我〉〈深深愛你〉〈愛愈深心愈凝〉</p></div><div><p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-1.5">獲獎經歷</p><p class="text-[12px] text-gray-500 leading-[1.85]">2016《歌聲進鄉團》入圍第27屆金曲獎最佳台語專輯獎／2015《文跡奇武③歸組害了了》入圍第26屆金曲獎最佳台語男歌手獎／2007《真情味》獲得第18屆金曲獎最佳台語男歌手獎</p></div></div></div>
   </div>
-
   <p class="text-center text-gray-300 text-[11px] leading-relaxed mt-8">感謝所有評審老師的參與與支持 🎵</p>
 </div>
 
