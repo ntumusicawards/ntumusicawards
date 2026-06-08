@@ -95,7 +95,7 @@
 
 <!-- ══ HEADER ══ -->
 <header class="bg-white sticky top-0 z-50 shadow-sm border-b border-gray-100">
-  <div class="max-w-2xl md:max-w-4xl lg:max-w-6xl mx-auto px-5 md:px-10 lg:px-16 py-3 md:py-5 flex items-center justify-between gap-4 hdr-inner">
+  <div class="max-w-2xl md:max-w-4xl lg:max-w-6xl mx-auto px-5 md:px-10 lg:px-16 py-4 md:py-6 lg:py-8 flex items-center justify-between gap-4 hdr-inner">
     <a href="#" onclick="showPage('home');return false;" class="flex-shrink-0">
       <div class="rnd leading-tight">
         <span class="font-bold text-lg text-[#1A2F23] block">臺大音韻獎</span>
@@ -103,11 +103,11 @@
       </div>
     </a>
     <nav class="flex gap-3 md:gap-8 lg:gap-12 flex-shrink-0">
-      <button onclick="showPage('home')" id="nav-home" class="nav-btn active rnd text-sm md:text-2xl lg:text-3xl font-bold text-gray-400 pb-1 tracking-wide">首頁</button>
-      <button onclick="showPage('about')" id="nav-about" class="nav-btn rnd text-sm md:text-2xl lg:text-3xl font-bold text-gray-400 pb-1 tracking-wide">關於音韻</button>
-      <button onclick="showPage('player')" id="nav-player" class="nav-btn rnd text-sm md:text-2xl lg:text-3xl font-bold text-gray-400 pb-1 tracking-wide">選手專區</button>
-      <button onclick="scrollToContact()" id="nav-contact" class="nav-btn rnd text-sm md:text-2xl lg:text-3xl font-bold text-gray-400 pb-1 tracking-wide">聯絡我們</button>
-      <button onclick="showPage('judges')" id="nav-judges" class="nav-btn rnd text-sm md:text-2xl lg:text-3xl font-bold text-gray-400 pb-1 tracking-wide">評審</button>
+      <button onclick="showPage('home')" id="nav-home" class="nav-btn active rnd text-sm md:text-base lg:text-lg font-medium text-gray-400 pb-1 tracking-wide">首頁</button>
+      <button onclick="showPage('about')" id="nav-about" class="nav-btn rnd text-sm md:text-base lg:text-lg font-medium text-gray-400 pb-1 tracking-wide">關於音韻</button>
+      <button onclick="showPage('player')" id="nav-player" class="nav-btn rnd text-sm md:text-base lg:text-lg font-medium text-gray-400 pb-1 tracking-wide">選手專區</button>
+      <button onclick="scrollToContact()" id="nav-contact" class="nav-btn rnd text-sm md:text-base lg:text-lg font-medium text-gray-400 pb-1 tracking-wide">聯絡我們</button>
+
     </nav>
   </div>
 </header>
@@ -139,6 +139,25 @@
 <!-- 首頁 -->
 <div id="page-home" class="page active fade-in pt-10 pb-16">
 
+  <!-- 賽務公告 -->
+  <div class="bg-[#1A2F23] rounded-2xl p-5 mb-6 text-white">
+    <div class="flex items-center gap-2 mb-3">
+      <span class="text-base">📣</span>
+      <p class="rnd font-bold text-white text-sm tracking-wide">賽務公告｜選手注意</p>
+    </div>
+    <div class="space-y-3 text-[13px] leading-[1.9]">
+      <p class="text-white/80">複賽賽程已公告，並同步寄出郵件。請選手留意粉專與個人信箱。</p>
+      <a href="https://docs.google.com/spreadsheets/d/1GleQHlpaWFn_WLBrg8400hEa4eJgHMkqxlI333DoaJ4/edit?gid=0#gid=0"
+        target="_blank"
+        class="flex items-center justify-between gap-3 bg-white/15 hover:bg-white/25 border border-white/20 rounded-xl px-4 py-3 transition-all active:scale-[0.98] group">
+        <span class="rnd font-semibold text-white text-[13px]">複賽賽程 →</span>
+        <span class="text-white/50 text-sm group-hover:text-white/80 transition-colors">點擊查看</span>
+      </a>
+      <p class="text-white/80">提醒選手們務必於表定報到時間內完成報到，並於比賽時間前十分鐘回到報到區。</p>
+      <p class="text-emerald-300 text-[12px]">🎵 預祝大家比賽順利！</p>
+    </div>
+  </div>
+
   <!-- 賽事活動公告 -->
   <p class="rnd text-[10px] tracking-[.22em] text-[#1A2F23] uppercase mb-2">公告</p>
   <div class="w-6 h-0.5 bg-[#1A2F23] rounded-full mb-5"></div>
@@ -157,14 +176,20 @@
       </div>
       <div class="flex gap-5 items-start">
         <span class="rnd text-[11px] text-[#1A2F23] font-medium min-w-[36px] mt-0.5 flex-shrink-0">地點</span>
-        <span class="text-sm text-gray-700">臺大外語教學暨資源中心</span>
+        <div>
+          <p class="text-sm text-gray-700">臺大外語暨教學資源中心劇場</p>
+          <a href="https://maps.google.com/?q=國立臺灣大學外語教學暨資源中心" target="_blank"
+            class="text-[11px] text-[#1A2F23] mt-1.5 inline-flex items-center gap-1 underline underline-offset-2 hover:opacity-70 transition-opacity">
+            📍 查看地圖
+          </a>
+        </div>
       </div>
     </div>
 
     <!-- 節目冊 -->
     <div class="border-t border-gray-100 pt-5 mb-5 text-center">
       <p class="text-[11px] text-gray-300 mb-4">歡迎觀眾入場欣賞表演</p>
-      <button onclick="showProgramBook()"
+      <button onclick="showProgramBook('home')"
         class="w-full rnd font-bold text-base text-[#1A2F23] py-4 rounded-2xl
                border-2 border-[#C8A84B] bg-transparent
                transition-all duration-300 hover:bg-[#C8A84B]/10 active:scale-[0.98]">
@@ -176,10 +201,10 @@
     <div class="border-t border-gray-100 pt-5">
       <p class="rnd text-[11px] font-medium text-[#1A2F23] mb-3">入場注意事項</p>
       <div class="space-y-2.5">
-        <div class="flex gap-2"><span class="rnd text-[10px] text-[#1A2F23] font-medium flex-shrink-0 w-4">1.</span><p class="text-[12px] text-gray-500 leading-relaxed">比賽場地內<strong class="text-[#1A2F23]">禁止飲食</strong>。</p></div>
-        <div class="flex gap-2"><span class="rnd text-[10px] text-[#1A2F23] font-medium flex-shrink-0 w-4">2.</span><p class="text-[12px] text-gray-500 leading-relaxed">比賽過程中禁止<strong class="text-[#1A2F23]">全程錄影</strong>。</p></div>
+        <div class="flex gap-2"><span class="rnd text-[10px] text-[#1A2F23] font-medium flex-shrink-0 w-4">1.</span><p class="text-[12px] text-gray-500 leading-relaxed">比賽場地內<strong class="text-[#1A2F23] font-bold">「禁止飲食」</strong>。</p></div>
+        <div class="flex gap-2"><span class="rnd text-[10px] text-[#1A2F23] font-medium flex-shrink-0 w-4">2.</span><p class="text-[12px] text-gray-500 leading-relaxed">比賽過程中<strong class="text-[#1A2F23] font-bold">「禁止全程錄影」</strong>。</p></div>
         <div class="flex gap-2"><span class="rnd text-[10px] text-[#1A2F23] font-medium flex-shrink-0 w-4">3.</span><p class="text-[12px] text-gray-500 leading-relaxed">拍照錄影禁止使用閃光燈，手機請關靜音。</p></div>
-        <div class="flex gap-2"><span class="rnd text-[10px] text-[#1A2F23] font-medium flex-shrink-0 w-4">4.</span><p class="text-[12px] text-gray-500 leading-relaxed">僅在<strong class="text-[#1A2F23]">中場休息</strong>時間開放觀眾出入，出入口位於觀眾席正後方，請配合工作人員引導入座。</p></div>
+        <div class="flex gap-2"><span class="rnd text-[10px] text-[#1A2F23] font-medium flex-shrink-0 w-4">4.</span><p class="text-[12px] text-gray-500 leading-relaxed"><strong class="text-[#1A2F23] font-bold">「僅在中場休息時間開放觀眾出入，出入口位於觀眾席正後方，請配合工作人員引導入座」</strong>。</p></div>
         <div class="flex gap-2"><span class="rnd text-[10px] text-[#1A2F23] font-medium flex-shrink-0 w-4">5.</span><p class="text-[12px] text-gray-500 leading-relaxed">會場內請輕聲細語，禁止尖叫、大聲加油。</p></div>
         <div class="flex gap-2"><span class="rnd text-[10px] text-[#1A2F23] font-medium flex-shrink-0 w-4">6.</span><p class="text-[12px] text-gray-500 leading-relaxed">比賽進行中請避免走動。</p></div>
         <div class="flex gap-2"><span class="rnd text-[10px] text-[#1A2F23] font-medium flex-shrink-0 w-4">7.</span><p class="text-[12px] text-gray-500 leading-relaxed">嚴重干擾比賽且不聽勸告者，主辦方有權請其離場並取消參賽資格。</p></div>
@@ -243,6 +268,17 @@
     <div>
       <div class="flex items-center gap-3 mb-4"><div class="w-[3px] h-6 bg-[#1A2F23] rounded-full"></div><p class="rnd font-bold text-[#1A2F23] text-lg">活動宗旨</p></div>
       <p>本賽事致力於深化全國民眾對音樂活動之參與，全面提升校內外音樂風氣與大眾音樂素養。我們深信音樂的力量源於純粹，期盼為全臺音樂愛好者搭建具備專業度與包容性的交流平臺，讓每位熱愛歌唱與創作的朋友皆能在此綻放光芒。</p>
+    </div>
+
+    <div>
+      <div class="flex items-center gap-3 mb-4"><div class="w-[3px] h-6 bg-[#1A2F23] rounded-full"></div><p class="rnd font-bold text-[#1A2F23] text-lg">四大競賽組別</p></div>
+
+      <div class="space-y-4">
+        <div class="pl-5 border-l-2 border-gray-200"><p class="rnd font-semibold text-[#1A2F23] text-sm mb-1">學生獨唱組</p><p class="text-gray-500 text-[13px] leading-relaxed">匯聚全臺大專院校與高中職之青澀歌聲，展現校園音樂人最純粹的舞台爆發力。</p></div>
+        <div class="pl-5 border-l-2 border-gray-200"><p class="rnd font-semibold text-[#1A2F23] text-sm mb-1">重、對唱組</p><p class="text-gray-500 text-[13px] leading-relaxed">強調人聲的和諧共鳴與團隊默契，透過多聲部編排激發音樂的層次美感。</p></div>
+        <div class="pl-5 border-l-2 border-gray-200"><p class="rnd font-semibold text-[#1A2F23] text-sm mb-1">創作組</p><p class="text-gray-500 text-[13px] leading-relaxed">鼓勵獨立詞曲創作，提供新生代音樂原創者一個發聲、被音樂產業看見的絕佳平台。</p></div>
+        <div class="pl-5 border-l-2 border-gray-200"><p class="rnd font-semibold text-[#1A2F23] text-sm mb-1">社會獨唱組</p><p class="text-gray-500 text-[13px] leading-relaxed">打破年齡與身份限制，全面包容校園外的歌唱愛好者，為卓越歌者提供重溫音樂初衷、一展歌喉的圓夢舞台。</p></div>
+      </div>
     </div>
 
     <div class="pt-6 border-t border-gray-100">
@@ -373,7 +409,7 @@
         <div><p class="text-sm text-gray-700">臺大外語教學暨資源中心</p><a href="https://maps.google.com/?q=國立臺灣大學外語教學暨資源中心" target="_blank" class="text-[11px] text-[#1A2F23] mt-2 inline-block underline underline-offset-2">查看路線圖</a></div>
       </div>
     </div>
-    <button onclick="showProgramBook()" class="w-full bg-[#1A2F23] text-white rnd font-bold text-base py-5 rounded-2xl mb-5 tracking-wide transition-all duration-300 hover:bg-[#254535] active:scale-[0.98] flex items-center justify-center gap-2">複賽節目冊 📖</button>
+    <button onclick="showProgramBook('player')" class="w-full bg-[#1A2F23] text-white rnd font-bold text-base py-5 rounded-2xl mb-5 tracking-wide transition-all duration-300 hover:bg-[#254535] active:scale-[0.98] flex items-center justify-center gap-2">複賽節目冊 📖</button>
     <p class="text-center text-gray-300 text-[11px] leading-relaxed mt-4 pb-2">小提醒 · 天雨路滑請小心<br>臺大音韻獎關心您 🦋</p>
   </div>
 
@@ -384,12 +420,18 @@
 
 <div id="page-program" class="page pt-8 pb-16 md:pb-48 lg:pb-64 min-h-screen">
   <button onclick="hideProgramBook()" class="flex items-center gap-2 text-[#1A2F23] rnd text-sm font-medium mb-8 hover:opacity-70 transition-opacity">
-    <span>←</span> 返回選手專區
+    <span>←</span> <span id="program-back-label">返回</span>
   </button>
   <p class="rnd text-[10px] tracking-[.22em] text-[#1A2F23] uppercase mb-2">節目冊</p>
   <div class="w-6 h-0.5 bg-[#1A2F23] rounded-full mb-6"></div>
   <h2 class="rnd text-xl font-bold text-[#1A2F23] mb-1">第十三屆臺大音韻獎 · 複賽</h2>
-  <p class="text-[11px] text-gray-400 tracking-wide mb-10">6/13（六）· 6/14（日）· 臺大外語教學暨資源中心</p>
+  <p class="text-[11px] text-gray-400 tracking-wide mb-6">6/13（六）· 6/14（日）· 臺大外語教學暨資源中心</p>
+
+  <!-- 重要提示 -->
+  <div class="bg-[#1A2F23]/8 border border-[#1A2F23]/20 rounded-2xl px-5 py-4 mb-8 flex gap-3 items-start">
+    <span class="text-lg flex-shrink-0 mt-0.5">⚠️</span>
+    <p class="text-[13px] text-gray-700 leading-[1.9]"><strong class="text-[#1A2F23] font-bold">「僅在中場休息時間開放觀眾出入，出入口位於觀眾席正後方，請配合工作人員引導入座」</strong>。</p>
+  </div>
 
     <!-- 日期切換按鈕 -->
     <div class="flex gap-3 mb-8">
@@ -1324,6 +1366,41 @@
         <span class="text-2xl">📷</span><div><p class="rnd text-[10px] text-emerald-400 tracking-[.12em] mb-1">Instagram</p><p class="text-sm text-white opacity-60 group-hover:opacity-100 transition-opacity">@ntu_musicawards</p></div>
       </a>
     </div>
+    <!-- 贊助廠商 -->
+    <div class="border-t border-white/10 pt-7 mb-7">
+      <p class="rnd text-[11px] text-emerald-400 tracking-wide mb-5 text-center">感謝贊助單位</p>
+      <div class="grid grid-cols-3 md:grid-cols-4 gap-4 items-center">
+        <!-- 超級巨星KTV（.ai 無法轉換，文字顯示） -->
+        <div class="bg-white/10 rounded-xl px-3 py-3 flex items-center justify-center min-h-[56px]">
+          <span class="rnd text-white text-[11px] font-medium text-center leading-snug">超級巨星<br>KTV</span>
+        </div>
+        <div class="bg-white/10 rounded-xl p-2 flex items-center justify-center min-h-[56px]">
+          <img src="sponsors/sponsor_xinhao.jpg" alt="鑫豪食品" class="max-h-10 object-contain">
+        </div>
+        <div class="bg-white rounded-xl p-2 flex items-center justify-center min-h-[56px]">
+          <img src="sponsors/sponsor_beingcafe.jpg" alt="聲島咖啡" class="max-h-10 object-contain">
+        </div>
+        <div class="bg-white/10 rounded-xl p-2 flex items-center justify-center min-h-[56px]">
+          <img src="sponsors/sponsor_blackbear.jpg" alt="黑熊先生巧克力布朗尼" class="max-h-10 object-contain invert">
+        </div>
+        <div class="bg-white/10 rounded-xl p-2 flex items-center justify-center min-h-[56px]">
+          <img src="sponsors/sponsor_yungan.png" alt="允安國際" class="max-h-10 object-contain">
+        </div>
+        <div class="bg-white/10 rounded-xl p-2 flex items-center justify-center min-h-[56px]">
+          <img src="sponsors/sponsor_being.png" alt="存在音樂" class="max-h-10 object-contain">
+        </div>
+        <div class="bg-white rounded-xl p-2 flex items-center justify-center min-h-[56px]">
+          <img src="sponsors/sponsor_linfair.png" alt="福茂著作權" class="max-h-10 object-contain">
+        </div>
+        <div class="bg-white rounded-xl p-2 flex items-center justify-center min-h-[56px]">
+          <img src="sponsors/sponsor_cts.jpg" alt="華視文教基金會" class="max-h-10 object-contain">
+        </div>
+        <div class="bg-white rounded-xl p-2 flex items-center justify-center min-h-[56px] col-span-3 md:col-span-4">
+          <img src="sponsors/sponsor_ase.jpg" alt="日月光文教基金會" class="max-h-10 object-contain">
+        </div>
+      </div>
+    </div>
+
     <div class="border-t border-white/10 pt-7 text-center">
       <p class="rnd text-[11px] text-emerald-400 tracking-wide mb-2">主辦單位</p>
       <p class="text-sm text-white opacity-40">國立臺灣大學流行音樂歌唱社</p>
@@ -1353,6 +1430,35 @@
     if(id!=='contact')window.scrollTo({top:0,behavior:'smooth'});
   }
   function scrollToContact(){document.getElementById('page-contact').scrollIntoView({behavior:'smooth'});}
+
+  // ── 選手專區輪播 ──
+  let carouselIdx = 0;
+  const totalSlides = 2;
+  function carouselRender(){
+    document.getElementById('player-slides').style.transform = `translateX(-${carouselIdx * 100}%)`;
+    for(let i=0;i<totalSlides;i++){
+      const dot = document.getElementById('dot-'+i);
+      if(!dot) continue;
+      dot.style.width = i===carouselIdx ? '20px' : '6px';
+      dot.style.background = i===carouselIdx ? '#1A2F23' : '#D1D5DB';
+    }
+  }
+  function carouselNext(){ carouselIdx=(carouselIdx+1)%totalSlides; carouselRender(); }
+  function carouselPrev(){ carouselIdx=(carouselIdx-1+totalSlides)%totalSlides; carouselRender(); }
+  function carouselGo(i){ carouselIdx=i; carouselRender(); }
+
+  // 觸控滑動支援
+  (function(){
+    let startX=0;
+    const el = document.getElementById('player-carousel');
+    if(!el) return;
+    el.addEventListener('touchstart',e=>{ startX=e.touches[0].clientX; },{passive:true});
+    el.addEventListener('touchend',e=>{
+      const dx = e.changedTouches[0].clientX - startX;
+      if(dx < -40) carouselNext();
+      else if(dx > 40) carouselPrev();
+    },{passive:true});
+  })();
   function showPlayerTab(tab){
     ['signup','semifinal','final'].forEach(t=>{
       const c=document.getElementById('pcontent-'+t);
@@ -1365,19 +1471,27 @@
     if(tc){tc.classList.remove('hidden');tc.classList.add('fade-in');}
     if(tb)tb.classList.add('is-active');
   }
-  function showProgramBook(){
-    allPages.forEach(p=>document.getElementById('page-'+p).classList.remove('active'));
+  let programBookFrom='home';
+  function showProgramBook(from){
+    programBookFrom = from || 'home';
+    const label = programBookFrom==='player' ? '返回選手專區' : '返回首頁';
+    document.getElementById('program-back-label').textContent = label;
+    allPages.forEach(p=>{ const el=document.getElementById('page-'+p); if(el) el.classList.remove('active'); });
     document.getElementById('page-program').classList.add('active','fade-in');
     document.getElementById('hero-main').classList.add('hidden');
     document.getElementById('hero-program').classList.remove('hidden');
     window.scrollTo({top:0,behavior:'smooth'});
   }
   function hideProgramBook(){
-    allPages.forEach(p=>document.getElementById('page-'+p).classList.remove('active'));
-    document.getElementById('page-player').classList.add('active','fade-in');
+    allPages.forEach(p=>{ const el=document.getElementById('page-'+p); if(el) el.classList.remove('active'); });
     document.getElementById('hero-main').classList.remove('hidden');
     document.getElementById('hero-program').classList.add('hidden');
-    showPlayerTab('semifinal');
+    if(programBookFrom==='player'){
+      document.getElementById('page-player').classList.add('active','fade-in');
+      showPlayerTab('semifinal');
+    } else {
+      document.getElementById('page-home').classList.add('active','fade-in');
+    }
     window.scrollTo({top:0,behavior:'smooth'});
   }
   function switchDay(day){
