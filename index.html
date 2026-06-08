@@ -70,11 +70,24 @@
   }
 
 
+
+  /* 節目冊 hero 背景 */
+  #hero-program { background-image: url('hero_bg.png'); background-size: cover; background-position: center 25%; }
+  @media (min-width: 768px) {
+    #hero-program { background-image: url('hero_bg_desktop.png'); background-position: center 40%; }
+  }
+
   /* 手機版 hero */
-  #hero-main-div { background-image: url('hero_bg.png'); }
+  #hero-main { background-image: url('hero_bg.png'); }
   /* 電腦版 hero 換圖 */
   @media (min-width: 768px) {
-    #hero-main-div { background-image: url('hero_bg_desktop.png'); background-position: center 40%; }
+    #hero-main { background-image: url('hero_bg_desktop.png'); background-position: center 40%; }
+  }
+
+  @media (min-width: 1024px) {
+    main { max-width: 960px !important; }
+    header .max-w-4xl, header .max-w-6xl { max-width: 1100px !important; }
+    .page { padding-bottom: 14rem !important; }
   }
 </style>
 </head>
@@ -82,24 +95,25 @@
 
 <!-- ══ HEADER ══ -->
 <header class="bg-white sticky top-0 z-50 shadow-sm border-b border-gray-100">
-  <div class="max-w-2xl mx-auto px-5 py-3 flex items-center justify-between gap-4 hdr-inner">
+  <div class="max-w-2xl md:max-w-4xl lg:max-w-6xl mx-auto px-5 md:px-10 lg:px-16 py-3 md:py-5 flex items-center justify-between gap-4 hdr-inner">
     <a href="#" onclick="showPage('home');return false;" class="flex-shrink-0">
       <div class="rnd leading-tight">
         <span class="font-bold text-lg text-[#1A2F23] block">臺大音韻獎</span>
         <span class="text-[9px] font-normal tracking-widest text-gray-400 block">NTU MUSIC AWARDS</span>
       </div>
     </a>
-    <nav class="flex gap-3 sm:gap-5 flex-shrink-0">
-      <button onclick="showPage('home')" id="nav-home" class="nav-btn active rnd text-sm md:text-base font-medium text-gray-400 pb-1 md:pb-1.5">首頁</button>
-      <button onclick="showPage('about')" id="nav-about" class="nav-btn rnd text-sm sm:text-base font-medium text-gray-400 pb-1">關於音韻</button>
-      <button onclick="showPage('player')" id="nav-player" class="nav-btn rnd text-sm sm:text-base font-medium text-gray-400 pb-1">選手專區</button>
-      <button onclick="scrollToContact()" id="nav-contact" class="nav-btn rnd text-sm sm:text-base font-medium text-gray-400 pb-1">聯絡我們</button>
+    <nav class="flex gap-3 md:gap-8 lg:gap-12 flex-shrink-0">
+      <button onclick="showPage('home')" id="nav-home" class="nav-btn active rnd text-sm md:text-2xl lg:text-3xl font-bold text-gray-400 pb-1 tracking-wide">首頁</button>
+      <button onclick="showPage('about')" id="nav-about" class="nav-btn rnd text-sm md:text-2xl lg:text-3xl font-bold text-gray-400 pb-1 tracking-wide">關於音韻</button>
+      <button onclick="showPage('player')" id="nav-player" class="nav-btn rnd text-sm md:text-2xl lg:text-3xl font-bold text-gray-400 pb-1 tracking-wide">選手專區</button>
+      <button onclick="scrollToContact()" id="nav-contact" class="nav-btn rnd text-sm md:text-2xl lg:text-3xl font-bold text-gray-400 pb-1 tracking-wide">聯絡我們</button>
+      <button onclick="showPage('judges')" id="nav-judges" class="nav-btn rnd text-sm md:text-2xl lg:text-3xl font-bold text-gray-400 pb-1 tracking-wide">評審</button>
     </nav>
   </div>
 </header>
 
 <!-- ══ HERO MAIN ══ -->
-<div id="hero-main" class="relative overflow-hidden" style="background-size:cover;background-position:center 25%;min-height:55vw;max-height:75vh;" id="hero-main-div">
+<div id="hero-main" class="relative overflow-hidden" style="background-size:cover;background-position:center 25%;min-height:55vw;max-height:75vh;">
   <!-- 底部弧線過渡到白色 -->
   <div class="hero-arc"></div>
 </div>
@@ -120,7 +134,7 @@
 </div>
 
 <!-- ══ 主內容 ══ -->
-<main class="max-w-lg md:max-w-2xl lg:max-w-3xl mx-auto px-6 md:px-10 min-h-screen">
+<main class="max-w-lg md:max-w-2xl lg:max-w-3xl mx-auto px-6 md:px-10 lg:px-16 min-h-screen">
 
 <!-- 首頁 -->
 <div id="page-home" class="page active fade-in pt-10 pb-16">
@@ -220,7 +234,7 @@
 </div>
 
 <!-- 關於音韻 -->
-<div id="page-about" class="page pt-10 pb-16">
+<div id="page-about" class="page pt-10 pb-16 md:pb-48 lg:pb-64 min-h-screen">
   <p class="rnd text-[10px] tracking-[.22em] text-[#1A2F23] uppercase mb-2">關於音韻</p>
   <div class="w-6 h-0.5 bg-[#1A2F23] rounded-full mb-6"></div>
   <h2 class="rnd text-2xl font-bold text-[#1A2F23] mb-1">臺大音韻獎</h2>
@@ -230,16 +244,7 @@
       <div class="flex items-center gap-3 mb-4"><div class="w-[3px] h-6 bg-[#1A2F23] rounded-full"></div><p class="rnd font-bold text-[#1A2F23] text-lg">活動宗旨</p></div>
       <p>本賽事致力於深化全國民眾對音樂活動之參與，全面提升校內外音樂風氣與大眾音樂素養。我們深信音樂的力量源於純粹，期盼為全臺音樂愛好者搭建具備專業度與包容性的交流平臺，讓每位熱愛歌唱與創作的朋友皆能在此綻放光芒。</p>
     </div>
-    <div>
-      <div class="flex items-center gap-3 mb-4"><div class="w-[3px] h-6 bg-[#1A2F23] rounded-full"></div><p class="rnd font-bold text-[#1A2F23] text-lg">活動介紹</p></div>
-      <p class="mb-5">「臺大音韻獎」由國立臺灣大學流行音樂歌唱社主辦，為全臺灣少數完全由學生社團獨立籌辦之全國性大型歌唱賽事。</p>
-      <div class="space-y-4">
-        <div class="pl-5 border-l-2 border-gray-200"><p class="rnd font-semibold text-[#1A2F23] text-sm mb-1">學生獨唱組</p><p class="text-gray-500 text-[13px] leading-relaxed">匯聚全臺大專院校青澀歌聲，展現最純粹的舞台爆發力。</p></div>
-        <div class="pl-5 border-l-2 border-gray-200"><p class="rnd font-semibold text-[#1A2F23] text-sm mb-1">重、對唱組</p><p class="text-gray-500 text-[13px] leading-relaxed">強調人聲和諧共鳴，透過多聲部編排激發音樂層次美感。</p></div>
-        <div class="pl-5 border-l-2 border-gray-200"><p class="rnd font-semibold text-[#1A2F23] text-sm mb-1">創作組</p><p class="text-gray-500 text-[13px] leading-relaxed">鼓勵獨立詞曲創作，提供新生代被音樂產業看見的平台。</p></div>
-        <div class="pl-5 border-l-2 border-gray-200"><p class="rnd font-semibold text-[#1A2F23] text-sm mb-1">社會獨唱組</p><p class="text-gray-500 text-[13px] leading-relaxed">打破年齡限制，為各年齡層歌者提供圓夢舞台。</p></div>
-      </div>
-    </div>
+
     <div class="pt-6 border-t border-gray-100">
       <p class="rnd text-[10px] tracking-[.15em] text-gray-400 uppercase mb-2">主辦單位</p>
       <p class="rnd font-semibold text-[#1A2F23]">國立臺灣大學流行音樂歌唱社</p>
@@ -278,7 +283,7 @@
 </div>
 
 <!-- 選手專區 -->
-<div id="page-player" class="page pt-10 pb-16">
+<div id="page-player" class="page pt-10 pb-16 md:pb-48 lg:pb-64 min-h-screen">
   <p class="rnd text-[10px] tracking-[.22em] text-[#1A2F23] uppercase mb-2">選手專區</p>
   <div class="w-6 h-0.5 bg-[#1A2F23] rounded-full mb-6"></div>
   <h2 class="rnd text-2xl font-bold text-[#1A2F23] mb-2">您的音樂旅程從這裡開始</h2>
@@ -286,10 +291,23 @@
 
   <!-- 複賽選手注意事項 -->
   <div class="border border-[#1A2F23]/15 bg-[#1A2F23]/5 rounded-2xl p-5 mb-8">
-    <div class="flex items-center gap-2 mb-4"><span class="text-lg">📢</span><p class="rnd font-bold text-[#1A2F23] text-sm">複賽選手注意事項</p></div>
-    <div class="space-y-4">
-      <div class="flex gap-3 items-start"><span class="text-base flex-shrink-0">1️⃣</span><p class="text-[13px] text-gray-700 leading-[1.85]">請於比賽時間「<strong class="text-[#1A2F23]">前 30 分鐘</strong>」至 📍 臺灣大學 外語教學暨資源中心 入口櫃檯完成報到，並請於比賽時間開始「<strong class="text-[#1A2F23]">前 10 分鐘</strong>」回到選手報到區等待，逾時將視為放棄參賽資格。</p></div>
-      <div class="flex gap-3 items-start"><span class="text-base flex-shrink-0">2️⃣</span><p class="text-[13px] text-gray-700 leading-[1.85]">報到時務必攜帶<strong class="text-[#1A2F23]">學生證或身份證</strong>（學生獨唱組、重對唱組及創作組須出示學生證），供櫃檯人員確認身份，若遇無法證明身份之情形，則取消比賽資格。</p></div>
+    <div class="flex items-center gap-2 mb-5">
+      <span class="text-lg">📢</span>
+      <p class="rnd font-bold text-[#1A2F23] text-sm tracking-wide">複賽選手注意事項</p>
+    </div>
+    <div class="space-y-5">
+      <div class="flex gap-4 items-start">
+        <div class="flex-shrink-0 w-7 h-7 rounded-full bg-[#1A2F23] flex items-center justify-center mt-0.5">
+          <span class="rnd text-white text-[11px] font-bold">1</span>
+        </div>
+        <p class="text-[13px] text-gray-700 leading-[1.9]">請於比賽時間「<strong class="text-[#1A2F23]">前 30 分鐘</strong>」至「臺灣大學 外語教學暨資源中心」入口櫃檯完成報到，並請於比賽時間開始「<strong class="text-[#1A2F23]">前 10 分鐘</strong>」回到選手報到區等待，逾時將視為放棄參賽資格。</p>
+      </div>
+      <div class="flex gap-4 items-start">
+        <div class="flex-shrink-0 w-7 h-7 rounded-full bg-[#1A2F23] flex items-center justify-center mt-0.5">
+          <span class="rnd text-white text-[11px] font-bold">2</span>
+        </div>
+        <p class="text-[13px] text-gray-700 leading-[1.9]">報到時務必攜帶<strong class="text-[#1A2F23]">學生證或身份證</strong>（學生獨唱組、重對唱組及創作組須出示學生證），供櫃檯人員確認身份，若遇無法證明身份之情形，則取消比賽資格。</p>
+      </div>
     </div>
   </div>
 
@@ -364,7 +382,7 @@
   </div>
 </div>
 
-<div id="page-program" class="page pt-8 pb-16">
+<div id="page-program" class="page pt-8 pb-16 md:pb-48 lg:pb-64 min-h-screen">
   <button onclick="hideProgramBook()" class="flex items-center gap-2 text-[#1A2F23] rnd text-sm font-medium mb-8 hover:opacity-70 transition-opacity">
     <span>←</span> 返回選手專區
   </button>
@@ -1257,7 +1275,7 @@
 
 
 <!-- 評審介紹 -->
-<div id="page-judges" class="page pt-8 pb-20">
+<div id="page-judges" class="page pt-8 pb-20 md:pb-48 lg:pb-64 min-h-screen">
   <button onclick="showPage('home')" class="flex items-center gap-2 text-[#1A2F23] rnd text-sm font-medium mb-8 hover:opacity-70 transition-opacity"><span>←</span> 返回首頁</button>
   <p class="rnd text-[10px] tracking-[.22em] text-[#1A2F23] uppercase mb-2">評審介紹</p>
   <div class="w-6 h-0.5 bg-[#1A2F23] rounded-full mb-6"></div>
