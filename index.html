@@ -61,6 +61,16 @@
     .text-\[12px\],.text-\[11px\],.text-\[10px\]{ font-size:13px!important; }
   }
   .day-tab-off{background:#fff;color:#6b7280;border-color:#e5e7eb;}
+
+  .ticker-track {
+    animation: ticker 18s linear infinite;
+  }
+  @keyframes ticker {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-33.333%); }
+  }
+  .ticker-track:hover { animation-play-state: paused; }
+
 </style>
 </head>
 <body class="bg-white">
@@ -83,12 +93,21 @@
   </div>
 </header>
 
+<!-- 跑馬燈（疊在壓圖頂部） -->
+<div class="relative z-20 overflow-hidden py-2.5 -mb-10" style="white-space:nowrap;background:rgba(26,47,35,0.85);backdrop-filter:blur(2px);">
+  <div class="ticker-track inline-flex gap-0">
+    <span class="text-[12px] text-emerald-200 font-medium px-8">⚠️ 由於當天外教中心同時有考試舉行，請選手們統一從（面對大門口）的右側門進出！</span>
+    <span class="text-[12px] text-emerald-200 font-medium px-8">⚠️ 由於當天外教中心同時有考試舉行，請選手們統一從（面對大門口）的右側門進出！</span>
+    <span class="text-[12px] text-emerald-200 font-medium px-8">⚠️ 由於當天外教中心同時有考試舉行，請選手們統一從（面對大門口）的右側門進出！</span>
+  </div>
+</div>
+
 <!-- HERO MAIN -->
 <div id="hero-main" class="relative overflow-hidden" style="background-size:cover;min-height:65vw;max-height:65vw;">
   <div class="hero-arc"></div>
 </div>
 
-<!-- HERO 節目冊 -->
+<!-- HERO 節目表 -->
 
 
 <main class="max-w-lg md:max-w-2xl lg:max-w-3xl mx-auto px-6 md:px-10 lg:px-16 min-h-screen">
@@ -122,7 +141,7 @@
         </div>
       </div>
     </div>
-    <!-- 節目冊按鈕 -->
+    <!-- 節目表按鈕 -->
     <div class="border-t border-gray-100 pt-5 mb-5 text-center">
       <p class="text-[11px] text-gray-300 mb-4">歡迎觀眾入場欣賞表演</p>
       <button onclick="showProgramBook('home')"
@@ -142,6 +161,32 @@
         <div class="flex gap-2"><span class="rnd text-[10px] text-[#1A2F23] font-medium flex-shrink-0 w-4">6.</span><p class="text-[12px] text-gray-500 leading-relaxed">比賽進行中請避免走動。</p></div>
         <div class="flex gap-2"><span class="rnd text-[10px] text-[#1A2F23] font-medium flex-shrink-0 w-4">7.</span><p class="text-[12px] text-gray-500 leading-relaxed">嚴重干擾比賽且不聽勸告者，主辦方有權請其離場並取消參賽資格。</p></div>
         <div class="flex gap-2"><span class="rnd text-[10px] text-[#1A2F23] font-medium flex-shrink-0 w-4">8.</span><p class="text-[12px] text-gray-500 leading-relaxed">音韻獎主辦方保有最終解釋權。</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 複賽導航影片 -->
+  <div class="mb-10">
+    <p class="rnd text-[10px] tracking-[.22em] text-[#1A2F23] uppercase mb-2">導覽</p>
+    <div class="w-6 h-0.5 bg-[#1A2F23] rounded-full mb-5"></div>
+    <div class="border border-gray-100 rounded-2xl overflow-hidden shadow-sm">
+      <div class="px-5 pt-5 pb-3">
+        <p class="rnd font-bold text-[#1A2F23] text-sm mb-1">音韻獎帶你前往複賽地點</p>
+        <p class="text-[12px] text-gray-400">臺大外語教學暨資源中心劇場</p>
+      </div>
+      <!-- 影片 iframe（目前為預留位置，替換 src 即可） -->
+      <div class="relative w-full" style="padding-bottom:56.25%;">
+        <div class="absolute inset-0 bg-gray-100 flex flex-col items-center justify-center gap-3">
+          <span class="text-4xl">🎬</span>
+          <p class="rnd text-[12px] text-gray-400 text-center px-6">導航影片即將上線<br>敬請期待</p>
+        </div>
+      </div>
+      <div class="px-5 py-4">
+        <a href="https://maps.google.com/?q=國立臺灣大學外語教學暨資源中心" target="_blank"
+          class="flex items-center gap-2 text-[12px] text-[#1A2F23] hover:opacity-70 transition-opacity">
+          <span>📍</span>
+          <span class="underline underline-offset-2">開啟 Google 地圖導航</span>
+        </a>
       </div>
     </div>
   </div>
@@ -216,13 +261,13 @@
 
   <!-- 第十三屆介紹 -->
   <div class="pt-10 border-t border-gray-100 mt-2">
-    <img src="布條.jpg" alt="第十三屆臺大音韻獎" class="w-3/4 md:w-1/2 mx-auto rounded-2xl object-contain mb-8 block">
     <div class="mb-6">
       <p class="rnd text-[10px] tracking-[.22em] text-[#1A2F23] uppercase mb-2">活動資訊</p>
       <div class="w-6 h-0.5 bg-[#1A2F23] rounded-full mb-5"></div>
       <p class="rnd text-xl font-bold text-[#1A2F23] mb-0.5">第十三屆臺大音韻獎</p>
       <p class="text-[11px] text-gray-400 tracking-widest">NTU MUSIC AWARDS 13TH</p>
     </div>
+    <img src="布條.jpg" alt="第十三屆臺大音韻獎" class="w-3/4 md:w-1/2 mx-auto rounded-2xl object-contain mb-8 block">
     <div class="border border-gray-100 rounded-2xl p-5 mb-8 space-y-4">
       <div class="flex gap-4 items-start"><span class="rnd text-[11px] text-[#1A2F23] font-medium min-w-[56px] flex-shrink-0 mt-0.5">報名初賽</span><span class="text-[13px] text-gray-600 leading-relaxed">2026/3/16（一）～ 2026/5/4（五）17:00</span></div>
       <div class="flex gap-4 items-start"><span class="rnd text-[11px] text-[#1A2F23] font-medium min-w-[56px] flex-shrink-0 mt-0.5">複賽</span><div><p class="text-[13px] text-gray-600 leading-relaxed">2026/6/13（六）～ 2026/6/14（日）</p><p class="text-[11px] text-gray-400 mt-0.5">@ 臺大外語教學暨資源中心劇場</p></div></div>
@@ -251,9 +296,37 @@
         <div class="flex-shrink-0 w-7 h-7 rounded-full bg-[#1A2F23] flex items-center justify-center mt-0.5"><span class="rnd text-white text-[11px] font-bold">1</span></div>
         <p class="text-[13px] text-gray-700 leading-[1.9]">請於比賽時間「<strong class="text-[#1A2F23]">前 30 分鐘</strong>」至「臺灣大學 外語教學暨資源中心」入口櫃檯完成報到，並請於比賽時間開始「<strong class="text-[#1A2F23]">前 10 分鐘</strong>」回到選手報到區等待，逾時將視為放棄參賽資格。</p>
       </div>
+              <div class="flex justify-start mt-2">
+                <a href="https://docs.google.com/spreadsheets/d/1GleQHlpaWFn_WLBrg8400hEa4eJgHMkqxlI333DoaJ4/edit?gid=0#gid=0" target="_blank"
+                  class="text-[11px] text-[#1A2F23] underline underline-offset-2 hover:opacity-70 transition-opacity whitespace-nowrap">
+                  查看報到時間 →
+                </a>
+              </div>
       <div class="flex gap-4 items-start">
         <div class="flex-shrink-0 w-7 h-7 rounded-full bg-[#1A2F23] flex items-center justify-center mt-0.5"><span class="rnd text-white text-[11px] font-bold">2</span></div>
         <p class="text-[13px] text-gray-700 leading-[1.9]">報到時務必攜帶<strong class="text-[#1A2F23]">學生證或身份證</strong>（學生獨唱組、重對唱組及創作組須出示學生證），供櫃檯人員確認身份，若遇無法證明身份之情形，則取消比賽資格。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 賽程資訊 -->
+  <div class="border border-gray-100 rounded-2xl p-5 mb-8 space-y-4">
+    <div class="flex gap-4 items-start">
+      <span class="rnd text-[11px] text-[#1A2F23] font-medium min-w-[56px] flex-shrink-0 mt-0.5">報名初賽</span>
+      <span class="text-[13px] text-gray-600 leading-relaxed">2026/3/16（一）～ 2026/5/4（五）17:00</span>
+    </div>
+    <div class="flex gap-4 items-start">
+      <span class="rnd text-[11px] text-[#1A2F23] font-medium min-w-[56px] flex-shrink-0 mt-0.5">複賽</span>
+      <div>
+        <p class="text-[13px] text-gray-600 leading-relaxed">2026/6/13（六）～ 2026/6/14（日）</p>
+        <p class="text-[11px] text-gray-400 mt-0.5">@ 臺大外語教學暨資源中心劇場</p>
+      </div>
+    </div>
+    <div class="flex gap-4 items-start">
+      <span class="rnd text-[11px] text-[#1A2F23] font-medium min-w-[56px] flex-shrink-0 mt-0.5">決賽</span>
+      <div>
+        <p class="text-[13px] text-gray-600 leading-relaxed">2026/7/12（日）</p>
+        <p class="text-[11px] text-gray-400 mt-0.5">@ Corner House 角落文創展演空間</p>
       </div>
     </div>
   </div>
@@ -287,16 +360,13 @@
           <div><p class="rnd text-[12px] font-medium text-gray-500">第十三屆・報名簡章</p><p class="text-[10px] text-gray-400 mt-0.5">查看本屆完整賽事規則</p></div>
           <span class="text-gray-300 text-lg group-hover:text-gray-400">›</span>
         </a>
-        <button onclick="document.getElementById('judgeReview').classList.toggle('hidden')" class="flex items-center justify-between gap-3 px-4 py-3.5 border border-[#1A2F23]/20 rounded-xl bg-[#1A2F23]/5 hover:bg-[#1A2F23]/10 active:scale-[0.98] transition-all group">
+        <button onclick="showPage('review')" class="flex items-center justify-between gap-3 px-4 py-3.5 border border-[#1A2F23]/20 rounded-xl bg-[#1A2F23]/5 hover:bg-[#1A2F23]/10 active:scale-[0.98] transition-all group">
           <div><p class="rnd text-[12px] font-medium text-[#1A2F23]">查看初賽講評 📝</p><p class="text-[10px] text-gray-400 mt-0.5">陳惠婷老師 · 秦旭章老師</p></div>
           <span class="text-[#1A2F23]/40 text-lg group-hover:text-[#1A2F23]/70">›</span>
         </button>
       </div>
     </div>
-    <div id="judgeReview" class="hidden mt-4 border border-gray-100 rounded-2xl p-5 space-y-4 text-left">
-      <p class="rnd text-[10px] tracking-[.2em] text-[#1A2F23] uppercase">初賽評審講評</p>
-      <p class="text-[12px] text-gray-500">（詳見評審介紹頁面）</p>
-    </div>
+
   </div>
 
   <div id="pcontent-semifinal" class="fade-in">
@@ -323,12 +393,12 @@
   </div>
 </div>
 
-<!-- 節目冊 -->
+<!-- 節目表 -->
 <div id="page-program" class="page pt-8 pb-20 md:pb-48 lg:pb-64">
   <button onclick="hideProgramBook()" class="flex items-center gap-2 text-[#1A2F23] rnd text-sm font-medium mb-8 hover:opacity-70 transition-opacity">
     <span>←</span> <span id="program-back-label">返回</span>
   </button>
-  <p class="rnd text-[10px] tracking-[.22em] text-[#1A2F23] uppercase mb-2">節目冊</p>
+  <p class="rnd text-[10px] tracking-[.22em] text-[#1A2F23] uppercase mb-2">節目表</p>
   <div class="w-6 h-0.5 bg-[#1A2F23] rounded-full mb-6"></div>
   <h2 class="rnd text-xl font-bold text-[#1A2F23] mb-1">第十三屆臺大音韻獎 · 複賽</h2>
   <p class="text-[11px] text-gray-400 tracking-wide mb-6">6/13（六）· 6/14（日）· 臺大外語教學暨資源中心劇場</p>
@@ -1428,34 +1498,482 @@
 
 
 <!-- 評審介紹 -->
+
+<!-- 評審介紹 -->
 <div id="page-judges" class="page pt-8 pb-20 md:pb-48 lg:pb-64">
   <button onclick="showPage('home')" class="flex items-center gap-2 text-[#1A2F23] rnd text-sm font-medium mb-8 hover:opacity-70 transition-opacity"><span>←</span> 返回首頁</button>
   <p class="rnd text-[10px] tracking-[.22em] text-[#1A2F23] uppercase mb-2">評審介紹</p>
   <div class="w-6 h-0.5 bg-[#1A2F23] rounded-full mb-6"></div>
-  <h2 class="rnd text-2xl md:text-3xl font-bold text-[#1A2F23] mb-10">第十三屆 評審陣容</h2>
+  <h2 class="rnd text-2xl md:text-3xl font-bold text-[#1A2F23] mb-8">第十三屆 評審陣容</h2>
 
-  <div class="flex items-center gap-3 mb-6"><div class="w-[3px] h-7 bg-[#1A2F23] rounded-full"></div><p class="rnd font-bold text-[#1A2F23] text-lg">初賽評審</p></div>
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-12">
-    <div class="border border-gray-100 rounded-2xl p-6"><div class="border-l-4 border-[#1A2F23] pl-4 mb-5"><p class="italic text-gray-500 text-[13px] leading-[1.9]">「囚徒困境中 我選擇背叛／反正最後 沒人得救」</p><p class="text-[11px] text-gray-400 mt-1.5">—〈美好人生〉</p></div><p class="rnd font-bold text-[#1A2F23] text-base mb-3">the Huiting 陳惠婷</p><p class="text-[13px] text-gray-600 leading-[1.9] mb-4">有搖滾祖媽之稱的音樂創作人、製作人，樂團 Tizzy Bac 的主唱兼鍵盤手。於2014年開始個人創作，至今已發行四張專輯、一張EP。於2025年擔任金音獎評審團主席。</p><div><p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-1.5">發行作品</p><p class="text-[12px] text-gray-500 leading-[1.85]">2014《21克》／2015《成人世界》／2017《Voyager3》／2021 EP《我內心的風景》／2024《王國 Darktopia》</p></div></div>
-    <div class="border border-gray-100 rounded-2xl p-6"><div class="border-l-4 border-[#1A2F23] pl-4 mb-5"><p class="italic text-gray-500 text-[13px] leading-[1.9]">「這一刻不用誰懂／在你碎裂的時候／大聲哭吧 只讓我找到你」</p><p class="text-[11px] text-gray-400 mt-1.5">—〈活在自己的世界〉</p></div><p class="rnd font-bold text-[#1A2F23] text-base mb-3">秦旭章</p><p class="text-[13px] text-gray-600 leading-[1.9] mb-4">放飛音樂廠牌主理人、守夜人 Night Keepers 團長。跨足詞曲、製作、編曲及影視配樂等領域。電影《該死的阿修羅》配樂總監（代表臺灣角逐第95屆奧斯卡最佳國際影片）。</p><div><p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-1.5">獲獎經歷</p><p class="text-[12px] text-gray-500 leading-[1.85]">2022 獲第24屆台北電影節最佳配樂獎／2021 入圍第32屆金曲獎最佳演唱組合</p></div></div>
+  <!-- 分頁 Tab -->
+  <div class="flex gap-2 mb-8 border-b border-gray-100 pb-1">
+    <button onclick="showJudgeTab('prelim')" id="jtab-prelim"
+      class="judge-tab rnd text-sm font-medium px-4 py-2.5 rounded-t-xl border-b-2 border-[#1A2F23] text-[#1A2F23] transition-all">初賽</button>
+    <button onclick="showJudgeTab('semi')" id="jtab-semi"
+      class="judge-tab rnd text-sm font-medium px-4 py-2.5 rounded-t-xl border-b-2 border-transparent text-gray-400 transition-all">複賽</button>
+    <button onclick="showJudgeTab('final')" id="jtab-final"
+      class="judge-tab rnd text-sm font-medium px-4 py-2.5 rounded-t-xl border-b-2 border-transparent text-gray-400 transition-all">決賽</button>
   </div>
 
-  <div class="flex items-center gap-3 mb-6"><div class="w-[3px] h-7 bg-[#1A2F23] rounded-full"></div><p class="rnd font-bold text-[#1A2F23] text-lg">複賽評審</p></div>
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-12">
-    <div class="border border-gray-100 rounded-2xl p-6"><div class="border-l-4 border-[#1A2F23] pl-4 mb-5"><p class="italic text-gray-500 text-[13px] leading-[1.9]">「漸漸發現需要承擔依賴／當初的未來／何時變成現在」</p><p class="text-[11px] text-gray-400 mt-1.5">—〈Go My Way〉</p></div><p class="rnd font-bold text-[#1A2F23] text-base mb-3">Elisa Lin 林依霖</p><p class="text-[13px] text-gray-600 leading-[1.9] mb-4">兼具紮實技術與細膩感性的全方位音樂人。目前擔任「當道音樂 Downtown Music」錄音室副總經理。製作林以樂專輯《素顏的樣子》（金音獎最佳創作歌手）、五月天多首作品共同製作編曲。</p></div>
-    <div class="border border-gray-100 rounded-2xl p-6"><div class="border-l-4 border-[#1A2F23] pl-4 mb-5"><p class="italic text-gray-500 text-[13px] leading-[1.9]">「相信某一天 將與孤單分別／所以赤裸的等著」</p><p class="text-[11px] text-gray-400 mt-1.5">—〈反方向〉</p></div><p class="rnd font-bold text-[#1A2F23] text-base mb-3">謝博安</p><p class="text-[13px] text-gray-600 leading-[1.9] mb-4">鹿洐人主唱兼木吉他手，曾在《超級偶像7》中奪得冠軍。鹿洐人於2018年成軍，以 Power Trio 為主要概念，近幾年主演電影《你的情歌》。</p></div>
-    <div class="border border-gray-100 rounded-2xl p-6 md:col-span-2 md:max-w-lg md:mx-auto md:w-full"><div class="border-l-4 border-[#1A2F23] pl-4 mb-5"><p class="italic text-gray-500 text-[13px] leading-[1.9]">「就讓我跳進這瘋狂／我也要用盡全力揮霍」</p><p class="text-[11px] text-gray-400 mt-1.5">—〈手動登出前的最後一支舞〉</p></div><p class="rnd font-bold text-[#1A2F23] text-base mb-3">宋家耘</p><p class="text-[13px] text-gray-600 leading-[1.9] mb-4">庸俗救星 Vulgar Savior 主唱、創作歌手，創作內容形式多元，包含民謠、流行、電子音樂。夢想是寫一首讓人邊流淚邊跳舞的歌。</p></div>
+  <!-- 初賽 -->
+  <div id="jtab-content-prelim">
+
+    <!-- 陳惠婷 -->
+    <div class="border border-gray-100 rounded-2xl overflow-hidden mb-4">
+      <button onclick="toggleAcc(this)" class="w-full flex items-center justify-between px-5 py-4 text-left bg-white">
+        <div>
+          <p class="rnd font-bold text-[#1A2F23] text-sm">the Huiting 陳惠婷</p>
+          <p class="text-[11px] text-gray-400 mt-0.5">初賽評審 · 音樂創作人、製作人</p>
+        </div>
+        <span class="acc-arrow text-gray-400 text-lg">▾</span>
+      </button>
+      <div class="acc-content">
+        <div class="px-5 pb-6 space-y-5">
+          <div class="border-l-4 border-[#1A2F23] pl-4">
+            <p class="italic text-gray-500 text-[13px] leading-[1.9]">「囚徒困境中 我選擇背叛／反正最後 沒人得救。<br>我能看見 現實和未來／早被決定的遺憾／不會因為誰而更改」</p>
+            <p class="text-[11px] text-gray-400 mt-1.5">—〈美好人生〉</p>
+          </div>
+          <div>
+            <p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">評審簡介</p>
+            <p class="text-[13px] text-gray-600 leading-[1.9]">有搖滾祖媽之稱的音樂創作人、製作人，樂團 Tizzy Bac 的主唱兼鍵盤手。於2014年開始個人創作，至今已發行四張專輯、一張EP，擅長描寫黑暗美學，詞曲間展現細膩的情感書寫風格。除創作、演出經驗豐富外，也數度擔任音樂重大賽事評審，於2025年擔任金音獎評審團主席。</p>
+          </div>
+          <div>
+            <p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">發行作品</p>
+            <div class="space-y-1 text-[12px] text-gray-500 leading-[1.85]">
+              <p>2014 首張個人專輯《21克》</p>
+              <p>2015 專輯《成人世界》</p>
+              <p>2017 專輯《Voyager3》</p>
+              <p>2021 EP《我內心的風景》</p>
+              <p>2024 專輯《王國 Darktopia》</p>
+            </div>
+          </div>
+          <div>
+            <p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">獲獎經歷</p>
+            <div class="space-y-1 text-[12px] text-gray-500 leading-[1.85]">
+              <p>2014 憑藉《這是因為我們能感到疼痛》入圍第25屆金曲獎最佳作詞人獎</p>
+              <p>2015 專輯《21克》入圍第26屆金曲獎「最佳新人獎」</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 秦旭章 -->
+    <div class="border border-gray-100 rounded-2xl overflow-hidden mb-4">
+      <button onclick="toggleAcc(this)" class="w-full flex items-center justify-between px-5 py-4 text-left bg-white">
+        <div>
+          <p class="rnd font-bold text-[#1A2F23] text-sm">秦旭章</p>
+          <p class="text-[11px] text-gray-400 mt-0.5">初賽評審 · 廠牌主理人、守夜人團長</p>
+        </div>
+        <span class="acc-arrow text-gray-400 text-lg">▾</span>
+      </button>
+      <div class="acc-content">
+        <div class="px-5 pb-6 space-y-5">
+          <div class="border-l-4 border-[#1A2F23] pl-4">
+            <p class="italic text-gray-500 text-[13px] leading-[1.9]">「這一刻不用誰懂／在你碎裂的時候／痛也不說 別讓人發現你／大聲哭吧 只讓我找到你／無聲無息 讓眼淚修復你」</p>
+            <p class="text-[11px] text-gray-400 mt-1.5">—〈活在自己的世界〉</p>
+          </div>
+          <div>
+            <p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">評審簡介</p>
+            <p class="text-[13px] text-gray-600 leading-[1.9]">放飛音樂 WiFi Music 廠牌主理人、守夜人 Night Keepers 團長，作家安眠巫師，擅長將孤單與焦慮轉化為創作靈感，治癒日常突如其來的失落情緒。跨足詞曲、製作、編曲及影視配樂等領域，致力於音樂領域的跨界發展。</p>
+          </div>
+          <div>
+            <p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">代表作品</p>
+            <div class="space-y-3 text-[12px] text-gray-500 leading-[1.85]">
+              <div>
+                <p class="font-medium text-gray-600">詞曲作品</p>
+                <p>田馥甄〈田〉〈底里歇斯〉、周興哲〈明明〉、許光漢〈Souffié〉作曲</p>
+              </div>
+              <div>
+                <p class="font-medium text-gray-600">製作與編曲</p>
+                <p>林宥嘉〈船〉、曾沛慈〈最後一次哭〉配唱與編曲製作、共同製作靈魂沙發「失望的山」、溫室雜草「intro 鞋」</p>
+              </div>
+              <div>
+                <p class="font-medium text-gray-600">影視音樂製作</p>
+                <p>電影《該死的阿修羅》配樂總監（代表臺灣角逐第95屆奧斯卡金像獎最佳國際影片）、電影《夏日最後的祕密》、電視劇《四樓的天堂》配樂及歌曲製作</p>
+              </div>
+              <div>
+                <p class="font-medium text-gray-600">樂團—守夜人</p>
+                <p>發行《永夜島》《使者》《Retune》三張專輯及數首單曲，並擔任2025年守夜人「我以為我跟宇宙說好了」亞洲巡演音樂總監</p>
+              </div>
+            </div>
+          </div>
+          <div>
+            <p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">獲獎經歷</p>
+            <div class="space-y-1 text-[12px] text-gray-500 leading-[1.85]">
+              <p>2025 第二屆街聲年度音樂趨勢大獎 分類榜綜合表現民謠類</p>
+              <p>2024 〈漂浮到〉獲選 AppleMusic 百大單曲</p>
+              <p>2024 擔任第16屆金馬學院配樂導師</p>
+              <p>2023 擔任第16屆 FreshmusicAward 首次實體典禮音樂總監</p>
+              <p>2022 獲得第24屆台北電影節最佳配樂獎（電影《該死的阿修羅》）</p>
+              <p>2021 入圍第32屆金曲獎最佳演唱組合</p>
+              <p>2020 詞曲作品〈抛〉獲選中華音樂人交流協會年度十大單曲</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><!-- /prelim -->
+
+  <!-- 複賽 -->
+  <div id="jtab-content-semi" class="hidden">
+
+    <!-- 林依霖 -->
+    <div class="border border-gray-100 rounded-2xl overflow-hidden mb-4">
+      <button onclick="toggleAcc(this)" class="w-full flex items-center justify-between px-5 py-4 text-left bg-white">
+        <div>
+          <p class="rnd font-bold text-[#1A2F23] text-sm">Elisa Lin 林依霖</p>
+          <p class="text-[11px] text-gray-400 mt-0.5">複賽評審 · 製作人、編曲</p>
+        </div>
+        <span class="acc-arrow text-gray-400 text-lg">▾</span>
+      </button>
+      <div class="acc-content">
+        <div class="px-5 pb-6 space-y-5">
+          <div class="border-l-4 border-[#1A2F23] pl-4">
+            <p class="italic text-gray-500 text-[13px] leading-[1.9]">「漸漸發現需要承擔依賴／當初的未來／何時變成現在／慢慢了解人性並不坦然」</p>
+            <p class="text-[11px] text-gray-400 mt-1.5">—〈Go My Way〉</p>
+          </div>
+          <div>
+            <p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">評審簡介</p>
+            <p class="text-[13px] text-gray-600 leading-[1.9]">兼具紮實技術與細膩感性的全方位音樂人。自幼於洛杉磯成長，先後求學於紐約大學（NYU）與南加州大學（USC）音樂產業學系。憑藉逾二十年的產業資歷，以製作人、編曲及多項樂器演奏家身份深度參與華語樂壇。目前擔任「當道音樂 Downtown Music」錄音室副總經理。</p>
+          </div>
+          <div>
+            <p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">代表作品</p>
+            <div class="space-y-1 text-[12px] text-gray-500 leading-[1.85]">
+              <p>製作林以樂專輯《素顏的樣子》獲第15屆金音獎「最佳創作歌手」</p>
+              <p>五月天〈轉眼〉〈少年他的奇幻漂流〉〈凡人歌 feat.蕭敬騰〉共同製作編曲</p>
+              <p>林宥嘉〈代客求婚〉製作與編曲</p>
+              <p>主導田廣潤首張個人創作專輯全案製作</p>
+              <p>擔任王大文最新作品混音師</p>
+            </div>
+          </div>
+          <div>
+            <p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">演出經歷</p>
+            <div class="space-y-1 text-[12px] text-gray-500 leading-[1.85]">
+              <p>與蘇珮卿共同奪下第13屆金音獎「最佳現場演出獎」</p>
+              <p>曾統籌林以樂、小男孩樂團、格式塔少女之音樂總監</p>
+              <p>曾擔任林宥嘉、陶喆、哈林、張震嶽、蔡健雅等頂尖歌手之巡迴樂手</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 謝博安 -->
+    <div class="border border-gray-100 rounded-2xl overflow-hidden mb-4">
+      <button onclick="toggleAcc(this)" class="w-full flex items-center justify-between px-5 py-4 text-left bg-white">
+        <div>
+          <p class="rnd font-bold text-[#1A2F23] text-sm">謝博安</p>
+          <p class="text-[11px] text-gray-400 mt-0.5">複賽評審 · 鹿洐人主唱</p>
+        </div>
+        <span class="acc-arrow text-gray-400 text-lg">▾</span>
+      </button>
+      <div class="acc-content">
+        <div class="px-5 pb-6 space-y-5">
+          <div class="border-l-4 border-[#1A2F23] pl-4">
+            <p class="italic text-gray-500 text-[13px] leading-[1.9]">「相信某一天 將與孤單分別／所以赤裸的等著／一樣的人／太多沒來由的失望／自欺欺人」</p>
+            <p class="text-[11px] text-gray-400 mt-1.5">—〈反方向〉</p>
+          </div>
+          <div>
+            <p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">評審簡介</p>
+            <p class="text-[13px] text-gray-600 leading-[1.9]">鹿洐人主唱兼木吉他手，曾在《超級偶像7》中以超高人氣奪得冠軍。由其領軍的鹿洐人於2018年成軍，以 Power Trio 為主要概念，藉由密不可分的三重奏關係融合各樣音樂類型，直率且有態度。近幾年主演電影《你的情歌》，並為其演唱多首音樂作品。</p>
+          </div>
+          <div>
+            <p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">發行作品</p>
+            <div class="space-y-1 text-[12px] text-gray-500 leading-[1.85]">
+              <p>2020 〈Better〉《你的情歌》電影原聲帶</p>
+              <p>2020 鹿洐人首張數位 EP《爛笑話》</p>
+              <p>2021 鹿洐人首張創作專輯《你在開玩笑嗎？》</p>
+              <p>2022 鹿洐人 EP《輸出.368》</p>
+              <p>2023 鹿洐人 EP《輸出.479》</p>
+            </div>
+          </div>
+          <div>
+            <p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">獲獎經歷</p>
+            <div class="space-y-1 text-[12px] text-gray-500 leading-[1.85]">
+              <p>2018 入選臺北音樂不斷電原創音樂優秀團隊</p>
+              <p>2025 單曲〈空洞〉獲選第2屆街聲年度音樂趨勢大獎年度二十大單曲</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 宋家耘 -->
+    <div class="border border-gray-100 rounded-2xl overflow-hidden mb-4">
+      <button onclick="toggleAcc(this)" class="w-full flex items-center justify-between px-5 py-4 text-left bg-white">
+        <div>
+          <p class="rnd font-bold text-[#1A2F23] text-sm">宋家耘</p>
+          <p class="text-[11px] text-gray-400 mt-0.5">複賽評審 · 庸俗救星主唱、創作歌手</p>
+        </div>
+        <span class="acc-arrow text-gray-400 text-lg">▾</span>
+      </button>
+      <div class="acc-content">
+        <div class="px-5 pb-6 space-y-5">
+          <div class="border-l-4 border-[#1A2F23] pl-4">
+            <p class="italic text-gray-500 text-[13px] leading-[1.9]">「就讓我跳進這瘋狂／擺動不怕刺痛／也許只是漂亮掙扎／我也要用盡全力揮霍」</p>
+            <p class="text-[11px] text-gray-400 mt-1.5">—〈手動登出前的最後一支舞〉</p>
+          </div>
+          <div>
+            <p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">評審簡介</p>
+            <p class="text-[13px] text-gray-600 leading-[1.9]">庸俗救星 Vulgar Savior 主唱、創作歌手，創作內容形式多元，包含民謠、流行、電子音樂，同時跨足影像、戲劇、圖文創作等領域。喜歡有衝突美感的音樂或故事，也樂於挑戰音樂裡的衝突感。夢想是當小丸子或野田妹；還有寫一首讓人邊流淚邊跳舞的歌。</p>
+          </div>
+          <div>
+            <p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">發行作品</p>
+            <div class="space-y-1 text-[12px] text-gray-500 leading-[1.85]">
+              <p>2020 單曲〈白癡〉〈美好結局〉</p>
+              <p>2022 單曲〈手動登出前的最後一支舞〉〈日常絮語〉〈真戲假做〉</p>
+              <p>2023 單曲〈滿分少女的必要條件〉</p>
+            </div>
+          </div>
+          <div>
+            <p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">演出經歷</p>
+            <div class="space-y-1 text-[12px] text-gray-500 leading-[1.85]">
+              <p>2021 臺北音樂不斷電優勝六強巡迴演唱會</p>
+              <p>2023 靠運氣不如靠腰力 首場千人演唱會</p>
+              <p>2025 Little Battle 專輯同名巡迴</p>
+              <p>2025 基隆愛嶼搖滾音樂祭 / 釜山 Minrock Festa 音樂祭</p>
+              <p>2026 浮現祭 / 澀谷音樂節</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><!-- /semi -->
+
+  <!-- 決賽 -->
+  <div id="jtab-content-final" class="hidden">
+
+    <!-- 蘇文劭 -->
+    <div class="border border-gray-100 rounded-2xl overflow-hidden mb-4">
+      <button onclick="toggleAcc(this)" class="w-full flex items-center justify-between px-5 py-4 text-left bg-white">
+        <div>
+          <p class="rnd font-bold text-[#1A2F23] text-sm">蘇文劭 Shao</p>
+          <p class="text-[11px] text-gray-400 mt-0.5">決賽評審 · 民謠歌手、樂團主唱</p>
+        </div>
+        <span class="acc-arrow text-gray-400 text-lg">▾</span>
+      </button>
+      <div class="acc-content">
+        <div class="px-5 pb-6 space-y-5">
+          <div class="border-l-4 border-[#1A2F23] pl-4">
+            <p class="italic text-gray-500 text-[13px] leading-[1.9]">「當我渴望 你的回答／放任所有流浪的靈魂／自問自答／誠如岸上的你所說／愛是原諒／即便悲傷 仍然善良」</p>
+            <p class="text-[11px] text-gray-400 mt-1.5">—〈誠如岸上的你所說〉</p>
+          </div>
+          <div>
+            <p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">評審簡介</p>
+            <p class="text-[13px] text-gray-600 leading-[1.9]">唱作暨推廣家，現居台北。是民謠歌手也是樂團主唱；作化雨春風也當快樂小狗。一生惜字、愛人。</p>
+          </div>
+          <div>
+            <p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">發行作品</p>
+            <div class="space-y-1 text-[12px] text-gray-500 leading-[1.85]">
+              <p>個人專輯：2024《春曲》、2020《雨停出來走走》</p>
+              <p>樂團 SONNIE 桑尼：2024《U Make Me SONNIE》</p>
+            </div>
+          </div>
+          <div>
+            <p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">演出經歷</p>
+            <div class="space-y-1 text-[12px] text-gray-500 leading-[1.85]">
+              <p>2026 台灣祭、新北春紛節</p>
+              <p>2025 臺北最High新年城、潮派鹿港、搖滾台中、大稻埕夏日節</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 咖咖 -->
+    <div class="border border-gray-100 rounded-2xl overflow-hidden mb-4">
+      <button onclick="toggleAcc(this)" class="w-full flex items-center justify-between px-5 py-4 text-left bg-white">
+        <div>
+          <p class="rnd font-bold text-[#1A2F23] text-sm">咖咖</p>
+          <p class="text-[11px] text-gray-400 mt-0.5">決賽評審 · VH 主唱、作詞人、作曲人</p>
+        </div>
+        <span class="acc-arrow text-gray-400 text-lg">▾</span>
+      </button>
+      <div class="acc-content">
+        <div class="px-5 pb-6 space-y-5">
+          <div class="border-l-4 border-[#1A2F23] pl-4">
+            <p class="italic text-gray-500 text-[13px] leading-[1.9]">「我的一切／壓抑的偏見／執拗的精確／愛和後悔／深刻與殘缺／全都事過境遷」</p>
+            <p class="text-[11px] text-gray-400 mt-1.5">—〈歸屬Eleanor〉</p>
+          </div>
+          <div>
+            <p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">評審簡介</p>
+            <p class="text-[13px] text-gray-600 leading-[1.9]">創作組合 VH 主唱、作詞人、作曲人、唱片企劃、配唱。現場演出經驗豐富，曾任歌唱教學老師。發行三張專輯，以探討「人心與人性」為核心，擅長使用深刻而細膩的詞曲創作，打造兼具詩意美感及強烈情感張力的音樂作品；風格敘事擁有鮮明辨識度，是華語音樂界中不可忽視的存在。</p>
+          </div>
+          <div>
+            <p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">發行作品</p>
+            <div class="space-y-1 text-[12px] text-gray-500 leading-[1.85]">
+              <p>2018 VH 專輯《求救訊號 I'm Not OK》</p>
+              <p>2021 VH 專輯《文明 The Great Beyond》</p>
+              <p>2024 VH 創作專輯《五常法則(5S)》</p>
+              <p>2025 VH 單曲〈成為藝術之前的必要脆弱與非必要沉默〉</p>
+              <p>2026 VH 單曲〈風吹過〉</p>
+            </div>
+          </div>
+          <div>
+            <p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">獲獎經歷</p>
+            <div class="space-y-1 text-[12px] text-gray-500 leading-[1.85]">
+              <p>2018 〈與浪之間〉入圍第29屆金曲獎最佳音樂錄影帶獎</p>
+              <p>2019 《求救訊號》入圍第30屆金曲獎最佳演唱組合</p>
+              <p>2022 《文明》入圍第33屆金曲獎最佳演唱組合</p>
+              <p>2022 獲第15屆 Freshmusic Awards「最佳創作／演唱組合」獎</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 施文彬 -->
+    <div class="border border-gray-100 rounded-2xl overflow-hidden mb-4">
+      <button onclick="toggleAcc(this)" class="w-full flex items-center justify-between px-5 py-4 text-left bg-white">
+        <div>
+          <p class="rnd font-bold text-[#1A2F23] text-sm">施文彬</p>
+          <p class="text-[11px] text-gray-400 mt-0.5">決賽評審 · 流行音樂創作人、製作人</p>
+        </div>
+        <span class="acc-arrow text-gray-400 text-lg">▾</span>
+      </button>
+      <div class="acc-content">
+        <div class="px-5 pb-6 space-y-5">
+          <div class="border-l-4 border-[#1A2F23] pl-4">
+            <p class="italic text-gray-500 text-[13px] leading-[1.9]">「一場夢／如今依然沒改變／一路走來／已經過了幾個春天／那些愛 那些恨／驀然回首都不見／慢慢變成／臉上的皺紋」</p>
+            <p class="text-[11px] text-gray-400 mt-1.5">—〈皺紋〉</p>
+          </div>
+          <div>
+            <p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">評審簡介</p>
+            <p class="text-[13px] text-gray-600 leading-[1.9]">流行音樂創作人、專輯製作人，以多首臺語音樂作品為人所知。演藝資歷深厚，曾與陳亞蘭、秀蘭瑪雅、孫淑媚等臺語歌壇重量級歌手合作。發行逾三十張專輯，擅長透過動人的聲線演繹，融合本土與現代風格，打造具生活共鳴的音樂作品；跨足歌曲創作與電玩領域，是樂壇與遊戲產業中獨具地位的跨界標竿。</p>
+          </div>
+          <div>
+            <p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">代表作品</p>
+            <div class="space-y-1 text-[12px] text-gray-500 leading-[1.85]">
+              <p>2023《有歲》／2020《緊來去—台灣音樂地理雜誌》／2018《無輸無贏》</p>
+              <p>代表單曲：〈傷心酒店〉〈再會啦！心愛的無緣的人〉〈你愛的不是我〉〈深深愛你〉〈愛愈深心愈凝〉</p>
+            </div>
+          </div>
+          <div>
+            <p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">獲獎經歷</p>
+            <div class="space-y-1 text-[12px] text-gray-500 leading-[1.85]">
+              <p>2016《歌聲進鄉團》入圍第27屆金曲獎最佳台語專輯獎</p>
+              <p>2015《文跡奇武③歸組害了了》入圍第26屆金曲獎最佳台語男歌手獎</p>
+              <p>2007《真情味》獲得第18屆金曲獎最佳台語男歌手獎</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><!-- /final -->
+
+  <p class="text-center text-gray-300 text-[11px] leading-relaxed mt-10">感謝所有評審老師的參與與支持 🎵</p>
+</div>
+
+
+
+<!-- 初賽講評 -->
+<div id="page-review" class="page pt-8 pb-20 md:pb-48 lg:pb-64">
+  <button onclick="showPage('player');showPlayerTab('signup')" class="flex items-center gap-2 text-[#1A2F23] rnd text-sm font-medium mb-8 hover:opacity-70 transition-opacity">
+    <span>←</span> 返回選手專區
+  </button>
+  <p class="rnd text-[10px] tracking-[.22em] text-[#1A2F23] uppercase mb-2">初賽講評</p>
+  <div class="w-6 h-0.5 bg-[#1A2F23] rounded-full mb-6"></div>
+  <h2 class="rnd text-xl font-bold text-[#1A2F23] mb-1">第十三屆臺大音韻獎</h2>
+  <p class="text-[13px] text-gray-400 mb-8">初賽講評｜陳惠婷老師 × 秦旭章老師</p>
+
+  <div class="space-y-4">
+
+    <!-- 學生獨唱組 -->
+    <div class="border border-gray-100 rounded-2xl overflow-hidden">
+      <button onclick="toggleAcc(this)" class="w-full flex items-center justify-between px-5 py-4 text-left bg-white">
+        <p class="rnd font-semibold text-[#1A2F23] text-sm">學生獨唱組</p>
+        <span class="acc-arrow open text-gray-400 text-lg">▾</span>
+      </button>
+      <div class="acc-content open px-5 pb-5 space-y-4">
+        <div class="bg-gray-50 rounded-xl p-4">
+          <p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">陳惠婷老師</p>
+          <p class="text-[13px] text-gray-600 leading-[1.9]">發展個人的風格很重要，比起唱得平順或者模仿得很像，擁有個人風格才是能突出的重點。使用轉音技巧要很小心，不然容易失去音準或變得很油，也會拉低格調，表現情感的方式往往不在這裡。唱歌還是要自然，刻意的咬字聽感上不太舒服。有的時候不要想太多，唱歌其實是分享人類情感本能的一種表現，享受在音樂裡，自然地表達，才能有最適合的詮釋方式，而且沒有標準答案，過於刻意反而失去了靈魂。</p>
+        </div>
+        <div class="bg-gray-50 rounded-xl p-4">
+          <p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">秦旭章老師</p>
+          <p class="text-[13px] text-gray-600 leading-[1.9]">整體表現比社會組的多元性多一點，期待你們更注意細節，選歌的選俗度跟 key 都很重要。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 社會獨唱組 -->
+    <div class="border border-gray-100 rounded-2xl overflow-hidden">
+      <button onclick="toggleAcc(this)" class="w-full flex items-center justify-between px-5 py-4 text-left bg-white">
+        <p class="rnd font-semibold text-[#1A2F23] text-sm">社會獨唱組</p>
+        <span class="acc-arrow text-gray-400 text-lg">▾</span>
+      </button>
+      <div class="acc-content px-5 pb-5 space-y-4">
+        <div class="bg-gray-50 rounded-xl p-4">
+          <p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">陳惠婷老師</p>
+          <p class="text-[13px] text-gray-600 leading-[1.9]">音準的部分可以再多加注意，更需要投入在歌裡，不然聽起來多是會平平的。擁有個人特色的唱法還是更容易出色。</p>
+        </div>
+        <div class="bg-gray-50 rounded-xl p-4">
+          <p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">秦旭章老師</p>
+          <p class="text-[13px] text-gray-600 leading-[1.9]">整體特色不足，有一些人的音色有機會，如果真的有興趣加強，可以找到更多有幫助的細節，例如：怎麼找 key、定速度，都會有影響，跟學生獨唱組的建議一樣。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 重、對唱組 -->
+    <div class="border border-gray-100 rounded-2xl overflow-hidden">
+      <button onclick="toggleAcc(this)" class="w-full flex items-center justify-between px-5 py-4 text-left bg-white">
+        <p class="rnd font-semibold text-[#1A2F23] text-sm">重、對唱組</p>
+        <span class="acc-arrow text-gray-400 text-lg">▾</span>
+      </button>
+      <div class="acc-content px-5 pb-5 space-y-4">
+        <div class="bg-gray-50 rounded-xl p-4">
+          <p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">陳惠婷老師</p>
+          <p class="text-[13px] text-gray-600 leading-[1.9]">重唱、對唱很注重音準跟和聲編排的對位，差一點的話都會很可惜。如果合唱者的頻率能夠在同一個共振頻率的話，聽感會很舒服。重唱、合唱很容易只顧技巧音準或自己的表現，但這樣情感的詮釋會扣分。</p>
+        </div>
+        <div class="bg-gray-50 rounded-xl p-4">
+          <p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">秦旭章老師</p>
+          <p class="text-[13px] text-gray-600 leading-[1.9]">少就是多，不一定要全部和好和滿，有空間感，多聽對方的聲音給予回應，是整體希望給大家可貴的意見！</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 創作組 -->
+    <div class="border border-gray-100 rounded-2xl overflow-hidden">
+      <button onclick="toggleAcc(this)" class="w-full flex items-center justify-between px-5 py-4 text-left bg-white">
+        <p class="rnd font-semibold text-[#1A2F23] text-sm">創作組</p>
+        <span class="acc-arrow text-gray-400 text-lg">▾</span>
+      </button>
+      <div class="acc-content px-5 pb-5 space-y-4">
+        <div class="bg-gray-50 rounded-xl p-4">
+          <p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">陳惠婷老師</p>
+          <p class="text-[13px] text-gray-600 leading-[1.9]">創作最重要的是個人風格和新意，比起很像某些受歡迎的歌曲，個人原創風格還是最重要的，建議大家可以多聽各種風格的音樂，也可以因此拓展自己的創作領域。</p>
+        </div>
+        <div class="bg-gray-50 rounded-xl p-4">
+          <p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">秦旭章老師</p>
+          <p class="text-[13px] text-gray-600 leading-[1.9]">在音樂性、投入感與技巧，是四組裡面最成熟的，希望能有機會真的見到你們的演出，我也願意繼續陪伴與分享！</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 整體綜合評語 -->
+    <div class="border border-[#C8A84B]/30 bg-[#C8A84B]/5 rounded-2xl overflow-hidden">
+      <button onclick="toggleAcc(this)" class="w-full flex items-center justify-between px-5 py-4 text-left">
+        <p class="rnd font-semibold text-[#1A2F23] text-sm">整體綜合評語</p>
+        <span class="acc-arrow text-gray-400 text-lg">▾</span>
+      </button>
+      <div class="acc-content px-5 pb-5 space-y-4">
+        <div class="bg-white rounded-xl p-4">
+          <p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">陳惠婷老師</p>
+          <p class="text-[13px] text-gray-600 leading-[1.9]">不論是歌唱組還是創作組，找到自己的風格還是最重要的，其次就是享受在音樂中，用「心」去表達，真摯的情感有無與否，聽眾都能感受到的。</p>
+        </div>
+        <div class="bg-white rounded-xl p-4">
+          <p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">秦旭章老師</p>
+          <p class="text-[13px] text-gray-600 leading-[1.9]">總體來說，這次四組裡面有發現很多組，創作性很夠，但對於原創性（包含聲音跟歌詞），感覺大家在一個迷惘的階段，還在揣摩別人的聲音跟技巧，唯獨創作組這邊反而有更多的彈性。當然，在獨唱組的地方也聽到了一些極具特色的嗓音，只是還沒找到自己適合的 key 跟速度，希望未來有一天見到、聽到能夠給予更好的建議，期待大家的努力！</p>
+        </div>
+      </div>
+    </div>
+
   </div>
 
-  <div class="flex items-center gap-3 mb-6"><div class="w-[3px] h-7 bg-[#1A2F23] rounded-full"></div><p class="rnd font-bold text-[#1A2F23] text-lg">決賽評審</p></div>
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-    <div class="border border-gray-100 rounded-2xl p-6"><div class="border-l-4 border-[#1A2F23] pl-4 mb-5"><p class="italic text-gray-500 text-[13px] leading-[1.9]">「愛是原諒／即便悲傷 仍然善良」</p><p class="text-[11px] text-gray-400 mt-1.5">—〈誠如岸上的你所說〉</p></div><p class="rnd font-bold text-[#1A2F23] text-base mb-3">蘇文劭 Shao</p><p class="text-[13px] text-gray-600 leading-[1.9] mb-4">唱作暨推廣家，現居台北。是民謠歌手也是樂團主唱。個人專輯：2024《春曲》、2020《雨停出來走走》。</p></div>
-    <div class="border border-gray-100 rounded-2xl p-6"><div class="border-l-4 border-[#1A2F23] pl-4 mb-5"><p class="italic text-gray-500 text-[13px] leading-[1.9]">「全都事過境遷」</p><p class="text-[11px] text-gray-400 mt-1.5">—〈歸屬Eleanor〉</p></div><p class="rnd font-bold text-[#1A2F23] text-base mb-3">咖咖</p><p class="text-[13px] text-gray-600 leading-[1.9] mb-4">創作組合 VH 主唱、作詞人、作曲人。以探討「人心與人性」為核心，2022《文明》入圍第33屆金曲獎最佳演唱組合。</p></div>
-    <div class="border border-gray-100 rounded-2xl p-6 md:col-span-2 md:max-w-lg md:mx-auto md:w-full"><div class="border-l-4 border-[#1A2F23] pl-4 mb-5"><p class="italic text-gray-500 text-[13px] leading-[1.9]">「慢慢變成／臉上的皺紋」</p><p class="text-[11px] text-gray-400 mt-1.5">—〈皺紋〉</p></div><p class="rnd font-bold text-[#1A2F23] text-base mb-3">施文彬</p><p class="text-[13px] text-gray-600 leading-[1.9] mb-4">流行音樂創作人、專輯製作人，以多首臺語音樂作品為人所知。2007《真情味》獲得第18屆金曲獎最佳台語男歌手獎。</p></div>
-  </div>
-  <p class="text-center text-gray-300 text-[11px] leading-relaxed mt-8">感謝所有評審老師的參與與支持 🎵</p>
-
-
+  <p class="text-center text-gray-400 text-[12px] leading-relaxed mt-10 px-4">再次感謝陳惠婷老師、秦旭章老師擔任初賽評審，<br>並用心寫下給選手的諸多回饋！預祝大家複賽順利。🎵</p>
+</div>
 
 </main>
 
@@ -1492,7 +2010,7 @@
 </footer>
 
 <script>
-  const allPages=['home','about','player','program','judges'];
+  const allPages=['home','about','player','program','judges','review'];
   function showPage(id){
     allPages.forEach(p=>{
       const pe=document.getElementById('page-'+p);
@@ -1514,13 +2032,13 @@
   function scrollToContact(){ window.scrollTo({top: document.getElementById('page-contact').offsetTop, behavior:'smooth'}); }
 
 
-  // ── 節目冊即時搜尋 ──
+  // ── 節目表即時搜尋 ──
   function programSearch(q){
     q = q.trim().toLowerCase();
     const empty = document.getElementById('search-empty');
     let found = 0;
 
-    // 找所有選手名字 span（class 含 text-gray-700 font-medium，在節目冊內）
+    // 找所有選手名字 span（class 含 text-gray-700 font-medium，在節目表內）
     const prog = document.getElementById('page-program');
     // 每個選手格子是 .flex.flex-col.items-center 的 div
     const cells = prog.querySelectorAll('.acc-content .flex.flex-col.items-center');
@@ -1604,6 +2122,25 @@
       else if(dx > 40) carouselPrev();
     },{passive:true});
   })();
+
+  // ── 評審 Tab ──
+  function showJudgeTab(tab){
+    ['prelim','semi','final'].forEach(t=>{
+      const el = document.getElementById('jtab-content-'+t);
+      const btn = document.getElementById('jtab-'+t);
+      if(!el||!btn) return;
+      if(t===tab){
+        el.classList.remove('hidden');
+        btn.classList.add('border-[#1A2F23]','text-[#1A2F23]');
+        btn.classList.remove('border-transparent','text-gray-400');
+      } else {
+        el.classList.add('hidden');
+        btn.classList.remove('border-[#1A2F23]','text-[#1A2F23]');
+        btn.classList.add('border-transparent','text-gray-400');
+      }
+    });
+  }
+
   function showPlayerTab(tab){
     ['signup','semifinal','final'].forEach(t=>{
       const c=document.getElementById('pcontent-'+t);
