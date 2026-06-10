@@ -238,57 +238,19 @@
       <!-- 交通資訊面板：佔滿整個卡片 -->
       <div id="td-panel" style="position:absolute;top:0;left:0;right:0;bottom:0;width:100%;background:#fff;z-index:10;display:none;border-radius:1rem;flex-direction:column;overflow:hidden;">
         <!-- 面板 Header -->
-        <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:#1A2F23;flex-shrink:0;">
-          <p style="font-family:'M PLUS Rounded 1c',sans-serif;font-weight:700;color:#fff;font-size:13px;">🗺️ 交通資訊</p>
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:#1A2F23;flex-shrink:0;border-radius:1rem 1rem 0 0;">
+          <p style="font-family:'M PLUS Rounded 1c',sans-serif;font-weight:700;color:#fff;font-size:13px;">🗺️ 前往外語教學暨資源中心</p>
           <button onclick="tdClose()" style="background:rgba(255,255,255,0.2);border:none;color:#fff;width:24px;height:24px;border-radius:50%;cursor:pointer;font-size:13px;display:flex;align-items:center;justify-content:center;">✕</button>
         </div>
-        <!-- 面板內容 -->
-        <div style="flex:1;overflow-y:auto;padding:12px;font-size:11px;color:#374151;line-height:1.7;">
-
-          <p style="color:#6b7280;margin-bottom:10px;font-size:10px;">📍 臺大外語教學暨資源中心劇場</p>
-
-          <!-- 路線一 -->
-          <div style="background:#f0fdf4;border-left:3px solid #1A2F23;border-radius:0 8px 8px 0;padding:8px 10px;margin-bottom:8px;">
-            <p style="font-family:'M PLUS Rounded 1c',sans-serif;font-weight:700;color:#1A2F23;font-size:11px;margin-bottom:6px;">🚌 公車路線</p>
-
-            <p style="font-family:'M PLUS Rounded 1c',sans-serif;font-weight:600;color:#1A2F23;font-size:10px;margin-bottom:3px;">① 公館站（羅斯福路側）</p>
-            <p style="margin-bottom:2px;"><strong style="color:#1A2F23;">路線：</strong>1、208、254、606 等</p>
-            <p style="margin-bottom:2px;"><strong style="color:#1A2F23;">進場：</strong>往 2 號出口方向，由側門進入，沿舟山路步行 8-10 分鐘</p>
-
-            <div style="height:1px;background:#d1fae5;margin:6px 0;"></div>
-
-            <p style="font-family:'M PLUS Rounded 1c',sans-serif;font-weight:600;color:#1A2F23;font-size:10px;margin-bottom:3px;">② 臺大綜合體育館站（新生南路側）⭐ 推薦</p>
-            <p style="margin-bottom:2px;"><strong style="color:#1A2F23;">路線：</strong>280、311、505 等</p>
-            <p style="margin-bottom:2px;"><strong style="color:#1A2F23;">進場：</strong>由新生南路側門（舟山路口）入，步行 5-7 分鐘</p>
-            <p style="color:#16a34a;font-size:10px;margin-top:4px;">✓ 避開校門口人潮，最順暢路線</p>
-          </div>
-
-          <!-- 路線二 -->
-          <div style="background:#f0fdf4;border-left:3px solid #1A2F23;border-radius:0 8px 8px 0;padding:8px 10px;margin-bottom:8px;">
-            <p style="font-family:'M PLUS Rounded 1c',sans-serif;font-weight:700;color:#1A2F23;font-size:11px;margin-bottom:4px;">🚇 路線二｜捷運族</p>
-            <p style="margin-bottom:2px;"><strong style="color:#1A2F23;">搭乘：</strong>松山新店線（綠線）</p>
-            <p style="margin-bottom:2px;"><strong style="color:#1A2F23;">下車：</strong>公館站 2 號出口</p>
-            <p style="margin-bottom:2px;"><strong style="color:#1A2F23;">進場：</strong>轉入舟山路口側門，沿生態步道直走</p>
-            <p style="color:#16a34a;font-size:10px;margin-top:4px;">✓ 行人專用道，舒適平坦</p>
-          </div>
-
-          <!-- YouBike -->
-          <div style="background:#fefce8;border-left:3px solid #ca8a04;border-radius:0 8px 8px 0;padding:8px 10px;margin-bottom:8px;">
-            <p style="font-family:'M PLUS Rounded 1c',sans-serif;font-weight:700;color:#92400e;font-size:11px;margin-bottom:3px;">🚲 YouBike 輔助</p>
-            <p>捷運站旁有 YouBike 站點，可直接騎至外教中心旁</p>
-          </div>
-
-          <!-- 小提醒 -->
-          <div style="background:#fafafa;border-radius:8px;padding:8px 10px;margin-bottom:10px;font-size:10px;color:#6b7280;">
-            <p style="font-weight:600;color:#1A2F23;margin-bottom:3px;">💡 貼心小提醒</p>
-            <p>・進校門後請預留 20 分鐘步行時間</p>
-            <p>・建議開啟 Google Maps「臺大外語教學暨資源中心」步行導航</p>
-          </div>
-
-          <a href="https://maps.google.com/?q=國立臺灣大學外語教學暨資源中心" target="_blank"
-            style="display:flex;align-items:center;justify-content:center;gap:5px;padding:9px;background:#1A2F23;color:#fff;border-radius:10px;font-family:'M PLUS Rounded 1c',sans-serif;font-weight:700;font-size:11px;text-decoration:none;">
-            📍 開啟 Google 地圖導航
-          </a>
+        <!-- Google Maps Embed -->
+        <div style="flex:1;overflow:hidden;">
+          <iframe
+            src="https://www.google.com/maps/dir/?api=1&destination=國立臺灣大學外語教學暨資源中心&travelmode=walking"
+            width="100%" height="100%"
+            style="border:0;display:block;width:100%;height:100%;"
+            allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
         </div>
       </div>
     </div>
