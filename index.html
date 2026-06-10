@@ -11,9 +11,9 @@
   :root{--green:#1A2F23;}
   body{font-family:'Noto Sans TC',sans-serif;background:#fff;color:#1a1a1a;margin:0;}
   .rnd{font-family:'M PLUS Rounded 1c',sans-serif;}
-  .fade-in{animation:fadeIn .4s ease forwards;}
+  .fade-in{animation:fadeIn .6s cubic-bezier(.22,.68,0,1.1) forwards;}
   .fade-in-up{animation:fadeInUp .6s ease forwards;}
-  @keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+  @keyframes fadeIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
   @keyframes fadeInUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
   .hero-arc{position:absolute;bottom:-2px;left:-8%;right:-8%;height:80px;background:#fff;border-radius:50% 50% 0 0/100% 100% 0 0;}
   .nav-btn{border-bottom:3px solid transparent;transition:all .2s;}
@@ -33,43 +33,64 @@
     #hero-main{background-image:url('hero_bg_desktop.png');background-position:center 30%;min-height:28vw!important;max-height:42vh!important;}
     main{max-width:780px!important;}
 
-    /* ── 電腦版字體階層（三級制）── */
-    /* 大標題：頁面標題、區塊主標 */
-    h2,.text-2xl,.text-3xl,.text-xl{ font-size:26px!important; line-height:1.4!important; }
-
-    /* 中標：卡片標題、評審姓名、組別名稱 */
+    /* ── 電腦版字體三級制 ── */
+    h2,.text-2xl,.text-3xl,.text-xl{ font-size:24px!important; line-height:1.4!important; }
     .text-base,.text-lg{ font-size:18px!important; line-height:1.6!important; }
-
-    /* 內文：一般段落、說明文字 */
-    body,p,span,a,li{ font-size:16px!important; line-height:1.9!important; }
-    .text-sm{ font-size:16px!important; }
-    .text-\[14px\],.text-\[13px\]{ font-size:16px!important; }
-
-    /* 小字：眉標、輔助標籤、序號 */
-    .text-\[12px\],.text-\[11px\],.text-\[10px\]{ font-size:13px!important; line-height:1.7!important; }
+    body,p,span,a,li,.text-sm,.text-\[14px\],.text-\[13px\]{ font-size:15px!important; line-height:1.85!important; }
+    .text-\[12px\],.text-\[11px\],.text-\[10px\]{ font-size:12px!important; line-height:1.7!important; }
   }
   @media(min-width:1024px){
     main{max-width:960px!important;}
     .page{padding-bottom:14rem!important;}
 
-    /* ── 電腦版字體階層（三級制）── */
-    h2,.text-2xl,.text-3xl,.text-xl{ font-size:30px!important; }
-    .text-base,.text-lg{ font-size:20px!important; }
-    body,p,span,a,li{ font-size:17px!important; }
-    .text-sm{ font-size:17px!important; }
-    .text-\[14px\],.text-\[13px\]{ font-size:17px!important; }
-    .text-\[12px\],.text-\[11px\],.text-\[10px\]{ font-size:13px!important; }
+    /* ── 電腦版字體三級制 ── */
+    h2,.text-2xl,.text-3xl,.text-xl{ font-size:24px!important; }
+    .text-base,.text-lg{ font-size:18px!important; }
+    body,p,span,a,li,.text-sm,.text-\[14px\],.text-\[13px\]{ font-size:15px!important; }
+    .text-\[12px\],.text-\[11px\],.text-\[10px\]{ font-size:12px!important; }
   }
   .day-tab-off{background:#fff;color:#6b7280;border-color:#e5e7eb;}
 
   .ticker-track {
-    animation: ticker 18s linear infinite;
+    animation: ticker 24s linear infinite;
+    will-change: transform;
   }
   @keyframes ticker {
     0%   { transform: translateX(0); }
-    100% { transform: translateX(-33.333%); }
+    100% { transform: translateX(-50%); }
   }
   .ticker-track:hover { animation-play-state: paused; }
+
+
+
+
+  /* ── 返回頂部按鈕 ── */
+  #back-to-top {
+    position: fixed;
+    bottom: 28px;
+    right: 20px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #1A2F23;
+    color: #fff;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity .3s, transform .3s;
+    z-index: 200;
+    box-shadow: 0 4px 16px rgba(26,47,35,.25);
+    border: none;
+  }
+  #back-to-top.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  #back-to-top:hover { background: #254535; }
 
 </style>
 </head>
@@ -77,7 +98,7 @@
 
 <!-- HEADER -->
 <header class="bg-white sticky top-0 z-50 shadow-sm border-b border-gray-100">
-  <div class="max-w-2xl md:max-w-4xl lg:max-w-6xl mx-auto px-5 md:px-10 lg:px-16 py-4 md:py-5 lg:py-6 flex items-center justify-between gap-4 hdr-inner" >
+  <div class="max-w-2xl md:max-w-4xl lg:max-w-6xl mx-auto px-5 md:px-10 lg:px-16 py-4 md:py-4 lg:py-5 flex items-center justify-between gap-4 hdr-inner" >
     <a href="#" onclick="showPage('home');return false;" class="flex-shrink-0">
       <div class="rnd leading-tight">
         <span class="font-bold text-lg text-[#1A2F23] block">臺大音韻獎</span>
@@ -93,17 +114,25 @@
   </div>
 </header>
 
-<!-- 跑馬燈（疊在壓圖頂部） -->
-<div class="relative z-20 overflow-hidden py-2.5 -mb-10" style="white-space:nowrap;background:rgba(26,47,35,0.85);backdrop-filter:blur(2px);">
-  <div class="ticker-track inline-flex gap-0">
-    <span class="text-[12px] text-emerald-200 font-medium px-8">⚠️ 由於當天外教中心同時有考試舉行，請選手們統一從（面對大門口）的右側門進出！</span>
-    <span class="text-[12px] text-emerald-200 font-medium px-8">⚠️ 由於當天外教中心同時有考試舉行，請選手們統一從（面對大門口）的右側門進出！</span>
-    <span class="text-[12px] text-emerald-200 font-medium px-8">⚠️ 由於當天外教中心同時有考試舉行，請選手們統一從（面對大門口）的右側門進出！</span>
-  </div>
-</div>
-
 <!-- HERO MAIN -->
 <div id="hero-main" class="relative overflow-hidden" style="background-size:cover;min-height:65vw;max-height:65vw;">
+  <!-- 跑馬燈疊在壓圖頂部 -->
+  <div class="absolute top-0 left-0 right-0 z-10 overflow-hidden py-2" style="white-space:nowrap;background:#1A2F23;">
+    <div class="ticker-track inline-flex gap-0">
+      <span class="text-[12px] text-emerald-200 font-medium px-8">⚠️ 由於當天外教中心同時有考試舉行，請選手們統一從（面對大門口）的右側門進出！</span>
+      <span id="ticker-countdown" class="text-[12px] font-bold px-8" style="color:#FCD34D;">🗓️ 複賽倒數 3 天！</span>
+      <span class="text-[12px] text-emerald-200 font-medium px-8">⚠️ 由於當天外教中心同時有考試舉行，請選手們統一從（面對大門口）的右側門進出！</span>
+      <span id="ticker-countdown-2" class="text-[12px] font-bold px-8" style="color:#FCD34D;">🗓️ 複賽倒數 3 天！</span>
+      <span class="text-[12px] text-emerald-200 font-medium px-8">⚠️ 由於當天外教中心同時有考試舉行，請選手們統一從（面對大門口）的右側門進出！</span>
+      <span id="ticker-countdown-3" class="text-[12px] font-bold px-8" style="color:#FCD34D;">🗓️ 複賽倒數 3 天！</span>
+      <span class="text-[12px] text-emerald-200 font-medium px-8">⚠️ 由於當天外教中心同時有考試舉行，請選手們統一從（面對大門口）的右側門進出！</span>
+      <span class="ticker-cd text-[12px] font-bold px-8" style="color:#FCD34D;">🗓️ 複賽倒數 3 天！</span>
+      <span class="text-[12px] text-emerald-200 font-medium px-8">⚠️ 由於當天外教中心同時有考試舉行，請選手們統一從（面對大門口）的右側門進出！</span>
+      <span class="ticker-cd text-[12px] font-bold px-8" style="color:#FCD34D;">🗓️ 複賽倒數 3 天！</span>
+      <span class="text-[12px] text-emerald-200 font-medium px-8">⚠️ 由於當天外教中心同時有考試舉行，請選手們統一從（面對大門口）的右側門進出！</span>
+      <span class="ticker-cd text-[12px] font-bold px-8" style="color:#FCD34D;">🗓️ 複賽倒數 3 天！</span>
+    </div>
+  </div>
   <div class="hero-arc"></div>
 </div>
 
@@ -145,8 +174,10 @@
     <div class="border-t border-gray-100 pt-5 mb-5 text-center">
       <p class="text-[11px] text-gray-300 mb-4">歡迎觀眾入場欣賞表演</p>
       <button onclick="showProgramBook('home')"
-        class="w-full rnd font-bold text-base text-[#1A2F23] py-4 rounded-2xl border-2 border-[#C8A84B] bg-transparent transition-all duration-300 hover:bg-[#C8A84B]/10 active:scale-[0.98]">
-        複賽節目表 📖
+        class="w-full rnd font-bold text-base text-[#1A2F23] py-4 rounded-2xl border-2 border-[#C8A84B] bg-[#C8A84B]/10 transition-all duration-300 hover:bg-[#C8A84B]/20 active:scale-[0.98] flex items-center justify-between px-6">
+        <span></span>
+        <span>複賽節目表 📖</span>
+        <span class="text-[#C8A84B] text-xl">›</span>
       </button>
     </div>
     <!-- 入場注意事項 -->
@@ -169,27 +200,101 @@
   <div class="mb-10">
     <p class="rnd text-[10px] tracking-[.22em] text-[#1A2F23] uppercase mb-2">導覽</p>
     <div class="w-6 h-0.5 bg-[#1A2F23] rounded-full mb-5"></div>
-    <div class="border border-gray-100 rounded-2xl overflow-hidden shadow-sm">
-      <div class="px-5 pt-5 pb-3">
-        <p class="rnd font-bold text-[#1A2F23] text-sm mb-1">音韻獎帶你前往複賽地點</p>
-        <p class="text-[12px] text-gray-400">臺大外語教學暨資源中心劇場</p>
-      </div>
-      <!-- 影片 iframe（目前為預留位置，替換 src 即可） -->
-      <div class="relative w-full" style="padding-bottom:56.25%;">
-        <div class="absolute inset-0 bg-gray-100 flex flex-col items-center justify-center gap-3">
-          <span class="text-4xl">🎬</span>
-          <p class="rnd text-[12px] text-gray-400 text-center px-6">導航影片即將上線<br>敬請期待</p>
+    <!-- 外框：relative，不裁切 -->
+    <div class="border border-gray-100 rounded-2xl shadow-sm" style="position:relative;">
+      <!-- 主內容：左右分欄 -->
+      <div class="flex">
+        <!-- 左：直式影片（45%）-->
+        <div style="width:45%;flex-shrink:0;aspect-ratio:9/16;background:#f3f4f6;border-radius:1rem 0 0 1rem;overflow:hidden;position:relative;">
+          <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;">
+            <span style="font-size:2rem;">🎬</span>
+            <p style="font-size:11px;color:#9ca3af;text-align:center;padding:0 12px;line-height:1.5;">導航影片<br>即將上線</p>
+          </div>
+        </div>
+        <!-- 右：說明文字（55%）-->
+        <div style="flex:1;padding:16px;display:flex;flex-direction:column;justify-content:space-between;">
+          <!-- 上：文字說明 -->
+          <div>
+            <p style="font-family:'M PLUS Rounded 1c',sans-serif;font-weight:700;color:#1A2F23;font-size:13px;margin-bottom:4px;line-height:1.4;">音韻獎帶你前往複賽地點</p>
+            <p style="font-size:11px;color:#9ca3af;margin-bottom:8px;">臺大外語教學暨資源中心劇場</p>
+            <p style="font-size:12px;color:#4b5563;line-height:1.7;">影片示範從<strong style="color:#1A2F23;">捷運公館站 3 號出口</strong>步行至外教中心的路線，跟著走就到！</p>
+          </div>
+          <!-- 中：交通資訊按鈕（上下置中） -->
+          <div style="display:flex;align-items:center;justify-content:flex-start;flex:1;padding:12px 0;">
+            <button onclick="tdOpen()" style="display:inline-flex;align-items:center;gap:6px;padding:7px 12px;border:1px solid rgba(26,47,35,0.3);border-radius:8px;background:rgba(26,47,35,0.05);color:#1A2F23;font-size:12px;cursor:pointer;">
+              🗺️ 交通資訊卡 →
+            </button>
+          </div>
+          <!-- 下：地圖導航 -->
+          <div>
+            <a href="https://maps.google.com/?q=國立臺灣大學外語教學暨資源中心" target="_blank"
+              style="display:inline-flex;align-items:center;gap:5px;font-size:12px;color:#1A2F23;text-decoration:underline;text-underline-offset:2px;">
+              📍 開啟地圖導航
+            </a>
+          </div>
         </div>
       </div>
-      <div class="px-5 py-4">
-        <a href="https://maps.google.com/?q=國立臺灣大學外語教學暨資源中心" target="_blank"
-          class="flex items-center gap-2 text-[12px] text-[#1A2F23] hover:opacity-70 transition-opacity">
-          <span>📍</span>
-          <span class="underline underline-offset-2">開啟 Google 地圖導航</span>
-        </a>
+
+      <!-- 交通資訊面板：absolute，從右側滑出，高度=卡片高度 -->
+      <div id="td-panel" style="position:absolute;top:0;right:0;bottom:0;width:60%;background:#fff;z-index:10;transform:translateX(100%);transition:transform 0.35s cubic-bezier(.22,.68,0,1.05);border-left:2px solid #1A2F23;border-radius:0 1rem 1rem 0;display:flex;flex-direction:column;overflow:hidden;">
+        <!-- 面板 Header -->
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:#1A2F23;flex-shrink:0;">
+          <p style="font-family:'M PLUS Rounded 1c',sans-serif;font-weight:700;color:#fff;font-size:13px;">🗺️ 交通資訊</p>
+          <button onclick="tdClose()" style="background:rgba(255,255,255,0.2);border:none;color:#fff;width:24px;height:24px;border-radius:50%;cursor:pointer;font-size:13px;display:flex;align-items:center;justify-content:center;">✕</button>
+        </div>
+        <!-- 面板內容 -->
+        <div style="flex:1;overflow-y:auto;padding:12px;font-size:11px;color:#374151;line-height:1.7;">
+
+          <p style="color:#6b7280;margin-bottom:10px;font-size:10px;">📍 臺大外語教學暨資源中心劇場</p>
+
+          <!-- 路線一 -->
+          <div style="background:#f0fdf4;border-left:3px solid #1A2F23;border-radius:0 8px 8px 0;padding:8px 10px;margin-bottom:8px;">
+            <p style="font-family:'M PLUS Rounded 1c',sans-serif;font-weight:700;color:#1A2F23;font-size:11px;margin-bottom:6px;">🚌 公車路線</p>
+
+            <p style="font-family:'M PLUS Rounded 1c',sans-serif;font-weight:600;color:#1A2F23;font-size:10px;margin-bottom:3px;">① 公館站（羅斯福路側）</p>
+            <p style="margin-bottom:2px;"><strong style="color:#1A2F23;">路線：</strong>1、208、254、606 等</p>
+            <p style="margin-bottom:2px;"><strong style="color:#1A2F23;">進場：</strong>往 2 號出口方向，由側門進入，沿舟山路步行 8-10 分鐘</p>
+
+            <div style="height:1px;background:#d1fae5;margin:6px 0;"></div>
+
+            <p style="font-family:'M PLUS Rounded 1c',sans-serif;font-weight:600;color:#1A2F23;font-size:10px;margin-bottom:3px;">② 臺大綜合體育館站（新生南路側）⭐ 推薦</p>
+            <p style="margin-bottom:2px;"><strong style="color:#1A2F23;">路線：</strong>280、311、505 等</p>
+            <p style="margin-bottom:2px;"><strong style="color:#1A2F23;">進場：</strong>由新生南路側門（舟山路口）入，步行 5-7 分鐘</p>
+            <p style="color:#16a34a;font-size:10px;margin-top:4px;">✓ 避開校門口人潮，最順暢路線</p>
+          </div>
+
+          <!-- 路線二 -->
+          <div style="background:#f0fdf4;border-left:3px solid #1A2F23;border-radius:0 8px 8px 0;padding:8px 10px;margin-bottom:8px;">
+            <p style="font-family:'M PLUS Rounded 1c',sans-serif;font-weight:700;color:#1A2F23;font-size:11px;margin-bottom:4px;">🚇 路線二｜捷運族</p>
+            <p style="margin-bottom:2px;"><strong style="color:#1A2F23;">搭乘：</strong>松山新店線（綠線）</p>
+            <p style="margin-bottom:2px;"><strong style="color:#1A2F23;">下車：</strong>公館站 2 號出口</p>
+            <p style="margin-bottom:2px;"><strong style="color:#1A2F23;">進場：</strong>轉入舟山路口側門，沿生態步道直走</p>
+            <p style="color:#16a34a;font-size:10px;margin-top:4px;">✓ 行人專用道，舒適平坦</p>
+          </div>
+
+          <!-- YouBike -->
+          <div style="background:#fefce8;border-left:3px solid #ca8a04;border-radius:0 8px 8px 0;padding:8px 10px;margin-bottom:8px;">
+            <p style="font-family:'M PLUS Rounded 1c',sans-serif;font-weight:700;color:#92400e;font-size:11px;margin-bottom:3px;">🚲 YouBike 輔助</p>
+            <p>捷運站旁有 YouBike 站點，可直接騎至外教中心旁</p>
+          </div>
+
+          <!-- 小提醒 -->
+          <div style="background:#fafafa;border-radius:8px;padding:8px 10px;margin-bottom:10px;font-size:10px;color:#6b7280;">
+            <p style="font-weight:600;color:#1A2F23;margin-bottom:3px;">💡 貼心小提醒</p>
+            <p>・進校門後請預留 20 分鐘步行時間</p>
+            <p>・建議開啟 Google Maps「臺大外語教學暨資源中心」步行導航</p>
+          </div>
+
+          <a href="https://maps.google.com/?q=國立臺灣大學外語教學暨資源中心" target="_blank"
+            style="display:flex;align-items:center;justify-content:center;gap:5px;padding:9px;background:#1A2F23;color:#fff;border-radius:10px;font-family:'M PLUS Rounded 1c',sans-serif;font-weight:700;font-size:11px;text-decoration:none;">
+            📍 開啟 Google 地圖導航
+          </a>
+        </div>
       </div>
     </div>
   </div>
+
+
 
   <!-- 最新消息 -->
   <div class="fade-in-up mb-10">
@@ -202,6 +307,31 @@
         <p>獎項有超級巨星KTV餐飲抵用券、鑫豪食品好吃的餅乾、聲島咖啡現金折扣券以及黑熊先生巧克力布朗尼禮盒唷！</p>
         <p class="pt-1 border-t border-[#1A2F23]/10">不論是參賽者還是到場支持的觀眾們，都歡迎一起來感受複賽現場最熱烈的氣氛，把驚喜好禮與難忘回憶通通帶回家！！！🎁</p>
       </div>
+    </div>
+  </div>
+
+
+  <!-- 初賽講評 -->
+  <div class="mb-10">
+    <p class="rnd text-[10px] tracking-[.22em] text-[#1A2F23] uppercase mb-2">初賽講評</p>
+    <div class="w-6 h-0.5 bg-[#1A2F23] rounded-full mb-5"></div>
+    <div class="border-2 border-[#C8A84B] rounded-2xl p-5">
+      <p class="rnd font-bold text-[#1A2F23] text-sm mb-4">整體講評</p>
+      <div class="space-y-3 text-[13px] text-gray-600 leading-[1.9]">
+        <div>
+          <p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-1">陳惠婷老師</p>
+          <p>不論是歌唱組還是創作組，找到自己的風格還是最重要的，其次就是享受在音樂中，用「心」去表達，真摯的情感有無與否，聽眾都能感受到的。</p>
+        </div>
+        <div>
+          <p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-1">秦旭章老師</p>
+          <p>總體來說，這次四組裡面有發現很多組，創作性很夠，但對於原創性，感覺大家在一個迷惘的階段，還在揣摩別人的聲音跟技巧，唯獨創作組這邊反而有更多的彈性。期待大家的努力！</p>
+        </div>
+      </div>
+      <button onclick="showPage('review')"
+        class="mt-5 w-full flex items-center justify-between gap-3 px-4 py-3 border border-[#1A2F23]/20 rounded-xl bg-[#1A2F23]/5 hover:bg-[#1A2F23]/10 active:scale-[0.98] transition-all">
+        <span class="text-[12px] text-gray-400">查看完整初賽講評</span>
+        <span class="text-[#1A2F23]/50 text-lg">›</span>
+      </button>
     </div>
   </div>
 
@@ -294,14 +424,14 @@
     <div class="space-y-4">
       <div class="flex gap-4 items-start">
         <div class="flex-shrink-0 w-7 h-7 rounded-full bg-[#1A2F23] flex items-center justify-center mt-0.5"><span class="rnd text-white text-[11px] font-bold">1</span></div>
-        <p class="text-[13px] text-gray-700 leading-[1.9]">請於比賽時間「<strong class="text-[#1A2F23]">前 30 分鐘</strong>」至「臺灣大學 外語教學暨資源中心」入口櫃檯完成報到，並請於比賽時間開始「<strong class="text-[#1A2F23]">前 10 分鐘</strong>」回到選手報到區等待，逾時將視為放棄參賽資格。</p>
+        <div class="flex-1">
+          <p class="text-[13px] text-gray-700 leading-[1.9]">請於比賽時間「<strong class="text-[#1A2F23]">前 30 分鐘</strong>」至「臺灣外語教學暨資源中心」入口櫃檯完成報到，並請於比賽時間開始「<strong class="text-[#1A2F23]">前 10 分鐘</strong>」回到選手報到區等待，逾時將視為放棄參賽資格。</p>
+          <a href="https://docs.google.com/spreadsheets/d/1GleQHlpaWFn_WLBrg8400hEa4eJgHMkqxlI333DoaJ4/edit?gid=0#gid=0" target="_blank"
+            class="mt-1.5 inline-block text-[11px] text-[#1A2F23] underline underline-offset-2 hover:opacity-70 transition-opacity">
+            查看報到時間 → 複賽賽程
+          </a>
+        </div>
       </div>
-              <div class="flex justify-start mt-2">
-                <a href="https://docs.google.com/spreadsheets/d/1GleQHlpaWFn_WLBrg8400hEa4eJgHMkqxlI333DoaJ4/edit?gid=0#gid=0" target="_blank"
-                  class="text-[11px] text-[#1A2F23] underline underline-offset-2 hover:opacity-70 transition-opacity whitespace-nowrap">
-                  查看報到時間 →
-                </a>
-              </div>
       <div class="flex gap-4 items-start">
         <div class="flex-shrink-0 w-7 h-7 rounded-full bg-[#1A2F23] flex items-center justify-center mt-0.5"><span class="rnd text-white text-[11px] font-bold">2</span></div>
         <p class="text-[13px] text-gray-700 leading-[1.9]">報到時務必攜帶<strong class="text-[#1A2F23]">學生證或身份證</strong>（學生獨唱組、重對唱組及創作組須出示學生證），供櫃檯人員確認身份，若遇無法證明身份之情形，則取消比賽資格。</p>
@@ -370,26 +500,114 @@
   </div>
 
   <div id="pcontent-semifinal" class="fade-in">
-    <div class="mb-5">
-      <a href="https://docs.google.com/spreadsheets/d/1GleQHlpaWFn_WLBrg8400hEa4eJgHMkqxlI333DoaJ4/edit?usp=drivesdk" target="_blank" class="border border-gray-100 rounded-2xl p-5 flex items-center gap-4 hover:bg-gray-50 active:scale-[0.98] transition-all">
-        <p class="text-2xl flex-shrink-0">🎼</p>
-        <div class="flex-1"><p class="rnd font-semibold text-[#1A2F23] text-sm mb-1">複賽賽程</p><p class="text-[11px] text-gray-400">查詢上台序號與預計表演時間</p></div>
-        <span class="text-[#1A2F23] text-lg">›</span>
-      </a>
-    </div>
-    <div class="border border-gray-100 rounded-2xl p-5 mb-5">
-      <p class="rnd text-[10px] text-gray-400 uppercase tracking-[.15em] mb-4">注意事項</p>
-      <div class="flex gap-4 items-start">
-        <span class="rnd text-[11px] text-[#1A2F23] font-medium min-w-[28px] mt-0.5 flex-shrink-0">地點</span>
-        <div><p class="text-sm text-gray-700">臺大外語教學暨資源中心劇場</p><a href="https://maps.google.com/?q=國立臺灣大學外語教學暨資源中心" target="_blank" class="text-[11px] text-[#1A2F23] mt-2 inline-block underline underline-offset-2">查看路線圖</a></div>
+
+    <!-- ❶ 複賽前 -->
+    <div id="phase-before">
+      <div class="flex items-center gap-2 mb-4">
+        <div class="w-2 h-2 rounded-full bg-emerald-400"></div>
+        <p class="rnd text-[11px] font-semibold text-emerald-600 tracking-wide uppercase">複賽前</p>
+      </div>
+
+      <!-- 複賽賽程 -->
+      <div class="mb-4">
+        <a href="https://docs.google.com/spreadsheets/d/1GleQHlpaWFn_WLBrg8400hEa4eJgHMkqxlI333DoaJ4/edit?usp=drivesdk" target="_blank"
+          class="border-2 border-emerald-200 bg-emerald-50/50 rounded-2xl p-5 flex items-center gap-4 hover:bg-emerald-50 active:scale-[0.98] transition-all">
+          <p class="text-2xl flex-shrink-0">🎼</p>
+          <div class="flex-1">
+            <p class="rnd font-semibold text-[#1A2F23] text-sm mb-1">複賽賽程</p>
+            <p class="text-[11px] text-emerald-600">比賽梯次 / 上台序號 / 報到時間</p>
+          </div>
+          <span class="text-emerald-500 text-lg">›</span>
+        </a>
+      </div>
+
+      <!-- 地點 -->
+      <div class="border border-gray-100 rounded-2xl p-5 mb-4">
+        <div class="flex gap-4 items-start">
+          <span class="rnd text-[11px] text-[#1A2F23] font-medium min-w-[28px] mt-0.5 flex-shrink-0">地點</span>
+          <div>
+            <p class="text-sm text-gray-700">臺大外語教學暨資源中心劇場</p>
+            <a href="https://maps.google.com/?q=國立臺灣大學外語教學暨資源中心" target="_blank"
+              class="text-[11px] text-[#1A2F23] mt-2 inline-block underline underline-offset-2">查看路線圖</a>
+          </div>
+        </div>
       </div>
     </div>
-    <button onclick="showProgramBook('player')" class="w-full bg-[#1A2F23] text-white rnd font-bold text-base py-5 rounded-2xl mb-5 tracking-wide transition-all duration-300 hover:bg-[#254535] active:scale-[0.98] flex items-center justify-center gap-2">複賽節目表 📖</button>
+
+    <!-- 分隔線 -->
+    <div class="flex items-center gap-3 my-6">
+      <div class="flex-1 h-px bg-gray-100"></div>
+      <div class="flex items-center gap-2 bg-amber-50 border border-amber-200 rounded-full px-3 py-1">
+        <div class="w-2 h-2 rounded-full bg-amber-400"></div>
+        <p class="rnd text-[11px] font-semibold text-amber-600 tracking-wide uppercase">複賽當天</p>
+      </div>
+      <div class="flex-1 h-px bg-gray-100"></div>
+    </div>
+
+    <!-- ❷ 複賽當天 -->
+    <div id="phase-day">
+
+      <!-- 搜尋我的梯次 -->
+      <div class="bg-[#1A2F23]/5 border border-[#1A2F23]/15 rounded-2xl p-5 mb-4">
+        <p class="rnd font-semibold text-[#1A2F23] text-sm mb-1">🔍 查詢我的梯次</p>
+        <p class="text-[11px] text-gray-400 mb-3">輸入姓名，直接在節目表找到你</p>
+        <div class="flex gap-2">
+          <div class="relative flex-1">
+            <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+            </svg>
+            <input type="text" id="player-name-search" placeholder="輸入參賽選手姓名..."
+              class="w-full pl-9 pr-4 py-3 border border-[#1A2F23]/20 rounded-xl text-gray-700 bg-white outline-none focus:border-[#1A2F23] transition-all"
+              style="font-size:16px;"
+              onkeydown="if(event.key==='Enter') doPlayerSearch()">
+          </div>
+          <button onclick="doPlayerSearch()"
+            class="flex-shrink-0 bg-[#1A2F23] text-white rnd font-medium text-sm px-4 rounded-xl hover:bg-[#254535] active:scale-[0.97] transition-all">
+            搜尋
+          </button>
+        </div>
+      </div>
+
+      <!-- 節目表按鈕 -->
+      <button onclick="showProgramBook('player')"
+        class="w-full border-2 border-[#C8A84B] text-[#1A2F23] bg-[#C8A84B]/10 rnd font-bold text-base py-5 rounded-2xl mb-4 tracking-wide transition-all duration-300 hover:bg-[#C8A84B]/20 active:scale-[0.98] flex items-center justify-between px-6 gap-2">
+        <span></span>
+        <span>複賽節目表 📖</span>
+        <span class="text-[#C8A84B] text-xl">›</span>
+      </button>
+    </div>
+
     <p class="text-center text-gray-300 text-[11px] leading-relaxed mt-4 pb-2">小提醒 · 天雨路滑請小心<br>臺大音韻獎關心您 🦋</p>
   </div>
 
   <div id="pcontent-final" class="hidden">
-    <div class="border border-gray-100 rounded-2xl p-10 text-center"><p class="text-5xl mb-5">🏆</p><p class="rnd text-lg font-bold text-[#1A2F23] mb-2">決賽殿堂</p><p class="text-sm text-gray-400">詳細資訊即將公告，敬請期待。</p></div>
+    <div class="border border-gray-100 rounded-2xl overflow-hidden">
+      <div class="bg-[#1A2F23] px-6 py-8 text-center">
+        <p class="text-4xl mb-3">🏆</p>
+        <p class="rnd text-lg font-bold text-white mb-1">決賽殿堂</p>
+        <p class="text-[12px] text-emerald-300 tracking-wide">Final Stage</p>
+      </div>
+      <div class="p-5 space-y-4">
+        <div class="flex gap-4 items-start">
+          <span class="rnd text-[11px] text-[#1A2F23] font-medium min-w-[36px] flex-shrink-0 mt-0.5">日期</span>
+          <span class="text-[13px] text-gray-700">2026/7/12（日）</span>
+        </div>
+        <div class="flex gap-4 items-start">
+          <span class="rnd text-[11px] text-[#1A2F23] font-medium min-w-[36px] flex-shrink-0 mt-0.5">地點</span>
+          <div>
+            <p class="text-[13px] text-gray-700">Corner House 角落文創展演空間</p>
+            <a href="https://maps.google.com/?q=Corner+House+角落文創展演空間+台北" target="_blank"
+              class="text-[11px] text-[#1A2F23] mt-1 inline-flex items-center gap-1 underline underline-offset-2 hover:opacity-70">
+              📍 查看地圖
+            </a>
+          </div>
+        </div>
+        <div class="pt-3 border-t border-gray-100 flex gap-4 items-center">
+          <span class="rnd text-[11px] text-[#1A2F23] font-medium min-w-[36px] flex-shrink-0">詳情</span>
+          <p class="text-[12px] text-gray-400">更多資訊即將公告，敬請期待 🦋</p>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -411,14 +629,21 @@
 
   <!-- 即時搜尋框 -->
     <div class="mb-6" id="program-search-wrap">
-      <div class="relative">
-        <svg class="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
-        </svg>
-        <input type="text" id="program-search" placeholder="搜尋選手姓名..."
-          class="w-full pl-10 pr-5 py-3 border border-gray-200 rounded-full shadow-sm text-[13px] text-gray-700 bg-white outline-none transition-all duration-200 focus:border-[#1A2F23] focus:shadow-md"
-          oninput="programSearch(this.value)"
-          onfocus="this.closest('#program-search-wrap').scrollIntoView({behavior:'smooth',block:'start'})">
+      <div class="flex gap-2">
+        <div class="relative flex-1">
+          <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+          </svg>
+          <input type="text" id="program-search" placeholder="搜尋選手姓名..."
+            class="w-full pl-9 pr-4 py-3 border border-[#1A2F23]/20 rounded-xl text-gray-700 bg-white outline-none focus:border-[#1A2F23] transition-all"
+            style="font-size:16px;"
+            onkeydown="if(event.key==='Enter') doProgramSearch()"
+            onfocus="this.closest('#program-search-wrap').scrollIntoView({behavior:'smooth',block:'start'})">
+        </div>
+        <button onclick="doProgramSearch()"
+          class="flex-shrink-0 bg-[#1A2F23] text-white rnd font-medium text-sm px-4 rounded-xl hover:bg-[#254535] active:scale-[0.97] transition-all">
+          搜尋
+        </button>
       </div>
       <div id="search-empty" class="hidden text-center text-gray-400 text-[12px] mt-4 py-4">暫無符合搜尋條件的選手</div>
     </div>
@@ -2033,65 +2258,59 @@
 
 
   // ── 節目表即時搜尋 ──
+  function doProgramSearch(){
+    const input = document.getElementById('program-search');
+    if(input) programSearch(input.value);
+  }
   function programSearch(q){
-    q = q.trim().toLowerCase();
+    q = q.trim();
+    const ql = q.toLowerCase();
     const empty = document.getElementById('search-empty');
-    let found = 0;
-
-    // 找所有選手名字 span（class 含 text-gray-700 font-medium，在節目表內）
     const prog = document.getElementById('page-program');
-    // 每個選手格子是 .flex.flex-col.items-center 的 div
     const cells = prog.querySelectorAll('.acc-content .flex.flex-col.items-center');
-
+    let found = 0;
     cells.forEach(cell => {
       const nameEl = cell.querySelector('span.font-medium');
       if(!nameEl) return;
-      const name = nameEl.textContent.toLowerCase();
-      const row = cell.parentElement; // .flex (橫排)
-      
-      if(!q){
-        // 清空搜尋：全部顯示，移除高亮
+      const name = nameEl.textContent;
+      const match = ql && name.toLowerCase().includes(ql);
+      if(!ql){
         cell.style.display = '';
-        nameEl.style.background = '';
-        nameEl.style.borderRadius = '';
-        nameEl.style.padding = '';
-        row.style.display = '';
-        found++;
-      } else if(name.includes(q)){
+        nameEl.innerHTML = name;
+        cell.parentElement.style.display = '';
+      } else if(match){
         cell.style.display = '';
-        // 高亮
-        nameEl.style.background = '#d1fae5';
-        nameEl.style.borderRadius = '4px';
-        nameEl.style.padding = '1px 4px';
-        row.style.display = '';
+        nameEl.innerHTML = name.replace(new RegExp(q,'gi'), m =>
+          '<mark style="background:#bbf7d0;color:#14532d;border-radius:3px;padding:0 2px">'+m+'</mark>'
+        );
+        cell.parentElement.style.display = '';
         found++;
       } else {
         cell.style.display = 'none';
       }
     });
-
-    // 處理橫排：如果一排全部隱藏，隱藏整排
-    if(q){
-      const rows = prog.querySelectorAll('.acc-content .flex.border-b, .acc-content .flex:not([class*="acc"])');
-      rows.forEach(row => {
-        const visible = Array.from(row.children).some(c => c.style.display !== 'none');
-        row.style.display = visible ? '' : 'none';
+    if(ql){
+      prog.querySelectorAll('.acc-content > div').forEach(row => {
+        const vis = Array.from(row.querySelectorAll('.flex.flex-col.items-center')).some(c=>c.style.display!=='none');
+        row.style.display = vis ? '' : 'none';
       });
-
-      // 展開有結果的手風琴
       prog.querySelectorAll('.acc-content').forEach(ac => {
-        const hasVisible = Array.from(ac.querySelectorAll('.flex.flex-col.items-center'))
-          .some(c => c.style.display !== 'none');
-        if(hasVisible) ac.classList.add('open');
+        const hasResult = Array.from(ac.querySelectorAll('.flex.flex-col.items-center')).some(c=>c.style.display!=='none');
+        const arrow = ac.previousElementSibling && ac.previousElementSibling.querySelector('.acc-arrow');
+        if(hasResult){ ac.classList.add('open'); if(arrow) arrow.classList.add('open'); }
+        else { ac.classList.remove('open'); if(arrow) arrow.classList.remove('open'); }
       });
     } else {
-      // 恢復所有行顯示
-      prog.querySelectorAll('.acc-content .flex').forEach(row => {
-        row.style.display = '';
+      prog.querySelectorAll('.acc-content > div').forEach(row=>{ row.style.display=''; });
+      prog.querySelectorAll('.acc-content').forEach(ac => {
+        const arrow = ac.previousElementSibling && ac.previousElementSibling.querySelector('.acc-arrow');
+        const title = (ac.previousElementSibling && ac.previousElementSibling.querySelector('p.rnd.font-semibold') && ac.previousElementSibling.querySelector('p.rnd.font-semibold').textContent) || '';
+        const open = title.includes('第一梯');
+        ac.classList.toggle('open', open);
+        if(arrow) arrow.classList.toggle('open', open);
       });
     }
-
-    empty.classList.toggle('hidden', found > 0 || !q);
+    empty.classList.toggle('hidden', found>0||!ql);
   }
 
   // ── 選手專區輪播 ──
@@ -2141,6 +2360,26 @@
     });
   }
 
+
+  // ── 查詢我的梯次（按下搜尋後才跳轉） ──
+  function doPlayerSearch(){
+    const input = document.getElementById('player-name-search');
+    if(!input) return;
+    const name = input.value.trim();
+    if(!name) return;
+    // 跳到節目表
+    showProgramBook('player');
+    // 填入搜尋框並觸發搜尋
+    setTimeout(function(){
+      const sq = document.getElementById('program-search');
+      if(sq){
+        sq.value = name;
+        programSearch(name);
+        sq.scrollIntoView({behavior:'smooth', block:'start'});
+      }
+    }, 350);
+  }
+
   function showPlayerTab(tab){
     ['signup','semifinal','final'].forEach(t=>{
       const c=document.getElementById('pcontent-'+t);
@@ -2158,6 +2397,8 @@
     programBookFrom = from || 'home';
     const label = programBookFrom==='player' ? '返回選手專區' : '返回首頁';
     document.getElementById('program-back-label').textContent = label;
+    // 恢復上次看的日期
+    switchDay(lastProgramDay);
     allPages.forEach(p=>{ const el=document.getElementById('page-'+p); if(el) el.classList.remove('active'); });
     document.getElementById('page-program').classList.add('active','fade-in');
     // hero 不切換，一直顯示主壓圖
@@ -2168,29 +2409,87 @@
     // hero 不切換，一直顯示主壓圖
     if(programBookFrom==='player'){
       document.getElementById('page-player').classList.add('active','fade-in');
-      showPlayerTab('semifinal');
+    
+  // ── 返回頂部按鈕 ──
+  window.addEventListener('scroll', function(){
+    const btn = document.getElementById('back-to-top');
+    if(!btn) return;
+    btn.classList.toggle('visible', window.scrollY > 300);
+  });
+
+
+  // ── 複賽倒數（跑馬燈版） ──
+  (function(){
+    const target = new Date('2026-06-13T10:30:00+08:00');
+    const ended  = new Date('2026-06-14T21:00:00+08:00');
+
+    function update(){
+      const now = new Date();
+      const nowDate  = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+      const targDate = new Date(2026, 5, 13); // 6/13
+      const days = Math.floor((targDate - nowDate) / (1000*60*60*24));
+
+      let text = '';
+      if(now >= ended){
+        text = '🎉 複賽圓滿結束！感謝所有參賽者與觀眾';
+      } else if(now >= target){
+        text = '🎵 複賽進行中！加油！';
+      } else if(days === 0){
+        text = '🔥 複賽就在今天！';
+      } else if(days === 1){
+        text = '🌟 複賽就在明天！';
+      } else {
+        text = '🗓️ 複賽倒數 ' + days + ' 天！';
+      }
+
+      document.querySelectorAll('.ticker-cd').forEach(el => { el.textContent = text; });
+      ['ticker-countdown','ticker-countdown-2','ticker-countdown-3'].forEach(id => {
+        const el = document.getElementById(id);
+        if(el) el.textContent = text;
+      });
+    }
+
+    // 確保 DOM 載入後才更新
+    if(document.readyState === 'loading'){
+      document.addEventListener('DOMContentLoaded', update);
+    } else {
+      update();
+    }
+    setInterval(update, 60000);
+  })();
+
+
+
+
+  showPlayerTab('semifinal');
     } else {
       document.getElementById('page-home').classList.add('active','fade-in');
     }
     window.scrollTo({top:0,behavior:'smooth'});
   }
+  let lastProgramDay='613';
   function switchDay(day){
-    document.getElementById('day-613').classList.add('hidden');
-    document.getElementById('day-614').classList.add('hidden');
-    document.getElementById('day-'+day).classList.remove('hidden');
+    lastProgramDay = day;
+    const d613=document.getElementById('day-613');
+    const d614=document.getElementById('day-614');
     const b613=document.getElementById('daybtn-613');
     const b614=document.getElementById('daybtn-614');
+    if(!d613||!d614) return;
     if(day==='613'){
+      d613.classList.remove('hidden'); d614.classList.add('hidden');
       b613.classList.add('bg-[#1A2F23]','text-white','border-[#1A2F23]');
       b613.classList.remove('bg-white','text-gray-500','border-gray-200');
       b614.classList.add('bg-white','text-gray-500','border-gray-200');
       b614.classList.remove('bg-[#1A2F23]','text-white','border-[#1A2F23]');
     } else {
+      d614.classList.remove('hidden'); d613.classList.add('hidden');
       b614.classList.add('bg-[#1A2F23]','text-white','border-[#1A2F23]');
       b614.classList.remove('bg-white','text-gray-500','border-gray-200');
       b613.classList.add('bg-white','text-gray-500','border-gray-200');
       b613.classList.remove('bg-[#1A2F23]','text-white','border-[#1A2F23]');
     }
+    const sq=document.getElementById('program-search');
+    if(sq){ sq.value=''; programSearch(''); }
   }
   function toggleAcc(btn){
     const c=btn.nextElementSibling;
@@ -2198,7 +2497,59 @@
     c.classList.toggle('open');
     a.classList.toggle('open');
   }
+
+  // ── 返回頂部按鈕 ──
+  window.addEventListener('scroll', function(){
+    const btn = document.getElementById('back-to-top');
+    if(!btn) return;
+    btn.classList.toggle('visible', window.scrollY > 300);
+  });
+
   showPlayerTab('semifinal');
 </script>
+
+
+
+<!-- 返回頂部按鈕 -->
+<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="返回頂部">↑</button>
+
+
+
+<!-- 交通資訊 Drawer -->
+<div id="td-overlay" onclick="tdClose()" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:9998;"></div>
+<div id="td-panel" style="display:none;position:fixed;top:0;right:0;width:85%;max-width:360px;height:100%;background:#fff;z-index:9999;overflow-y:auto;box-shadow:-4px 0 24px rgba(0,0,0,0.15);transition:transform 0.3s ease;transform:translateX(100%);">
+  <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid #f0f0f0;">
+    <p style="font-family:'M PLUS Rounded 1c',sans-serif;font-weight:700;color:#1A2F23;font-size:16px;">交通資訊</p>
+    <button onclick="tdClose()" style="width:32px;height:32px;border-radius:50%;border:none;background:#f5f5f5;cursor:pointer;font-size:16px;color:#666;">✕</button>
+  </div>
+  <div style="padding:20px;display:flex;flex-direction:column;gap:20px;">
+    <div style="border-radius:16px;overflow:hidden;height:180px;">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d903.8839731437638!2d121.53413751754737!3d25.013689031972766!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a9609af2e031%3A0xa9f6df0bb93acfaf!2z5ZyL56uL5Y-w6K2w5a6255S15Ye6!5e0!3m2!1szh-TW!2stw"
+        width="100%" height="180" style="border:0;display:block;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:16px;font-size:13px;color:#4b5563;line-height:1.8;">
+      <div style="display:flex;gap:12px;align-items:flex-start;">
+        <span style="font-size:18px;flex-shrink:0;">🚇</span>
+        <div><p style="font-weight:600;color:#1A2F23;margin-bottom:2px;">捷運</p><p>板南線 / 新店線「<strong style="color:#1A2F23;">公館站</strong>」<br>由 <strong style="color:#1A2F23;">3 號出口</strong>出站，步行約 8 分鐘</p></div>
+      </div>
+      <div style="display:flex;gap:12px;align-items:flex-start;">
+        <span style="font-size:18px;flex-shrink:0;">🚌</span>
+        <div><p style="font-weight:600;color:#1A2F23;margin-bottom:2px;">公車</p><p>至「<strong style="color:#1A2F23;">臺灣大學（羅斯福路）</strong>」站下車</p></div>
+      </div>
+      <div style="display:flex;gap:12px;align-items:flex-start;">
+        <span style="font-size:18px;flex-shrink:0;">🚗</span>
+        <div><p style="font-weight:600;color:#1A2F23;margin-bottom:2px;">開車 / Uber</p><p>搜尋「<strong style="color:#1A2F23;">臺大外語教學暨資源中心</strong>」</p></div>
+      </div>
+    </div>
+    <a href="https://maps.google.com/?q=國立臺灣大學外語教學暨資源中心" target="_blank"
+      style="display:flex;align-items:center;justify-content:center;gap:8px;padding:14px;background:#1A2F23;color:#fff;border-radius:16px;font-family:'M PLUS Rounded 1c',sans-serif;font-weight:700;font-size:14px;text-decoration:none;">
+      📍 開啟 Google 地圖導航
+    </a>
+  </div>
+</div>
+
+<script>
+function tdOpen(){ document.getElementById('td-panel').style.transform='translateX(0)'; }
+function tdClose(){ document.getElementById('td-panel').style.transform='translateX(100%)'; }
+</script>
 </body>
-</html>
