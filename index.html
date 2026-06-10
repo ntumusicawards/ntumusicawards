@@ -227,36 +227,26 @@
           </div>
           <!-- 下：地圖導航 -->
           <div>
-            <a href="https://maps.google.com/?q=國立臺灣大學外語教學暨資源中心" target="_blank"
-              style="display:inline-flex;align-items:center;gap:5px;font-size:12px;color:#1A2F23;text-decoration:underline;text-underline-offset:2px;">
+            <button onclick="toggleMap()" style="display:inline-flex;align-items:center;gap:5px;font-size:12px;color:#1A2F23;text-decoration:underline;text-underline-offset:2px;background:none;border:none;cursor:pointer;padding:0;">
               📍 開啟地圖導航
-            </a>
+            </button>
           </div>
         </div>
       </div>
 
-      <!-- 交通資訊面板：佔滿整個卡片 -->
-      <div id="td-panel" style="position:absolute;top:0;left:0;right:0;bottom:0;width:100%;background:#fff;z-index:10;display:none;border-radius:1rem;flex-direction:column;overflow:hidden;">
-        <!-- 面板 Header -->
-        <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:#1A2F23;flex-shrink:0;border-radius:1rem 1rem 0 0;">
-          <p style="font-family:'M PLUS Rounded 1c',sans-serif;font-weight:700;color:#fff;font-size:13px;">🗺️ 前往外語教學暨資源中心</p>
-          <button onclick="tdClose()" style="background:rgba(255,255,255,0.2);border:none;color:#fff;width:24px;height:24px;border-radius:50%;cursor:pointer;font-size:13px;display:flex;align-items:center;justify-content:center;">✕</button>
-        </div>
-        <!-- Google Maps Embed -->
-        <div style="flex:1;overflow:hidden;">
-          <iframe
-            src="https://www.google.com/maps/dir/?api=1&destination=國立臺灣大學外語教學暨資源中心&travelmode=walking"
-            width="100%" height="100%"
-            style="border:0;display:block;width:100%;height:100%;"
-            allowfullscreen="" loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade">
-          </iframe>
-        </div>
-      </div>
+
+    <!-- Google Maps 小框框（預設隱藏） -->
+    <div id="map-box" style="display:none;border-top:1px solid #e5e7eb;border-radius:0 0 1rem 1rem;overflow:hidden;">
+      <iframe
+        src="https://maps.google.com/maps?q=臺大外語教學暨資源中心&output=embed&hl=zh-TW"
+        width="100%" height="220"
+        style="border:0;display:block;"
+        allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
     </div>
   </div>
-
-
 
   <!-- 最新消息 -->
   <div class="fade-in-up mb-10">
@@ -2511,16 +2501,11 @@
 </div>
 
 <script>
-function tdOpen(){
-  var p = document.getElementById('td-panel');
-  p.style.display = 'flex';
-  p.style.opacity = '0';
-  setTimeout(function(){ p.style.transition='opacity 0.25s'; p.style.opacity='1'; }, 10);
-}
-function tdClose(){
-  var p = document.getElementById('td-panel');
-  p.style.opacity = '0';
-  setTimeout(function(){ p.style.display='none'; p.style.transition=''; }, 260);
+
+
+function toggleMap(){
+  var m = document.getElementById('map-box');
+  m.style.display = m.style.display === 'none' ? 'block' : 'none';
 }
 </script>
 </body>
