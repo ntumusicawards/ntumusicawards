@@ -235,8 +235,8 @@
         </div>
       </div>
 
-      <!-- 交通資訊面板：absolute，從右側滑出，高度=卡片高度 -->
-      <div id="td-panel" style="position:absolute;top:0;right:0;bottom:0;width:60%;background:#fff;z-index:10;transform:translateX(100%);transition:transform 0.35s cubic-bezier(.22,.68,0,1.05);border-left:2px solid #1A2F23;border-radius:0 1rem 1rem 0;display:flex;flex-direction:column;overflow:hidden;">
+      <!-- 交通資訊面板：佔滿整個卡片 -->
+      <div id="td-panel" style="position:absolute;top:0;left:0;right:0;bottom:0;width:100%;background:#fff;z-index:10;display:none;border-radius:1rem;flex-direction:column;overflow:hidden;">
         <!-- 面板 Header -->
         <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:#1A2F23;flex-shrink:0;">
           <p style="font-family:'M PLUS Rounded 1c',sans-serif;font-weight:700;color:#fff;font-size:13px;">🗺️ 交通資訊</p>
@@ -2549,7 +2549,16 @@
 </div>
 
 <script>
-function tdOpen(){ document.getElementById('td-panel').style.transform='translateX(0)'; }
-function tdClose(){ document.getElementById('td-panel').style.transform='translateX(100%)'; }
+function tdOpen(){
+  var p = document.getElementById('td-panel');
+  p.style.display = 'flex';
+  p.style.opacity = '0';
+  setTimeout(function(){ p.style.transition='opacity 0.25s'; p.style.opacity='1'; }, 10);
+}
+function tdClose(){
+  var p = document.getElementById('td-panel');
+  p.style.opacity = '0';
+  setTimeout(function(){ p.style.display='none'; p.style.transition=''; }, 260);
+}
 </script>
 </body>
