@@ -53,13 +53,14 @@
 
   @keyframes bugBounce {
     0%   { transform: rotate(var(--bug-angle)) scale(1) translateY(0); }
-    25%  { transform: rotate(var(--bug-angle)) scale(1.3) translateY(-10px); }
-    50%  { transform: rotate(var(--bug-angle)) scale(0.9) translateY(4px); }
-    75%  { transform: rotate(var(--bug-angle)) scale(1.1) translateY(-4px); }
+    20%  { transform: rotate(var(--bug-angle)) scale(1.8) translateY(-55px); }
+    50%  { transform: rotate(var(--bug-angle)) scale(1.5) translateY(-35px); }
+    70%  { transform: rotate(var(--bug-angle)) scale(1.1) translateY(10px); }
+    85%  { transform: rotate(var(--bug-angle)) scale(1.3) translateY(-16px); }
     100% { transform: rotate(var(--bug-angle)) scale(1) translateY(0); }
   }
   .bug-bouncing {
-    animation: bugBounce 0.5s ease !important;
+    animation: bugBounce 0.7s cubic-bezier(.36,.07,.19,.97) !important;
     pointer-events: none;
   }
 </style>
@@ -2048,16 +2049,18 @@
 
     bug.style.position = 'fixed';
     var idx=0, reversed=false, waiting=false;
+    window._bugBouncing = false;
     var px=20, py=200; // 初始：左側可見位置
     bug.style.left=px+'px'; bug.style.top=py+'px';
     function step(){
-      if(waiting) return;
+      if(waiting || window._bugBouncing) return;
       var pts=getWaypoints();
       var t=pts[idx];
       var dx=t.x-px, dy=t.y-py;
       var dist=Math.sqrt(dx*dx+dy*dy);
       var angle=Math.atan2(dy,dx)*180/Math.PI+90;
-      if(!bug.classList.contains('bug-bouncing')){ bug.style.setProperty('--bug-angle', angle+'deg'); bug.style.transform='rotate('+angle+'deg)'; }
+      bug.style.setProperty('--bug-angle', angle+'deg');
+      bug.style.transform='rotate('+angle+'deg)';
       if(dist<6){
         px=t.x; py=t.y;
         bug.style.left=px+'px'; bug.style.top=py+'px';
@@ -2085,11 +2088,13 @@
 
 
   function bugBounce(el){
-    if(el.classList.contains('bug-bouncing')) return;
+    if(window._bugBouncing) return;
+    window._bugBouncing = true;
     el.classList.add('bug-bouncing');
     setTimeout(function(){
       el.classList.remove('bug-bouncing');
-    }, 520);
+      window._bugBouncing = false;
+    }, 720);
   }
 </script>
 
