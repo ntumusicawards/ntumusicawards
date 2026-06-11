@@ -185,7 +185,7 @@
       <p class="rnd text-[11px] font-medium text-[#1A2F23] mb-3">入場注意事項</p>
       <div class="space-y-2.5">
         <div class="flex gap-2"><span class="rnd text-[10px] text-[#1A2F23] font-medium flex-shrink-0 w-4">1.</span><p class="text-[12px] text-gray-500 leading-relaxed">比賽場地內<strong class="text-[#1A2F23] font-bold">「禁止飲食」</strong>。</p></div>
-        <div class="flex gap-2"><span class="rnd text-[10px] text-[#1A2F23] font-medium flex-shrink-0 w-4">2.</span><p class="text-[12px] text-gray-500 leading-relaxed">比賽過程中<strong class="text-[#1A2F23] font-bold">「全程禁止錄影」</strong>。</p></div>
+        <div class="flex gap-2"><span class="rnd text-[10px] text-[#1A2F23] font-medium flex-shrink-0 w-4">2.</span><p class="text-[12px] text-gray-500 leading-relaxed">比賽過程中禁止<strong class="text-[#1A2F23] font-bold">「全程錄影」</strong>。</p></div>
         <div class="flex gap-2"><span class="rnd text-[10px] text-[#1A2F23] font-medium flex-shrink-0 w-4">3.</span><p class="text-[12px] text-gray-500 leading-relaxed">拍照錄影禁止使用閃光燈，手機請關靜音。</p></div>
         <div class="flex gap-2"><span class="rnd text-[10px] text-[#1A2F23] font-medium flex-shrink-0 w-4">4.</span><p class="text-[12px] text-gray-500 leading-relaxed"><strong class="text-[#1A2F23] font-bold">「僅在中場休息時間開放觀眾出入，出入口位於觀眾席正後方，請配合工作人員引導入座」</strong>。</p></div>
         <div class="flex gap-2"><span class="rnd text-[10px] text-[#1A2F23] font-medium flex-shrink-0 w-4">5.</span><p class="text-[12px] text-gray-500 leading-relaxed">會場內請輕聲細語，禁止尖叫、大聲加油。</p></div>
@@ -227,8 +227,8 @@
           </div>
           <!-- 下：地圖導航 -->
           <div>
-            <button onclick="toggleMap()" style="display:inline-flex;align-items:center;gap:5px;font-size:12px;color:#1A2F23;text-decoration:underline;text-underline-offset:2px;background:none;border:none;cursor:pointer;padding:0;">
-              📍 開啟地圖導航
+            <button onclick="toggleMap(this)" style="display:inline-flex;align-items:center;gap:5px;font-size:12px;color:#1A2F23;text-decoration:underline;text-underline-offset:2px;background:none;border:none;cursor:pointer;padding:0;">
+              📍 開啟地圖導航 <span id="map-arrow" style="font-size:10px;transition:transform .3s;">▾</span>
             </button>
           </div>
         </div>
@@ -453,12 +453,8 @@
 
   <div id="pcontent-semifinal" class="fade-in">
 
-    <!-- ❶ 複賽前 -->
+    <!-- 複賽前 -->
     <div id="phase-before">
-      <div class="flex items-center gap-2 mb-4">
-        <div class="w-2 h-2 rounded-full bg-emerald-400"></div>
-        <p class="rnd text-[11px] font-semibold text-emerald-600 tracking-wide uppercase">複賽前</p>
-      </div>
 
       <!-- 複賽賽程 -->
       <div class="mb-4">
@@ -486,17 +482,7 @@
       </div>
     </div>
 
-    <!-- 分隔線 -->
-    <div class="flex items-center gap-3 my-6">
-      <div class="flex-1 h-px bg-gray-100"></div>
-      <div class="flex items-center gap-2 bg-amber-50 border border-amber-200 rounded-full px-3 py-1">
-        <div class="w-2 h-2 rounded-full bg-amber-400"></div>
-        <p class="rnd text-[11px] font-semibold text-amber-600 tracking-wide uppercase">複賽當天</p>
-      </div>
-      <div class="flex-1 h-px bg-gray-100"></div>
-    </div>
-
-    <!-- ❷ 複賽當天 -->
+    <!-- 複賽當天 -->
     <div id="phase-day">
 
       <!-- 搜尋我的梯次 -->
@@ -644,7 +630,7 @@
           <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
             <span class="rnd text-[10px] text-gray-300 mb-1">05</span>
             <span class="text-[12px] text-gray-700 leading-snug font-medium">葉騰謙</span>
-            <span class="text-[10px] text-gray-400 mt-0.5 leading-tight">《獨上樓》</span>
+            <span class="text-[10px] text-gray-400 mt-0.5 leading-tight">《獨上c 樓》</span>
           </div>
         </div>
         <div class="flex border-b border-gray-100">
@@ -655,7 +641,7 @@
           </div>
           <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
             <span class="rnd text-[10px] text-gray-300 mb-1">07</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium">徐語辞</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">徐語馡</span>
             <span class="text-[10px] text-gray-400 mt-0.5 leading-tight">《原諒》</span>
           </div>
           <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
@@ -709,7 +695,7 @@
           </div>
           <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
             <span class="rnd text-[10px] text-gray-300 mb-1">17</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium">吳亞都</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">吳亞鄀</span>
             <span class="text-[10px] text-gray-400 mt-0.5 leading-tight">《Shallow》</span>
           </div>
           <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
@@ -737,7 +723,7 @@
           <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
             <span class="rnd text-[10px] text-gray-300 mb-1">22</span>
             <span class="text-[12px] text-gray-700 leading-snug font-medium">黃敏郡</span>
-            <span class="text-[10px] text-gray-400 mt-0.5 leading-tight">《Easy on me》</span>
+            <span class="text-[10px] text-gray-400 mt-0.5 leading-tight">《Easy on Me》</span>
           </div>
           <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
             <span class="rnd text-[10px] text-gray-300 mb-1">23</span>
@@ -829,7 +815,7 @@
           <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
             <span class="rnd text-[10px] text-gray-300 mb-1">36</span>
             <span class="text-[12px] text-gray-700 leading-snug font-medium">潘冠宇</span>
-            <span class="text-[10px] text-gray-400 mt-0.5 leading-tight">《我不是神》</span>
+            <span class="text-[10px] text-gray-400 mt-0.5 leading-tight">《我不是神，我只是平凡而又直拗愛著你的人》</span>
           </div>
           <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
             <span class="rnd text-[10px] text-gray-300 mb-1">37</span>
@@ -920,7 +906,7 @@
           <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
             <span class="rnd text-[10px] text-gray-300 mb-1">53</span>
             <span class="text-[12px] text-gray-700 leading-snug font-medium">譚雋</span>
-            <span class="text-[10px] text-gray-400 mt-0.5 leading-tight">《人是》</span>
+            <span class="text-[10px] text-gray-400 mt-0.5 leading-tight">《人是_》</span>
           </div>
           <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
             <span class="rnd text-[10px] text-gray-300 mb-1">54</span>
@@ -1482,7 +1468,7 @@
           <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
             <span class="rnd text-[10px] text-gray-300 mb-1">43</span>
             <span class="text-[12px] text-gray-700 leading-snug font-medium">馮芊茱</span>
-            <span class="text-[10px] text-gray-400 mt-0.5 leading-tight">《孤獨萬歲》</span>
+            <span class="text-[10px] text-gray-400 mt-0.5 leading-tight">《失戀無罪》</span>
           </div>
         </div>
       </div>
@@ -2503,9 +2489,12 @@
 <script>
 
 
-function toggleMap(){
+function toggleMap(btn){
   var m = document.getElementById('map-box');
-  m.style.display = m.style.display === 'none' ? 'block' : 'none';
+  var a = document.getElementById('map-arrow');
+  var open = m.style.display === 'none';
+  m.style.display = open ? 'block' : 'none';
+  if(a) a.style.transform = open ? 'rotate(180deg)' : 'rotate(0deg)';
 }
 </script>
 </body>
