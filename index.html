@@ -12,9 +12,7 @@
   body{font-family:'Noto Sans TC',sans-serif;background:#fff;color:#1a1a1a;margin:0;}
   .rnd{font-family:'M PLUS Rounded 1c',sans-serif;}
   .fade-in{animation:fadeIn .6s cubic-bezier(.22,.68,0,1.1) forwards;}
-  .fade-in-up{animation:fadeInUp .6s ease forwards;}
   @keyframes fadeIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
-  @keyframes fadeInUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
   .hero-arc{position:absolute;bottom:-2px;left:-8%;right:-8%;height:80px;background:#fff;border-radius:50% 50% 0 0/100% 100% 0 0;}
   .nav-btn{border-bottom:3px solid transparent;transition:all .2s;}
   .nav-btn.active{color:#1A2F23!important;border-bottom-color:#1A2F23;}
@@ -28,77 +26,37 @@
   .page{display:none;}
   .page.active{display:block;}
   html{scroll-behavior:smooth;}
-  #hero-main{background-image:url('hero_bg.png');background-position:center 50%;}
+  .ticker-track{animation:ticker 24s linear infinite;will-change:transform;}
+  @keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+  .ticker-track:hover{animation-play-state:paused;}
+  #back-to-top{position:fixed;bottom:28px;right:20px;width:44px;height:44px;border-radius:50%;background:#1A2F23;color:#fff;font-size:18px;display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;transform:translateY(12px);transition:opacity .3s,transform .3s;z-index:200;box-shadow:0 4px 16px rgba(26,47,35,.25);border:none;}
+  #back-to-top.visible{opacity:1;transform:translateY(0);}
+  #back-to-top:hover{background:#254535;}
   @media(min-width:768px){
     #hero-main{background-image:url('hero_bg_desktop.png');background-position:center 30%;min-height:28vw!important;max-height:42vh!important;}
     main{max-width:780px!important;}
-
-    /* ── 電腦版字體三級制 ── */
-    h2,.text-2xl,.text-3xl,.text-xl{ font-size:24px!important; line-height:1.4!important; }
-    .text-base,.text-lg{ font-size:18px!important; line-height:1.6!important; }
-    body,p,span,a,li,.text-sm,.text-\[14px\],.text-\[13px\]{ font-size:15px!important; line-height:1.85!important; }
-    .text-\[12px\],.text-\[11px\],.text-\[10px\]{ font-size:12px!important; line-height:1.7!important; }
+    h2,.text-2xl,.text-3xl,.text-xl{font-size:24px!important;line-height:1.4!important;}
+    .text-base,.text-lg{font-size:18px!important;line-height:1.6!important;}
+    body,p,span,a,li,.text-sm{font-size:15px!important;line-height:1.85!important;}
+    .text-\[12px\],.text-\[11px\],.text-\[10px\]{font-size:12px!important;line-height:1.7!important;}
   }
   @media(min-width:1024px){
     main{max-width:960px!important;}
     .page{padding-bottom:14rem!important;}
-
-    /* ── 電腦版字體三級制 ── */
-    h2,.text-2xl,.text-3xl,.text-xl{ font-size:24px!important; }
-    .text-base,.text-lg{ font-size:18px!important; }
-    body,p,span,a,li,.text-sm,.text-\[14px\],.text-\[13px\]{ font-size:15px!important; }
-    .text-\[12px\],.text-\[11px\],.text-\[10px\]{ font-size:12px!important; }
+    h2,.text-2xl,.text-3xl,.text-xl{font-size:24px!important;}
+    .text-base,.text-lg{font-size:18px!important;}
+    body,p,span,a,li,.text-sm{font-size:15px!important;}
+    .text-\[12px\],.text-\[11px\],.text-\[10px\]{font-size:12px!important;}
   }
   .day-tab-off{background:#fff;color:#6b7280;border-color:#e5e7eb;}
-
-  .ticker-track {
-    animation: ticker 24s linear infinite;
-    will-change: transform;
-  }
-  @keyframes ticker {
-    0%   { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-  }
-  .ticker-track:hover { animation-play-state: paused; }
-
-
-
-
-  /* ── 返回頂部按鈕 ── */
-  #back-to-top {
-    position: fixed;
-    bottom: 28px;
-    right: 20px;
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    background: #1A2F23;
-    color: #fff;
-    font-size: 18px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    opacity: 0;
-    transform: translateY(12px);
-    transition: opacity .3s, transform .3s;
-    z-index: 200;
-    box-shadow: 0 4px 16px rgba(26,47,35,.25);
-    border: none;
-  }
-  #back-to-top.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  #back-to-top:hover { background: #254535; }
-
+  .judge-tab{border-bottom-width:2px;}
 </style>
 </head>
 <body class="bg-white">
 
 <!-- HEADER -->
 <header class="bg-white sticky top-0 z-50 shadow-sm border-b border-gray-100">
-  <div class="max-w-2xl md:max-w-4xl lg:max-w-6xl mx-auto px-5 md:px-10 lg:px-16 py-4 md:py-4 lg:py-5 flex items-center justify-between gap-4 hdr-inner" >
+  <div class="max-w-2xl md:max-w-4xl lg:max-w-6xl mx-auto px-5 md:px-10 lg:px-16 py-4 md:py-4 lg:py-5 flex items-center justify-between gap-4 hdr-inner">
     <a href="#" onclick="showPage('home');return false;" class="flex-shrink-0">
       <div class="rnd leading-tight">
         <span class="font-bold text-lg text-[#1A2F23] block">臺大音韻獎</span>
@@ -115,8 +73,8 @@
 </header>
 
 <!-- HERO MAIN -->
-<div id="hero-main" class="relative overflow-hidden" style="background-size:cover;min-height:65vw;max-height:65vw;">
-  <!-- 跑馬燈疊在壓圖頂部 -->
+<div id="hero-main" class="relative overflow-hidden" style="background-size:cover;min-height:65vw;max-height:65vw;background-image:url('hero_bg.png');background-position:center 35%;">
+  <!-- 跑馬燈 -->
   <div class="absolute top-0 left-0 right-0 z-10 overflow-hidden py-2" style="white-space:nowrap;background:#1A2F23;">
     <div class="ticker-track inline-flex gap-0">
       <span class="text-[12px] text-emerald-200 font-medium px-8">⚠️ 由於當天外教中心同時有考試舉行，請選手們統一從（面對大門口）的右側門進出！</span>
@@ -136,15 +94,10 @@
   <div class="hero-arc"></div>
 </div>
 
-<!-- HERO 節目表 -->
-
-
 <main class="max-w-lg md:max-w-2xl lg:max-w-3xl mx-auto px-6 md:px-10 lg:px-16 min-h-screen">
 
 <!-- 首頁 -->
 <div id="page-home" class="page active fade-in pt-10 pb-16 md:pb-48 lg:pb-64">
-
-
 
   <!-- 賽事活動公告 -->
   <p class="rnd text-[10px] tracking-[.22em] text-[#1A2F23] uppercase mb-2">公告</p>
@@ -165,8 +118,7 @@
         <span class="rnd text-[11px] text-[#1A2F23] font-medium min-w-[36px] mt-0.5 flex-shrink-0">地點</span>
         <div>
           <p class="text-sm text-gray-700">臺大外語教學暨資源中心劇場</p>
-          <a href="https://maps.google.com/?q=國立臺灣大學外語教學暨資源中心" target="_blank"
-            class="text-[11px] text-[#1A2F23] mt-1.5 inline-flex items-center gap-1 underline underline-offset-2 hover:opacity-70">📍 查看地圖</a>
+          <a href="https://maps.google.com/?q=國立臺灣大學外語教學暨資源中心" target="_blank" class="text-[11px] text-[#1A2F23] mt-1.5 inline-flex items-center gap-1 underline underline-offset-2 hover:opacity-70">📍 查看地圖</a>
         </div>
       </div>
     </div>
@@ -196,58 +148,6 @@
     </div>
   </div>
 
-  <!-- 複賽導航影片 -->
-  <div class="mb-10">
-    <p class="rnd text-[10px] tracking-[.22em] text-[#1A2F23] uppercase mb-2">導覽</p>
-    <div class="w-6 h-0.5 bg-[#1A2F23] rounded-full mb-5"></div>
-    <!-- 外框：relative，不裁切 -->
-    <div class="border border-gray-100 rounded-2xl shadow-sm" style="position:relative;">
-      <!-- 主內容：左右分欄 -->
-      <div class="flex">
-        <!-- 左：直式影片（45%）-->
-        <div style="width:45%;flex-shrink:0;aspect-ratio:9/16;background:#f3f4f6;border-radius:1rem 0 0 1rem;overflow:hidden;position:relative;">
-          <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;">
-            <span style="font-size:2rem;">🎬</span>
-            <p style="font-size:11px;color:#9ca3af;text-align:center;padding:0 12px;line-height:1.5;">導航影片<br>即將上線</p>
-          </div>
-        </div>
-        <!-- 右：說明文字（55%）-->
-        <div style="flex:1;padding:16px;display:flex;flex-direction:column;justify-content:space-between;">
-          <!-- 上：文字說明 -->
-          <div>
-            <p style="font-family:'M PLUS Rounded 1c',sans-serif;font-weight:700;color:#1A2F23;font-size:13px;margin-bottom:4px;line-height:1.4;">音韻獎帶你前往複賽地點</p>
-            <p style="font-size:11px;color:#9ca3af;margin-bottom:8px;">臺大外語教學暨資源中心劇場</p>
-            <p style="font-size:12px;color:#4b5563;line-height:1.7;">影片示範從<strong style="color:#1A2F23;">捷運公館站 3 號出口</strong>步行至外教中心的路線，跟著走就到！</p>
-          </div>
-          <!-- 中：交通資訊按鈕（上下置中） -->
-          <div style="display:flex;align-items:center;justify-content:flex-start;flex:1;padding:12px 0;">
-            <button onclick="tdOpen()" style="display:inline-flex;align-items:center;gap:6px;padding:7px 12px;border:1px solid rgba(26,47,35,0.3);border-radius:8px;background:rgba(26,47,35,0.05);color:#1A2F23;font-size:12px;cursor:pointer;">
-              🗺️ 交通資訊卡 →
-            </button>
-          </div>
-          <!-- 下：地圖導航 -->
-          <div>
-            <button onclick="toggleMap(this)" style="display:inline-flex;align-items:center;gap:5px;font-size:12px;color:#1A2F23;text-decoration:underline;text-underline-offset:2px;background:none;border:none;cursor:pointer;padding:0;">
-              📍 開啟地圖導航 <span id="map-arrow" style="font-size:10px;transition:transform .3s;">▾</span>
-            </button>
-          </div>
-        </div>
-      </div>
-
-
-    <!-- Google Maps 小框框（預設隱藏） -->
-    <div id="map-box" style="display:none;border-top:1px solid #e5e7eb;border-radius:0 0 1rem 1rem;overflow:hidden;">
-      <iframe
-        src="https://maps.google.com/maps?q=臺大外語教學暨資源中心&output=embed&hl=zh-TW"
-        width="100%" height="220"
-        style="border:0;display:block;"
-        allowfullscreen="" loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade">
-      </iframe>
-    </div>
-    </div>
-  </div>
-
   <!-- 最新消息 -->
   <div class="fade-in-up mb-10">
     <p class="rnd text-[10px] tracking-[.22em] text-[#1A2F23] uppercase mb-2">最新消息</p>
@@ -255,13 +155,46 @@
     <div class="bg-[#F4F8F0] rounded-2xl p-6 shadow-sm">
       <p class="rnd font-bold text-[#1A2F23] text-base mb-4 leading-snug">複賽現場 抽獎預告！</p>
       <div class="space-y-3 text-[13px] text-gray-700 leading-relaxed">
-        <p>這次複賽臺大音韻獎特別與<strong class="text-[#1A2F23]">超級巨星KTV、鑫豪食品、聲島咖啡、黑熊先生巧克力布朗尼</strong>攜手帶來豐厚的獎品，準備了超豐富的獎品要送給大家！</p>
-        <p>獎項有超級巨星KTV餐飲抵用券、鑫豪食品好吃的餅乾、聲島咖啡現金折扣券以及黑熊先生巧克力布朗尼禮盒唷！</p>
-        <p class="pt-1 border-t border-[#1A2F23]/10">不論是參賽者還是到場支持的觀眾們，都歡迎一起來感受複賽現場最熱烈的氣氛，把驚喜好禮與難忘回憶通通帶回家！！！🎁</p>
+        <p>這次複賽臺大音韻獎特別與<strong class="text-[#1A2F23]">超級巨星KTV、鑫豪食品、聲島咖啡、黑熊先生巧克力布朗尼</strong>攜手帶來豐厚的獎品！</p>
+        <p>獎項有超級巨星KTV餐飲抵用券、鑫豪食品好吃的餅乾、聲島咖啡現金折扣券以及黑熊先生巧克力布朗尼禮盒！</p>
+        <p class="pt-1 border-t border-[#1A2F23]/10">不論是參賽者還是到場支持的觀眾們，都歡迎一起來感受複賽現場最熱烈的氣氛！🎁</p>
       </div>
     </div>
   </div>
 
+  <!-- 導覽影片 -->
+  <div class="mb-10">
+    <p class="rnd text-[10px] tracking-[.22em] text-[#1A2F23] uppercase mb-2">導覽</p>
+    <div class="w-6 h-0.5 bg-[#1A2F23] rounded-full mb-5"></div>
+    <div class="border border-gray-100 rounded-2xl shadow-sm" style="position:relative;">
+      <div class="flex">
+        <!-- 左：直式影片 -->
+        <div style="width:45%;flex-shrink:0;aspect-ratio:9/16;border-radius:1rem 0 0 1rem;overflow:hidden;position:relative;">
+          <iframe src="https://www.youtube.com/embed/WWN6PPanPAU"
+            width="100%" height="100%"
+            style="position:absolute;inset:0;border:0;"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen loading="lazy">
+          </iframe>
+        </div>
+        <!-- 右：說明文字 -->
+        <div style="flex:1;padding:16px;display:flex;flex-direction:column;justify-content:space-between;">
+          <div>
+            <p style="font-family:'M PLUS Rounded 1c',sans-serif;font-weight:700;color:#1A2F23;font-size:13px;margin-bottom:4px;line-height:1.4;">音韻獎帶你前往複賽地點</p>
+            <p style="font-size:11px;color:#9ca3af;margin-bottom:8px;">臺大外語教學暨資源中心劇場</p>
+            <p style="font-size:12px;color:#4b5563;line-height:1.7;">影片示範從<strong style="color:#1A2F23;">捷運公館站 3 號出口</strong>步行至外教中心的路線，跟著走就到！</p>
+          </div>
+          <div>
+            <a href="https://maps.google.com/?q=國立臺灣大學外語教學暨資源中心" target="_blank"
+              style="display:inline-flex;align-items:center;gap:5px;font-size:12px;color:#1A2F23;text-decoration:underline;text-underline-offset:2px;">
+              📍 開啟地圖導航
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
 
   <!-- 初賽講評 -->
   <div class="mb-10">
@@ -307,7 +240,7 @@
       </div>
     </div>
     <button onclick="showPage('judges')"
-      class="w-full flex items-center justify-between gap-3 px-5 py-4 border border-[#1A2F23]/20 rounded-xl bg-[#1A2F23]/5 hover:bg-[#1A2F23]/10 active:scale-[0.98] transition-all duration-200">
+      class="w-full flex items-center justify-between gap-3 px-5 py-4 border border-[#1A2F23]/20 rounded-xl bg-[#1A2F23]/5 hover:bg-[#1A2F23]/10 active:scale-[0.98] transition-all">
       <span class="rnd text-[13px] font-medium text-[#1A2F23]">點擊查看完整評審介紹</span>
       <span class="text-[#1A2F23]/50 text-lg">›</span>
     </button>
@@ -355,7 +288,7 @@
       <div class="flex gap-4 items-start"><span class="rnd text-[11px] text-[#1A2F23] font-medium min-w-[56px] flex-shrink-0 mt-0.5">複賽</span><div><p class="text-[13px] text-gray-600 leading-relaxed">2026/6/13（六）～ 2026/6/14（日）</p><p class="text-[11px] text-gray-400 mt-0.5">@ 臺大外語教學暨資源中心劇場</p></div></div>
       <div class="flex gap-4 items-start"><span class="rnd text-[11px] text-[#1A2F23] font-medium min-w-[56px] flex-shrink-0 mt-0.5">決賽</span><div><p class="text-[13px] text-gray-600 leading-relaxed">2026/7/12（日）</p><p class="text-[11px] text-gray-400 mt-0.5">@ Corner House 角落文創展演空間</p></div></div>
     </div>
-    <div class="space-y-5 text-gray-600 text-[14px] md:text-[15px] leading-[2.1] md:leading-[2.3] tracking-wide">
+    <div class="space-y-5 text-gray-600 text-[14px] leading-[2.1] tracking-wide">
       <p>平凡的日子裡，耳機裡流瀉出的一句歌詞，無意間擊中心底最柔軟的角落。旋律落下的瞬間，一隻蝴蝶悄然在心裡振翅。從那時起，一句句不經意的低聲哼唱穿透了歲月喧囂，掀起了一場關於音樂的蝴蝶效應。</p>
       <p>對著鏡子反覆雕琢的轉音、幾句藏在角落的清唱，將散落的音符拾起，一片片地拼湊成了完整的夢。微小的振翅聚攏成勇氣，驅散了所有的懷疑與恐懼。</p>
       <p>曾經微小的悸動不再只是心底的秘密，因為熱愛、因為心中有火，我們以純粹的音韻融化蟄伏的冬天。讓最初撼動靈魂的片段，隨著振翅而起的風，在這方舞台上盛開成最繁盛的春天。</p>
@@ -371,17 +304,19 @@
   <p class="text-sm text-gray-400 mb-8">請選擇您的賽事階段</p>
 
   <!-- 複賽選手注意事項 -->
-  <div class="border border-[#1A2F23]/15 bg-[#1A2F23]/5 rounded-2xl p-5 mb-8">
+  <div class="bg-[#1A2F23]/5 border border-[#1A2F23]/15 rounded-2xl p-5 mb-6">
     <div class="flex items-center gap-2 mb-4"><span class="text-lg">📢</span><p class="rnd font-bold text-[#1A2F23] text-sm tracking-wide">複賽選手注意事項</p></div>
-    <div class="space-y-4">
+    <div class="space-y-5">
       <div class="flex gap-4 items-start">
         <div class="flex-shrink-0 w-7 h-7 rounded-full bg-[#1A2F23] flex items-center justify-center mt-0.5"><span class="rnd text-white text-[11px] font-bold">1</span></div>
         <div class="flex-1">
           <p class="text-[13px] text-gray-700 leading-[1.9]">請於比賽時間「<strong class="text-[#1A2F23]">前 30 分鐘</strong>」至「臺灣外語教學暨資源中心」入口櫃檯完成報到，並請於比賽時間開始「<strong class="text-[#1A2F23]">前 10 分鐘</strong>」回到選手報到區等待，逾時將視為放棄參賽資格。</p>
-          <a href="https://docs.google.com/spreadsheets/d/1GleQHlpaWFn_WLBrg8400hEa4eJgHMkqxlI333DoaJ4/edit?gid=0#gid=0" target="_blank"
-            class="mt-1.5 inline-block text-[11px] text-[#1A2F23] underline underline-offset-2 hover:opacity-70 transition-opacity">
-            查看報到時間 → 複賽賽程
-          </a>
+          <div class="flex justify-start mt-2">
+            <a href="https://docs.google.com/spreadsheets/d/1GleQHlpaWFn_WLBrg8400hEa4eJgHMkqxlI333DoaJ4/edit?gid=0#gid=0" target="_blank"
+              class="text-[11px] text-[#1A2F23] underline underline-offset-2 hover:opacity-70 transition-opacity whitespace-nowrap">
+              查看報到時間 → 複賽賽程
+            </a>
+          </div>
         </div>
       </div>
       <div class="flex gap-4 items-start">
@@ -393,24 +328,9 @@
 
   <!-- 賽程資訊 -->
   <div class="border border-gray-100 rounded-2xl p-5 mb-8 space-y-4">
-    <div class="flex gap-4 items-start">
-      <span class="rnd text-[11px] text-[#1A2F23] font-medium min-w-[56px] flex-shrink-0 mt-0.5">報名初賽</span>
-      <span class="text-[13px] text-gray-600 leading-relaxed">2026/3/16（一）～ 2026/5/4（五）17:00</span>
-    </div>
-    <div class="flex gap-4 items-start">
-      <span class="rnd text-[11px] text-[#1A2F23] font-medium min-w-[56px] flex-shrink-0 mt-0.5">複賽</span>
-      <div>
-        <p class="text-[13px] text-gray-600 leading-relaxed">2026/6/13（六）～ 2026/6/14（日）</p>
-        <p class="text-[11px] text-gray-400 mt-0.5">@ 臺大外語教學暨資源中心劇場</p>
-      </div>
-    </div>
-    <div class="flex gap-4 items-start">
-      <span class="rnd text-[11px] text-[#1A2F23] font-medium min-w-[56px] flex-shrink-0 mt-0.5">決賽</span>
-      <div>
-        <p class="text-[13px] text-gray-600 leading-relaxed">2026/7/12（日）</p>
-        <p class="text-[11px] text-gray-400 mt-0.5">@ Corner House 角落文創展演空間</p>
-      </div>
-    </div>
+    <div class="flex gap-4 items-start"><span class="rnd text-[11px] text-[#1A2F23] font-medium min-w-[56px] flex-shrink-0 mt-0.5">報名初賽</span><span class="text-[13px] text-gray-600 leading-relaxed">2026/3/16（一）～ 2026/5/4（五）17:00</span></div>
+    <div class="flex gap-4 items-start"><span class="rnd text-[11px] text-[#1A2F23] font-medium min-w-[56px] flex-shrink-0 mt-0.5">複賽</span><div><p class="text-[13px] text-gray-600 leading-relaxed">2026/6/13（六）～ 2026/6/14（日）</p><p class="text-[11px] text-gray-400 mt-0.5">@ 臺大外語教學暨資源中心劇場</p></div></div>
+    <div class="flex gap-4 items-start"><span class="rnd text-[11px] text-[#1A2F23] font-medium min-w-[56px] flex-shrink-0 mt-0.5">決賽</span><div><p class="text-[13px] text-gray-600 leading-relaxed">2026/7/12（日）</p><p class="text-[11px] text-gray-400 mt-0.5">@ Corner House 角落文創展演空間</p></div></div>
   </div>
 
   <div class="flex gap-3 mb-10">
@@ -448,73 +368,47 @@
         </button>
       </div>
     </div>
-
   </div>
 
   <div id="pcontent-semifinal" class="fade-in">
-
     <!-- 複賽前 -->
     <div id="phase-before">
-
-      <!-- 複賽賽程 -->
       <div class="mb-4">
         <a href="https://docs.google.com/spreadsheets/d/1GleQHlpaWFn_WLBrg8400hEa4eJgHMkqxlI333DoaJ4/edit?usp=drivesdk" target="_blank"
           class="border-2 border-emerald-200 bg-emerald-50/50 rounded-2xl p-5 flex items-center gap-4 hover:bg-emerald-50 active:scale-[0.98] transition-all">
           <p class="text-2xl flex-shrink-0">🎼</p>
-          <div class="flex-1">
-            <p class="rnd font-semibold text-[#1A2F23] text-sm mb-1">複賽賽程</p>
-            <p class="text-[11px] text-emerald-600">比賽梯次 / 上台序號 / 報到時間</p>
-          </div>
+          <div class="flex-1"><p class="rnd font-semibold text-[#1A2F23] text-sm mb-1">複賽賽程</p><p class="text-[11px] text-emerald-600">比賽梯次 / 上台序號 / 報到時間</p></div>
           <span class="text-emerald-500 text-lg">›</span>
         </a>
       </div>
-
-      <!-- 地點 -->
       <div class="border border-gray-100 rounded-2xl p-5 mb-4">
         <div class="flex gap-4 items-start">
           <span class="rnd text-[11px] text-[#1A2F23] font-medium min-w-[28px] mt-0.5 flex-shrink-0">地點</span>
-          <div>
-            <p class="text-sm text-gray-700">臺大外語教學暨資源中心劇場</p>
-            <a href="https://maps.google.com/?q=國立臺灣大學外語教學暨資源中心" target="_blank"
-              class="text-[11px] text-[#1A2F23] mt-2 inline-block underline underline-offset-2">查看路線圖</a>
-          </div>
+          <div><p class="text-sm text-gray-700">臺大外語教學暨資源中心劇場</p><a href="https://maps.google.com/?q=國立臺灣大學外語教學暨資源中心" target="_blank" class="text-[11px] text-[#1A2F23] mt-2 inline-block underline underline-offset-2">查看路線圖</a></div>
         </div>
       </div>
     </div>
 
     <!-- 複賽當天 -->
     <div id="phase-day">
-
-      <!-- 搜尋我的梯次 -->
       <div class="bg-[#1A2F23]/5 border border-[#1A2F23]/15 rounded-2xl p-5 mb-4">
         <p class="rnd font-semibold text-[#1A2F23] text-sm mb-1">🔍 查詢我的梯次</p>
         <p class="text-[11px] text-gray-400 mb-3">輸入姓名，直接在節目表找到你</p>
         <div class="flex gap-2">
           <div class="relative flex-1">
-            <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-              <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
-            </svg>
+            <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
             <input type="text" id="player-name-search" placeholder="輸入參賽選手姓名..."
               class="w-full pl-9 pr-4 py-3 border border-[#1A2F23]/20 rounded-xl text-gray-700 bg-white outline-none focus:border-[#1A2F23] transition-all"
-              style="font-size:16px;"
-              onkeydown="if(event.key==='Enter') doPlayerSearch()">
+              style="font-size:16px;" onkeydown="if(event.key==='Enter') doPlayerSearch()">
           </div>
-          <button onclick="doPlayerSearch()"
-            class="flex-shrink-0 bg-[#1A2F23] text-white rnd font-medium text-sm px-4 rounded-xl hover:bg-[#254535] active:scale-[0.97] transition-all">
-            搜尋
-          </button>
+          <button onclick="doPlayerSearch()" class="flex-shrink-0 bg-[#1A2F23] text-white rnd font-medium text-sm px-4 rounded-xl hover:bg-[#254535] active:scale-[0.97] transition-all">搜尋</button>
         </div>
       </div>
-
-      <!-- 節目表按鈕 -->
       <button onclick="showProgramBook('player')"
-        class="w-full border-2 border-[#C8A84B] text-[#1A2F23] bg-[#C8A84B]/10 rnd font-bold text-base py-5 rounded-2xl mb-4 tracking-wide transition-all duration-300 hover:bg-[#C8A84B]/20 active:scale-[0.98] flex items-center justify-between px-6 gap-2">
-        <span></span>
-        <span>複賽節目表 📖</span>
-        <span class="text-[#C8A84B] text-xl">›</span>
+        class="w-full border-2 border-[#C8A84B] text-[#1A2F23] bg-[#C8A84B]/10 rnd font-bold text-base py-5 rounded-2xl mb-4 tracking-wide transition-all duration-300 hover:bg-[#C8A84B]/20 active:scale-[0.98] flex items-center justify-between px-6">
+        <span></span><span>複賽節目表 📖</span><span class="text-[#C8A84B] text-xl">›</span>
       </button>
     </div>
-
     <p class="text-center text-gray-300 text-[11px] leading-relaxed mt-4 pb-2">小提醒 · 天雨路滑請小心<br>臺大音韻獎關心您 🦋</p>
   </div>
 
@@ -526,24 +420,9 @@
         <p class="text-[12px] text-emerald-300 tracking-wide">Final Stage</p>
       </div>
       <div class="p-5 space-y-4">
-        <div class="flex gap-4 items-start">
-          <span class="rnd text-[11px] text-[#1A2F23] font-medium min-w-[36px] flex-shrink-0 mt-0.5">日期</span>
-          <span class="text-[13px] text-gray-700">2026/7/12（日）</span>
-        </div>
-        <div class="flex gap-4 items-start">
-          <span class="rnd text-[11px] text-[#1A2F23] font-medium min-w-[36px] flex-shrink-0 mt-0.5">地點</span>
-          <div>
-            <p class="text-[13px] text-gray-700">Corner House 角落文創展演空間</p>
-            <a href="https://maps.google.com/?q=Corner+House+角落文創展演空間+台北" target="_blank"
-              class="text-[11px] text-[#1A2F23] mt-1 inline-flex items-center gap-1 underline underline-offset-2 hover:opacity-70">
-              📍 查看地圖
-            </a>
-          </div>
-        </div>
-        <div class="pt-3 border-t border-gray-100 flex gap-4 items-center">
-          <span class="rnd text-[11px] text-[#1A2F23] font-medium min-w-[36px] flex-shrink-0">詳情</span>
-          <p class="text-[12px] text-gray-400">更多資訊即將公告，敬請期待 🦋</p>
-        </div>
+        <div class="flex gap-4 items-start"><span class="rnd text-[11px] text-[#1A2F23] font-medium min-w-[36px] flex-shrink-0 mt-0.5">日期</span><span class="text-[13px] text-gray-700">2026/7/12（日）</span></div>
+        <div class="flex gap-4 items-start"><span class="rnd text-[11px] text-[#1A2F23] font-medium min-w-[36px] flex-shrink-0 mt-0.5">地點</span><div><p class="text-[13px] text-gray-700">Corner House 角落文創展演空間</p><a href="https://maps.google.com/?q=Corner+House+角落文創展演空間+台北" target="_blank" class="text-[11px] text-[#1A2F23] mt-1 inline-flex items-center gap-1 underline underline-offset-2 hover:opacity-70">📍 查看地圖</a></div></div>
+        <div class="pt-3 border-t border-gray-100 flex gap-4 items-center"><span class="rnd text-[11px] text-[#1A2F23] font-medium min-w-[36px] flex-shrink-0">詳情</span><p class="text-[12px] text-gray-400">更多資訊即將公告，敬請期待 🦋</p></div>
       </div>
     </div>
   </div>
@@ -565,40 +444,34 @@
     <p class="text-[13px] text-emerald-900 leading-[1.9] font-medium">「僅在中場休息時間開放觀眾出入，出入口位於觀眾席正後方，請配合工作人員引導入座」。</p>
   </div>
 
-  <!-- 即時搜尋框 -->
-    <div class="mb-6" id="program-search-wrap">
-      <div class="flex gap-2">
-        <div class="relative flex-1">
-          <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
-          </svg>
-          <input type="text" id="program-search" placeholder="搜尋選手姓名..."
-            class="w-full pl-9 pr-4 py-3 border border-[#1A2F23]/20 rounded-xl text-gray-700 bg-white outline-none focus:border-[#1A2F23] transition-all"
-            style="font-size:16px;"
-            onkeydown="if(event.key==='Enter') doProgramSearch()"
-            onfocus="this.closest('#program-search-wrap').scrollIntoView({behavior:'smooth',block:'start'})">
-        </div>
-        <button onclick="doProgramSearch()"
-          class="flex-shrink-0 bg-[#1A2F23] text-white rnd font-medium text-sm px-4 rounded-xl hover:bg-[#254535] active:scale-[0.97] transition-all">
-          搜尋
-        </button>
+  <!-- 搜尋框 -->
+  <div class="mb-6" id="program-search-wrap">
+    <div class="flex gap-2">
+      <div class="relative flex-1">
+        <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <input type="text" id="program-search" placeholder="搜尋選手姓名..."
+          class="w-full pl-9 pr-4 py-3 border border-[#1A2F23]/20 rounded-xl text-gray-700 bg-white outline-none focus:border-[#1A2F23] transition-all"
+          style="font-size:16px;" onkeydown="if(event.key==='Enter') doProgramSearch()"
+          onfocus="this.closest('#program-search-wrap').scrollIntoView({behavior:'smooth',block:'start'})">
       </div>
-      <div id="search-empty" class="hidden text-center text-gray-400 text-[12px] mt-4 py-4">暫無符合搜尋條件的選手</div>
+      <button onclick="doProgramSearch()" class="flex-shrink-0 bg-[#1A2F23] text-white rnd font-medium text-sm px-4 rounded-xl hover:bg-[#254535] active:scale-[0.97] transition-all">搜尋</button>
     </div>
+    <div id="search-empty" class="hidden text-center text-gray-400 text-[12px] mt-4 py-4">暫無符合搜尋條件的選手</div>
+  </div>
 
-    <!-- 日期切換按鈕 -->
-    <div class="flex gap-3 mb-8">
-      <button id="daybtn-613" onclick="switchDay('613')"
-        class="flex-1 py-3.5 rounded-2xl border-2 border-[#1A2F23] bg-[#1A2F23] text-white rnd font-bold text-sm transition-all">
-        6 / 13（六）<br><span class="text-[10px] font-normal opacity-70">學生獨唱 · 重對唱</span>
-      </button>
-      <button id="daybtn-614" onclick="switchDay('614')"
-        class="flex-1 py-3.5 rounded-2xl border-2 border-gray-200 bg-white text-gray-500 rnd font-bold text-sm transition-all">
-        6 / 14（日）<br><span class="text-[10px] font-normal opacity-70">社會獨唱 · 創作</span>
-      </button>
-    </div>
+  <!-- 日期切換 -->
+  <div class="flex gap-3 mb-6">
+    <button id="daybtn-613" onclick="switchDay('613')"
+      class="flex-1 py-3 rounded-2xl border-2 border-[#1A2F23] bg-[#1A2F23] text-white rnd font-semibold text-sm transition-all">
+      6 / 13（六）<br><span class="text-[10px] font-normal opacity-70">學生獨唱 · 重對唱</span>
+    </button>
+    <button id="daybtn-614" onclick="switchDay('614')"
+      class="flex-1 py-3 rounded-2xl border border-gray-200 bg-white text-gray-500 rnd font-bold text-sm transition-all">
+      6 / 14（日）<br><span class="text-[10px] font-normal opacity-70">社會獨唱 · 創作</span>
+    </button>
+  </div>
 
-    <div id="day-613">
+  <div id="day-613">
 
     <div class="mb-3 border border-gray-100 rounded-2xl overflow-hidden">
       <button onclick="toggleAcc(this)" class="w-full flex items-center justify-between px-5 py-4 text-left bg-white">
@@ -723,7 +596,7 @@
           <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
             <span class="rnd text-[10px] text-gray-300 mb-1">22</span>
             <span class="text-[12px] text-gray-700 leading-snug font-medium">黃敏郡</span>
-            <span class="text-[10px] text-gray-400 mt-0.5 leading-tight">《Easy on Me》</span>
+            <span class="text-[10px] text-gray-400 mt-0.5 leading-tight">《Easy On Me》</span>
           </div>
           <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
             <span class="rnd text-[10px] text-gray-300 mb-1">23</span>
@@ -1210,9 +1083,9 @@
         </div>
       </div>
     </div>
-    </div>
-    <div id="day-614" class="hidden">
 
+</div>
+  <div id="day-614" class="hidden">
 
     <div class="mb-3 border border-gray-100 rounded-2xl overflow-hidden">
       <button onclick="toggleAcc(this)" class="w-full flex items-center justify-between px-5 py-4 text-left bg-white">
@@ -1543,7 +1416,7 @@
           </div>
           <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
             <span class="rnd text-[10px] text-gray-300 mb-1">08</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium">謝秉琿</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">謝秉褌</span>
             <span class="text-[10px] text-gray-400 mt-0.5 leading-tight">《原諒我有時候》</span>
           </div>
           <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
@@ -1576,7 +1449,7 @@
           <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
             <span class="rnd text-[10px] text-gray-300 mb-1">14</span>
             <span class="text-[12px] text-gray-700 leading-snug font-medium">陳祈文</span>
-            <span class="text-[10px] text-gray-400 mt-0.5 leading-tight">《寄。存,》</span>
+            <span class="text-[10px] text-gray-400 mt-0.5 leading-tight">《寄。存，》</span>
           </div>
           <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
             <span class="rnd text-[10px] text-gray-300 mb-1">15</span>
@@ -1613,7 +1486,7 @@
           </div>
           <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
             <span class="rnd text-[10px] text-gray-300 mb-1">18</span>
-            <span class="text-[12px] text-gray-700 leading-snug font-medium">曾玟闋</span>
+            <span class="text-[12px] text-gray-700 leading-snug font-medium">曾玟閎</span>
             <span class="text-[10px] text-gray-400 mt-0.5 leading-tight">《再說一個秘密》</span>
           </div>
           <div class="flex flex-col items-center text-center px-1 py-3 flex-1 min-w-0">
@@ -1652,15 +1525,10 @@
       </div>
     </div>
 
-    <p class="text-center text-gray-300 text-[11px] leading-relaxed tracking-wide mt-10 pb-4">
-      小提醒 · 天雨路滑請小心<br>臺大音韻獎關心您 🦋
-    </p>
-  
-    </div>
-  </div>
+</div>
 
-
-<!-- 評審介紹 -->
+  <p class="text-center text-white opacity-20 mt-3">© 2026 第十三屆臺大音韻獎 · All rights reserved.</p>
+</div>
 
 <!-- 評審介紹 -->
 <div id="page-judges" class="page pt-8 pb-20 md:pb-48 lg:pb-64">
@@ -1669,508 +1537,204 @@
   <div class="w-6 h-0.5 bg-[#1A2F23] rounded-full mb-6"></div>
   <h2 class="rnd text-2xl md:text-3xl font-bold text-[#1A2F23] mb-8">第十三屆 評審陣容</h2>
 
-  <!-- 分頁 Tab -->
-  <div class="flex gap-2 mb-8 border-b border-gray-100 pb-1">
-    <button onclick="showJudgeTab('prelim')" id="jtab-prelim"
-      class="judge-tab rnd text-sm font-medium px-4 py-2.5 rounded-t-xl border-b-2 border-[#1A2F23] text-[#1A2F23] transition-all">初賽</button>
-    <button onclick="showJudgeTab('semi')" id="jtab-semi"
-      class="judge-tab rnd text-sm font-medium px-4 py-2.5 rounded-t-xl border-b-2 border-transparent text-gray-400 transition-all">複賽</button>
-    <button onclick="showJudgeTab('final')" id="jtab-final"
-      class="judge-tab rnd text-sm font-medium px-4 py-2.5 rounded-t-xl border-b-2 border-transparent text-gray-400 transition-all">決賽</button>
+  <div class="flex items-center gap-3 mb-6 border-b border-gray-100 pb-1">
+    <button onclick="showJudgeTab('prelim')" id="jtab-prelim" class="judge-tab rnd text-sm font-medium px-4 py-2.5 rounded-t-xl border-[#1A2F23] text-[#1A2F23] transition-all">初賽</button>
+    <button onclick="showJudgeTab('semi')" id="jtab-semi" class="judge-tab rnd text-sm font-medium px-4 py-2.5 rounded-t-xl border-transparent text-gray-400 transition-all">複賽</button>
+    <button onclick="showJudgeTab('final')" id="jtab-final" class="judge-tab rnd text-sm font-medium px-4 py-2.5 rounded-t-xl border-transparent text-gray-400 transition-all">決賽</button>
   </div>
 
-  <!-- 初賽 -->
   <div id="jtab-content-prelim">
-
-    <!-- 陳惠婷 -->
     <div class="border border-gray-100 rounded-2xl overflow-hidden mb-4">
       <button onclick="toggleAcc(this)" class="w-full flex items-center justify-between px-5 py-4 text-left bg-white">
-        <div>
-          <p class="rnd font-bold text-[#1A2F23] text-sm">the Huiting 陳惠婷</p>
-          <p class="text-[11px] text-gray-400 mt-0.5">初賽評審 · 音樂創作人、製作人</p>
-        </div>
+        <div><p class="rnd font-bold text-[#1A2F23] text-sm">the Huiting 陳惠婷</p><p class="text-[11px] text-gray-400 mt-0.5">初賽評審 · 音樂創作人、製作人</p></div>
         <span class="acc-arrow text-gray-400 text-lg">▾</span>
       </button>
-      <div class="acc-content">
-        <div class="px-5 pb-6 space-y-5">
-          <div class="border-l-4 border-[#1A2F23] pl-4">
-            <p class="italic text-gray-500 text-[13px] leading-[1.9]">「囚徒困境中 我選擇背叛／反正最後 沒人得救。<br>我能看見 現實和未來／早被決定的遺憾／不會因為誰而更改」</p>
-            <p class="text-[11px] text-gray-400 mt-1.5">—〈美好人生〉</p>
-          </div>
-          <div>
-            <p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">評審簡介</p>
-            <p class="text-[13px] text-gray-600 leading-[1.9]">有搖滾祖媽之稱的音樂創作人、製作人，樂團 Tizzy Bac 的主唱兼鍵盤手。於2014年開始個人創作，至今已發行四張專輯、一張EP，擅長描寫黑暗美學，詞曲間展現細膩的情感書寫風格。除創作、演出經驗豐富外，也數度擔任音樂重大賽事評審，於2025年擔任金音獎評審團主席。</p>
-          </div>
-          <div>
-            <p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">發行作品</p>
-            <div class="space-y-1 text-[12px] text-gray-500 leading-[1.85]">
-              <p>2014 首張個人專輯《21克》</p>
-              <p>2015 專輯《成人世界》</p>
-              <p>2017 專輯《Voyager3》</p>
-              <p>2021 EP《我內心的風景》</p>
-              <p>2024 專輯《王國 Darktopia》</p>
-            </div>
-          </div>
-          <div>
-            <p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">獲獎經歷</p>
-            <div class="space-y-1 text-[12px] text-gray-500 leading-[1.85]">
-              <p>2014 憑藉《這是因為我們能感到疼痛》入圍第25屆金曲獎最佳作詞人獎</p>
-              <p>2015 專輯《21克》入圍第26屆金曲獎「最佳新人獎」</p>
-            </div>
-          </div>
-        </div>
-      </div>
+      <div class="acc-content"><div class="px-5 pb-6 space-y-5">
+        <div class="border-l-4 border-[#1A2F23] pl-4"><p class="italic text-gray-500 text-[13px] leading-[1.9]">「囚徒困境中 我選擇背叛／反正最後 沒人得救。我能看見 現實和未來／早被決定的遺憾／不會因為誰而更改」</p><p class="text-[11px] text-gray-400 mt-1.5">—〈美好人生〉</p></div>
+        <div><p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">評審簡介</p><p class="text-[13px] text-gray-600 leading-[1.9]">有搖滾祖媽之稱的音樂創作人、製作人，樂團 Tizzy Bac 的主唱兼鍵盤手。於2014年開始個人創作，至今已發行四張專輯、一張EP，擅長描寫黑暗美學，詞曲間展現細膩的情感書寫風格。於2025年擔任金音獎評審團主席。</p></div>
+        <div><p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">發行作品</p><div class="space-y-1 text-[12px] text-gray-500 leading-[1.85]"><p>2014 首張個人專輯《21克》</p><p>2015 專輯《成人世界》</p><p>2017 專輯《Voyager3》</p><p>2021 EP《我內心的風景》</p><p>2024 專輯《王國 Darktopia》</p></div></div>
+        <div><p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">獲獎經歷</p><div class="space-y-1 text-[12px] text-gray-500 leading-[1.85]"><p>2014 入圍第25屆金曲獎最佳作詞人獎</p><p>2015 專輯《21克》入圍第26屆金曲獎最佳新人獎</p></div></div>
+      </div></div>
     </div>
-
-    <!-- 秦旭章 -->
     <div class="border border-gray-100 rounded-2xl overflow-hidden mb-4">
       <button onclick="toggleAcc(this)" class="w-full flex items-center justify-between px-5 py-4 text-left bg-white">
-        <div>
-          <p class="rnd font-bold text-[#1A2F23] text-sm">秦旭章</p>
-          <p class="text-[11px] text-gray-400 mt-0.5">初賽評審 · 廠牌主理人、守夜人團長</p>
-        </div>
+        <div><p class="rnd font-bold text-[#1A2F23] text-sm">秦旭章</p><p class="text-[11px] text-gray-400 mt-0.5">初賽評審 · 廠牌主理人、守夜人團長</p></div>
         <span class="acc-arrow text-gray-400 text-lg">▾</span>
       </button>
-      <div class="acc-content">
-        <div class="px-5 pb-6 space-y-5">
-          <div class="border-l-4 border-[#1A2F23] pl-4">
-            <p class="italic text-gray-500 text-[13px] leading-[1.9]">「這一刻不用誰懂／在你碎裂的時候／痛也不說 別讓人發現你／大聲哭吧 只讓我找到你／無聲無息 讓眼淚修復你」</p>
-            <p class="text-[11px] text-gray-400 mt-1.5">—〈活在自己的世界〉</p>
-          </div>
-          <div>
-            <p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">評審簡介</p>
-            <p class="text-[13px] text-gray-600 leading-[1.9]">放飛音樂 WiFi Music 廠牌主理人、守夜人 Night Keepers 團長，作家安眠巫師，擅長將孤單與焦慮轉化為創作靈感，治癒日常突如其來的失落情緒。跨足詞曲、製作、編曲及影視配樂等領域，致力於音樂領域的跨界發展。</p>
-          </div>
-          <div>
-            <p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">代表作品</p>
-            <div class="space-y-3 text-[12px] text-gray-500 leading-[1.85]">
-              <div>
-                <p class="font-medium text-gray-600">詞曲作品</p>
-                <p>田馥甄〈田〉〈底里歇斯〉、周興哲〈明明〉、許光漢〈Souffié〉作曲</p>
-              </div>
-              <div>
-                <p class="font-medium text-gray-600">製作與編曲</p>
-                <p>林宥嘉〈船〉、曾沛慈〈最後一次哭〉配唱與編曲製作、共同製作靈魂沙發「失望的山」、溫室雜草「intro 鞋」</p>
-              </div>
-              <div>
-                <p class="font-medium text-gray-600">影視音樂製作</p>
-                <p>電影《該死的阿修羅》配樂總監（代表臺灣角逐第95屆奧斯卡金像獎最佳國際影片）、電影《夏日最後的祕密》、電視劇《四樓的天堂》配樂及歌曲製作</p>
-              </div>
-              <div>
-                <p class="font-medium text-gray-600">樂團—守夜人</p>
-                <p>發行《永夜島》《使者》《Retune》三張專輯及數首單曲，並擔任2025年守夜人「我以為我跟宇宙說好了」亞洲巡演音樂總監</p>
-              </div>
-            </div>
-          </div>
-          <div>
-            <p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">獲獎經歷</p>
-            <div class="space-y-1 text-[12px] text-gray-500 leading-[1.85]">
-              <p>2025 第二屆街聲年度音樂趨勢大獎 分類榜綜合表現民謠類</p>
-              <p>2024 〈漂浮到〉獲選 AppleMusic 百大單曲</p>
-              <p>2024 擔任第16屆金馬學院配樂導師</p>
-              <p>2023 擔任第16屆 FreshmusicAward 首次實體典禮音樂總監</p>
-              <p>2022 獲得第24屆台北電影節最佳配樂獎（電影《該死的阿修羅》）</p>
-              <p>2021 入圍第32屆金曲獎最佳演唱組合</p>
-              <p>2020 詞曲作品〈抛〉獲選中華音樂人交流協會年度十大單曲</p>
-            </div>
-          </div>
-        </div>
-      </div>
+      <div class="acc-content"><div class="px-5 pb-6 space-y-5">
+        <div class="border-l-4 border-[#1A2F23] pl-4"><p class="italic text-gray-500 text-[13px] leading-[1.9]">「這一刻不用誰懂／在你碎裂的時候／痛也不說 別讓人發現你／大聲哭吧 只讓我找到你／無聲無息 讓眼淚修復你」</p><p class="text-[11px] text-gray-400 mt-1.5">—〈活在自己的世界〉</p></div>
+        <div><p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">評審簡介</p><p class="text-[13px] text-gray-600 leading-[1.9]">放飛音樂 WiFi Music 廠牌主理人、守夜人 Night Keepers 團長，跨足詞曲、製作、編曲及影視配樂等領域。電影《該死的阿修羅》配樂總監（代表臺灣角逐第95屆奧斯卡金像獎最佳國際影片）。</p></div>
+        <div><p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">獲獎經歷</p><div class="space-y-1 text-[12px] text-gray-500 leading-[1.85]"><p>2022 第24屆台北電影節最佳配樂獎</p><p>2021 入圍第32屆金曲獎最佳演唱組合</p><p>2020 詞曲作品〈抛〉獲選中華音樂人交流協會年度十大單曲</p></div></div>
+      </div></div>
     </div>
-  </div><!-- /prelim -->
+  </div>
 
-  <!-- 複賽 -->
   <div id="jtab-content-semi" class="hidden">
-
-    <!-- 林依霖 -->
     <div class="border border-gray-100 rounded-2xl overflow-hidden mb-4">
       <button onclick="toggleAcc(this)" class="w-full flex items-center justify-between px-5 py-4 text-left bg-white">
-        <div>
-          <p class="rnd font-bold text-[#1A2F23] text-sm">Elisa Lin 林依霖</p>
-          <p class="text-[11px] text-gray-400 mt-0.5">複賽評審 · 製作人、編曲</p>
-        </div>
+        <div><p class="rnd font-bold text-[#1A2F23] text-sm">Elisa Lin 林依霖</p><p class="text-[11px] text-gray-400 mt-0.5">複賽評審 · 製作人、編曲</p></div>
         <span class="acc-arrow text-gray-400 text-lg">▾</span>
       </button>
-      <div class="acc-content">
-        <div class="px-5 pb-6 space-y-5">
-          <div class="border-l-4 border-[#1A2F23] pl-4">
-            <p class="italic text-gray-500 text-[13px] leading-[1.9]">「漸漸發現需要承擔依賴／當初的未來／何時變成現在／慢慢了解人性並不坦然」</p>
-            <p class="text-[11px] text-gray-400 mt-1.5">—〈Go My Way〉</p>
-          </div>
-          <div>
-            <p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">評審簡介</p>
-            <p class="text-[13px] text-gray-600 leading-[1.9]">兼具紮實技術與細膩感性的全方位音樂人。自幼於洛杉磯成長，先後求學於紐約大學（NYU）與南加州大學（USC）音樂產業學系。憑藉逾二十年的產業資歷，以製作人、編曲及多項樂器演奏家身份深度參與華語樂壇。目前擔任「當道音樂 Downtown Music」錄音室副總經理。</p>
-          </div>
-          <div>
-            <p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">代表作品</p>
-            <div class="space-y-1 text-[12px] text-gray-500 leading-[1.85]">
-              <p>製作林以樂專輯《素顏的樣子》獲第15屆金音獎「最佳創作歌手」</p>
-              <p>五月天〈轉眼〉〈少年他的奇幻漂流〉〈凡人歌 feat.蕭敬騰〉共同製作編曲</p>
-              <p>林宥嘉〈代客求婚〉製作與編曲</p>
-              <p>主導田廣潤首張個人創作專輯全案製作</p>
-              <p>擔任王大文最新作品混音師</p>
-            </div>
-          </div>
-          <div>
-            <p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">演出經歷</p>
-            <div class="space-y-1 text-[12px] text-gray-500 leading-[1.85]">
-              <p>與蘇珮卿共同奪下第13屆金音獎「最佳現場演出獎」</p>
-              <p>曾統籌林以樂、小男孩樂團、格式塔少女之音樂總監</p>
-              <p>曾擔任林宥嘉、陶喆、哈林、張震嶽、蔡健雅等頂尖歌手之巡迴樂手</p>
-            </div>
-          </div>
-        </div>
-      </div>
+      <div class="acc-content"><div class="px-5 pb-6 space-y-5">
+        <div class="border-l-4 border-[#1A2F23] pl-4"><p class="italic text-gray-500 text-[13px] leading-[1.9]">「漸漸發現需要承擔依賴／當初的未來／何時變成現在」</p><p class="text-[11px] text-gray-400 mt-1.5">—〈Go My Way〉</p></div>
+        <div><p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">評審簡介</p><p class="text-[13px] text-gray-600 leading-[1.9]">兼具紮實技術與細膩感性的全方位音樂人。目前擔任「當道音樂 Downtown Music」錄音室副總經理。製作林以樂專輯《素顏的樣子》獲金音獎最佳創作歌手，五月天多首作品共同製作編曲。</p></div>
+      </div></div>
     </div>
-
-    <!-- 謝博安 -->
     <div class="border border-gray-100 rounded-2xl overflow-hidden mb-4">
       <button onclick="toggleAcc(this)" class="w-full flex items-center justify-between px-5 py-4 text-left bg-white">
-        <div>
-          <p class="rnd font-bold text-[#1A2F23] text-sm">謝博安</p>
-          <p class="text-[11px] text-gray-400 mt-0.5">複賽評審 · 鹿洐人主唱</p>
-        </div>
+        <div><p class="rnd font-bold text-[#1A2F23] text-sm">謝博安</p><p class="text-[11px] text-gray-400 mt-0.5">複賽評審 · 鹿洐人主唱</p></div>
         <span class="acc-arrow text-gray-400 text-lg">▾</span>
       </button>
-      <div class="acc-content">
-        <div class="px-5 pb-6 space-y-5">
-          <div class="border-l-4 border-[#1A2F23] pl-4">
-            <p class="italic text-gray-500 text-[13px] leading-[1.9]">「相信某一天 將與孤單分別／所以赤裸的等著／一樣的人／太多沒來由的失望／自欺欺人」</p>
-            <p class="text-[11px] text-gray-400 mt-1.5">—〈反方向〉</p>
-          </div>
-          <div>
-            <p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">評審簡介</p>
-            <p class="text-[13px] text-gray-600 leading-[1.9]">鹿洐人主唱兼木吉他手，曾在《超級偶像7》中以超高人氣奪得冠軍。由其領軍的鹿洐人於2018年成軍，以 Power Trio 為主要概念，藉由密不可分的三重奏關係融合各樣音樂類型，直率且有態度。近幾年主演電影《你的情歌》，並為其演唱多首音樂作品。</p>
-          </div>
-          <div>
-            <p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">發行作品</p>
-            <div class="space-y-1 text-[12px] text-gray-500 leading-[1.85]">
-              <p>2020 〈Better〉《你的情歌》電影原聲帶</p>
-              <p>2020 鹿洐人首張數位 EP《爛笑話》</p>
-              <p>2021 鹿洐人首張創作專輯《你在開玩笑嗎？》</p>
-              <p>2022 鹿洐人 EP《輸出.368》</p>
-              <p>2023 鹿洐人 EP《輸出.479》</p>
-            </div>
-          </div>
-          <div>
-            <p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">獲獎經歷</p>
-            <div class="space-y-1 text-[12px] text-gray-500 leading-[1.85]">
-              <p>2018 入選臺北音樂不斷電原創音樂優秀團隊</p>
-              <p>2025 單曲〈空洞〉獲選第2屆街聲年度音樂趨勢大獎年度二十大單曲</p>
-            </div>
-          </div>
-        </div>
-      </div>
+      <div class="acc-content"><div class="px-5 pb-6 space-y-5">
+        <div class="border-l-4 border-[#1A2F23] pl-4"><p class="italic text-gray-500 text-[13px] leading-[1.9]">「相信某一天 將與孤單分別／所以赤裸的等著」</p><p class="text-[11px] text-gray-400 mt-1.5">—〈反方向〉</p></div>
+        <div><p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">評審簡介</p><p class="text-[13px] text-gray-600 leading-[1.9]">鹿洐人主唱兼木吉他手，曾在《超級偶像7》奪得冠軍。鹿洐人於2018年成軍，以 Power Trio 為主要概念，近年主演電影《你的情歌》。</p></div>
+      </div></div>
     </div>
-
-    <!-- 宋家耘 -->
     <div class="border border-gray-100 rounded-2xl overflow-hidden mb-4">
       <button onclick="toggleAcc(this)" class="w-full flex items-center justify-between px-5 py-4 text-left bg-white">
-        <div>
-          <p class="rnd font-bold text-[#1A2F23] text-sm">宋家耘</p>
-          <p class="text-[11px] text-gray-400 mt-0.5">複賽評審 · 庸俗救星主唱、創作歌手</p>
-        </div>
+        <div><p class="rnd font-bold text-[#1A2F23] text-sm">宋家耘</p><p class="text-[11px] text-gray-400 mt-0.5">複賽評審 · 庸俗救星主唱、創作歌手</p></div>
         <span class="acc-arrow text-gray-400 text-lg">▾</span>
       </button>
-      <div class="acc-content">
-        <div class="px-5 pb-6 space-y-5">
-          <div class="border-l-4 border-[#1A2F23] pl-4">
-            <p class="italic text-gray-500 text-[13px] leading-[1.9]">「就讓我跳進這瘋狂／擺動不怕刺痛／也許只是漂亮掙扎／我也要用盡全力揮霍」</p>
-            <p class="text-[11px] text-gray-400 mt-1.5">—〈手動登出前的最後一支舞〉</p>
-          </div>
-          <div>
-            <p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">評審簡介</p>
-            <p class="text-[13px] text-gray-600 leading-[1.9]">庸俗救星 Vulgar Savior 主唱、創作歌手，創作內容形式多元，包含民謠、流行、電子音樂，同時跨足影像、戲劇、圖文創作等領域。喜歡有衝突美感的音樂或故事，也樂於挑戰音樂裡的衝突感。夢想是當小丸子或野田妹；還有寫一首讓人邊流淚邊跳舞的歌。</p>
-          </div>
-          <div>
-            <p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">發行作品</p>
-            <div class="space-y-1 text-[12px] text-gray-500 leading-[1.85]">
-              <p>2020 單曲〈白癡〉〈美好結局〉</p>
-              <p>2022 單曲〈手動登出前的最後一支舞〉〈日常絮語〉〈真戲假做〉</p>
-              <p>2023 單曲〈滿分少女的必要條件〉</p>
-            </div>
-          </div>
-          <div>
-            <p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">演出經歷</p>
-            <div class="space-y-1 text-[12px] text-gray-500 leading-[1.85]">
-              <p>2021 臺北音樂不斷電優勝六強巡迴演唱會</p>
-              <p>2023 靠運氣不如靠腰力 首場千人演唱會</p>
-              <p>2025 Little Battle 專輯同名巡迴</p>
-              <p>2025 基隆愛嶼搖滾音樂祭 / 釜山 Minrock Festa 音樂祭</p>
-              <p>2026 浮現祭 / 澀谷音樂節</p>
-            </div>
-          </div>
-        </div>
-      </div>
+      <div class="acc-content"><div class="px-5 pb-6 space-y-5">
+        <div class="border-l-4 border-[#1A2F23] pl-4"><p class="italic text-gray-500 text-[13px] leading-[1.9]">「就讓我跳進這瘋狂／我也要用盡全力揮霍」</p><p class="text-[11px] text-gray-400 mt-1.5">—〈手動登出前的最後一支舞〉</p></div>
+        <div><p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">評審簡介</p><p class="text-[13px] text-gray-600 leading-[1.9]">庸俗救星 Vulgar Savior 主唱、創作歌手，創作形式多元，包含民謠、流行、電子音樂。夢想是寫一首讓人邊流淚邊跳舞的歌。</p></div>
+      </div></div>
     </div>
-  </div><!-- /semi -->
+  </div>
 
-  <!-- 決賽 -->
   <div id="jtab-content-final" class="hidden">
-
-    <!-- 蘇文劭 -->
     <div class="border border-gray-100 rounded-2xl overflow-hidden mb-4">
       <button onclick="toggleAcc(this)" class="w-full flex items-center justify-between px-5 py-4 text-left bg-white">
-        <div>
-          <p class="rnd font-bold text-[#1A2F23] text-sm">蘇文劭 Shao</p>
-          <p class="text-[11px] text-gray-400 mt-0.5">決賽評審 · 民謠歌手、樂團主唱</p>
-        </div>
+        <div><p class="rnd font-bold text-[#1A2F23] text-sm">蘇文劭 Shao</p><p class="text-[11px] text-gray-400 mt-0.5">決賽評審 · 民謠歌手、樂團主唱</p></div>
         <span class="acc-arrow text-gray-400 text-lg">▾</span>
       </button>
-      <div class="acc-content">
-        <div class="px-5 pb-6 space-y-5">
-          <div class="border-l-4 border-[#1A2F23] pl-4">
-            <p class="italic text-gray-500 text-[13px] leading-[1.9]">「當我渴望 你的回答／放任所有流浪的靈魂／自問自答／誠如岸上的你所說／愛是原諒／即便悲傷 仍然善良」</p>
-            <p class="text-[11px] text-gray-400 mt-1.5">—〈誠如岸上的你所說〉</p>
-          </div>
-          <div>
-            <p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">評審簡介</p>
-            <p class="text-[13px] text-gray-600 leading-[1.9]">唱作暨推廣家，現居台北。是民謠歌手也是樂團主唱；作化雨春風也當快樂小狗。一生惜字、愛人。</p>
-          </div>
-          <div>
-            <p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">發行作品</p>
-            <div class="space-y-1 text-[12px] text-gray-500 leading-[1.85]">
-              <p>個人專輯：2024《春曲》、2020《雨停出來走走》</p>
-              <p>樂團 SONNIE 桑尼：2024《U Make Me SONNIE》</p>
-            </div>
-          </div>
-          <div>
-            <p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">演出經歷</p>
-            <div class="space-y-1 text-[12px] text-gray-500 leading-[1.85]">
-              <p>2026 台灣祭、新北春紛節</p>
-              <p>2025 臺北最High新年城、潮派鹿港、搖滾台中、大稻埕夏日節</p>
-            </div>
-          </div>
-        </div>
-      </div>
+      <div class="acc-content"><div class="px-5 pb-6 space-y-5">
+        <div class="border-l-4 border-[#1A2F23] pl-4"><p class="italic text-gray-500 text-[13px] leading-[1.9]">「愛是原諒／即便悲傷 仍然善良」</p><p class="text-[11px] text-gray-400 mt-1.5">—〈誠如岸上的你所說〉</p></div>
+        <div><p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">評審簡介</p><p class="text-[13px] text-gray-600 leading-[1.9]">唱作暨推廣家，現居台北。個人專輯：2024《春曲》、2020《雨停出來走走》。樂團 SONNIE 桑尼：2024《U Make Me SONNIE》。</p></div>
+      </div></div>
     </div>
-
-    <!-- 咖咖 -->
     <div class="border border-gray-100 rounded-2xl overflow-hidden mb-4">
       <button onclick="toggleAcc(this)" class="w-full flex items-center justify-between px-5 py-4 text-left bg-white">
-        <div>
-          <p class="rnd font-bold text-[#1A2F23] text-sm">咖咖</p>
-          <p class="text-[11px] text-gray-400 mt-0.5">決賽評審 · VH 主唱、作詞人、作曲人</p>
-        </div>
+        <div><p class="rnd font-bold text-[#1A2F23] text-sm">咖咖</p><p class="text-[11px] text-gray-400 mt-0.5">決賽評審 · VH 主唱、作詞人、作曲人</p></div>
         <span class="acc-arrow text-gray-400 text-lg">▾</span>
       </button>
-      <div class="acc-content">
-        <div class="px-5 pb-6 space-y-5">
-          <div class="border-l-4 border-[#1A2F23] pl-4">
-            <p class="italic text-gray-500 text-[13px] leading-[1.9]">「我的一切／壓抑的偏見／執拗的精確／愛和後悔／深刻與殘缺／全都事過境遷」</p>
-            <p class="text-[11px] text-gray-400 mt-1.5">—〈歸屬Eleanor〉</p>
-          </div>
-          <div>
-            <p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">評審簡介</p>
-            <p class="text-[13px] text-gray-600 leading-[1.9]">創作組合 VH 主唱、作詞人、作曲人、唱片企劃、配唱。現場演出經驗豐富，曾任歌唱教學老師。發行三張專輯，以探討「人心與人性」為核心，擅長使用深刻而細膩的詞曲創作，打造兼具詩意美感及強烈情感張力的音樂作品；風格敘事擁有鮮明辨識度，是華語音樂界中不可忽視的存在。</p>
-          </div>
-          <div>
-            <p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">發行作品</p>
-            <div class="space-y-1 text-[12px] text-gray-500 leading-[1.85]">
-              <p>2018 VH 專輯《求救訊號 I'm Not OK》</p>
-              <p>2021 VH 專輯《文明 The Great Beyond》</p>
-              <p>2024 VH 創作專輯《五常法則(5S)》</p>
-              <p>2025 VH 單曲〈成為藝術之前的必要脆弱與非必要沉默〉</p>
-              <p>2026 VH 單曲〈風吹過〉</p>
-            </div>
-          </div>
-          <div>
-            <p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">獲獎經歷</p>
-            <div class="space-y-1 text-[12px] text-gray-500 leading-[1.85]">
-              <p>2018 〈與浪之間〉入圍第29屆金曲獎最佳音樂錄影帶獎</p>
-              <p>2019 《求救訊號》入圍第30屆金曲獎最佳演唱組合</p>
-              <p>2022 《文明》入圍第33屆金曲獎最佳演唱組合</p>
-              <p>2022 獲第15屆 Freshmusic Awards「最佳創作／演唱組合」獎</p>
-            </div>
-          </div>
-        </div>
-      </div>
+      <div class="acc-content"><div class="px-5 pb-6 space-y-5">
+        <div class="border-l-4 border-[#1A2F23] pl-4"><p class="italic text-gray-500 text-[13px] leading-[1.9]">「全都事過境遷」</p><p class="text-[11px] text-gray-400 mt-1.5">—〈歸屬Eleanor〉</p></div>
+        <div><p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">評審簡介</p><p class="text-[13px] text-gray-600 leading-[1.9]">創作組合 VH 主唱。2022《文明》入圍第33屆金曲獎最佳演唱組合。2024《五常法則(5S)》。</p></div>
+      </div></div>
     </div>
-
-    <!-- 施文彬 -->
     <div class="border border-gray-100 rounded-2xl overflow-hidden mb-4">
       <button onclick="toggleAcc(this)" class="w-full flex items-center justify-between px-5 py-4 text-left bg-white">
-        <div>
-          <p class="rnd font-bold text-[#1A2F23] text-sm">施文彬</p>
-          <p class="text-[11px] text-gray-400 mt-0.5">決賽評審 · 流行音樂創作人、製作人</p>
-        </div>
+        <div><p class="rnd font-bold text-[#1A2F23] text-sm">施文彬</p><p class="text-[11px] text-gray-400 mt-0.5">決賽評審 · 流行音樂創作人、製作人</p></div>
         <span class="acc-arrow text-gray-400 text-lg">▾</span>
       </button>
-      <div class="acc-content">
-        <div class="px-5 pb-6 space-y-5">
-          <div class="border-l-4 border-[#1A2F23] pl-4">
-            <p class="italic text-gray-500 text-[13px] leading-[1.9]">「一場夢／如今依然沒改變／一路走來／已經過了幾個春天／那些愛 那些恨／驀然回首都不見／慢慢變成／臉上的皺紋」</p>
-            <p class="text-[11px] text-gray-400 mt-1.5">—〈皺紋〉</p>
-          </div>
-          <div>
-            <p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">評審簡介</p>
-            <p class="text-[13px] text-gray-600 leading-[1.9]">流行音樂創作人、專輯製作人，以多首臺語音樂作品為人所知。演藝資歷深厚，曾與陳亞蘭、秀蘭瑪雅、孫淑媚等臺語歌壇重量級歌手合作。發行逾三十張專輯，擅長透過動人的聲線演繹，融合本土與現代風格，打造具生活共鳴的音樂作品；跨足歌曲創作與電玩領域，是樂壇與遊戲產業中獨具地位的跨界標竿。</p>
-          </div>
-          <div>
-            <p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">代表作品</p>
-            <div class="space-y-1 text-[12px] text-gray-500 leading-[1.85]">
-              <p>2023《有歲》／2020《緊來去—台灣音樂地理雜誌》／2018《無輸無贏》</p>
-              <p>代表單曲：〈傷心酒店〉〈再會啦！心愛的無緣的人〉〈你愛的不是我〉〈深深愛你〉〈愛愈深心愈凝〉</p>
-            </div>
-          </div>
-          <div>
-            <p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">獲獎經歷</p>
-            <div class="space-y-1 text-[12px] text-gray-500 leading-[1.85]">
-              <p>2016《歌聲進鄉團》入圍第27屆金曲獎最佳台語專輯獎</p>
-              <p>2015《文跡奇武③歸組害了了》入圍第26屆金曲獎最佳台語男歌手獎</p>
-              <p>2007《真情味》獲得第18屆金曲獎最佳台語男歌手獎</p>
-            </div>
-          </div>
-        </div>
-      </div>
+      <div class="acc-content"><div class="px-5 pb-6 space-y-5">
+        <div class="border-l-4 border-[#1A2F23] pl-4"><p class="italic text-gray-500 text-[13px] leading-[1.9]">「慢慢變成／臉上的皺紋」</p><p class="text-[11px] text-gray-400 mt-1.5">—〈皺紋〉</p></div>
+        <div><p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">評審簡介</p><p class="text-[13px] text-gray-600 leading-[1.9]">流行音樂創作人、專輯製作人。2007《真情味》獲第18屆金曲獎最佳台語男歌手獎。</p></div>
+      </div></div>
     </div>
-  </div><!-- /final -->
-
+  </div>
   <p class="text-center text-gray-300 text-[11px] leading-relaxed mt-10">感謝所有評審老師的參與與支持 🎵</p>
 </div>
 
-
-
 <!-- 初賽講評 -->
 <div id="page-review" class="page pt-8 pb-20 md:pb-48 lg:pb-64">
-  <button onclick="showPage('player');showPlayerTab('signup')" class="flex items-center gap-2 text-[#1A2F23] rnd text-sm font-medium mb-8 hover:opacity-70 transition-opacity">
-    <span>←</span> 返回選手專區
-  </button>
+  <button onclick="showPage('player');showPlayerTab('signup')" class="flex items-center gap-2 text-[#1A2F23] rnd text-sm font-medium mb-8 hover:opacity-70 transition-opacity"><span>←</span> 返回選手專區</button>
   <p class="rnd text-[10px] tracking-[.22em] text-[#1A2F23] uppercase mb-2">初賽講評</p>
   <div class="w-6 h-0.5 bg-[#1A2F23] rounded-full mb-6"></div>
   <h2 class="rnd text-xl font-bold text-[#1A2F23] mb-1">第十三屆臺大音韻獎</h2>
   <p class="text-[13px] text-gray-400 mb-8">初賽講評｜陳惠婷老師 × 秦旭章老師</p>
-
   <div class="space-y-4">
-
-    <!-- 學生獨唱組 -->
     <div class="border border-gray-100 rounded-2xl overflow-hidden">
-      <button onclick="toggleAcc(this)" class="w-full flex items-center justify-between px-5 py-4 text-left bg-white">
-        <p class="rnd font-semibold text-[#1A2F23] text-sm">學生獨唱組</p>
-        <span class="acc-arrow open text-gray-400 text-lg">▾</span>
-      </button>
+      <button onclick="toggleAcc(this)" class="w-full flex items-center justify-between px-5 py-4 text-left bg-white"><p class="rnd font-semibold text-[#1A2F23] text-sm">學生獨唱組</p><span class="acc-arrow open text-gray-400 text-lg">▾</span></button>
       <div class="acc-content open px-5 pb-5 space-y-4">
-        <div class="bg-gray-50 rounded-xl p-4">
-          <p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">陳惠婷老師</p>
-          <p class="text-[13px] text-gray-600 leading-[1.9]">發展個人的風格很重要，比起唱得平順或者模仿得很像，擁有個人風格才是能突出的重點。使用轉音技巧要很小心，不然容易失去音準或變得很油，也會拉低格調，表現情感的方式往往不在這裡。唱歌還是要自然，刻意的咬字聽感上不太舒服。有的時候不要想太多，唱歌其實是分享人類情感本能的一種表現，享受在音樂裡，自然地表達，才能有最適合的詮釋方式，而且沒有標準答案，過於刻意反而失去了靈魂。</p>
-        </div>
-        <div class="bg-gray-50 rounded-xl p-4">
-          <p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">秦旭章老師</p>
-          <p class="text-[13px] text-gray-600 leading-[1.9]">整體表現比社會組的多元性多一點，期待你們更注意細節，選歌的選俗度跟 key 都很重要。</p>
-        </div>
+        <div class="bg-gray-50 rounded-xl p-4"><p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">陳惠婷老師</p><p class="text-[13px] text-gray-600 leading-[1.9]">發展個人的風格很重要，比起唱得平順或者模仿得很像，擁有個人風格才是能突出的重點。使用轉音技巧要很小心，不然容易失去音準或變得很油，也會拉低格調。唱歌還是要自然，享受在音樂裡，自然地表達，才能有最適合的詮釋方式，過於刻意反而失去了靈魂。</p></div>
+        <div class="bg-gray-50 rounded-xl p-4"><p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">秦旭章老師</p><p class="text-[13px] text-gray-600 leading-[1.9]">整體表現比社會組的多元性多一點，期待你們更注意細節，選歌的選俗度跟 key 都很重要。</p></div>
       </div>
     </div>
-
-    <!-- 社會獨唱組 -->
     <div class="border border-gray-100 rounded-2xl overflow-hidden">
-      <button onclick="toggleAcc(this)" class="w-full flex items-center justify-between px-5 py-4 text-left bg-white">
-        <p class="rnd font-semibold text-[#1A2F23] text-sm">社會獨唱組</p>
-        <span class="acc-arrow text-gray-400 text-lg">▾</span>
-      </button>
+      <button onclick="toggleAcc(this)" class="w-full flex items-center justify-between px-5 py-4 text-left bg-white"><p class="rnd font-semibold text-[#1A2F23] text-sm">社會獨唱組</p><span class="acc-arrow text-gray-400 text-lg">▾</span></button>
       <div class="acc-content px-5 pb-5 space-y-4">
-        <div class="bg-gray-50 rounded-xl p-4">
-          <p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">陳惠婷老師</p>
-          <p class="text-[13px] text-gray-600 leading-[1.9]">音準的部分可以再多加注意，更需要投入在歌裡，不然聽起來多是會平平的。擁有個人特色的唱法還是更容易出色。</p>
-        </div>
-        <div class="bg-gray-50 rounded-xl p-4">
-          <p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">秦旭章老師</p>
-          <p class="text-[13px] text-gray-600 leading-[1.9]">整體特色不足，有一些人的音色有機會，如果真的有興趣加強，可以找到更多有幫助的細節，例如：怎麼找 key、定速度，都會有影響，跟學生獨唱組的建議一樣。</p>
-        </div>
+        <div class="bg-gray-50 rounded-xl p-4"><p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">陳惠婷老師</p><p class="text-[13px] text-gray-600 leading-[1.9]">音準的部分可以再多加注意，更需要投入在歌裡，不然聽起來多是會平平的。擁有個人特色的唱法還是更容易出色。</p></div>
+        <div class="bg-gray-50 rounded-xl p-4"><p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">秦旭章老師</p><p class="text-[13px] text-gray-600 leading-[1.9]">整體特色不足，如果真的有興趣加強，可以找到更多有幫助的細節，例如：怎麼找 key、定速度。</p></div>
       </div>
     </div>
-
-    <!-- 重、對唱組 -->
     <div class="border border-gray-100 rounded-2xl overflow-hidden">
-      <button onclick="toggleAcc(this)" class="w-full flex items-center justify-between px-5 py-4 text-left bg-white">
-        <p class="rnd font-semibold text-[#1A2F23] text-sm">重、對唱組</p>
-        <span class="acc-arrow text-gray-400 text-lg">▾</span>
-      </button>
+      <button onclick="toggleAcc(this)" class="w-full flex items-center justify-between px-5 py-4 text-left bg-white"><p class="rnd font-semibold text-[#1A2F23] text-sm">重、對唱組</p><span class="acc-arrow text-gray-400 text-lg">▾</span></button>
       <div class="acc-content px-5 pb-5 space-y-4">
-        <div class="bg-gray-50 rounded-xl p-4">
-          <p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">陳惠婷老師</p>
-          <p class="text-[13px] text-gray-600 leading-[1.9]">重唱、對唱很注重音準跟和聲編排的對位，差一點的話都會很可惜。如果合唱者的頻率能夠在同一個共振頻率的話，聽感會很舒服。重唱、合唱很容易只顧技巧音準或自己的表現，但這樣情感的詮釋會扣分。</p>
-        </div>
-        <div class="bg-gray-50 rounded-xl p-4">
-          <p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">秦旭章老師</p>
-          <p class="text-[13px] text-gray-600 leading-[1.9]">少就是多，不一定要全部和好和滿，有空間感，多聽對方的聲音給予回應，是整體希望給大家可貴的意見！</p>
-        </div>
+        <div class="bg-gray-50 rounded-xl p-4"><p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">陳惠婷老師</p><p class="text-[13px] text-gray-600 leading-[1.9]">重唱、對唱很注重音準跟和聲編排的對位，差一點的話都會很可惜。重唱、合唱很容易只顧技巧音準或自己的表現，但這樣情感的詮釋會扣分。</p></div>
+        <div class="bg-gray-50 rounded-xl p-4"><p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">秦旭章老師</p><p class="text-[13px] text-gray-600 leading-[1.9]">少就是多，不一定要全部和好和滿，有空間感，多聽對方的聲音給予回應！</p></div>
       </div>
     </div>
-
-    <!-- 創作組 -->
     <div class="border border-gray-100 rounded-2xl overflow-hidden">
-      <button onclick="toggleAcc(this)" class="w-full flex items-center justify-between px-5 py-4 text-left bg-white">
-        <p class="rnd font-semibold text-[#1A2F23] text-sm">創作組</p>
-        <span class="acc-arrow text-gray-400 text-lg">▾</span>
-      </button>
+      <button onclick="toggleAcc(this)" class="w-full flex items-center justify-between px-5 py-4 text-left bg-white"><p class="rnd font-semibold text-[#1A2F23] text-sm">創作組</p><span class="acc-arrow text-gray-400 text-lg">▾</span></button>
       <div class="acc-content px-5 pb-5 space-y-4">
-        <div class="bg-gray-50 rounded-xl p-4">
-          <p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">陳惠婷老師</p>
-          <p class="text-[13px] text-gray-600 leading-[1.9]">創作最重要的是個人風格和新意，比起很像某些受歡迎的歌曲，個人原創風格還是最重要的，建議大家可以多聽各種風格的音樂，也可以因此拓展自己的創作領域。</p>
-        </div>
-        <div class="bg-gray-50 rounded-xl p-4">
-          <p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">秦旭章老師</p>
-          <p class="text-[13px] text-gray-600 leading-[1.9]">在音樂性、投入感與技巧，是四組裡面最成熟的，希望能有機會真的見到你們的演出，我也願意繼續陪伴與分享！</p>
-        </div>
+        <div class="bg-gray-50 rounded-xl p-4"><p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">陳惠婷老師</p><p class="text-[13px] text-gray-600 leading-[1.9]">創作最重要的是個人風格和新意，建議大家可以多聽各種風格的音樂，拓展自己的創作領域。</p></div>
+        <div class="bg-gray-50 rounded-xl p-4"><p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">秦旭章老師</p><p class="text-[13px] text-gray-600 leading-[1.9]">在音樂性、投入感與技巧，是四組裡面最成熟的，希望能有機會真的見到你們的演出，我也願意繼續陪伴與分享！</p></div>
       </div>
     </div>
-
-    <!-- 整體綜合評語 -->
     <div class="border border-[#C8A84B]/30 bg-[#C8A84B]/5 rounded-2xl overflow-hidden">
-      <button onclick="toggleAcc(this)" class="w-full flex items-center justify-between px-5 py-4 text-left">
-        <p class="rnd font-semibold text-[#1A2F23] text-sm">整體綜合評語</p>
-        <span class="acc-arrow text-gray-400 text-lg">▾</span>
-      </button>
+      <button onclick="toggleAcc(this)" class="w-full flex items-center justify-between px-5 py-4 text-left"><p class="rnd font-semibold text-[#1A2F23] text-sm">整體綜合評語</p><span class="acc-arrow text-gray-400 text-lg">▾</span></button>
       <div class="acc-content px-5 pb-5 space-y-4">
-        <div class="bg-white rounded-xl p-4">
-          <p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">陳惠婷老師</p>
-          <p class="text-[13px] text-gray-600 leading-[1.9]">不論是歌唱組還是創作組，找到自己的風格還是最重要的，其次就是享受在音樂中，用「心」去表達，真摯的情感有無與否，聽眾都能感受到的。</p>
-        </div>
-        <div class="bg-white rounded-xl p-4">
-          <p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">秦旭章老師</p>
-          <p class="text-[13px] text-gray-600 leading-[1.9]">總體來說，這次四組裡面有發現很多組，創作性很夠，但對於原創性（包含聲音跟歌詞），感覺大家在一個迷惘的階段，還在揣摩別人的聲音跟技巧，唯獨創作組這邊反而有更多的彈性。當然，在獨唱組的地方也聽到了一些極具特色的嗓音，只是還沒找到自己適合的 key 跟速度，希望未來有一天見到、聽到能夠給予更好的建議，期待大家的努力！</p>
-        </div>
+        <div class="bg-white rounded-xl p-4"><p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">陳惠婷老師</p><p class="text-[13px] text-gray-600 leading-[1.9]">不論是歌唱組還是創作組，找到自己的風格還是最重要的，其次就是享受在音樂中，用「心」去表達，真摯的情感有無與否，聽眾都能感受到的。</p></div>
+        <div class="bg-white rounded-xl p-4"><p class="rnd text-[11px] font-semibold text-[#1A2F23] mb-2">秦旭章老師</p><p class="text-[13px] text-gray-600 leading-[1.9]">總體來說，這次四組裡面有發現很多組，創作性很夠，但對於原創性，感覺大家在一個迷惘的階段，還在揣摩別人的聲音跟技巧，唯獨創作組這邊反而有更多的彈性。期待大家的努力！</p></div>
       </div>
     </div>
-
   </div>
-
   <p class="text-center text-gray-400 text-[12px] leading-relaxed mt-10 px-4">再次感謝陳惠婷老師、秦旭章老師擔任初賽評審，<br>並用心寫下給選手的諸多回饋！預祝大家複賽順利。🎵</p>
+</div>
 </div>
 
 </main>
-
-<!-- 頁尾 -->
-
 
 
 <footer id="page-contact" class="bg-[#1A2F23] px-6 pt-14 pb-10 mt-4">
   <div class="max-w-lg mx-auto">
     <img src="logo_hero.png" alt="臺大音韻獎" class="h-14 object-contain mb-8"
-      onerror="this.outerHTML='<p class='rnd text-xl font-bold tracking-wider mb-8' style='color:#C8A84B'>臺大音韻獎</p>'">
+      onerror="this.outerHTML='<p class=\'rnd text-xl font-bold tracking-wider mb-8\' style=\'color:#C8A84B\'>臺大音韻獎</p>'">
     <div class="space-y-5 mb-10">
       <a href="mailto:ntumusicawardofficial@gmail.com" class="flex items-center gap-4 group">
-        <img src="data:image/png;base64,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" alt="Email" class="w-7 h-7 object-contain flex-shrink-0 opacity-80 group-hover:opacity-100 transition-opacity">
-        <div><p class="rnd text-[10px] text-emerald-400 tracking-[.12em] mb-1">官方信箱</p><p class="text-sm text-white opacity-60 group-hover:opacity-100 transition-opacity">ntumusicawardofficial@gmail.com</p></div>
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAHrklEQVR4nO1b0Ysbxx3+dnYln6UeudjnNm3dEvchDU6uuC60UPpSEwotJNA/oBAITkxpQhwo9O3IW19icB6SkgfX4Jfab34IbeKSmrS0UNxyJZiaJs4d11Mtn8OtpNVKO7u/mV8ftCPN7a3OurvVnezcB2LFaHbm9337m29nZ0fAPvaxj88znGwBMwsAYg9i2Q1ox3F07i/z8/MiJf9Qg5nF/Px8n6djCo0yYRh+x3XdU47jHCuXywI5WfKAgeM41sz8qVLqT9Vq9R+Axdlcdd/3Hyeiq1prfpgRx/FV3/cf74sAAM1m85vVavUD13W/AkCnn76Cu3vBCoedwQKAUEr9j4h+ODU19R9ncXFx6ujRo3/1PO/bWutECFHaq0h3A4YjEf1zcXHx+04Yhi9XKpU3ARAAz6rLAByt9R0hhAZQBqAw+Z7AAFwAsdZaCCG+nJbZcRMAr9PpvOKVy+Xn0wrZOwADADPfbjQaP5uZmakBqKYnTzI8AGGj0fjq9PT0JQCPYaMAAgCXy+XnQUTtHK9Q9pGIbrZareMAwMwTmwEmtlardZyIbma4UJYkEbWRJMkwwyT7SETNMAyfSzsqMbNgZmdCPoKZSwAQhuFzRNTM45BFkiSMOI7XEW61WpejKLpo6jCzVkoZFTmKorNGbZ6AiZO5EAAQRdFZE2cas045cBzHvw3D8Hc21ziO1wmQMDMHQfAOACRJci4t19xLI3NkKeVbZjbFzO4ekneB3ixWSvmW4Z6JmaWU5wAgCIJ3bK65AoRheNEoGobhGaVUNo3Mye/XarXZNBBveJhjI+8BQK1Wm43j+H07NhOrUiqRUp5O6zspt/sKcCE9YQoAut3uM0qpe5kOEmZmIroVBMHcbotg+gqCYI6IbuXFppRa7Xa7p2wuYRhe2IoAnuno3r17TxLRR0NEaIRh+Kx1ztjuEtzzHS8l8ywRNYbE9K9ms/lElseWBbCPvu/PENG7eammtR67OXLG7MwzS9bsiOjq7du3H8njsC0B0u99o5NSvpnWNx2P3Rz5/mZn+n8jL+YdC2A6N1c2iqJXrKfGsZojj2Z2qtvt/jyt38+UQgVIy/pjMIqinxCRnwmoUHPkEcyOiD7rdrs/MvWz5AsVICewpzcJbNvmyKOb3UetVuvJUeMtTAD791arNUtE1/JSM2OOIy252fXCMDxrD7X0uwn+Xd/3Z7YSa6ECpHVcALhy5YqbJMlv0nY2mGMURW+PYo5smV0URW8Pa09KeT57zp4IkNazb0+/5AFUprNNzZFHMzsdx/EvTL/24uaeCZDWdcyViKLop0qpwA6cB2P230EQPJ1tnzc3O/M0uhZF0Y9Nfd6ap4xXgGxH7Xb7JBEt5mWCUsqPosg2x83MzqxH3AqC4KmdxjV2AezzGo3Go1LKv7E1dq2M6JsjAMRx/CoP0L+3M7Mmoj/XarVKETHlCVD4A8z169cBAJ1O57FKpXLYjgO9pSgNAAcOHDjX7Xa/LoRAqVR6FYDWWjtCCAGAhRAOAHYc5+iRI0eOA7hRdKwAMJYhUK/X5+I4Xk2vZPZFg8och5Vxmj3MzI04jr+307jyMqCwhxZm9hzHoXq9Pnf48OFrpVLpCADVu6BgrTVprVfRywJKjyr99Mu01qtaa8LgfYQG8Ijrur+XUp5wHIe2OxTyUIgAhvzy8vLcoUOHrnme9yUMiGkADjOf9n3/pFLqBnort0YEQ95TSt3wff8kM59GbxVXp0clhHi0XC7/QUo5V6gIBcwD7LSvW0amebD29pKpv7CwUI3j+HIm1TmO48sLCwtVK66X8tpi5rqUckvPGZsNgZ3OBPvkkyTJJU9EL5q6bE2FpZSvE9EaEa1JKV+32hSmXSJ6sQgRxiLAFsmXrPMcTicxtVpt1pod9svtc4aJoJQaWYTCBTC/LS8vD037PPKZNty875k6hYhQqABFkLfaWnfVtyvC/dYeChOgSPJbwU5FKESAUcgbty+SfFaEYXcHIhoqwo4F2GvyWxFhbW1tgwg7EmBSyO9EhG0LMAr5cYz5UUUY5glZEbYrwNQkks+KwMy5IiRJUq/X60aE0V+NBUFwgdMZ26SSz4owLBMyIoiRBGi325cAYGVl5cQkkzcYRYSVlZUTABCG4aVRBDi/tLR0zDzPTzJ5gxFEWF1aWjrWbrfPbyaASofAh1EUfZLX0G66/VZhiZB7d4ii6JMgCD60uWYFyEKnLyJM5TNpR2Xe+z1Bwz5lAIjj+IxNlAcrS+uQJAmDiMIscV7/MoKJ6IWU/MTuEDMwMRLRCxafdVtmDJRSbY+ZPwbwLQwWLR0MVmO0UupXruteZOZDABLmyd85y73hcFEpNeO67q8xWHkyMKtUHzudTue1gwcPvoGNO0WB3rLWfwF8Aev3Dz8IEADaAL6G3s5RGwTAk1K+5ty5c6c6Ozv7d8/zjgNIAEycwRWMBEBJKXXz7t2733UAIAiCpyqVygdCiC/i87FbfLXb7Z6anp6+CU5nfc1m8wkp5Xt5bvkwgYjeszZQiQ3/GOl0Oj9wXfcZZv6GEMLVWk+8828GIQRrrZXjOJ8qpf5YqVT+AqznDFPAD8BtbqfgzC62vP00bl75QwJ2HEftdRD72Mc+9jEx+D/Oy62YUXYNswAAAABJRU5ErkJggg==" alt="email" class="w-6 h-6 object-contain flex-shrink-0" style="filter:brightness(0) invert(1);">
+        <span class="text-white/70 text-sm group-hover:text-white transition-colors">ntumusicawardofficial@gmail.com</span>
       </a>
-      <a href="https://www.facebook.com/NTUMusicAward" target="_blank" class="flex items-center gap-4 group">
-        <img src="data:image/png;base64,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" alt="Facebook" class="w-7 h-7 object-contain flex-shrink-0 opacity-80 group-hover:opacity-100 transition-opacity">
-        <div><p class="rnd text-[10px] text-emerald-400 tracking-[.12em] mb-1">臉書專頁</p><p class="text-sm text-white opacity-60 group-hover:opacity-100 transition-opacity">NTU Music Award</p></div>
+      <a href="https://www.facebook.com/ntumusicaward" target="_blank" class="flex items-center gap-4 group">
+        <img src="data:image/png;base64,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" alt="facebook" class="w-6 h-6 object-contain flex-shrink-0" style="filter:brightness(0) invert(1);">
+        <span class="text-white/70 text-sm group-hover:text-white transition-colors">臺大音韻獎</span>
       </a>
-      <a href="https://www.instagram.com/ntu_musicawards" target="_blank" class="flex items-center gap-4 group">
-        <img src="data:image/png;base64,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" alt="Instagram" class="w-7 h-7 object-contain flex-shrink-0 opacity-80 group-hover:opacity-100 transition-opacity">
-        <div><p class="rnd text-[10px] text-emerald-400 tracking-[.12em] mb-1">Instagram</p><p class="text-sm text-white opacity-60 group-hover:opacity-100 transition-opacity">@ntu_musicawards</p></div>
+      <a href="https://www.instagram.com/ntu_musicaward/" target="_blank" class="flex items-center gap-4 group">
+        <img src="data:image/png;base64,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" alt="instagram" class="w-6 h-6 object-contain flex-shrink-0" style="filter:brightness(0) invert(1);">
+        <span class="text-white/70 text-sm group-hover:text-white transition-colors">@ntu_musicaward</span>
       </a>
     </div>
-
-
-    <div class="border-t border-white/10 pt-7 text-center">
-      <p class="rnd text-[11px] text-emerald-400 tracking-wide mb-2">主辦單位</p>
-      <p class="text-sm text-white opacity-40">國立臺灣大學流行音樂歌唱社</p>
-      <p class="text-[10px] text-white opacity-20 mt-3">© 2026 第十三屆臺大音韻獎 · All rights reserved.</p>
+    <div class="border-t border-white/10 pt-6">
+      <p class="rnd text-[11px] text-white/40 mb-1">主辦單位</p>
+      <p class="rnd text-sm text-white/60">國立臺灣大學流行音樂歌唱社</p>
     </div>
+    <p class="text-white opacity-20 mt-3 text-[11px]">© 2026 第十三屆臺大音韻獎 · All rights reserved.</p>
   </div>
 </footer>
+
+
+<!-- 返回頂部 -->
+<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="返回頂部">↑</button>
+
+<!-- 瓢蟲 SVG -->
+<div id="ladybug" style="position:fixed;width:24px;height:24px;z-index:500;pointer-events:none;left:0px;top:200px;" aria-hidden="true">
+  <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <ellipse cx="50" cy="58" rx="34" ry="30" fill="#d42b2b"/>
+    <circle cx="50" cy="26" r="16" fill="#1a1a1a"/>
+    <line x1="50" y1="30" x2="50" y2="88" stroke="#1a1a1a" stroke-width="4"/>
+    <circle cx="35" cy="48" r="8" fill="#1a1a1a"/>
+    <circle cx="65" cy="48" r="8" fill="#1a1a1a"/>
+    <circle cx="36" cy="70" r="7" fill="#1a1a1a"/>
+    <circle cx="64" cy="70" r="7" fill="#1a1a1a"/>
+    <line x1="42" y1="14" x2="30" y2="2" stroke="#1a1a1a" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="29" cy="2" r="3" fill="#1a1a1a"/>
+    <line x1="58" y1="14" x2="70" y2="2" stroke="#1a1a1a" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="71" cy="2" r="3" fill="#1a1a1a"/>
+    <ellipse cx="40" cy="50" rx="6" ry="4" fill="rgba(255,255,255,0.2)" transform="rotate(-20,40,50)"/>
+  </svg>
+</div>
 
 <script>
   const allPages=['home','about','player','program','judges','review'];
@@ -2184,7 +1748,7 @@
     el.classList.add('active','fade-in');
     const hm=document.getElementById('hero-main');
     const hp=document.getElementById('hero-program');
-    // hero 不切換
+    // hero ���
     
     ['home','about','player','contact','judges'].forEach(n=>{
       const b=document.getElementById('nav-'+n);
@@ -2195,7 +1759,7 @@
   function scrollToContact(){ window.scrollTo({top: document.getElementById('page-contact').offsetTop, behavior:'smooth'}); }
 
 
-  // ── 節目表即時搜尋 ──
+  // �� ������� ��
   function doProgramSearch(){
     const input = document.getElementById('program-search');
     if(input) programSearch(input.value);
@@ -2243,7 +1807,7 @@
       prog.querySelectorAll('.acc-content').forEach(ac => {
         const arrow = ac.previousElementSibling && ac.previousElementSibling.querySelector('.acc-arrow');
         const title = (ac.previousElementSibling && ac.previousElementSibling.querySelector('p.rnd.font-semibold') && ac.previousElementSibling.querySelector('p.rnd.font-semibold').textContent) || '';
-        const open = title.includes('第一梯');
+        const open = title.includes('���');
         ac.classList.toggle('open', open);
         if(arrow) arrow.classList.toggle('open', open);
       });
@@ -2251,7 +1815,7 @@
     empty.classList.toggle('hidden', found>0||!ql);
   }
 
-  // ── 選手專區輪播 ──
+  // �� ������ ��
   let carouselIdx = 0;
   const totalSlides = 2;
   function carouselRender(){
@@ -2267,7 +1831,7 @@
   function carouselPrev(){ carouselIdx=(carouselIdx-1+totalSlides)%totalSlides; carouselRender(); }
   function carouselGo(i){ carouselIdx=i; carouselRender(); }
 
-  // 觸控滑動支援
+  // ������
   (function(){
     let startX=0;
     const el = document.getElementById('player-carousel');
@@ -2280,7 +1844,7 @@
     },{passive:true});
   })();
 
-  // ── 評審 Tab ──
+  // �� �� Tab ��
   function showJudgeTab(tab){
     ['prelim','semi','final'].forEach(t=>{
       const el = document.getElementById('jtab-content-'+t);
@@ -2299,15 +1863,15 @@
   }
 
 
-  // ── 查詢我的梯次（按下搜尋後才跳轉） ──
+  // �� ���������������� ��
   function doPlayerSearch(){
     const input = document.getElementById('player-name-search');
     if(!input) return;
     const name = input.value.trim();
     if(!name) return;
-    // 跳到節目表
+    // �����
     showProgramBook('player');
-    // 填入搜尋框並觸發搜尋
+    // ����������
     setTimeout(function(){
       const sq = document.getElementById('program-search');
       if(sq){
@@ -2333,22 +1897,22 @@
   let programBookFrom='home';
   function showProgramBook(from){
     programBookFrom = from || 'home';
-    const label = programBookFrom==='player' ? '返回選手專區' : '返回首頁';
+    const label = programBookFrom==='player' ? '������' : '����';
     document.getElementById('program-back-label').textContent = label;
-    // 恢復上次看的日期
+    // ��������
     switchDay(lastProgramDay);
     allPages.forEach(p=>{ const el=document.getElementById('page-'+p); if(el) el.classList.remove('active'); });
     document.getElementById('page-program').classList.add('active','fade-in');
-    // hero 不切換，一直顯示主壓圖
+    // hero �����������
     window.scrollTo({top:0,behavior:'smooth'});
   }
   function hideProgramBook(){
     allPages.forEach(p=>{ const el=document.getElementById('page-'+p); if(el) el.classList.remove('active'); });
-    // hero 不切換，一直顯示主壓圖
+    // hero �����������
     if(programBookFrom==='player'){
       document.getElementById('page-player').classList.add('active','fade-in');
     
-  // ── 返回頂部按鈕 ──
+  // �� ������ ��
   window.addEventListener('scroll', function(){
     const btn = document.getElementById('back-to-top');
     if(!btn) return;
@@ -2356,7 +1920,7 @@
   });
 
 
-  // ── 複賽倒數（跑馬燈版） ──
+  // �� ���������� ��
   (function(){
     const target = new Date('2026-06-13T10:30:00+08:00');
     const ended  = new Date('2026-06-14T21:00:00+08:00');
@@ -2369,15 +1933,15 @@
 
       let text = '';
       if(now >= ended){
-        text = '🎉 複賽圓滿結束！感謝所有參賽者與觀眾';
+        text = '� �����������������';
       } else if(now >= target){
-        text = '🎵 複賽進行中！加油！';
+        text = '� ���������';
       } else if(days === 0){
-        text = '🔥 複賽就在今天！';
+        text = '� �������';
       } else if(days === 1){
-        text = '🌟 複賽就在明天！';
+        text = '� �������';
       } else {
-        text = '🗓️ 複賽倒數 ' + days + ' 天！';
+        text = '�� ���� ' + days + ' ��';
       }
 
       document.querySelectorAll('.ticker-cd').forEach(el => { el.textContent = text; });
@@ -2387,7 +1951,7 @@
       });
     }
 
-    // 確保 DOM 載入後才更新
+    // �� DOM ������
     if(document.readyState === 'loading'){
       document.addEventListener('DOMContentLoaded', update);
     } else {
@@ -2398,6 +1962,112 @@
 
 
 
+
+
+  // �� ���� ��
+  (function(){
+    var bug = document.getElementById('ladybug');
+    if(!bug) return;
+
+    // �� main ������
+    function getPath(){
+      var main = document.querySelector('main');
+      if(!main) return null;
+      var r = main.getBoundingClientRect();
+      var pad = 20; // �� main ����
+      return [
+        {x: r.left - pad,       y: r.top + 100},
+        {x: r.left - pad,       y: r.top + r.height * 0.3},
+        {x: r.left - pad,       y: r.top + r.height * 0.6},
+        {x: r.left - pad,       y: r.bottom - 50},
+        {x: r.left + 40,        y: r.bottom + pad},
+        {x: r.left + r.width * 0.3, y: r.bottom + pad},
+        {x: r.left + r.width * 0.6, y: r.bottom + pad},
+        {x: r.right - 40,       y: r.bottom + pad},
+        {x: r.right + pad,      y: r.bottom - 50},
+        {x: r.right + pad,      y: r.top + r.height * 0.6},
+        {x: r.right + pad,      y: r.top + r.height * 0.3},
+        {x: r.right + pad,      y: r.top + 100},
+        {x: r.right - 40,       y: r.top - pad},
+        {x: r.left + r.width * 0.6, y: r.top - pad},
+        {x: r.left + r.width * 0.3, y: r.top - pad},
+        {x: r.left + 40,        y: r.top - pad},
+      ];
+    }
+
+    var pathIdx = 0;
+    var stopped = false;
+    var reversed = false;
+    var px = 0, py = 0;
+
+    function setPos(x, y, angle){
+      bug.style.left = x + 'px';
+      bug.style.top  = y + 'px';
+      bug.style.transform = 'rotate(' + angle + 'deg)';
+    }
+
+    function nextTarget(){
+      var path = getPath();
+      if(!path) return {x:100, y:100};
+      if(reversed){
+        pathIdx = (pathIdx - 1 + path.length) % path.length;
+      } else {
+        pathIdx = (pathIdx + 1) % path.length;
+      }
+      return path[pathIdx];
+    }
+
+    function step(){
+      var path = getPath();
+      if(!path){ setTimeout(step, 500); return; }
+
+      // ����
+      if(px === 0 && py === 0){
+        px = path[0].x; py = path[0].y;
+        setPos(px, py, 0);
+      }
+
+      if(stopped){
+        // �� 0.8~2 ����
+        var wait = 800 + Math.random() * 1200;
+        stopped = false;
+        setTimeout(step, wait);
+        return;
+      }
+
+      var target = path[pathIdx];
+      var dx = target.x - px;
+      var dy = target.y - py;
+      var dist = Math.sqrt(dx*dx + dy*dy);
+      var angle = Math.atan2(dy, dx) * 180 / Math.PI + 90;
+
+      if(dist < 8){
+        // �����
+        px = target.x; py = target.y;
+        setPos(px, py, angle);
+
+        // ������������
+        var roll = Math.random();
+        if(roll < 0.25){
+          stopped = true; // ���
+        } else if(roll < 0.40){
+          reversed = !reversed; // ��
+        }
+        nextTarget();
+        setTimeout(step, stopped ? 50 : 80 + Math.random()*60);
+      } else {
+        // ��
+        var speed = 1.2 + Math.random() * 0.8;
+        px += (dx / dist) * speed;
+        py += (dy / dist) * speed;
+        setPos(px, py, angle);
+        setTimeout(step, 30 + Math.random()*20);
+      }
+    }
+
+    // ���������
+    setTimeout(step, 1500);
+  })();
 
   showPlayerTab('semifinal');
     } else {
@@ -2436,65 +2106,129 @@
     a.classList.toggle('open');
   }
 
-  // ── 返回頂部按鈕 ──
+  // �� ������ ��
   window.addEventListener('scroll', function(){
     const btn = document.getElementById('back-to-top');
     if(!btn) return;
     btn.classList.toggle('visible', window.scrollY > 300);
   });
 
-  showPlayerTab('semifinal');
 </script>
-
-
-
-<!-- 返回頂部按鈕 -->
-<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="返回頂部">↑</button>
-
-
-
-<!-- 交通資訊 Drawer -->
-<div id="td-overlay" onclick="tdClose()" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:9998;"></div>
-<div id="td-panel" style="display:none;position:fixed;top:0;right:0;width:85%;max-width:360px;height:100%;background:#fff;z-index:9999;overflow-y:auto;box-shadow:-4px 0 24px rgba(0,0,0,0.15);transition:transform 0.3s ease;transform:translateX(100%);">
-  <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid #f0f0f0;">
-    <p style="font-family:'M PLUS Rounded 1c',sans-serif;font-weight:700;color:#1A2F23;font-size:16px;">交通資訊</p>
-    <button onclick="tdClose()" style="width:32px;height:32px;border-radius:50%;border:none;background:#f5f5f5;cursor:pointer;font-size:16px;color:#666;">✕</button>
-  </div>
-  <div style="padding:20px;display:flex;flex-direction:column;gap:20px;">
-    <div style="border-radius:16px;overflow:hidden;height:180px;">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d903.8839731437638!2d121.53413751754737!3d25.013689031972766!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a9609af2e031%3A0xa9f6df0bb93acfaf!2z5ZyL56uL5Y-w6K2w5a6255S15Ye6!5e0!3m2!1szh-TW!2stw"
-        width="100%" height="180" style="border:0;display:block;" allowfullscreen="" loading="lazy"></iframe>
-    </div>
-    <div style="display:flex;flex-direction:column;gap:16px;font-size:13px;color:#4b5563;line-height:1.8;">
-      <div style="display:flex;gap:12px;align-items:flex-start;">
-        <span style="font-size:18px;flex-shrink:0;">🚇</span>
-        <div><p style="font-weight:600;color:#1A2F23;margin-bottom:2px;">捷運</p><p>板南線 / 新店線「<strong style="color:#1A2F23;">公館站</strong>」<br>由 <strong style="color:#1A2F23;">3 號出口</strong>出站，步行約 8 分鐘</p></div>
-      </div>
-      <div style="display:flex;gap:12px;align-items:flex-start;">
-        <span style="font-size:18px;flex-shrink:0;">🚌</span>
-        <div><p style="font-weight:600;color:#1A2F23;margin-bottom:2px;">公車</p><p>至「<strong style="color:#1A2F23;">臺灣大學（羅斯福路）</strong>」站下車</p></div>
-      </div>
-      <div style="display:flex;gap:12px;align-items:flex-start;">
-        <span style="font-size:18px;flex-shrink:0;">🚗</span>
-        <div><p style="font-weight:600;color:#1A2F23;margin-bottom:2px;">開車 / Uber</p><p>搜尋「<strong style="color:#1A2F23;">臺大外語教學暨資源中心</strong>」</p></div>
-      </div>
-    </div>
-    <a href="https://maps.google.com/?q=國立臺灣大學外語教學暨資源中心" target="_blank"
-      style="display:flex;align-items:center;justify-content:center;gap:8px;padding:14px;background:#1A2F23;color:#fff;border-radius:16px;font-family:'M PLUS Rounded 1c',sans-serif;font-weight:700;font-size:14px;text-decoration:none;">
-      📍 開啟 Google 地圖導航
-    </a>
-  </div>
-</div>
-
 <script>
 
+  // ── 倒數 JS ──
+  (function(){
+    var target = new Date('2026-06-13T10:30:00+08:00');
+    var ended  = new Date('2026-06-14T21:00:00+08:00');
+    function update(){
+      var now = new Date();
+      var nowDate  = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+      var targDate = new Date(2026, 5, 13);
+      var days = Math.floor((targDate - nowDate) / (1000*60*60*24));
+      var text = '';
+      if(now >= ended){ text = '🎉 複賽圓滿結束！感謝所有參賽者與觀眾'; }
+      else if(now >= target){ text = '🎵 複賽進行中！加油！'; }
+      else if(days === 0){ text = '🔥 複賽就在今天！'; }
+      else if(days === 1){ text = '🌟 複賽就在明天！'; }
+      else { text = '🗓️ 複賽倒數 ' + days + ' 天！'; }
+      ['ticker-countdown','ticker-countdown-2','ticker-countdown-3'].forEach(function(id){
+        var el = document.getElementById(id);
+        if(el) el.textContent = text;
+      });
+      document.querySelectorAll('.ticker-cd').forEach(function(el){ el.textContent = text; });
+    }
+    if(document.readyState === 'loading'){ document.addEventListener('DOMContentLoaded', update); }
+    else { update(); }
+    setInterval(update, 60000);
+  })();
 
-function toggleMap(btn){
-  var m = document.getElementById('map-box');
-  var a = document.getElementById('map-arrow');
-  var open = m.style.display === 'none';
-  m.style.display = open ? 'block' : 'none';
-  if(a) a.style.transform = open ? 'rotate(180deg)' : 'rotate(0deg)';
-}
+  // ── 返回頂部 ──
+  window.addEventListener('scroll', function(){
+    var btn = document.getElementById('back-to-top');
+    if(!btn) return;
+    btn.classList.toggle('visible', window.scrollY > 300);
+  });
+
+  // ── toggleMap ──
+  function toggleMap(btn){
+    var m = document.getElementById('map-box');
+    var a = document.getElementById('map-arrow');
+    var open = m.style.display === 'none';
+    m.style.display = open ? 'block' : 'none';
+    if(a) a.style.transform = open ? 'rotate(180deg)' : 'rotate(0deg)';
+  }
+
+  // ── 瓢蟲爬行（沿 main 外圍）──
+  (function(){
+    var bug = document.getElementById('ladybug');
+    if(!bug) return;
+    var pad = 18; // 距離 main 外框距離
+
+    var bugSize = 24;
+    function getWaypoints(){
+      var vw = window.innerWidth;
+      var vh = window.innerHeight;
+      var half = bugSize / 2;
+      // 只沿著 viewport 四個邊緣跑，距邊 half px
+      var T = half, B = vh - half, L = half, R = vw - half;
+      return [
+        {x:L, y:T+60},
+        {x:L, y:vh*0.25},
+        {x:L, y:vh*0.5},
+        {x:L, y:vh*0.75},
+        {x:L, y:B-60},
+        {x:vw*0.25, y:B},
+        {x:vw*0.5,  y:B},
+        {x:vw*0.75, y:B},
+        {x:R, y:B-60},
+        {x:R, y:vh*0.75},
+        {x:R, y:vh*0.5},
+        {x:R, y:vh*0.25},
+        {x:R, y:T+60},
+        {x:vw*0.75, y:T},
+        {x:vw*0.5,  y:T},
+        {x:vw*0.25, y:T},
+      ];
+    }
+
+    bug.style.position = 'fixed';
+    var idx=0, reversed=false, waiting=false;
+    var px=20, py=200; // 初始：左側可見位置
+    bug.style.left=px+'px'; bug.style.top=py+'px';
+    function step(){
+      if(waiting) return;
+      var pts=getWaypoints();
+      var t=pts[idx];
+      var dx=t.x-px, dy=t.y-py;
+      var dist=Math.sqrt(dx*dx+dy*dy);
+      var angle=Math.atan2(dy,dx)*180/Math.PI+90;
+      bug.style.transform='rotate('+angle+'deg)';
+      if(dist<6){
+        px=t.x; py=t.y;
+        bug.style.left=px+'px'; bug.style.top=py+'px';
+        var roll=Math.random();
+        if(roll<0.25){
+          waiting=true;
+          setTimeout(function(){ waiting=false; advance(); }, 700+Math.random()*1500);
+          return;
+        } else if(roll<0.38){ reversed=!reversed; }
+        advance();
+      } else {
+        var speed=1.5+Math.random()*0.8;
+        px+=dx/dist*speed; py+=dy/dist*speed;
+        bug.style.left=px+'px'; bug.style.top=py+'px';
+      }
+    }
+    function advance(){
+      var pts=getWaypoints();
+      idx=reversed ? (idx-1+pts.length)%pts.length : (idx+1)%pts.length;
+    }
+    setInterval(step, 30);
+  })();
+
+  showPlayerTab('semifinal');
+
 </script>
+
 </body>
+</html>
