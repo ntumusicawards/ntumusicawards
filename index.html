@@ -50,6 +50,18 @@
   }
   .day-tab-off{background:#fff;color:#6b7280;border-color:#e5e7eb;}
   .judge-tab{border-bottom-width:2px;}
+
+  @keyframes bugBounce {
+    0%   { transform: rotate(var(--bug-angle)) scale(1) translateY(0); }
+    25%  { transform: rotate(var(--bug-angle)) scale(1.3) translateY(-10px); }
+    50%  { transform: rotate(var(--bug-angle)) scale(0.9) translateY(4px); }
+    75%  { transform: rotate(var(--bug-angle)) scale(1.1) translateY(-4px); }
+    100% { transform: rotate(var(--bug-angle)) scale(1) translateY(0); }
+  }
+  .bug-bouncing {
+    animation: bugBounce 0.5s ease !important;
+    pointer-events: none;
+  }
 </style>
 </head>
 <body class="bg-white">
@@ -1727,7 +1739,7 @@
 <button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="返回頂部">↑</button>
 
 <!-- 瓢蟲 SVG -->
-<div id="ladybug" style="position:fixed;width:24px;height:24px;z-index:500;pointer-events:none;left:0px;top:200px;" aria-hidden="true">
+<div id="ladybug" style="position:fixed;width:24px;height:24px;z-index:500;pointer-events:auto;left:0px;top:200px;cursor:pointer;" onclick="bugBounce(this)" aria-hidden="true">
   <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
     <ellipse cx="50" cy="58" rx="34" ry="30" fill="#d42b2b"/>
     <circle cx="50" cy="26" r="16" fill="#1a1a1a"/>
@@ -1756,7 +1768,7 @@
     el.classList.add('active','fade-in');
     const hm=document.getElementById('hero-main');
     const hp=document.getElementById('hero-program');
-    // hero ���
+    // hero 切換
     
     ['home','about','player','contact','judges'].forEach(n=>{
       const b=document.getElementById('nav-'+n);
@@ -1767,7 +1779,7 @@
   function scrollToContact(){ window.scrollTo({top: document.getElementById('page-contact').offsetTop, behavior:'smooth'}); }
 
 
-  // �� ������� ��
+  // ── 節目表搜尋 ──
   function doProgramSearch(){
     const input = document.getElementById('program-search');
     if(input) programSearch(input.value);
@@ -1815,7 +1827,7 @@
       prog.querySelectorAll('.acc-content').forEach(ac => {
         const arrow = ac.previousElementSibling && ac.previousElementSibling.querySelector('.acc-arrow');
         const title = (ac.previousElementSibling && ac.previousElementSibling.querySelector('p.rnd.font-semibold') && ac.previousElementSibling.querySelector('p.rnd.font-semibold').textContent) || '';
-        const open = title.includes('���');
+        const open = title.includes('第一梯次');
         ac.classList.toggle('open', open);
         if(arrow) arrow.classList.toggle('open', open);
       });
@@ -1823,7 +1835,7 @@
     empty.classList.toggle('hidden', found>0||!ql);
   }
 
-  // �� ������ ��
+  // ── 輪播 ──
   let carouselIdx = 0;
   const totalSlides = 2;
   function carouselRender(){
@@ -1839,7 +1851,7 @@
   function carouselPrev(){ carouselIdx=(carouselIdx-1+totalSlides)%totalSlides; carouselRender(); }
   function carouselGo(i){ carouselIdx=i; carouselRender(); }
 
-  // ������
+  // 觸控滑動
   (function(){
     let startX=0;
     const el = document.getElementById('player-carousel');
@@ -1852,7 +1864,7 @@
     },{passive:true});
   })();
 
-  // �� �� Tab ��
+  // ── 評審 Tab ──
   function showJudgeTab(tab){
     ['prelim','semi','final'].forEach(t=>{
       const el = document.getElementById('jtab-content-'+t);
@@ -1871,15 +1883,15 @@
   }
 
 
-  // �� ���������������� ��
+  // ── 選手查詢跳轉 ──
   function doPlayerSearch(){
     const input = document.getElementById('player-name-search');
     if(!input) return;
     const name = input.value.trim();
     if(!name) return;
-    // �����
+    // 前往節目表
     showProgramBook('player');
-    // ����������
+    // 填入搜尋關鍵字
     setTimeout(function(){
       const sq = document.getElementById('program-search');
       if(sq){
@@ -1905,184 +1917,26 @@
   let programBookFrom='home';
   function showProgramBook(from){
     programBookFrom = from || 'home';
-    const label = programBookFrom==='player' ? '������' : '����';
+    const label = programBookFrom==='player' ? '選手專區' : '首頁';
     document.getElementById('program-back-label').textContent = label;
-    // ��������
+    // 恢復日期記憶
     switchDay(lastProgramDay);
     allPages.forEach(p=>{ const el=document.getElementById('page-'+p); if(el) el.classList.remove('active'); });
     document.getElementById('page-program').classList.add('active','fade-in');
-    // hero �����������
+    // hero 切換
     window.scrollTo({top:0,behavior:'smooth'});
   }
   function hideProgramBook(){
     allPages.forEach(p=>{ const el=document.getElementById('page-'+p); if(el) el.classList.remove('active'); });
-    // hero �����������
     if(programBookFrom==='player'){
       document.getElementById('page-player').classList.add('active','fade-in');
-    
-  // �� ������ ��
-  window.addEventListener('scroll', function(){
-    const btn = document.getElementById('back-to-top');
-    if(!btn) return;
-    btn.classList.toggle('visible', window.scrollY > 300);
-  });
-
-
-  // �� ���������� ��
-  (function(){
-    const target = new Date('2026-06-13T10:30:00+08:00');
-    const ended  = new Date('2026-06-14T21:00:00+08:00');
-
-    function update(){
-      const now = new Date();
-      const nowDate  = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-      const targDate = new Date(2026, 5, 13); // 6/13
-      const days = Math.floor((targDate - nowDate) / (1000*60*60*24));
-
-      let text = '';
-      if(now >= ended){
-        text = '� �����������������';
-      } else if(now >= target){
-        text = '� ���������';
-      } else if(days === 0){
-        text = '� �������';
-      } else if(days === 1){
-        text = '� �������';
-      } else {
-        text = '�� ���� ' + days + ' ��';
-      }
-
-      document.querySelectorAll('.ticker-cd').forEach(el => { el.textContent = text; });
-      ['ticker-countdown','ticker-countdown-2','ticker-countdown-3'].forEach(id => {
-        const el = document.getElementById(id);
-        if(el) el.textContent = text;
-      });
-    }
-
-    // �� DOM ������
-    if(document.readyState === 'loading'){
-      document.addEventListener('DOMContentLoaded', update);
-    } else {
-      update();
-    }
-    setInterval(update, 60000);
-  })();
-
-
-
-
-
-  // �� ���� ��
-  (function(){
-    var bug = document.getElementById('ladybug');
-    if(!bug) return;
-
-    // �� main ������
-    function getPath(){
-      var main = document.querySelector('main');
-      if(!main) return null;
-      var r = main.getBoundingClientRect();
-      var pad = 20; // �� main ����
-      return [
-        {x: r.left - pad,       y: r.top + 100},
-        {x: r.left - pad,       y: r.top + r.height * 0.3},
-        {x: r.left - pad,       y: r.top + r.height * 0.6},
-        {x: r.left - pad,       y: r.bottom - 50},
-        {x: r.left + 40,        y: r.bottom + pad},
-        {x: r.left + r.width * 0.3, y: r.bottom + pad},
-        {x: r.left + r.width * 0.6, y: r.bottom + pad},
-        {x: r.right - 40,       y: r.bottom + pad},
-        {x: r.right + pad,      y: r.bottom - 50},
-        {x: r.right + pad,      y: r.top + r.height * 0.6},
-        {x: r.right + pad,      y: r.top + r.height * 0.3},
-        {x: r.right + pad,      y: r.top + 100},
-        {x: r.right - 40,       y: r.top - pad},
-        {x: r.left + r.width * 0.6, y: r.top - pad},
-        {x: r.left + r.width * 0.3, y: r.top - pad},
-        {x: r.left + 40,        y: r.top - pad},
-      ];
-    }
-
-    var pathIdx = 0;
-    var stopped = false;
-    var reversed = false;
-    var px = 0, py = 0;
-
-    function setPos(x, y, angle){
-      bug.style.left = x + 'px';
-      bug.style.top  = y + 'px';
-      bug.style.transform = 'rotate(' + angle + 'deg)';
-    }
-
-    function nextTarget(){
-      var path = getPath();
-      if(!path) return {x:100, y:100};
-      if(reversed){
-        pathIdx = (pathIdx - 1 + path.length) % path.length;
-      } else {
-        pathIdx = (pathIdx + 1) % path.length;
-      }
-      return path[pathIdx];
-    }
-
-    function step(){
-      var path = getPath();
-      if(!path){ setTimeout(step, 500); return; }
-
-      // ����
-      if(px === 0 && py === 0){
-        px = path[0].x; py = path[0].y;
-        setPos(px, py, 0);
-      }
-
-      if(stopped){
-        // �� 0.8~2 ����
-        var wait = 800 + Math.random() * 1200;
-        stopped = false;
-        setTimeout(step, wait);
-        return;
-      }
-
-      var target = path[pathIdx];
-      var dx = target.x - px;
-      var dy = target.y - py;
-      var dist = Math.sqrt(dx*dx + dy*dy);
-      var angle = Math.atan2(dy, dx) * 180 / Math.PI + 90;
-
-      if(dist < 8){
-        // �����
-        px = target.x; py = target.y;
-        setPos(px, py, angle);
-
-        // ������������
-        var roll = Math.random();
-        if(roll < 0.25){
-          stopped = true; // ���
-        } else if(roll < 0.40){
-          reversed = !reversed; // ��
-        }
-        nextTarget();
-        setTimeout(step, stopped ? 50 : 80 + Math.random()*60);
-      } else {
-        // ��
-        var speed = 1.2 + Math.random() * 0.8;
-        px += (dx / dist) * speed;
-        py += (dy / dist) * speed;
-        setPos(px, py, angle);
-        setTimeout(step, 30 + Math.random()*20);
-      }
-    }
-
-    // ���������
-    setTimeout(step, 1500);
-  })();
-
-  showPlayerTab('semifinal');
     } else {
       document.getElementById('page-home').classList.add('active','fade-in');
     }
     window.scrollTo({top:0,behavior:'smooth'});
   }
+
+
   let lastProgramDay='613';
   function switchDay(day){
     lastProgramDay = day;
@@ -2114,7 +1968,7 @@
     a.classList.toggle('open');
   }
 
-  // �� ������ ��
+  // ── 返回頂部 ──
   window.addEventListener('scroll', function(){
     const btn = document.getElementById('back-to-top');
     if(!btn) return;
@@ -2149,13 +2003,6 @@
     else { update(); }
     setInterval(update, 60000);
   })();
-
-  // ── 返回頂部 ──
-  window.addEventListener('scroll', function(){
-    var btn = document.getElementById('back-to-top');
-    if(!btn) return;
-    btn.classList.toggle('visible', window.scrollY > 300);
-  });
 
   // ── toggleMap ──
   function toggleMap(btn){
@@ -2210,7 +2057,7 @@
       var dx=t.x-px, dy=t.y-py;
       var dist=Math.sqrt(dx*dx+dy*dy);
       var angle=Math.atan2(dy,dx)*180/Math.PI+90;
-      bug.style.transform='rotate('+angle+'deg)';
+      if(!bug.classList.contains('bug-bouncing')){ bug.style.setProperty('--bug-angle', angle+'deg'); bug.style.transform='rotate('+angle+'deg)'; }
       if(dist<6){
         px=t.x; py=t.y;
         bug.style.left=px+'px'; bug.style.top=py+'px';
@@ -2236,6 +2083,14 @@
 
   showPlayerTab('semifinal');
 
+
+  function bugBounce(el){
+    if(el.classList.contains('bug-bouncing')) return;
+    el.classList.add('bug-bouncing');
+    setTimeout(function(){
+      el.classList.remove('bug-bouncing');
+    }, 520);
+  }
 </script>
 
 </body>
